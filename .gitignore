@@ -1,0 +1,6 @@
+.DS_Store
+build
+composer.lock
+docs
+vendor
+/*.php
