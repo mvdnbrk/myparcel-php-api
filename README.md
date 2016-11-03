@@ -1,4 +1,4 @@
-<img src="https://www.myparcel.nl/assets/images/logo-myparcel-alt.svg" width="77" height="77">
+![MyParcel](https://www.myparcel.nl/assets/images/logo-myparcel-alt.png)
 
 # myparcel-php-api
 
