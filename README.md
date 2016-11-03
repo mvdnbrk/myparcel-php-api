@@ -1,3 +1,5 @@
+<img src="https://www.myparcel.nl/assets/images/logo-myparcel-alt.svg" width="77" height="77">
+
 # myparcel-php-api
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
@@ -5,6 +7,7 @@
 [![Build Status][ico-travis]][link-travis]
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
 [![Quality Score][ico-code-quality]][link-code-quality]
+[![StyleCI][ico-style-ci]][link-style-ci]
 [![Total Downloads][ico-downloads]][link-downloads]
 
 [MyParcel](https://www.myparcel.nl/) makes sending packages easy.
@@ -68,6 +71,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/heyhoo/myparcel-php-api.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/heyhoo/myparcel-php-api.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/heyhoo/myparcel-php-api.svg?style=flat-square
+[ico-style-ci]: https://styleci.io/repos/72292364/shield?branch=master
 
 [link-packagist]: https://packagist.org/packages/heyhoo/myparcel-php-api
 [link-travis]: https://travis-ci.org/heyhoo/myparcel-php-api
@@ -76,3 +80,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-downloads]: https://packagist.org/packages/heyhoo/myparcel-php-api
 [link-author]: https://github.com/heyhoo
 [link-contributors]: ../../contributors
+[link-style-ci]: https://styleci.io/repos/72292364
