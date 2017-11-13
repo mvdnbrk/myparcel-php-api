@@ -1,6 +1,6 @@
 <?php
 
-namespace HeyHoo\MyParcel;
+namespace Mvdnbrk\MyParcel;
 
 class Client
 {

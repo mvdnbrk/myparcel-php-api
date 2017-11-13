@@ -1,6 +1,8 @@
 <?php
 
-namespace HeyHoo\MyParcel;
+namespace Tests;
+
+use Mvdnbrk\MyParcel\Client;
 
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
