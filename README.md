@@ -1,5 +1,3 @@
-![MyParcel](https://www.myparcel.nl/assets/images/logo-myparcel-alt.png)
-
 # myparcel-php-api
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
