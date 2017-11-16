@@ -26,12 +26,12 @@ class BaseResource
         return '?' . http_build_query($filters);
     }
 
-    protected function performApiCall($httpMethod, $apiMethod, $httpBody = NULL)
+    protected function performApiCall($httpMethod, $apiMethod, $httpBody = null)
     {
         $body = $this->apiClient->performHttpCall($httpMethod, $apiMethod, $httpBody);
 
         if ($this->apiClient->getLastHttpResponseStatusCode() == Client::HTTP_STATUS_NO_CONTENT) {
-            return NULL;
+            return null;
         }
 
         if (empty($body)) {

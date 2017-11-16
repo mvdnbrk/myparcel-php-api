@@ -61,7 +61,7 @@ class DeliveryOptions extends BaseResource
         $result = $this->performApiCall('GET', 'delivery_options'.$this->buildQueryString($this->getFilters($filters)));
 
         $this->pickup = new Collection();
-        foreach($result->data->pickup as $location) {
+        foreach ($result->data->pickup as $location) {
             $newLocation = new PickupLocation;
             $newLocation->name = $location->location;
             $newLocation->street = $location->street;

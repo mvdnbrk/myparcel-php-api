@@ -38,35 +38,35 @@ class DeliveryOptionsTest extends TestCase
         $this->assertEquals('1234AA', $this->deliveryOptions->zipcode);
     }
 
-   /** @test */
+    /** @test */
     public function setting_a_dutch_zipcode_sets_the_country_to_nl()
     {
         $this->deliveryOptions->setZipcode('1234AA');
         $this->assertEquals('NL', $this->deliveryOptions->getCountry());
     }
 
-   /** @test */
+    /** @test */
     public function setting_a_belgian_zipcode_sets_the_country_to_be()
     {
         $this->deliveryOptions->setZipcode('2000');
         $this->assertEquals('BE', $this->deliveryOptions->getCountry());
     }
 
-   /** @test */
+    /** @test */
     public function setting_in_invalid_zipcode_throws_exception()
     {
         $this->expectException(InvalidZipcodeException::class);
         $this->deliveryOptions->setZipcode('invalid-zipcode');
     }
 
-   /** @test */
+    /** @test */
     public function setting_a_valid_housenumber()
     {
         $this->deliveryOptions->setHousenumber('1');
         $this->assertEquals('1', $this->deliveryOptions->housenumber);
     }
 
-   /** @test */
+    /** @test */
     public function setting_a_valid_housenumber_removes_a_suffix()
     {
         $this->deliveryOptions->setHousenumber('1A');
@@ -76,7 +76,7 @@ class DeliveryOptionsTest extends TestCase
         $this->assertEquals('1', $this->deliveryOptions->housenumber);
     }
 
-   /** @test */
+    /** @test */
     public function setting_an_invalid_housenumber_throws_exception()
     {
         $this->expectException(InvalidHousenumberException::class);

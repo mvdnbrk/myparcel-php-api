@@ -54,8 +54,7 @@ class Client
 
     private function closeTcpConnection()
     {
-        if (is_resource($this->ch))
-        {
+        if (is_resource($this->ch)) {
             curl_close($this->ch);
             $this->ch = null;
         }
@@ -66,7 +65,7 @@ class Client
         return $this->last_http_response_status_code;
     }
 
-    public function performHttpCall($httpMethod, $apiMethod, $httpBody = NULL)
+    public function performHttpCall($httpMethod, $apiMethod, $httpBody = null)
     {
         if (empty($this->apiKey)) {
             throw new MyParcelException("You have not set an API key. Please use setApiKey() to set the API key.");
@@ -80,7 +79,7 @@ class Client
 
         curl_setopt($this->ch, CURLOPT_CUSTOMREQUEST, $httpMethod);
         curl_setopt($this->ch, CURLOPT_URL, $this->apiEndpoint . "/" . $apiMethod);
-        curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($this->ch, CURLOPT_TIMEOUT, 10);
         curl_setopt($this->ch, CURLOPT_ENCODING, "");
 
@@ -89,8 +88,7 @@ class Client
             "Authorization: Bearer {$this->apiKey}",
         ];
 
-        if ($httpBody !== NULL)
-        {
+        if ($httpBody !== null) {
             $request_headers[] = "Content-Type: application/json";
             curl_setopt($this->ch, CURLOPT_POST, 1);
             curl_setopt($this->ch, CURLOPT_POSTFIELDS, $httpBody);
@@ -103,15 +101,13 @@ class Client
         $body = curl_exec($this->ch);
         $this->last_http_response_status_code = (int) curl_getinfo($this->ch, CURLINFO_HTTP_CODE);
 
-        if (curl_errno($this->ch))
-        {
+        if (curl_errno($this->ch)) {
             $exception = MyParcelException('Unable to communicate with MyParcel');
             $this->closeTcpConnection();
             throw $exception;
         }
 
-        if (! function_exists("curl_reset"))
-        {
+        if (! function_exists("curl_reset")) {
             $this->closeTcpConnection();
         }
 

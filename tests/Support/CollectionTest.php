@@ -239,5 +239,4 @@ class CollectionTest extends TestCase
         $collection = $collection->take(2);
         $this->assertEquals(['john', 'jane'], $collection->all());
     }
-
 }
