@@ -102,9 +102,8 @@ class Client
         $this->last_http_response_status_code = (int) curl_getinfo($this->ch, CURLINFO_HTTP_CODE);
 
         if (curl_errno($this->ch)) {
-            $exception = MyParcelException('Unable to communicate with MyParcel');
             $this->closeTcpConnection();
-            throw $exception;
+            throw new MyParcelException('Unable to communicate with MyParcel');
         }
 
         if (! function_exists("curl_reset")) {
