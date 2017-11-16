@@ -177,4 +177,67 @@ class CollectionTest extends TestCase
             $data->all()
         );
     }
+
+    /** @test */
+    public function push()
+    {
+        $data = new Collection();
+        $data->push('value');
+
+        $this->assertEquals(
+            ['value'],
+            $data->all()
+        );
+    }
+
+    /** @test */
+    public function slice_ffset()
+    {
+        $collection = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([4, 5, 6, 7, 8], $collection->slice(3)->values()->toArray());
+    }
+
+    /** @test */
+    public function slice_negative_offset()
+    {
+        $collection = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([6, 7, 8], $collection->slice(-3)->values()->toArray());
+    }
+
+    /** @test */
+    public function slice_offset_and_length()
+    {
+        $collection = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([4, 5, 6], $collection->slice(3, 3)->values()->toArray());
+    }
+
+    /** @test */
+    public function slice_offset_and_negative_length()
+    {
+        $collection = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([4, 5, 6, 7], $collection->slice(3, -1)->values()->toArray());
+    }
+
+    /** @test */
+    public function slice_negative_offset_and_length()
+    {
+        $collection = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([4, 5, 6], $collection->slice(-5, 3)->values()->toArray());
+    }
+
+    /** @test */
+    public function slice_negative_offset_and_negative_length()
+    {
+        $collection = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([3, 4, 5, 6], $collection->slice(-6, -2)->values()->toArray());
+    }
+
+    /** @test */
+    public function take()
+    {
+        $collection = new Collection(['john', 'jane', 'mike']);
+        $collection = $collection->take(2);
+        $this->assertEquals(['john', 'jane'], $collection->all());
+    }
+
 }

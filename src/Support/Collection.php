@@ -215,6 +215,56 @@ class Collection implements ArrayAccess, Countable
     }
 
     /**
+     * Push an item onto the end of the collection.
+     *
+     * @param  mixed  $value
+     * @return $this
+     */
+    public function push($value)
+    {
+        $this->offsetSet(null, $value);
+
+        return $this;
+    }
+
+    /**
+     * Slice the underlying collection array.
+     *
+     * @param  int  $offset
+     * @param  int  $length
+     * @return static
+     */
+    public function slice($offset, $length = null)
+    {
+        return new static(array_slice($this->items, $offset, $length, true));
+    }
+
+    /**
+     * Take the first or last {$limit} items.
+     *
+     * @param  int  $limit
+     * @return static
+     */
+    public function take($limit)
+    {
+        if ($limit < 0) {
+            return $this->slice($limit, abs($limit));
+        }
+
+        return $this->slice(0, $limit);
+    }
+
+    /**
+     * Reset the keys on the underlying array.
+     *
+     * @return static
+     */
+    public function values()
+    {
+        return new static(array_values($this->items));
+    }
+
+    /**
      * Get the collection of items as a plain array.
      *
      * @return array
