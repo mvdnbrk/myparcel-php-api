@@ -16,14 +16,9 @@ class DeliveryOptions extends BaseResource
     const CARRIER = 'postnl';
 
     /**
-     * @var string
+     * @var \Mvdnbrk\Support\Collection
      */
-    protected $carrier = self::CARRIER;
-
-    /**
-     * @var \Mvdnbrk\MyParcel\Client
-     */
-    protected $client;
+    public $pickup;
 
     /**
      * @var string
@@ -36,22 +31,32 @@ class DeliveryOptions extends BaseResource
     public $housenumber;
 
     /**
-     * @var string
-     */
-    protected $country;
-
-    /**
-     * @var \Mvdnbrk\Support\Collection|null
-     */
-    public $pickup;
-
-    /**
      * @var  array
      */
     public $validZipcodes = [
         'BE' => '/^[1-9]{1}\d{3}$/',
         'NL' => '/^[1-9]{1}\d{3}[A-Z]{2}$/',
     ];
+
+    /**
+     * @var string
+     */
+    protected $country;
+
+    /**
+     * @var string
+     */
+    protected $carrier = self::CARRIER;
+
+    /**
+     * @var \Mvdnbrk\MyParcel\Client
+     */
+    protected $client;
+
+    protected function boot()
+    {
+        $this->pickup = new Collection;
+    }
 
     public function get($zipcode, $housenumber, array $filters = [])
     {

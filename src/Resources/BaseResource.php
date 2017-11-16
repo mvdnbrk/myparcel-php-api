@@ -15,6 +15,13 @@ class BaseResource
     public function __construct(Client $client)
     {
         $this->apiClient = $client;
+
+        $this->boot();
+    }
+
+    protected function boot()
+    {
+
     }
 
     protected function buildQueryString(array $filters)
