@@ -44,7 +44,8 @@ class BaseResource
         }
 
         if (! empty($object->errors)) {
-            throw new MyParcelException("Error executing API call ({$object->errors[0]->code}): {$object->errors[0]->message}");
+            $error = $object->errors[0];
+            throw new MyParcelException("Error executing API call ({$error->code}): {$error->message}");
         }
 
         return $object;
