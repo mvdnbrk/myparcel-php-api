@@ -4,7 +4,7 @@ namespace Mvdnbrk\MyParcel\Object;
 
 class Location
 {
-     /**
+    /**
      * @var string
      */
     public $street;
