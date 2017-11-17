@@ -21,7 +21,6 @@ class BaseResource
 
     protected function boot()
     {
-
     }
 
     protected function buildQueryString(array $filters)

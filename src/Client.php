@@ -10,7 +10,7 @@ class Client
     /**
      * Endpoint of the remote API.
      */
-    const API_ENDPOINT = "https://api.myparcel.nl";
+    const API_ENDPOINT = 'https://api.myparcel.nl';
 
     const HTTP_STATUS_NO_CONTENT = 204;
 
