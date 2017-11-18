@@ -2,6 +2,8 @@
 
 namespace Mvdnbrk\MyParcel\Object;
 
+use Mvdnbrk\MyParcel\Contracts\Arrayable;
+
 class Location
 {
     /**

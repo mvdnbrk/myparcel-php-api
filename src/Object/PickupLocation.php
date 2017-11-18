@@ -2,7 +2,9 @@
 
 namespace Mvdnbrk\MyParcel\Object;
 
-class PickupLocation extends Location
+use Mvdnbrk\MyParcel\Contracts\Arrayable;
+
+class PickupLocation extends Location implements Arrayable
 {
     /**
      * @var string
@@ -35,5 +37,13 @@ class PickupLocation extends Location
         }
 
         return "{$this->distance} meter";
+    }
+
+    public function toArray()
+    {
+        return array_merge(
+            get_object_vars($this),
+            ['distance' => $this->distanceForHumans()]
+        );
     }
 }

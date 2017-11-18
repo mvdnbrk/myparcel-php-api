@@ -4,8 +4,9 @@ namespace Mvdnbrk\MyParcel\Support;
 
 use Countable;
 use ArrayAccess;
+use Mvdnbrk\MyParcel\Contracts\Arrayable;
 
-class Collection implements ArrayAccess, Countable
+class Collection implements Arrayable, ArrayAccess, Countable
 {
     /**
      * The items contained in the collection.
@@ -271,6 +272,8 @@ class Collection implements ArrayAccess, Countable
      */
     public function toArray()
     {
-        return $this->items;
+        return array_map(function ($value) {
+            return $value instanceof Arrayable ? $value->toArray() : $value;
+        }, $this->items);
     }
 }
