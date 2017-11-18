@@ -16,7 +16,7 @@ class ClientTest extends TestCase
     }
 
     /** @test */
-    function a_client_has_delivery_options()
+    public function a_client_has_delivery_options()
     {
         $this->assertInstanceOf(DeliveryOptions::class, $this->client->deliveryOptions);
     }
