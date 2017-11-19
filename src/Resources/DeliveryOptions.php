@@ -76,8 +76,8 @@ class DeliveryOptions extends BaseResource
             $newLocation->country = $location->cc;
             $newLocation->phone = $location->phone_number;
             $newLocation->distance = $location->distance;
-            $newLocation->latitude = $location->latitude;
-            $newLocation->longitude = $location->longitude;
+            $newLocation->latitude = (float) $location->latitude;
+            $newLocation->longitude = (float) $location->longitude;
             $newLocation->openingHours = (array) $location->opening_hours;
             $newLocation->locationCode = $location->location_code;
 
@@ -99,6 +99,7 @@ class DeliveryOptions extends BaseResource
             'carrier' => $this->carrier,
             'number' => $this->housenumber,
             'postal_code' => $this->zipcode,
+            //'cutoff_time' => $this->cutoffTime->getTime(),
         ]);
     }
 

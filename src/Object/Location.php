@@ -32,12 +32,12 @@ class Location
     public $country;
 
     /**
-     * @var string
+     * @var float
      */
     public $latitude;
 
     /**
-     * @var string
+     * @var float
      */
     public $longitude;
 }
