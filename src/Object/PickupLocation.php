@@ -17,6 +17,11 @@ class PickupLocation extends Location implements Arrayable
     public $distance;
 
     /**
+     * @var string
+     */
+    public $locationCode;
+
+    /**
      * @var array
      */
     public $openingHours;

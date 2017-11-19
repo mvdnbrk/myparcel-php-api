@@ -79,6 +79,7 @@ class DeliveryOptions extends BaseResource
             $newLocation->latitude = $location->latitude;
             $newLocation->longitude = $location->longitude;
             $newLocation->openingHours = (array) $location->opening_hours;
+            $newLocation->locationCode = $location->location_code;
 
             $this->pickup->push($newLocation);
         }
