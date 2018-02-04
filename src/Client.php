@@ -85,7 +85,7 @@ class Client
 
         $request_headers = [
             "Accept: application/json",
-            "Authorization: Bearer {$this->apiKey}",
+            "Authorization: Basic {base64_encode($this->apiKey)}",
         ];
 
         if ($httpBody !== null) {
