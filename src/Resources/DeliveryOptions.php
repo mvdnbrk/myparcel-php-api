@@ -17,7 +17,7 @@ class DeliveryOptions extends BaseResource
     const CARRIER = 'postnl';
 
     /**
-     * @var \Mvdnbrk\Support\Collection
+     * @var \Mvdnbrk\MyParcel\Support\Collection
      */
     public $pickup;
 
@@ -124,7 +124,7 @@ class DeliveryOptions extends BaseResource
 
     public function setCutoffTime($value)
     {
-        $this->cutOfftime = new Time($value);
+        $this->cutoffTime = new Time($value);
 
         return $this;
     }

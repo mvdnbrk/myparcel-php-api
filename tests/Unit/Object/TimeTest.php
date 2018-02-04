@@ -34,5 +34,4 @@ class TimeTest extends TestCase
         $time = new Time('12:34');
         $this->assertEquals('12:34:00', $time->get());
     }
-
 }
