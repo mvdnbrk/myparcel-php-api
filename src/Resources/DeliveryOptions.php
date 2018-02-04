@@ -3,6 +3,7 @@
 namespace Mvdnbrk\MyParcel\Resources;
 
 use Mvdnbrk\MyParcel\Client;
+use Mvdnbrk\MyParcel\Object\Time;
 use Mvdnbrk\MyParcel\Support\Collection;
 use Mvdnbrk\MyParcel\Object\PickupLocation;
 use Mvdnbrk\MyParcel\Exceptions\InvalidZipcodeException;
@@ -53,8 +54,14 @@ class DeliveryOptions extends BaseResource
      */
     protected $client;
 
+    /**
+     * @var \Mvdnbrk\MyParcel\Object\Time
+     */
+    protected $cutoffTime;
+
     protected function boot()
     {
+        $this->cutoffTime = new Time('15:30');
         $this->pickup = new Collection;
     }
 
@@ -63,9 +70,10 @@ class DeliveryOptions extends BaseResource
         $this->setZipcode($zipcode);
         $this->setHousenumber($housenumber);
 
-        $result = $this->performApiCall('GET', 'delivery_options'.$this->buildQueryString($this->getFilters($filters)));
+        $result = $this->performApiCall('GET', 'delivery_options' . $this->buildQueryString($this->getFilters($filters)));
 
         $this->pickup = new Collection();
+
         foreach ($result->data->pickup as $location) {
             $newLocation = new PickupLocation;
             $newLocation->name = $location->location;
@@ -99,7 +107,7 @@ class DeliveryOptions extends BaseResource
             'carrier' => $this->carrier,
             'number' => $this->housenumber,
             'postal_code' => $this->zipcode,
-            //'cutoff_time' => $this->cutoffTime->getTime(),
+            'cutoff_time' => $this->cutoffTime->get(),
         ]);
     }
 
@@ -112,6 +120,13 @@ class DeliveryOptions extends BaseResource
                 $this->country = $key;
             }
         });
+    }
+
+    public function setCutoffTime($value)
+    {
+        $this->cutOfftime = new Time($value);
+
+        return $this;
     }
 
     public function setHousenumber($value)
