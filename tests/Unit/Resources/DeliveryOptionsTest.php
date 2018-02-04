@@ -83,13 +83,14 @@ class DeliveryOptionsTest extends TestCase
         $this->deliveryOptions->setHousenumber('not-a-number');
     }
 
-    // /** @test */
-    // public function getting_delivery_options()
-    // {
-    //     $this->assertTrue(true);
-    //     $pickup = $this->deliveryOptions->get('1012NP', '2')->pickup->take(3);
-    //     $this->assertInstanceOf(Collection::class, $pickup);
-    //     $this->assertEquals(3, $pickup->count());
-    //     $this->assertInstanceOf(PickupLocation::class, $pickup->first());
-    // }
+    /** @test */
+    public function getting_delivery_options()
+    {
+        $pickup = $this->deliveryOptions->get('1012NP', '2')->pickup->take(2);
+
+        $this->assertInstanceOf(Collection::class, $pickup);
+        $this->assertEquals(2, $pickup->count());
+        $this->assertInstanceOf(PickupLocation::class, $pickup->first());
+        $this->assertInstanceOf(PickupLocation::class, $pickup->last());
+    }
 }
