@@ -70,7 +70,10 @@ class DeliveryOptions extends BaseResource
         $this->setZipcode($zipcode);
         $this->setHousenumber($housenumber);
 
-        $result = $this->performApiCall('GET', 'delivery_options' . $this->buildQueryString($this->getFilters($filters)));
+        $result = $this->performApiCall(
+            'GET',
+            'delivery_options' . $this->buildQueryString($this->getFilters($filters))
+        );
 
         $this->pickup = new Collection();
 
