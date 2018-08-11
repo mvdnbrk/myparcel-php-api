@@ -99,7 +99,7 @@ class Client
             throw new MyParcelException("You have not set an API key. Please use setApiKey() to set the API key.");
         }
 
-        if (empty($this->ch) || ! function_exists('curl_reset')) {
+        if (empty($this->ch)) {
             $this->ch = curl_init();
         } else {
             curl_reset($this->ch);
@@ -132,10 +132,6 @@ class Client
         if (curl_errno($this->ch)) {
             $this->closeTcpConnection();
             throw new MyParcelException('Unable to communicate with MyParcel');
-        }
-
-        if (! function_exists("curl_reset")) {
-            $this->closeTcpConnection();
         }
 
         return $body;
