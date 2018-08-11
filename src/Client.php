@@ -12,6 +12,9 @@ class Client
      */
     const API_ENDPOINT = 'https://api.myparcel.nl';
 
+    /**
+     * HTTP Status code for no cotent.
+     */
     const HTTP_STATUS_NO_CONTENT = 204;
 
     /**
@@ -40,18 +43,30 @@ class Client
     public $deliveryOptions;
 
     /**
-     * Create a new MyParcel_API_Client Instance
+     * Create a new Client Instance
+     *
+     * @return void
      */
     public function __construct()
     {
         $this->deliveryOptions = new DeliveryOptions($this);
     }
 
+    /**
+     * Desctructs the Cliemt instance.
+     *
+     * @return void
+     */
     public function __destruct()
     {
         $this->closeTcpConnection();
     }
 
+    /**
+     * C;pses the tcp connection.
+     *
+     * @return void
+     */
     private function closeTcpConnection()
     {
         if (is_resource($this->ch)) {
@@ -60,11 +75,24 @@ class Client
         }
     }
 
+    /**
+     * Gets the last http response code.
+     *
+     * @return int
+     */
     public function getLastHttpResponseStatusCode()
     {
         return $this->last_http_response_status_code;
     }
 
+    /**
+     * Performs a HHTP call to the API endpoint
+     *
+     * @param  string       The method to make the API call. GET/POST etc,
+     * @param  string       The API method to call at the endpoint.
+     * @param  string|null  The body to be send with te request.
+     * @return stting       The body of the repsone.
+     */
     public function performHttpCall($httpMethod, $apiMethod, $httpBody = null)
     {
         if (empty($this->apiKey)) {
@@ -113,6 +141,12 @@ class Client
         return $body;
     }
 
+    /**
+     * Sets the API key.
+     *
+     * @param string
+     * @return void
+     */
     public function setApiKey($value)
     {
         $this->apiKey = $value;
