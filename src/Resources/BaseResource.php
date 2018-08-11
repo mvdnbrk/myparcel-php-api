@@ -41,10 +41,11 @@ class BaseResource
         }
 
         if (empty($body)) {
-            throw new MyParcelException("Unable to decoderesponse: '{$body}'.");
+            throw new MyParcelException("Unable to decode empty response: '{$body}'.");
         }
 
         $object = @json_decode($body);
+
         if (json_last_error() != JSON_ERROR_NONE) {
             throw new MyParcelException("Unable to decode response: '{$body}'.");
         }
