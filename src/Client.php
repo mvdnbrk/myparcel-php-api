@@ -131,7 +131,7 @@ class Client
 
         if (curl_errno($this->ch)) {
             $this->closeTcpConnection();
-            throw new MyParcelException('Unable to communicate with MyParcel');
+            throw new MyParcelException('Unable to communicate with MyParcel:'.curl_error($this->ch));
         }
 
         return $body;
