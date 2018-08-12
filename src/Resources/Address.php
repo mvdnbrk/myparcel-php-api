@@ -2,7 +2,9 @@
 
 namespace Mvdnbrk\MyParcel\Resources;
 
-class Address
+use Mvdnbrk\MyParcel\Support\Str;
+
+class Address extends BaseResource
 {
     /**
      * @var string
@@ -12,12 +14,17 @@ class Address
     /**
      * @var string
      */
-    public $zipcode;
+    public $number;
 
     /**
      * @var string
      */
-    public $housenumber;
+    public $number_suffix;
+
+    /**
+     * @var string
+     */
+    public $postal_code;
 
     /**
      * @var string
@@ -27,5 +34,57 @@ class Address
     /**
      * @var string
      */
-    public $country;
+    public $region;
+
+    /**
+     * ISO3166-1 country code.
+     * https://en.wikipedia.org/wiki/ISO_3166-1
+     *
+     * @var string
+     */
+    public $cc;
+
+    /**
+     * Set country code.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setCcAttribute($value)
+    {
+        $this->cc = Str::upper($value);
+    }
+
+    /**
+     * Sets the country code. Alias for cc.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setCountryCodeAttribute($value)
+    {
+        $this->setCcAttribute($value);
+    }
+
+    /**
+     * Set the postal code.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setPostalCodeAttribute($value)
+    {
+        $this->postal_code = Str::upper($value);
+    }
+
+    /**
+     * Sets the zipcode. Alias for postal_code.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setZipcodeAttribute($value)
+    {
+        $this->setPostalCodeAttribute($value);
+    }
 }
