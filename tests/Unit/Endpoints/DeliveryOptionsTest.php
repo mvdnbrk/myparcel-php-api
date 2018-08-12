@@ -83,7 +83,7 @@ class DeliveryOptionsTest extends TestCase
         $this->deliveryOptions->setHousenumber('not-a-number');
     }
 
-    /** @test */
+    /** @group integration */
     public function getting_delivery_options()
     {
         $pickup = $this->deliveryOptions->get('1012NP', '2')->pickup->take(2);
