@@ -7,6 +7,16 @@ use Mvdnbrk\MyParcel\Support\Str;
 trait HasAttributes
 {
     /**
+     * Convert the recource's attributes to an array.
+     *
+     * @return array
+     */
+    public function attributesToArray()
+    {
+        return get_object_vars($this);
+    }
+
+    /**
      * Determine if a set mutator exists for an attribute.
      *
      * @param  string  $key

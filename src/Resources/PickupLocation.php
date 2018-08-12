@@ -2,9 +2,7 @@
 
 namespace Mvdnbrk\MyParcel\Resources;
 
-use Mvdnbrk\MyParcel\Contracts\Arrayable;
-
-class PickupLocation extends Address implements Arrayable
+class PickupLocation extends Address
 {
     /**
      * @var string
@@ -57,7 +55,7 @@ class PickupLocation extends Address implements Arrayable
     public function toArray()
     {
         return array_merge(
-            get_object_vars($this),
+            $this->attributesToArray(),
             ['distance' => $this->distanceForHumans()]
         );
     }

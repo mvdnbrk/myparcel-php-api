@@ -4,8 +4,9 @@ namespace Mvdnbrk\MyParcel\Resources;
 
 use Mvdnbrk\MyParcel\Support\Str;
 use Mvdnbrk\MyParcel\Support\Collection;
+use Mvdnbrk\MyParcel\Contracts\Arrayable;
 
-abstract class BaseResource
+abstract class BaseResource implements Arrayable
 {
     use Concerns\HasAttributes;
 
@@ -33,5 +34,15 @@ abstract class BaseResource
         });
 
         return $this;
+    }
+
+   /**
+     * Convert the resource instance to an array.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->attributesToArray();
     }
 }
