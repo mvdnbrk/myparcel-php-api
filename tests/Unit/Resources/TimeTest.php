@@ -1,6 +1,6 @@
 <?php
 
-namespace Mvdnbrk\MyParcel\Tests\Unit\Object;
+namespace Mvdnbrk\MyParcel\Tests\Unit\Resources;
 
 use PHPUnit\Framework\TestCase;
 use Mvdnbrk\MyParcel\Resources\Time;
