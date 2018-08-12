@@ -15,7 +15,6 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
      * Create a new resource instance.
      *
      * @param  array  $attributes
-     * @return void
      */
     public function __construct(array $attributes = [])
     {
