@@ -55,7 +55,7 @@ class DeliveryOptions extends BaseEndpoint
     protected $client;
 
     /**
-     * @var \Mvdnbrk\MyParcel\Object\Time
+     * @var \Mvdnbrk\MyParcel\Resources\Time
      */
     protected $cutoffTime;
 
