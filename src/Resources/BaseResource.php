@@ -29,18 +29,18 @@ abstract class BaseResource implements Arrayable
      */
     public function fill(array $attributes)
     {
-        (new Collection($attributes))->each(function($value, $key) {
+        (new Collection($attributes))->each(function ($value, $key) {
             $this->setAttribute($key, $value);
         });
 
         return $this;
     }
 
-   /**
-     * Convert the resource instance to an array.
-     *
-     * @return array
-     */
+    /**
+      * Convert the resource instance to an array.
+      *
+      * @return array
+      */
     public function toArray()
     {
         return $this->attributesToArray();
