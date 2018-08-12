@@ -81,16 +81,16 @@ class DeliveryOptions extends BaseEndpoint
             $newLocation = new PickupLocation;
             $newLocation->name = $location->location;
             $newLocation->street = $location->street;
-            $newLocation->zipcode = $location->postal_code;
-            $newLocation->housenumber = $location->number;
+            $newLocation->postal_code = $location->postal_code;
+            $newLocation->number = $location->number;
             $newLocation->city = $location->city;
-            $newLocation->country = $location->cc;
+            $newLocation->cc = $location->cc;
             $newLocation->phone = $location->phone_number;
             $newLocation->distance = $location->distance;
             $newLocation->latitude = (float) $location->latitude;
             $newLocation->longitude = (float) $location->longitude;
-            $newLocation->openingHours = (array) $location->opening_hours;
-            $newLocation->locationCode = $location->location_code;
+            $newLocation->opening_hours = (array) $location->opening_hours;
+            $newLocation->location_code = $location->location_code;
 
             $this->pickup->push($newLocation);
         }
