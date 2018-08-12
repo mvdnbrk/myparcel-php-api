@@ -39,6 +39,11 @@ class PickupLocation extends Address
      */
     public $longitude;
 
+    /**
+     * Get the distance to a pick up location in a human readable format.
+     *
+     * @return string
+     */
     public function distanceForHumans()
     {
         if ($this->distance >= 10000) {
@@ -52,6 +57,11 @@ class PickupLocation extends Address
         return "{$this->distance} meter";
     }
 
+    /**
+     * Get the instance as an array.
+     *
+     * @return array
+     */
     public function toArray()
     {
         return array_merge(
