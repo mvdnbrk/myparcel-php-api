@@ -19,12 +19,12 @@ class PickupLocation extends Address implements Arrayable
     /**
      * @var string
      */
-    public $locationCode;
+    public $location_code;
 
     /**
      * @var array
      */
-    public $openingHours;
+    public $opening_hours;
 
     /**
      * @var string
