@@ -1,10 +1,10 @@
 <?php
 
-namespace Mvdnbrk\MyParcel\Object;
+namespace Mvdnbrk\MyParcel\Resources;
 
 use Mvdnbrk\MyParcel\Contracts\Arrayable;
 
-class PickupLocation extends Location implements Arrayable
+class PickupLocation extends Address implements Arrayable
 {
     /**
      * @var string
@@ -30,6 +30,16 @@ class PickupLocation extends Location implements Arrayable
      * @var string
      */
     public $phone;
+
+    /**
+     * @var float
+     */
+    public $latitude;
+
+    /**
+     * @var float
+     */
+    public $longitude;
 
     public function distanceForHumans()
     {

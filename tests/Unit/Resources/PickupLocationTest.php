@@ -1,9 +1,9 @@
 <?php
 
-namespace Mvdnbrk\MyParcel\Tests\Unit\Object;
+namespace Mvdnbrk\MyParcel\Tests\Unit\Resources;
 
 use PHPUnit\Framework\TestCase;
-use Mvdnbrk\MyParcel\Object\PickupLocation;
+use Mvdnbrk\MyParcel\Resources\PickupLocation;
 
 class PickupLocationTest extends TestCase
 {

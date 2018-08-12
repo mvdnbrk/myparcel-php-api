@@ -1,6 +1,6 @@
 <?php
 
-namespace Mvdnbrk\MyParcel\Object;
+namespace Mvdnbrk\MyParcel\Resources;
 
 use Mvdnbrk\MyParcel\Exceptions\InvalidTimeException;
 

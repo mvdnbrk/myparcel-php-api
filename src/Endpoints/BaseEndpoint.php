@@ -1,11 +1,11 @@
 <?php
 
-namespace Mvdnbrk\MyParcel\Resources;
+namespace Mvdnbrk\MyParcel\Endpoints;
 
 use Mvdnbrk\MyParcel\Client;
 use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 
-class BaseResource
+class BaseEndpoint
 {
     /**
      * @var \Mvdnbrk\MyParcel\Client

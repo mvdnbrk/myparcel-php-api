@@ -3,7 +3,7 @@
 namespace Mvdnbrk\MyParcel\Tests\Unit\Object;
 
 use PHPUnit\Framework\TestCase;
-use Mvdnbrk\MyParcel\Object\Time;
+use Mvdnbrk\MyParcel\Resources\Time;
 use Mvdnbrk\MyParcel\Exceptions\InvalidTimeException;
 
 class TimeTest extends TestCase

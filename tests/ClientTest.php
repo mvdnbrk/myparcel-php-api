@@ -4,7 +4,7 @@ namespace Mvdnbrk\MyParcel\Tests;
 
 use Mvdnbrk\MyParcel\Client;
 use PHPUnit\Framework\TestCase;
-use Mvdnbrk\MyParcel\Resources\DeliveryOptions;
+use Mvdnbrk\MyParcel\Endpoints\DeliveryOptions;
 use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 
 class ClientTest extends TestCase

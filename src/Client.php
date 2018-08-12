@@ -2,7 +2,7 @@
 
 namespace Mvdnbrk\MyParcel;
 
-use Mvdnbrk\MyParcel\Resources\DeliveryOptions;
+use Mvdnbrk\MyParcel\Endpoints\DeliveryOptions;
 use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 
 class Client

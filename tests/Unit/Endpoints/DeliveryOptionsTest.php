@@ -1,12 +1,12 @@
 <?php
 
-namespace Mvdnbrk\MyParcel\Tests\Unit\Resources;
+namespace Mvdnbrk\MyParcel\Tests\Unit\Endpoints;
 
 use Mvdnbrk\MyParcel\Client;
 use PHPUnit\Framework\TestCase;
 use Mvdnbrk\MyParcel\Support\Collection;
-use Mvdnbrk\MyParcel\Object\PickupLocation;
-use Mvdnbrk\MyParcel\Resources\DeliveryOptions;
+use Mvdnbrk\MyParcel\Resources\PickupLocation;
+use Mvdnbrk\MyParcel\Endpoints\DeliveryOptions;
 use Mvdnbrk\MyParcel\Exceptions\InvalidZipcodeException;
 use Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException;
 

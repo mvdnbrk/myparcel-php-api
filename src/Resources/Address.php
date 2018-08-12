@@ -1,10 +1,8 @@
 <?php
 
-namespace Mvdnbrk\MyParcel\Object;
+namespace Mvdnbrk\MyParcel\Resources;
 
-use Mvdnbrk\MyParcel\Contracts\Arrayable;
-
-class Location
+class Address
 {
     /**
      * @var string
@@ -30,14 +28,4 @@ class Location
      * @var string
      */
     public $country;
-
-    /**
-     * @var float
-     */
-    public $latitude;
-
-    /**
-     * @var float
-     */
-    public $longitude;
 }

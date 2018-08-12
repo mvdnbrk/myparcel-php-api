@@ -1,15 +1,15 @@
 <?php
 
-namespace Mvdnbrk\MyParcel\Resources;
+namespace Mvdnbrk\MyParcel\Endpoints;
 
 use Mvdnbrk\MyParcel\Client;
-use Mvdnbrk\MyParcel\Object\Time;
+use Mvdnbrk\MyParcel\Resources\Time;
 use Mvdnbrk\MyParcel\Support\Collection;
-use Mvdnbrk\MyParcel\Object\PickupLocation;
+use Mvdnbrk\MyParcel\Resources\PickupLocation;
 use Mvdnbrk\MyParcel\Exceptions\InvalidZipcodeException;
 use Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException;
 
-class DeliveryOptions extends BaseResource
+class DeliveryOptions extends BaseEndpoint
 {
     /**
      * The carrier from wich to get delivery oprions.
