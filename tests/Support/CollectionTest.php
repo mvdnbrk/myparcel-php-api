@@ -42,7 +42,7 @@ class CollectionTest extends TestCase
     }
 
     /** @test */
-    public function testArrayAccessOffsetSet()
+    public function array_access_offset_set()
     {
         $c = new Collection(['foo', 'foo']);
         $c->offsetSet(1, 'bar');
@@ -77,6 +77,47 @@ class CollectionTest extends TestCase
     }
 
     /** @test */
+    public function contains_method()
+    {
+        $c = new Collection([1, 3, 5]);
+        $this->assertTrue($c->contains(1));
+        $this->assertFalse($c->contains(2));
+        $this->assertTrue($c->contains(function ($value) {
+            return $value < 5;
+        }));
+        $this->assertFalse($c->contains(function ($value) {
+            return $value > 5;
+        }));
+
+        $c = new Collection(['date', 'class', (object) ['foo' => 50]]);
+        $this->assertTrue($c->contains('date'));
+        $this->assertTrue($c->contains('class'));
+        $this->assertFalse($c->contains('foo'));
+
+        $c = new Collection([null, 1, 2,]);
+        $this->assertTrue($c->contains(function ($value) {
+            return is_null($value);
+        }));
+    }
+
+    /** @test */
+    public function filter()
+    {
+        $c = new Collection([['id' => 1, 'name' => 'Hello'], ['id' => 2, 'name' => 'World']]);
+        $this->assertEquals([1 => ['id' => 2, 'name' => 'World']], $c->filter(function ($item) {
+            return $item['id'] == 2;
+        })->all());
+
+        $c = new Collection(['', 'Hello', '', 'World']);
+        $this->assertEquals(['Hello', 'World'], $c->filter()->values()->toArray());
+
+        $c = new Collection(['id' => 1, 'first' => 'Hello', 'second' => 'World']);
+        $this->assertEquals(['first' => 'Hello', 'second' => 'World'], $c->filter(function ($item, $key) {
+            return $key != 'id';
+        })->all());
+    }
+
+    /** @test */
     public function first_returns_first_item_in_collection()
     {
         $c = new Collection(['foo', 'bar']);
@@ -84,10 +125,34 @@ class CollectionTest extends TestCase
     }
 
     /** @test */
-    public function first_with_default()
+    public function first_with_callback()
+    {
+        $data = new Collection(['foo', 'bar', 'baz']);
+
+        $result = $data->first(function ($value) {
+            return $value === 'bar';
+        });
+
+        $this->assertEquals('bar', $result);
+    }
+
+    /** @test */
+    public function first_with_callback_and_default()
+    {
+        $data = new Collection(['foo', 'bar']);
+
+        $result = $data->first(function ($value) {
+            return $value === 'baz';
+        }, 'default');
+
+        $this->assertEquals('default', $result);
+    }
+
+    /** @test */
+    public function first_with_default_and_without_callback()
     {
         $data = new Collection;
-        $result = $data->first('default');
+        $result = $data->first(null, 'default');
         $this->assertEquals('default', $result);
     }
 
@@ -119,6 +184,24 @@ class CollectionTest extends TestCase
     {
         $c = new Collection(['foo', 'bar']);
         $this->assertCount(2, $c);
+    }
+
+    /** @test */
+    public function has()
+    {
+        $data = new Collection(['id' => 1, 'first' => 'Hello', 'second' => 'World']);
+        $this->assertTrue($data->has('first'));
+        $this->assertFalse($data->has('third'));
+        $this->assertTrue($data->has(['first', 'second']));
+        $this->assertFalse($data->has(['third', 'first']));
+    }
+
+    /** @test */
+    public function implode()
+    {
+        $c = new Collection(['foo', 'bar']);
+        $this->assertEquals('foobar', $c->implode(''));
+        $this->assertEquals('foo,bar', $c->implode(','));
     }
 
     /** @test */
@@ -179,64 +262,98 @@ class CollectionTest extends TestCase
     }
 
     /** @test */
-    public function push()
+    public function reject_removes_elements_passing_truth_test()
     {
-        $data = new Collection();
-        $data->push('value');
+        $c = new Collection(['foo', 'bar']);
+        $this->assertEquals(['foo'], $c->reject('bar')->values()->all());
 
-        $this->assertEquals(
-            ['value'],
-            $data->all()
-        );
+        $c = new Collection(['foo', 'bar']);
+        $this->assertEquals(['foo'], $c->reject(function ($v) {
+            return $v == 'bar';
+        })->values()->all());
+
+        $c = new Collection(['foo', null]);
+        $this->assertEquals(['foo'], $c->reject(null)->values()->all());
+
+        $c = new Collection(['foo', 'bar']);
+        $this->assertEquals(['foo', 'bar'], $c->reject('baz')->values()->all());
+
+        $c = new Collection(['foo', 'bar']);
+        $this->assertEquals(['foo', 'bar'], $c->reject(function ($v) {
+            return $v == 'baz';
+        })->values()->all());
+
+        $c = new Collection(['id' => 1, 'primary' => 'foo', 'secondary' => 'bar']);
+        $this->assertEquals(['primary' => 'foo', 'secondary' => 'bar'], $c->reject(function ($item, $key) {
+            return $key == 'id';
+        })->all());
     }
 
     /** @test */
-    public function slice_ffset()
+    public function slice_offset()
     {
-        $collection = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
-        $this->assertEquals([4, 5, 6, 7, 8], $collection->slice(3)->values()->toArray());
+        $c = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([4, 5, 6, 7, 8], $c->slice(3)->values()->toArray());
     }
 
     /** @test */
     public function slice_negative_offset()
     {
-        $collection = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
-        $this->assertEquals([6, 7, 8], $collection->slice(-3)->values()->toArray());
+        $c = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([6, 7, 8], $c->slice(-3)->values()->toArray());
     }
 
     /** @test */
     public function slice_offset_and_length()
     {
-        $collection = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
-        $this->assertEquals([4, 5, 6], $collection->slice(3, 3)->values()->toArray());
+        $c = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([4, 5, 6], $c->slice(3, 3)->values()->toArray());
     }
 
     /** @test */
     public function slice_offset_and_negative_length()
     {
-        $collection = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
-        $this->assertEquals([4, 5, 6, 7], $collection->slice(3, -1)->values()->toArray());
+        $c = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([4, 5, 6, 7], $c->slice(3, -1)->values()->toArray());
     }
 
     /** @test */
     public function slice_negative_offset_and_length()
     {
-        $collection = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
-        $this->assertEquals([4, 5, 6], $collection->slice(-5, 3)->values()->toArray());
+        $c = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([4, 5, 6], $c->slice(-5, 3)->values()->toArray());
     }
 
     /** @test */
     public function slice_negative_offset_and_negative_length()
     {
-        $collection = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
-        $this->assertEquals([3, 4, 5, 6], $collection->slice(-6, -2)->values()->toArray());
+        $c= new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([3, 4, 5, 6], $c->slice(-6, -2)->values()->toArray());
     }
 
     /** @test */
     public function take()
     {
-        $collection = new Collection(['john', 'jane', 'mike']);
-        $collection = $collection->take(2);
-        $this->assertEquals(['john', 'jane'], $collection->all());
+        $c = new Collection(['foo', 'bar', 'baz']);
+        $c = $c->take(2);
+        $this->assertEquals(['foo', 'bar'], $c->all());
+    }
+
+    /** @test */
+    public function take_negative_limit()
+    {
+        $c = new Collection(['foo', 'bar', 'baz']);
+        $c = $c->take(-2);
+        $this->assertEquals(['bar', 'baz'], $c->values()->toArray());
+    }
+
+    /** @test */
+    public function values()
+    {
+        $c = new Collection([['id' => 1, 'name' => 'Hello'], ['id' => 2, 'name' => 'World']]);
+
+        $this->assertEquals([['id' => 2, 'name' => 'World']], $c->filter(function ($item) {
+            return $item['id'] == 2;
+        })->values()->all());
     }
 }

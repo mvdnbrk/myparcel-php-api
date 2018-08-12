@@ -2,6 +2,7 @@
 
 namespace Mvdnbrk\MyParcel\Support;
 
+use stdClass;
 use Countable;
 use ArrayAccess;
 use Mvdnbrk\MyParcel\Contracts\Arrayable;
@@ -118,19 +119,19 @@ class Collection implements Arrayable, ArrayAccess, Countable
     }
 
     /**
-     * Get an item from the collection by key.
+     * Determine if an item exists in the collection.
      *
      * @param  mixed  $key
-     * @param  mixed  $default
-     * @return mixed
+     * @return bool
      */
-    public function get($key, $default = null)
+    public function contains($key)
     {
-        if ($this->offsetExists($key)) {
-            return $this->items[$key];
+        if ($this->useAsCallable($key)) {
+            $placeholder = new stdClass;
+            return $this->first($key, $placeholder) !== $placeholder;
         }
 
-        return $default;
+        return in_array($key, $this->items);
     }
 
     /**
@@ -151,20 +152,91 @@ class Collection implements Arrayable, ArrayAccess, Countable
     }
 
     /**
+     * Run a filter over each of the items.
+     *
+     * @param  callable|null  $callback
+     * @return static
+     */
+    public function filter(callable $callback = null)
+    {
+        if ($callback) {
+            return new static(array_filter($this->items, $callback, ARRAY_FILTER_USE_BOTH));
+        }
+
+        return new static(array_filter($this->items));
+    }
+
+    /**
      * Get the first item from the collection.
      *
+     * @param  callable|null  $callback
      * @param  mixed  $default
      * @return mixed
      */
-    public function first($default = null)
+    public function first(callable $callback = null, $default = null)
     {
-        if (empty($this->items)) {
-            return $default;
+        if (is_null($callback)) {
+            if (empty($this->items)) {
+                return $default;
+            }
+            foreach ($this->items as $item) {
+                return $item;
+            }
         }
 
-        foreach ($this->items as $item) {
-            return $item;
+        foreach ($this->items as $key => $value) {
+            if (call_user_func($callback, $value, $key)) {
+                return $value;
+            }
         }
+
+        return $default;
+    }
+
+    /**
+     * Get an item from the collection by key.
+     *
+     * @param  mixed  $key
+     * @param  mixed  $default
+     * @return mixed
+     */
+    public function get($key, $default = null)
+    {
+        if ($this->offsetExists($key)) {
+            return $this->items[$key];
+        }
+
+        return $default;
+    }
+
+    /**
+     * Determine if an item exists in the collection by key.
+     *
+     * @param  mixed  $key
+     * @return bool
+     */
+    public function has($key)
+    {
+        $keys = is_array($key) ? $key : func_get_args();
+
+        foreach ($keys as $value) {
+            if (! $this->offsetExists($value)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Concatenate values of a given key as a string.
+     *
+     * @param  string  $seperator
+     * @return string
+     */
+    public function implode($seperator)
+    {
+        return implode($seperator, $this->items);
     }
 
     /**
@@ -216,16 +288,22 @@ class Collection implements Arrayable, ArrayAccess, Countable
     }
 
     /**
-     * Push an item onto the end of the collection.
+     * Create a collection of all elements that do not pass a given truth test.
      *
-     * @param  mixed  $value
-     * @return $this
+     * @param  callable|mixed  $callback
+     * @return static
      */
-    public function push($value)
+    public function reject($callback)
     {
-        $this->offsetSet(null, $value);
+        if ($this->useAsCallable($callback)) {
+            return $this->filter(function ($value, $key) use ($callback) {
+                return ! $callback($value, $key);
+            });
+        }
 
-        return $this;
+        return $this->filter(function ($item) use ($callback) {
+            return $item != $callback;
+        });
     }
 
     /**
@@ -256,6 +334,27 @@ class Collection implements Arrayable, ArrayAccess, Countable
     }
 
     /**
+     * Get the collection of items as a plain array.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->items;
+    }
+
+    /**
+     * Determine if the given value is callable, but not a string.
+     *
+     * @param  mixed  $value
+     * @return bool
+     */
+    protected function useAsCallable($value)
+    {
+        return ! is_string($value) && is_callable($value);
+    }
+
+    /**
      * Reset the keys on the underlying array.
      *
      * @return static
@@ -263,17 +362,5 @@ class Collection implements Arrayable, ArrayAccess, Countable
     public function values()
     {
         return new static(array_values($this->items));
-    }
-
-    /**
-     * Get the collection of items as a plain array.
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        return array_map(function ($value) {
-            return $value instanceof Arrayable ? $value->toArray() : $value;
-        }, $this->items);
     }
 }
