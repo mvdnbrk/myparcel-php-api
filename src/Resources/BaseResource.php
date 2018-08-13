@@ -3,9 +3,10 @@
 namespace Mvdnbrk\MyParcel\Resources;
 
 use JsonSerializable;
-use Mvdnbrk\MyParcel\Support\Collection;
 use Mvdnbrk\MyParcel\Contracts\Jsonable;
+use Mvdnbrk\MyParcel\Support\Collection;
 use Mvdnbrk\MyParcel\Contracts\Arrayable;
+use Mvdnbrk\MyParcel\Exceptions\JsonEncodingException;
 
 abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
 {
