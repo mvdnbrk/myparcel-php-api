@@ -1,6 +1,6 @@
 <?php
 
-namespace Mvdnbrk\MyParcel\Tests\Collection;
+namespace Mvdnbrk\MyParcel\Tests\Support;
 
 use PHPUnit\Framework\TestCase;
 use Mvdnbrk\MyParcel\Support\Collection;
