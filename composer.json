@@ -26,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Mvdnbrk\\MyParcel\\": "src"
+            "Mvdnbrk\\MyParcel\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Mvdnbrk\\MyParcel\\": "tests"
+            "Tests\\": "tests/"
         }
     },
     "scripts": {

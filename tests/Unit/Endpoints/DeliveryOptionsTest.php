@@ -1,9 +1,9 @@
 <?php
 
-namespace Mvdnbrk\MyParcel\Tests\Unit\Endpoints;
+namespace Tests\Unit\Endpoints;
 
+use Tests\TestCase;
 use Mvdnbrk\MyParcel\Client;
-use PHPUnit\Framework\TestCase;
 use Mvdnbrk\MyParcel\Support\Collection;
 use Mvdnbrk\MyParcel\Resources\PickupLocation;
 use Mvdnbrk\MyParcel\Endpoints\DeliveryOptions;

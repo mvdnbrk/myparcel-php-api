@@ -1,9 +1,8 @@
 <?php
 
-namespace Mvdnbrk\MyParcel\Tests;
+namespace Tests;
 
 use Mvdnbrk\MyParcel\Client;
-use PHPUnit\Framework\TestCase;
 use Mvdnbrk\MyParcel\Endpoints\DeliveryOptions;
 use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 

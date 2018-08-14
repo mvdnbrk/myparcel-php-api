@@ -1,8 +1,8 @@
 <?php
 
-namespace Mvdnbrk\MyParcel\Tests\Support;
+namespace Tests\Support;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use Mvdnbrk\MyParcel\Support\Collection;
 
 class CollectionTest extends TestCase

@@ -1,8 +1,8 @@
 <?php
 
-namespace Mvdnbrk\MyParcel\Tests\Unit\Resources;
+namespace Tests\Unit\Resources;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\Recipient;
 use Mvdnbrk\MyParcel\Exceptions\JsonEncodingException;
 
