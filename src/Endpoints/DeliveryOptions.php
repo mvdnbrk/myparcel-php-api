@@ -3,6 +3,7 @@
 namespace Mvdnbrk\MyParcel\Endpoints;
 
 use Mvdnbrk\MyParcel\Client;
+use Mvdnbrk\MyParcel\Support\Str;
 use Mvdnbrk\MyParcel\Resources\Time;
 use Mvdnbrk\MyParcel\Support\Collection;
 use Mvdnbrk\MyParcel\Resources\PickupLocation;
@@ -145,7 +146,7 @@ class DeliveryOptions extends BaseEndpoint
 
     public function setZipcode($value)
     {
-        $this->zipcode = preg_replace('/\s+/', '', strtoupper($value));
+        $this->zipcode = preg_replace('/\s+/', '', Str::upper($value));
         $this->setCountry();
 
         if ($this->country === null) {
