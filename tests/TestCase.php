@@ -14,7 +14,7 @@ abstract class TestCase extends BaseTestCase
         try {
             (new Dotenv('./', '.env'))->load();
         } catch (InvalidPathException $e) {
-
+            //
         } catch (InvalidFileException $e) {
             die('The environment file is invalid: '.$e->getMessage());
         }
