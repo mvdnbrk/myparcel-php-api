@@ -17,7 +17,7 @@ class DeliveryOptionsTest extends TestCase
         parent::setUp();
 
         $client = new Client;
-        $client->setApiKey('test-api-key');
+        $client->setApiKey(getenv('API_KEY'));
 
         $this->deliveryOptions = new DeliveryOptions($client);
     }
