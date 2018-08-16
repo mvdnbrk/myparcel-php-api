@@ -67,11 +67,11 @@ class ShipmentOptions extends BaseResource
      */
     public function setDefaultOptions()
     {
-        $this->return = 0;
-        $this->signature = 0;
-        $this->large_format = 0;
-        $this->package_type = 1;
-        $this->only_recipient = 0;
+        $this->return = false;
+        $this->signature = false;
+        $this->large_format = false;
+        $this->package_type = true;
+        $this->only_recipient = false;
 
         return $this;
     }
