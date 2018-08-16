@@ -17,6 +17,51 @@ trait HasAttributes
     }
 
     /**
+     * Get an attribute from the resource.
+     *
+     * @param  string  $key
+     * @return mixed
+     */
+    public function getAttribute($key)
+    {
+        if (! $key) {
+            return;
+        }
+
+        if ($this->hasGetMutator($key)) {
+            return $this->getAttributeValue($key);
+        }
+
+        return;
+    }
+
+    /**
+     * Get a plain attribute value.
+     *
+     * @param  string  $key
+     * @return mixed
+     */
+    public function getAttributeValue($key)
+    {
+        if ($this->hasGetMutator($key)) {
+            return $this->{'get'.Str::studly($key).'Attribute'}($value);
+        }
+
+        return;
+    }
+
+    /**
+     * Determine if a get mutator exists for an attribute.
+     *
+     * @param  string  $key
+     * @return bool
+     */
+    public function hasGetMutator($key)
+    {
+        return method_exists($this, 'get'.Str::studly($key).'Attribute');
+    }
+
+    /**
      * Determine if a set mutator exists for an attribute.
      *
      * @param  string  $key
@@ -25,6 +70,18 @@ trait HasAttributes
     public function hasSetMutator($key)
     {
         return method_exists($this, 'set'.Str::studly($key).'Attribute');
+    }
+
+    /**
+     * Get the value of an attribute using its mutator.
+     *
+     * @param  string  $key
+     * @param  mixed  $value
+     * @return mixed
+     */
+    protected function mutateAttribute($key, $value)
+    {
+        return $this->{'get'.Str::studly($key).'Attribute'}($value);
     }
 
     /**

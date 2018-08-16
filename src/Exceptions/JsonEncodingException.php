@@ -15,6 +15,6 @@ class JsonEncodingException extends RuntimeException
      */
     public static function forResource($resource, $message)
     {
-        return new static('Error encoding resource ['.get_class($resource).'] to JSON: '.$message);
+        return new static('Error encoding resource ['.get_class($resource).'] to JSON: '.$message.'.');
     }
 }
