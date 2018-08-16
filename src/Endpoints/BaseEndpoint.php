@@ -5,7 +5,7 @@ namespace Mvdnbrk\MyParcel\Endpoints;
 use Mvdnbrk\MyParcel\Client;
 use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 
-class BaseEndpoint
+abstract class BaseEndpoint
 {
     /**
      * @var \Mvdnbrk\MyParcel\Client
