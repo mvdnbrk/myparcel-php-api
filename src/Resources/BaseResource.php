@@ -75,4 +75,15 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
 
         return $json;
     }
+
+    /**
+     * Dynamically retrieve attributes on the resource.
+     *
+     * @param  string  $key
+     * @return mixed
+     */
+    public function __get($key)
+    {
+        return $this->getAttribute($key);
+    }
 }
