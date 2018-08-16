@@ -44,7 +44,7 @@ trait HasAttributes
     public function getAttributeValue($key)
     {
         if ($this->hasGetMutator($key)) {
-            return $this->{'get'.Str::studly($key).'Attribute'}($value);
+            return $this->{'get'.Str::studly($key).'Attribute'}();
         }
 
         return;
