@@ -21,37 +21,37 @@ class BaseResourceTest extends TestCase
     /** @test */
     public function set_attribute()
     {
-       $resource = new ResourceStub();
-       $resource->setAttribute('foo', 'bar');
+        $resource = new ResourceStub();
+        $resource->setAttribute('foo', 'bar');
 
-       $this->assertEquals('bar', $resource->foo);
+        $this->assertEquals('bar', $resource->foo);
     }
 
     /** @test */
     public function set_mutator()
     {
-       $resource = new ResourceStub();
+        $resource = new ResourceStub();
 
-       $this->assertTrue($resource->hasSetMutator('testMutator'));
+        $this->assertTrue($resource->hasSetMutator('testMutator'));
 
-       $resource->setAttribute('test_mutator', 'bar');
+        $resource->setAttribute('test_mutator', 'bar');
 
-       $this->assertEquals('bar', $resource->foo);
+        $this->assertEquals('bar', $resource->foo);
 
-       $resource->setAttribute('testMutator', 'qux');
+        $resource->setAttribute('testMutator', 'qux');
 
-       $this->assertEquals('qux', $resource->foo);
+        $this->assertEquals('qux', $resource->foo);
     }
 
     /** @test */
     public function get_mutator()
     {
-       $resource = new ResourceStub();
+        $resource = new ResourceStub();
 
-       $this->assertNull($resource->getAttribute(null));
-       $this->assertNull($resource->getAttributeValue('non-existent-key'));
+        $this->assertNull($resource->getAttribute(null));
+        $this->assertNull($resource->getAttributeValue('non-existent-key'));
 
-       $this->assertEquals('test-get-mutator-value', $resource->testGetter);
+        $this->assertEquals('test-get-mutator-value', $resource->testGetter);
     }
 
     /** @test */
