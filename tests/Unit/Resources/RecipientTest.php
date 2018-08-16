@@ -4,7 +4,6 @@ namespace Tests\Unit\Resources;
 
 use Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\Recipient;
-use Mvdnbrk\MyParcel\Exceptions\JsonEncodingException;
 
 class RecipientTest extends TestCase
 {
@@ -92,21 +91,5 @@ class RecipientTest extends TestCase
         ]));
 
         $this->assertEquals('1234AA', $recipient->postal_code);
-    }
-
-    /** @test */
-    public function encoding_malformed_json_throws_an_exception()
-    {
-        $this->expectException(JsonEncodingException::class);
-        $this->expectExceptionMessage('Error encoding resource [Mvdnbrk\MyParcel\Resources\Recipient] to JSON: Malformed UTF-8 characters, possibly incorrectly encoded');
-
-        $obj = new \stdClass;
-        $obj->foo = "b\xF8r";
-
-        $recipient = new Recipient($this->validParams([
-            'person' => $obj
-        ]));
-
-        $recipient->toJson();
     }
 }
