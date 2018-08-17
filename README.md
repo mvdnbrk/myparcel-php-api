@@ -19,7 +19,6 @@ To use the MyParcel API client, the following things are required:
 + Get a free [MyParcel account](https://backoffice.myparcel.nl/registration)
 + Generate your [API Key](https://backoffice.myparcel.nl/settings)
 + Now you're ready to use the MyParcel API client.
-+ PHP >= 5.6
 
 ## Installation
 
