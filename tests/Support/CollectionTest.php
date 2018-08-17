@@ -286,6 +286,15 @@ class CollectionTest extends TestCase
     }
 
     /** @test */
+    public function push()
+    {
+        $c = new Collection(['foo', 'foo']);
+
+        $c->push('qux');
+        $this->assertEquals('qux', $c[2]);
+    }
+
+    /** @test */
     public function reject_removes_elements_passing_truth_test()
     {
         $c = new Collection(['foo', 'bar']);
