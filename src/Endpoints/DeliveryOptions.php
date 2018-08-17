@@ -60,6 +60,11 @@ class DeliveryOptions extends BaseEndpoint
      */
     protected $cutoffTime;
 
+    /**
+     * Boot the DeliveryOptions endpoint.
+     *
+     * @return void
+     */
     protected function boot()
     {
         $this->cutoffTime = new Time('15:30');
@@ -67,6 +72,14 @@ class DeliveryOptions extends BaseEndpoint
     }
 
     public function get($zipcode, $housenumber, array $filters = [])
+    /**
+     * Get delivery options for an address based on postal code and house number.
+     *
+     * @param  string $postal_code
+     * @param  int  $housenumber
+     * @param  array  $filters
+     * @return $this
+     */
     {
         $this->setZipcode($zipcode);
         $this->setHousenumber($housenumber);
@@ -99,11 +112,22 @@ class DeliveryOptions extends BaseEndpoint
         return $this;
     }
 
+    /**
+     * Get the country.
+     *
+     * @return string
+     */
     public function getCountry()
     {
         return $this->country;
     }
 
+    /**
+     * Get query filters.
+     *
+     * @param  array  $filters
+     * @return array
+     */
     protected function getFilters($filters)
     {
         return array_merge($filters, [
@@ -115,6 +139,11 @@ class DeliveryOptions extends BaseEndpoint
         ]);
     }
 
+    /**
+     * Sets the country based on a postal code.
+     *
+     * @return  void
+     */
     protected function setCountry()
     {
         $zipcodes = new Collection($this->validZipcodes);
@@ -126,6 +155,12 @@ class DeliveryOptions extends BaseEndpoint
         });
     }
 
+    /**
+     * Sets the cut off time.
+     *
+     * @param string  $value
+     * @return  $this
+     */
     public function setCutoffTime($value)
     {
         $this->cutoffTime = new Time($value);
@@ -133,6 +168,12 @@ class DeliveryOptions extends BaseEndpoint
         return $this;
     }
 
+    /**
+     * Sets the house number.
+     *
+     * @param int  $value
+     * @return $this
+     */
     public function setHousenumber($value)
     {
         $this->housenumber = filter_var($value, FILTER_SANITIZE_NUMBER_INT);
@@ -145,6 +186,12 @@ class DeliveryOptions extends BaseEndpoint
     }
 
     public function setZipcode($value)
+    /**
+     * Sets the postal code.
+     *
+     * @param string  $value
+     * @return  $this
+     */
     {
         $this->zipcode = preg_replace('/\s+/', '', Str::upper($value));
         $this->setCountry();

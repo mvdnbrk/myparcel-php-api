@@ -51,11 +51,11 @@ abstract class BaseEndpoint
     /**
      * Performs a HTTP call to the API endpoint
      *
-     * @param  string       The method to make the API call. GET/POST etc,
-     * @param  string       The API method to call at the endpoint.
-     * @param  string|null  The body to be send with te request.
-     * @param  array        Request headers to be send with the request.
-     * @return string       The body of the repsone.
+     * @param  string  $httpMethod          The method to make the API call. GET/POST etc,
+     * @param  string  $apiMethod           The API method to call at the endpoint.
+     * @param  string|null  $httpBody       The body to be send with te request.
+     * @param  array  $requestHeaders       Request headers to be send with the request.
+     * @return string                       The body of the repsone.
      */
     protected function performApiCall($httpMethod, $apiMethod, $httpBody = null, $requestHeaders = [])
     {
