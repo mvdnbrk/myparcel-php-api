@@ -99,7 +99,7 @@ class Client
      * @param  string  $apiMethod           The API method to call at the endpoint.
      * @param  string|null  $httpBody       The body to be send with te request.
      * @param  array  $requestHeaders       Request headers to be send with the request.
-     * @return object                       The body of the repsone.
+     * @return string                       The body of the repsone.
      */
     public function performHttpCall($httpMethod, $apiMethod, $httpBody = null, $requestHeaders = [])
     {
