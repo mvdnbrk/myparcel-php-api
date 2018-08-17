@@ -12,6 +12,11 @@ abstract class BaseEndpoint
      */
     protected $apiClient;
 
+    /**
+     * Create a endpont instance.
+     *
+     * @param \Mvdnbrk\MyParcel\Client  $client
+     */
     public function __construct(Client $client)
     {
         $this->apiClient = $client;
@@ -19,10 +24,21 @@ abstract class BaseEndpoint
         $this->boot();
     }
 
+    /**
+     * Boots the endpoint instance.
+     *
+     * @return mixed
+     */
     protected function boot()
     {
     }
 
+    /**
+     * Build a query string.
+     *
+     * @param  array  $filters
+     * @return string
+     */
     protected function buildQueryString(array $filters)
     {
         if (empty($filters)) {
@@ -32,6 +48,15 @@ abstract class BaseEndpoint
         return '?' . http_build_query($filters);
     }
 
+    /**
+     * Performs a HTTP call to the API endpoint
+     *
+     * @param  string       The method to make the API call. GET/POST etc,
+     * @param  string       The API method to call at the endpoint.
+     * @param  string|null  The body to be send with te request.
+     * @param  array        Request headers to be send with the request.
+     * @return string       The body of the repsone.
+     */
     protected function performApiCall($httpMethod, $apiMethod, $httpBody = null, $requestHeaders = [])
     {
         $body = $this->apiClient->performHttpCall($httpMethod, $apiMethod, $httpBody, $requestHeaders);
