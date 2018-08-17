@@ -116,7 +116,7 @@ class ShipmentOptions extends BaseResource
     public function toArray()
     {
         return (new Collection(parent::toArray()))
-            ->map(function ($value, $key) {
+            ->map(function ($value) {
                 if (is_bool($value)) {
                     return (int) $value;
                 }
