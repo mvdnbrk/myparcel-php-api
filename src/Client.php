@@ -98,9 +98,10 @@ class Client
      * @param  string       The method to make the API call. GET/POST etc,
      * @param  string       The API method to call at the endpoint.
      * @param  string|null  The body to be send with te request.
+     * @param  array        Request headers to be send with the request.
      * @return string       The body of the repsone.
      */
-    public function performHttpCall($httpMethod, $apiMethod, $httpBody = null)
+    public function performHttpCall($httpMethod, $apiMethod, $httpBody = null, $requestHeaders = [])
     {
         if (empty($this->apiKey)) {
             throw new MyParcelException("You have not set an API key. Please use setApiKey() to set the API key.");
@@ -118,11 +119,11 @@ class Client
         curl_setopt($this->ch, CURLOPT_TIMEOUT, 10);
         curl_setopt($this->ch, CURLOPT_ENCODING, "");
 
-        $request_headers = [
+        $request_headers = array_merge([
             'User-Agent: CustomApiCall/2',
             'Accept: application/json',
-            "Authorization: Basic {base64_encode($this->apiKey)}",
-        ];
+            'Authorization: Basic '.base64_encode($this->apiKey),
+        ], $requestHeaders);
 
         if ($httpBody !== null) {
             $request_headers[] = "Content-Type: application/json";
@@ -135,6 +136,7 @@ class Client
         curl_setopt($this->ch, CURLOPT_SSL_VERIFYPEER, true);
 
         $body = curl_exec($this->ch);
+
         $this->last_http_response_status_code = (int) curl_getinfo($this->ch, CURLINFO_HTTP_CODE);
 
         if (curl_errno($this->ch)) {

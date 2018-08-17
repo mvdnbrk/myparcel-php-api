@@ -32,9 +32,9 @@ abstract class BaseEndpoint
         return '?' . http_build_query($filters);
     }
 
-    protected function performApiCall($httpMethod, $apiMethod, $httpBody = null)
+    protected function performApiCall($httpMethod, $apiMethod, $httpBody = null, $requestHeaders = [])
     {
-        $body = $this->apiClient->performHttpCall($httpMethod, $apiMethod, $httpBody);
+        $body = $this->apiClient->performHttpCall($httpMethod, $apiMethod, $httpBody, $requestHeaders);
 
         if ($this->apiClient->getLastHttpResponseStatusCode() == Client::HTTP_STATUS_NO_CONTENT) {
             return null;
