@@ -49,12 +49,17 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
 
     /**
       * Convert the resource instance to an array.
+      * Removes all attributes with null values.
       *
       * @return array
       */
     public function toArray()
     {
-        return $this->attributesToArray();
+        return (new Collection($this->attributesToArray()))
+            ->reject(function($value) {
+                return $value === null;
+            })
+            ->all();
     }
 
     /**

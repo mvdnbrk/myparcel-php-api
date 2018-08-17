@@ -68,6 +68,18 @@ class BaseResourceTest extends TestCase
     }
 
     /** @test */
+    public function to_array_removes_attributes_with_null_values()
+    {
+         $resource = new ResourceStub([
+            'foo' => null,
+        ]);
+
+        $array = $resource->toArray();
+
+        $this->assertSame([], $array);
+    }
+
+    /** @test */
     public function to_json_test()
     {
         $resource = new ResourceStub([
