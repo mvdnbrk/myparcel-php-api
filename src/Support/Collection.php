@@ -340,7 +340,7 @@ class Collection implements Arrayable, ArrayAccess, Countable
     public function take($limit)
     {
         if ($limit < 0) {
-            return $this->slice($limit, abs($limit));
+            return $this->slice($limit, abs(intval($limit)));
         }
 
         return $this->slice(0, $limit);
