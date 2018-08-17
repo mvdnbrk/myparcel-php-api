@@ -29,11 +29,34 @@ The easiest way to install the MyParcel API client is to rquire it with [Compose
 $ composer require mvdnbrk/myparcel-php-api
 ```
 
-## Usage
+## Getting started
+
+Initialize the MyParcel client and set your API key.
 
 ``` php
-$myparcel = new MyParcel_API_Client;
-$myparcel->send();
+$myparcel = \Mvdnbrk\MyParcel\Client();
+$myparcel->setApiKey('your-api-key');
+```
+
+### Create a parcel
+``` php
+$parcel = \Mvdnbrk\MyParcel\Resources\Parcel([
+    'reference' => 'your own reference for the parcel',
+    'recipient' => [
+        'person' => 'John Doe',
+        'street' => 'Poststraat',
+        'number' => '1',
+        'number_suffix' => 'A',
+        'postal_code' => '1234AA',
+        'city' => 'Amsterdam',
+        'cc' => 'NL,
+    ]
+]);
+```
+
+### Create the shipment
+``` php
+$shipment = $myparcel->shipments->create($parcel)
 ```
 
 ## Change log
