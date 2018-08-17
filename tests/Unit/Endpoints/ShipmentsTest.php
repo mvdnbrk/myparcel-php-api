@@ -49,7 +49,7 @@ class ShipmentsTest extends TestCase
 
         $parcel = new Parcel($array);
 
-        $shipment = $this->client->shipment->create($parcel);
+        $shipment = $this->client->shipments->create($parcel);
 
         $this->assertInstanceOf(Shipment::class, $shipment);
         $this->assertNotNull($shipment->id);
