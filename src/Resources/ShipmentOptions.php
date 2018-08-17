@@ -70,7 +70,7 @@ class ShipmentOptions extends BaseResource
         $this->return = false;
         $this->signature = false;
         $this->large_format = false;
-        $this->package_type = true;
+        $this->package_type = 1;
         $this->only_recipient = false;
 
         return $this;
