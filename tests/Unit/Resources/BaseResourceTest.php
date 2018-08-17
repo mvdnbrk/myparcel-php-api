@@ -70,7 +70,7 @@ class BaseResourceTest extends TestCase
     /** @test */
     public function to_array_removes_attributes_with_null_values()
     {
-         $resource = new ResourceStub([
+        $resource = new ResourceStub([
             'foo' => null,
         ]);
 
