@@ -77,7 +77,7 @@ abstract class BaseEndpoint
 
         if (! empty($object->errors)) {
             $error = $object->errors[0];
-            throw new MyParcelException("Error executing API call ({$error->code}): {$error->message}");
+            throw new MyParcelException("Error executing API call ({$error->code}): {$object->message}. ".$error->human[0]);
         }
 
         return $object;
