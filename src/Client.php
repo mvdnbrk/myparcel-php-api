@@ -2,7 +2,7 @@
 
 namespace Mvdnbrk\MyParcel;
 
-use Mvdnbrk\MyParcel\Endpoints\Shipment;
+use Mvdnbrk\MyParcel\Endpoints\Shipments;
 use Mvdnbrk\MyParcel\Endpoints\DeliveryOptions;
 use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 
@@ -44,9 +44,9 @@ class Client
     public $deliveryOptions;
 
     /**
-     * @var \Mvdnbrk\MyParcel\Endpoints\Shipment
+     * @var \Mvdnbrk\MyParcel\Endpoints\Shipments
      */
-    public $shipment;
+    public $shipments;
 
     /**
      * Create a new Client Instance
@@ -55,7 +55,7 @@ class Client
      */
     public function __construct()
     {
-        $this->shipment = new Shipment($this);
+        $this->shipments = new Shipments($this);
         $this->deliveryOptions = new DeliveryOptions($this);
     }
 

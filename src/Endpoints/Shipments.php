@@ -5,7 +5,7 @@ namespace Mvdnbrk\MyParcel\Endpoints;
 use Mvdnbrk\MyParcel\Resources\Parcel;
 use Mvdnbrk\MyParcel\Resources\Shipment as ShipmentResource;
 
-class Shipment extends BaseEndpoint
+class Shipments extends BaseEndpoint
 {
     /**
      * Create a new shipment for a parcel.
