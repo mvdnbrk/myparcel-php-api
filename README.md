@@ -56,8 +56,10 @@ $parcel = \Mvdnbrk\MyParcel\Resources\Parcel([
 
 ### Create the shipment
 ``` php
-$shipment = $myparcel->shipments->create($parcel)
+$shipment = $myparcel->shipments->create($parcel);
 ```
+
+You have created your first shipment!
 
 ## Change log
 
