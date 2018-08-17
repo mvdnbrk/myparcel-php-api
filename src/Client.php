@@ -112,7 +112,8 @@ class Client
         curl_setopt($this->ch, CURLOPT_ENCODING, "");
 
         $request_headers = [
-            "Accept: application/json",
+            'User-Agent: CustomApiCall/2',
+            'Accept: application/json',
             "Authorization: Basic {base64_encode($this->apiKey)}",
         ];
 
