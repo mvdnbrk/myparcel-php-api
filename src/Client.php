@@ -38,7 +38,7 @@ class Client
     protected $last_http_response_status_code;
 
     /**
-     * @var \Mvdnbrk\Resources\DeliveryOptions
+     * @var \Mvdnbrk\MyParcel\Endpoints\DeliveryOptions
      */
     public $deliveryOptions;
 
