@@ -4,6 +4,7 @@ namespace Mvdnbrk\MyParcel\Resources;
 
 use Mvdnbrk\MyParcel\Resources\Recipient;
 use Mvdnbrk\MyParcel\Resources\BaseResource;
+use Mvdnbrk\MyParcel\Resources\ShipmentOptions;
 
 class Parcel extends BaseResource
 {
@@ -25,6 +26,11 @@ class Parcel extends BaseResource
     public $reference_identifier;
 
     /**
+     * @var \Mvdnbrk\MyParcel\Resources\ShipmentOptons
+     */
+    public $options;
+
+    /**
      * @var \Mvdnbrk\MyParcel\Resources\Recipient
      */
     public $recipient;
@@ -39,8 +45,6 @@ class Parcel extends BaseResource
         parent::__construct($attributes);
 
         $this->carrier = self::CARRIER_POSTNL;
-
-        $this->recipient = new Recipient;
     }
 
     /**
@@ -54,6 +58,34 @@ class Parcel extends BaseResource
     }
 
     /**
+     * Set the shipment options for this parcel.
+     *
+     * @param array  $value
+     */
+    public function setOptionsAttribute($value)
+    {
+        if (is_null($this->options)) {
+            $this->options = new ShipmentOptions;
+        }
+
+        $this->options->fill($value);
+    }
+
+    /**
+     * Set the recipient for this parcel.
+     *
+     * @param array  $value
+     */
+    public function setRecipientAttribute($value)
+    {
+        if (is_null($this->recipient)) {
+            $this->recipient = new Recipient;
+        }
+
+        $this->recipient->fill($value);
+    }
+
+    /**
      * Sets a reference for this parcel. Alias for reference_identifier.
      *
      * @param  string  $value
@@ -62,5 +94,20 @@ class Parcel extends BaseResource
     public function setReferenceAttribute($value)
     {
         $this->reference_identifier = $value;
+    }
+
+    /**
+      * Convert the parcel resource to an array.
+      *
+      * @return array
+      */
+    public function toArray()
+    {
+        return [
+            'carrier' => $this->carrier,
+            'reference_identifier' => $this->reference_identifier,
+            'recipient' => $this->recipient->toArray(),
+            'options' => $this->options->toArray(),
+        ];
     }
 }
