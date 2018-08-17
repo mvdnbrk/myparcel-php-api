@@ -60,6 +60,7 @@ class ParcelTest extends TestCase
                 'cc' => 'NL',
             ],
             'options' => [
+                'delivery_type' => 2,
                 'label_description' => 'Test label description',
                 'large_format' => 0,
                 'only_recipient' => 0,
