@@ -26,7 +26,7 @@ class Parcel extends BaseResource
     public $reference_identifier;
 
     /**
-     * @var \Mvdnbrk\MyParcel\Resources\ShipmentOptons
+     * @var \Mvdnbrk\MyParcel\Resources\ShipmentOptions
      */
     public $options;
 
