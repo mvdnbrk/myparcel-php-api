@@ -10,7 +10,7 @@ class Shipment extends BaseEndpoint
     /**
      * Create a new shipment for a parcel.
      *
-     * @param  \Mvdnbrk\MyParcel\Resources\Parcel
+     * @param  \Mvdnbrk\MyParcel\Resources\Parcel  $parcel
      * @return \Mvdnbrk\MyParcel\Resources\Shipment
      */
     public function create(Parcel $parcel)
