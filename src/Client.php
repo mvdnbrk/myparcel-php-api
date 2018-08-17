@@ -86,12 +86,12 @@ class Client
     }
 
     /**
-     * Performs a HHTP call to the API endpoint
+     * Performs a HTTP call to the API endpoint
      *
      * @param  string       The method to make the API call. GET/POST etc,
      * @param  string       The API method to call at the endpoint.
      * @param  string|null  The body to be send with te request.
-     * @return stting       The body of the repsone.
+     * @return string       The body of the repsone.
      */
     public function performHttpCall($httpMethod, $apiMethod, $httpBody = null)
     {
