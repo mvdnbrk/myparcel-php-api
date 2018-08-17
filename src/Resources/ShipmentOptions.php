@@ -2,6 +2,7 @@
 
 namespace Mvdnbrk\MyParcel\Resources;
 
+use Mvdnbrk\MyParcel\Support\Collection;
 use Mvdnbrk\MyParcel\Resources\BaseResource;
 
 class ShipmentOptions extends BaseResource
@@ -96,5 +97,24 @@ class ShipmentOptions extends BaseResource
     public function setDescriptionAttribute($value)
     {
         $this->label_description = $value;
+    }
+
+    /**
+      * Convert the options to an array.
+      * Boolean values will be converted to an integer.
+      *
+      * @return array
+      */
+    public function toArray()
+    {
+        return (new Collection(parent::toArray()))
+            ->map(function ($value, $key) {
+                if (is_bool($value)) {
+                    return (int) $value;
+                }
+
+                return $value;
+            })
+            ->all();
     }
 }
