@@ -7,7 +7,7 @@ use Mvdnbrk\MyParcel\Support\Str;
 use Mvdnbrk\MyParcel\Resources\Time;
 use Mvdnbrk\MyParcel\Support\Collection;
 use Mvdnbrk\MyParcel\Resources\PickupLocation;
-use Mvdnbrk\MyParcel\Exceptions\InvalidZipcodeException;
+use Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException;
 use Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException;
 
 class DeliveryOptions extends BaseEndpoint
@@ -25,7 +25,7 @@ class DeliveryOptions extends BaseEndpoint
     /**
      * @var string
      */
-    public $zipcode;
+    public $postal_code;
 
     /**
      * @var string
@@ -35,7 +35,7 @@ class DeliveryOptions extends BaseEndpoint
     /**
      * @var  array
      */
-    public $validZipcodes = [
+    public $validPostalCodes = [
         'BE' => '/^[1-9]{1}\d{3}$/',
         'NL' => '/^[1-9]{1}\d{3}[A-Z]{2}$/',
     ];
@@ -71,7 +71,6 @@ class DeliveryOptions extends BaseEndpoint
         $this->pickup = new Collection;
     }
 
-    public function get($zipcode, $housenumber, array $filters = [])
     /**
      * Get delivery options for an address based on postal code and house number.
      *
@@ -80,8 +79,9 @@ class DeliveryOptions extends BaseEndpoint
      * @param  array  $filters
      * @return $this
      */
+    public function get($postal_code, $housenumber, array $filters = [])
     {
-        $this->setZipcode($zipcode);
+        $this->setPostalCode($postal_code);
         $this->setHousenumber($housenumber);
 
         $result = $this->performApiCall(
@@ -134,7 +134,7 @@ class DeliveryOptions extends BaseEndpoint
             'cc' => $this->getCountry(),
             'carrier' => $this->carrier,
             'number' => $this->housenumber,
-            'postal_code' => $this->zipcode,
+            'postal_code' => $this->postal_code,
             'cutoff_time' => $this->cutoffTime->get(),
         ]);
     }
@@ -146,10 +146,10 @@ class DeliveryOptions extends BaseEndpoint
      */
     protected function setCountry()
     {
-        $zipcodes = new Collection($this->validZipcodes);
+        $postalCodes = new Collection($this->validPostalCodes);
 
-        $zipcodes->each(function ($value, $key) {
-            if (preg_match($value, $this->zipcode)) {
+        $postalCodes->each(function ($value, $key) {
+            if (preg_match($value, $this->postal_code)) {
                 $this->country = $key;
             }
         });
@@ -185,19 +185,19 @@ class DeliveryOptions extends BaseEndpoint
         return $this;
     }
 
-    public function setZipcode($value)
     /**
      * Sets the postal code.
      *
      * @param string  $value
      * @return  $this
      */
+    public function setPostalCode($value)
     {
-        $this->zipcode = preg_replace('/\s+/', '', Str::upper($value));
+        $this->postal_code = preg_replace('/\s+/', '', Str::upper($value));
         $this->setCountry();
 
         if ($this->country === null) {
-            throw new InvalidZipcodeException;
+            throw new InvalidPostalCodeException;
         }
 
         return $this;

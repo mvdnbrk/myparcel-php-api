@@ -7,7 +7,7 @@ use Mvdnbrk\MyParcel\Client;
 use Mvdnbrk\MyParcel\Support\Collection;
 use Mvdnbrk\MyParcel\Resources\PickupLocation;
 use Mvdnbrk\MyParcel\Endpoints\DeliveryOptions;
-use Mvdnbrk\MyParcel\Exceptions\InvalidZipcodeException;
+use Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException;
 use Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException;
 
 class DeliveryOptionsTest extends TestCase
@@ -23,40 +23,40 @@ class DeliveryOptionsTest extends TestCase
     }
 
     /** @test */
-    public function setting_a_valid_zipcode()
+    public function setting_a_valid_postal_code()
     {
-        $this->deliveryOptions->setZipcode('1234AA');
-        $this->assertEquals('1234AA', $this->deliveryOptions->zipcode);
+        $this->deliveryOptions->setPostalCode('1234AA');
+        $this->assertEquals('1234AA', $this->deliveryOptions->postal_code);
 
-        $this->deliveryOptions->setZipcode('1234 AA');
-        $this->assertEquals('1234AA', $this->deliveryOptions->zipcode);
+        $this->deliveryOptions->setPostalCode('1234 AA');
+        $this->assertEquals('1234AA', $this->deliveryOptions->postal_code);
 
-        $this->deliveryOptions->setZipcode(' 1234 AA ');
-        $this->assertEquals('1234AA', $this->deliveryOptions->zipcode);
+        $this->deliveryOptions->setPostalCode(' 1234 AA ');
+        $this->assertEquals('1234AA', $this->deliveryOptions->postal_code);
 
-        $this->deliveryOptions->setZipcode('1234aa');
-        $this->assertEquals('1234AA', $this->deliveryOptions->zipcode);
+        $this->deliveryOptions->setPostalCode('1234aa');
+        $this->assertEquals('1234AA', $this->deliveryOptions->postal_code);
     }
 
     /** @test */
-    public function setting_a_dutch_zipcode_sets_the_country_to_nl()
+    public function setting_a_dutch_postal_code_sets_the_country_to_nl()
     {
-        $this->deliveryOptions->setZipcode('1234AA');
+        $this->deliveryOptions->setPostalCode('1234AA');
         $this->assertEquals('NL', $this->deliveryOptions->getCountry());
     }
 
     /** @test */
-    public function setting_a_belgian_zipcode_sets_the_country_to_be()
+    public function setting_a_belgian_postal_code_sets_the_country_to_be()
     {
-        $this->deliveryOptions->setZipcode('2000');
+        $this->deliveryOptions->setPostalCode('2000');
         $this->assertEquals('BE', $this->deliveryOptions->getCountry());
     }
 
     /** @test */
-    public function setting_in_invalid_zipcode_throws_exception()
+    public function setting_in_invalid_postal_code_throws_an_exception()
     {
-        $this->expectException(InvalidZipcodeException::class);
-        $this->deliveryOptions->setZipcode('invalid-zipcode');
+        $this->expectException(InvalidPostalCodeException::class);
+        $this->deliveryOptions->setPostalCode('invalid-zipcode');
     }
 
     /** @test */
