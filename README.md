@@ -1,3 +1,5 @@
+<a href="https://www.myparcel.nl" target="_blank"><img src="https://assets.myparcel.nl/ui/corporate/logo-myparcel-alt.svg" alt="MyParcel" width="70" height="70"></a>
+
 # myparcel-php-api
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
