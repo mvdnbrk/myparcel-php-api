@@ -130,13 +130,13 @@ class DeliveryOptions extends BaseEndpoint
      */
     protected function getFilters($filters)
     {
-        return array_merge($filters, [
+        return array_merge([
             'cc' => $this->getCountry(),
             'carrier' => $this->carrier,
             'number' => $this->housenumber,
             'postal_code' => $this->postal_code,
             'cutoff_time' => $this->cutoffTime->get(),
-        ]);
+        ], $filters);
     }
 
     /**
