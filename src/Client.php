@@ -126,7 +126,7 @@ class Client
         ], $requestHeaders);
 
         if ($httpBody !== null) {
-            $request_headers[] = "Content-Type: application/json";
+            $request_headers[] = 'Content-Type: application/json';
             curl_setopt($this->ch, CURLOPT_POST, 1);
             curl_setopt($this->ch, CURLOPT_POSTFIELDS, $httpBody);
         }
