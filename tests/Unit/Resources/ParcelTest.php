@@ -50,11 +50,11 @@ class ParcelTest extends TestCase
     /** @test */
     public function it_can_set_a_parcel_as_a_mailbox_packahge()
     {
-         $parcel = new Parcel([
-            'options' => [
-                'signature' => true,
-            ]
-         ]);
+        $parcel = new Parcel([
+        'options' => [
+            'signature' => true,
+        ]
+        ]);
 
         $this->assertTrue($parcel->options->signature);
 
