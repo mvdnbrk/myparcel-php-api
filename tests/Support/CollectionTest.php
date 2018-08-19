@@ -286,6 +286,13 @@ class CollectionTest extends TestCase
     }
 
     /** @test */
+    public function merge_array()
+    {
+        $c = new Collection(['foo' => 'bar']);
+        $this->assertEquals(['foo' => 'bar', 'baz' => 1], $c->merge(['baz' => 1])->all());
+    }
+
+    /** @test */
     public function push()
     {
         $c = new Collection(['foo', 'foo']);
