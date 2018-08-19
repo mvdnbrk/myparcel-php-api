@@ -288,6 +288,17 @@ class Collection implements Arrayable, ArrayAccess, Countable
     }
 
     /**
+     * Merge the collection with the given items.
+     *
+     * @param  array  $items
+     * @return static
+     */
+    public function merge($items)
+    {
+        return new static(array_merge($this->items, $items));
+    }
+
+    /**
      * Push an item onto the end of the collection.
      *
      * @param  mixed  $value
@@ -296,6 +307,20 @@ class Collection implements Arrayable, ArrayAccess, Countable
     public function push($value)
     {
         $this->offsetSet(null, $value);
+
+        return $this;
+    }
+
+    /**
+     * Put an item in the collection by key.
+     *
+     * @param  mixed  $key
+     * @param  mixed  $value
+     * @return $this
+     */
+    public function put($key, $value)
+    {
+        $this->offsetSet($key, $value);
 
         return $this;
     }

@@ -55,31 +55,34 @@ abstract class BaseEndpoint
      * @param  string  $apiMethod           The API method to call at the endpoint.
      * @param  string|null  $httpBody       The body to be send with te request.
      * @param  array  $requestHeaders       Request headers to be send with the request.
-     * @return object                       The json decoded body of the repsone.
+     * @return object|null                  The json decoded body of the repsone.
      */
     protected function performApiCall($httpMethod, $apiMethod, $httpBody = null, $requestHeaders = [])
     {
-        $body = $this->apiClient->performHttpCall($httpMethod, $apiMethod, $httpBody, $requestHeaders);
+        $response = $this->apiClient->performHttpCall($httpMethod, $apiMethod, $httpBody, $requestHeaders);
 
-        if ($this->apiClient->getLastHttpResponseStatusCode() == Client::HTTP_STATUS_NO_CONTENT) {
-            return null;
-        }
+        $body = $response->getBody()->getContents();
 
         if (empty($body)) {
-            throw new MyParcelException("Unable to decode empty response: '{$body}'.");
+            if ($response->getStatusCode() === Client::HTTP_STATUS_NO_CONTENT) {
+                return null;
+            }
+
+            throw new MyParcelException('No response body found.');
         }
 
         $object = @json_decode($body);
 
         if (json_last_error() != JSON_ERROR_NONE) {
-            throw new MyParcelException("Unable to decode response: '{$body}'.");
+            throw new MyParcelException("Unable to decode MyParcel response: '{$body}'.");
         }
 
-        if (! empty($object->errors)) {
+        if ($response->getStatusCode() >= 400) {
             $error = $object->errors[0];
 
             throw new MyParcelException(
-                "Error executing API call ({$error->code}): {$object->message}. ".$error->human[0]
+                "Error executing API call ({$error->code}): {$object->message}: ".$error->human[0],
+                $response->getStatusCode()
             );
         }
 
