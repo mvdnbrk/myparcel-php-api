@@ -60,6 +60,7 @@ class ParcelTest extends TestCase
 
         $parcel->mailboxpackage();
 
+        $this->assertInstanceOf(Parcel::class, $parcel);
         $this->assertSame(2, $parcel->options->package_type);
         $this->assertFalse($parcel->options->signature);
     }

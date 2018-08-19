@@ -59,6 +59,19 @@ class Parcel extends BaseResource
     }
 
     /**
+     * Set the parcel to a mailbox pacakge.
+     *
+     * @return $this
+     */
+    public function mailboxpackage()
+    {
+        $this->options->package_type = 2;
+        $this->options->signature = false;
+
+        return $this;
+    }
+
+    /**
      * Require a signature from the recipient.
      * Sets signature option to tue.
      *
