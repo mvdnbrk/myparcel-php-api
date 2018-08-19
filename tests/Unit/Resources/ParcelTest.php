@@ -48,6 +48,23 @@ class ParcelTest extends TestCase
     }
 
     /** @test */
+    public function it_can_set_a_parcel_as_a_mailbox_packahge()
+    {
+         $parcel = new Parcel([
+            'options' => [
+                'signature' => true,
+            ]
+         ]);
+
+        $this->assertTrue($parcel->options->signature);
+
+        $parcel->mailboxpackage();
+
+        $this->assertSame(2, $parcel->options->package_type);
+        $this->assertFalse($parcel->options->signature);
+    }
+
+    /** @test */
     public function reference_may_be_used_as_an_alias_to_reference_identifier()
     {
         $parcel = new Parcel([
