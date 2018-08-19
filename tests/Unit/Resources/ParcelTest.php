@@ -32,7 +32,7 @@ class ParcelTest extends TestCase
     /** @test */
     public function it_can_require_signature_from_the_recipient_of_the_parcel()
     {
-         $parcel = new Parcel([
+        $parcel = new Parcel([
             'reference_identifier' => 'test-123',
             'recipient' => [
                 'person' => 'John Doe',
