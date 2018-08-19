@@ -298,7 +298,28 @@ class CollectionTest extends TestCase
         $c = new Collection(['foo', 'foo']);
 
         $c->push('qux');
+
         $this->assertEquals('qux', $c[2]);
+    }
+
+    /** @test */
+    public function put()
+    {
+        $data = new Collection(['name' => 'john', 'baz' => 'qux']);
+
+        $data = $data->put('name', 'jane');
+
+        $this->assertEquals(['name' => 'jane', 'baz' => 'qux'], $data->all());
+    }
+
+    /** @test */
+    public function put_with_no_key()
+    {
+        $data = new Collection(['foo', 'bar']);
+
+        $data = $data->put(null, 'baz');
+
+        $this->assertEquals(['foo', 'bar', 'baz'], $data->all());
     }
 
     /** @test */

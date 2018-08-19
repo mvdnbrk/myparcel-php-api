@@ -312,6 +312,20 @@ class Collection implements Arrayable, ArrayAccess, Countable
     }
 
     /**
+     * Put an item in the collection by key.
+     *
+     * @param  mixed  $key
+     * @param  mixed  $value
+     * @return $this
+     */
+    public function put($key, $value)
+    {
+        $this->offsetSet($key, $value);
+
+        return $this;
+    }
+
+    /**
      * Create a collection of all elements that do not pass a given truth test.
      *
      * @param  callable|mixed  $callback
