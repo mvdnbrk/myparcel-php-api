@@ -4,7 +4,7 @@ namespace Tests\Unit\Endpoints;
 
 use Tests\TestCase;
 use Mvdnbrk\MyParcel\Client;
-use Mvdnbrk\MyParcel\Support\Collection;
+use Tightenco\Collect\Support\Collection;
 use Mvdnbrk\MyParcel\Resources\PickupLocation;
 use Mvdnbrk\MyParcel\Endpoints\DeliveryOptions;
 use Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException;

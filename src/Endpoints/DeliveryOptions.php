@@ -5,7 +5,7 @@ namespace Mvdnbrk\MyParcel\Endpoints;
 use Mvdnbrk\MyParcel\Client;
 use Mvdnbrk\MyParcel\Support\Str;
 use Mvdnbrk\MyParcel\Resources\Time;
-use Mvdnbrk\MyParcel\Support\Collection;
+use Tightenco\Collect\Support\Collection;
 use Mvdnbrk\MyParcel\Resources\PickupLocation;
 use Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException;
 use Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException;
@@ -18,7 +18,7 @@ class DeliveryOptions extends BaseEndpoint
     const CARRIER = 'postnl';
 
     /**
-     * @var \Mvdnbrk\MyParcel\Support\Collection
+     * @var \Tightenco\Collect\Support\Collection
      */
     public $pickup;
 
@@ -146,7 +146,7 @@ class DeliveryOptions extends BaseEndpoint
      */
     protected function setCountry()
     {
-        $postalCodes = new Collection($this->validPostalCodes);
+        $postalCodes = collect($this->validPostalCodes);
 
         $postalCodes->each(function ($value, $key) {
             if (preg_match($value, $this->postal_code)) {

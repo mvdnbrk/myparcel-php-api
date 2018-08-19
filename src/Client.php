@@ -6,7 +6,6 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Composer\CaBundle\CaBundle;
 use GuzzleHttp\Client as HttpClient;
-use Mvdnbrk\MyParcel\Support\Collection;
 use GuzzleHttp\Exception\GuzzleException;
 use Mvdnbrk\MyParcel\Endpoints\Shipments;
 use Mvdnbrk\MyParcel\Endpoints\DeliveryOptions;
@@ -91,7 +90,7 @@ class Client
 
         $url = $this->apiEndpoint . '/' . $apiMethod;
 
-        $headers = new Collection([
+        $headers = collect([
             'User-Agent' => 'CustomApiCall/2',
             'Accept' => 'application/json',
             'Authorization' => 'Basic '.base64_encode($this->apiKey),
