@@ -30,6 +30,24 @@ class ParcelTest extends TestCase
     }
 
     /** @test */
+    public function it_can_require_signature_from_the_recipient_of_the_parcel()
+    {
+         $parcel = new Parcel([
+            'reference_identifier' => 'test-123',
+            'recipient' => [
+                'person' => 'John Doe',
+            ],
+        ]);
+
+        $this->assertFalse($parcel->options->signature);
+
+        $parcel->signature();
+
+        $this->assertInstanceOf(Parcel::class, $parcel);
+        $this->assertTrue($parcel->options->signature);
+    }
+
+    /** @test */
     public function reference_may_be_used_as_an_alias_to_reference_identifier()
     {
         $parcel = new Parcel([

@@ -42,9 +42,10 @@ class Parcel extends BaseResource
      */
     public function __construct(array $attributes = [])
     {
-        parent::__construct($attributes);
-
         $this->carrier = self::CARRIER_POSTNL;
+        $this->options = new ShipmentOptions;
+
+        parent::__construct($attributes);
     }
 
     /**
@@ -58,16 +59,25 @@ class Parcel extends BaseResource
     }
 
     /**
+     * Require a signature from the recipient.
+     * Sets signature option to tue.
+     *
+     * @return $this
+     */
+    public function signature()
+    {
+        $this->options->signature = true;
+
+        return $this;
+    }
+
+    /**
      * Set the shipment options for this parcel.
      *
      * @param array  $value
      */
     public function setOptionsAttribute($value)
     {
-        if (is_null($this->options)) {
-            $this->options = new ShipmentOptions;
-        }
-
         $this->options->fill($value);
     }
 
