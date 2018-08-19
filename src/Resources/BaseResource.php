@@ -4,7 +4,7 @@ namespace Mvdnbrk\MyParcel\Resources;
 
 use JsonSerializable;
 use Mvdnbrk\MyParcel\Contracts\Jsonable;
-use Mvdnbrk\MyParcel\Support\Collection;
+use Tightenco\Collect\Support\Collection;
 use Mvdnbrk\MyParcel\Contracts\Arrayable;
 use Mvdnbrk\MyParcel\Exceptions\JsonEncodingException;
 
@@ -30,7 +30,7 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
      */
     public function fill(array $attributes)
     {
-        (new Collection($attributes))->each(function ($value, $key) {
+        collect($attributes)->each(function ($value, $key) {
             $this->setAttribute($key, $value);
         });
 
@@ -55,7 +55,7 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
       */
     public function toArray()
     {
-        return (new Collection($this->attributesToArray()))
+        return collect($this->attributesToArray())
             ->reject(function ($value) {
                 return $value === null;
             })
