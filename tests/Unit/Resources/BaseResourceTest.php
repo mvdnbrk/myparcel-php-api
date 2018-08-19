@@ -49,6 +49,7 @@ class BaseResourceTest extends TestCase
         $resource = new ResourceStub();
 
         $this->assertNull($resource->getAttribute(null));
+        $this->assertNull($resource->getAttribute('not-existent'));
         $this->assertNull($resource->getAttributeValue('non-existent-key'));
 
         $this->assertEquals('test-get-mutator-value', $resource->testGetter);
