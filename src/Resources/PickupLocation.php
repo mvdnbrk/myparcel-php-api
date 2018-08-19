@@ -64,9 +64,8 @@ class PickupLocation extends Address
      */
     public function toArray()
     {
-        return array_merge(
-            $this->attributesToArray(),
-            ['distance' => $this->distanceForHumans()]
-        );
+        return collect($this->attributesToArray())
+            ->merge(['distance' => $this->distanceForHumans()])
+            ->all();
     }
 }

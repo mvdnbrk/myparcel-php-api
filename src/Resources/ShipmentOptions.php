@@ -2,7 +2,6 @@
 
 namespace Mvdnbrk\MyParcel\Resources;
 
-use Mvdnbrk\MyParcel\Support\Collection;
 use Mvdnbrk\MyParcel\Resources\BaseResource;
 
 class ShipmentOptions extends BaseResource
@@ -115,7 +114,7 @@ class ShipmentOptions extends BaseResource
       */
     public function toArray()
     {
-        return (new Collection(parent::toArray()))
+        return collect(parent::toArray())
             ->map(function ($value) {
                 if (is_bool($value)) {
                     return (int) $value;
