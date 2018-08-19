@@ -81,11 +81,14 @@ class Client
      * @param  string|null  $httpBody       The body to be send with te request.
      * @param  array  $requestHeaders       Request headers to be send with the request.
      * @return \Psr\Http\Message\ResponseInterface
+     * @throws \Mvdnbrk\MyParcel\Exceptions\MyParcelException
+     *
+     * @codeCoverageIgnore
      */
     public function performHttpCall($httpMethod, $apiMethod, $httpBody = null, $requestHeaders = [])
     {
         if (empty($this->apiKey)) {
-            throw new MyParcelException("You have not set an API key. Please use setApiKey() to set the API key.");
+            throw new MyParcelException('You have not set an API key. Please use setApiKey() to set the API key.');
         }
 
         $url = $this->apiEndpoint . '/' . $apiMethod;

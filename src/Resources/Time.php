@@ -13,6 +13,12 @@ class Time
      */
     protected $time;
 
+    /**
+     * Construct a new Time instance.
+     *
+     * @param string  $value
+     * @throws \Mvdnbrk\MyParcel\Exceptions\InvalidTimeException
+     */
     public function __construct($value)
     {
         $value = str_replace('.', self::SEPARATOR, $value);
@@ -25,6 +31,12 @@ class Time
         $this->time = $value;
     }
 
+    /**
+     * Get the time.
+     *
+     * @param  string $separator
+     * @return string
+     */
     public function get($separator = self::SEPARATOR)
     {
         return str_replace(self::SEPARATOR, $separator, $this->time);

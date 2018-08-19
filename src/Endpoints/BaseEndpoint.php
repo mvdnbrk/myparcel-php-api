@@ -56,6 +56,7 @@ abstract class BaseEndpoint
      * @param  string|null  $httpBody       The body to be send with te request.
      * @param  array  $requestHeaders       Request headers to be send with the request.
      * @return object|null                  The json decoded body of the repsone.
+     * @throws \Mvdnbrk\MyParcel\Exceptions\MyParcelException
      */
     protected function performApiCall($httpMethod, $apiMethod, $httpBody = null, $requestHeaders = [])
     {

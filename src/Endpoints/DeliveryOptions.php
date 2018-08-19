@@ -173,6 +173,7 @@ class DeliveryOptions extends BaseEndpoint
      *
      * @param int  $value
      * @return $this
+     * @throws \Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException
      */
     public function setHousenumber($value)
     {
@@ -190,6 +191,7 @@ class DeliveryOptions extends BaseEndpoint
      *
      * @param string  $value
      * @return  $this
+     * @throws \Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException
      */
     public function setPostalCode($value)
     {
