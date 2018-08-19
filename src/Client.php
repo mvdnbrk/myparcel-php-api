@@ -4,6 +4,7 @@ namespace Mvdnbrk\MyParcel;
 
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Client as HttpClient;
+use Mvdnbrk\MyParcel\Support\Collection;
 use GuzzleHttp\Exception\GuzzleException;
 use Mvdnbrk\MyParcel\Endpoints\Shipments;
 use Mvdnbrk\MyParcel\Endpoints\DeliveryOptions;
@@ -86,19 +87,17 @@ class Client
 
         $url = $this->apiEndpoint . '/' . $apiMethod;
 
-        $headers = [
+        $headers = new Collection([
             'User-Agent' => 'CustomApiCall/2',
             'Accept' => 'application/json',
             'Authorization' => 'Basic '.base64_encode($this->apiKey),
-        ];
+        ]);
 
         if ($httpBody !== null) {
-            $headers['Content-Type'] = 'application/json';
+            $headers->put('Content-Type', 'application/json');
         }
 
-        $headers = array_merge($headers, $requestHeaders);
-
-        $request = new Request($httpMethod, $url, $headers, $httpBody);
+        $request = new Request($httpMethod, $url, $headers->merge($requestHeaders)->all(), $httpBody);
 
         try {
             $response = $this->httpClient->send($request, ['http_errors' => false]);
