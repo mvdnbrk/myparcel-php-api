@@ -3,6 +3,8 @@
 namespace Mvdnbrk\MyParcel;
 
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\RequestOptions;
+use Composer\CaBundle\CaBundle;
 use GuzzleHttp\Client as HttpClient;
 use Mvdnbrk\MyParcel\Support\Collection;
 use GuzzleHttp\Exception\GuzzleException;
@@ -54,7 +56,9 @@ class Client
      */
     public function __construct()
     {
-        $this->httpClient = new HttpClient();
+        $this->httpClient = new HttpClient([
+            RequestOptions::VERIFY => CaBundle::getSystemCaRootBundlePath()
+        ]);
 
         $this->initializeEndpoints();
     }
