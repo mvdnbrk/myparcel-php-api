@@ -43,7 +43,7 @@ class ShipmentsTest extends TestCase
                 'only_recipient' => false,
                 'package_type' => 1,
                 'return' => false,
-                'signature' => 1,
+                'signature' => true,
             ],
         ];
 
