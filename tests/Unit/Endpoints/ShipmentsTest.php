@@ -21,7 +21,7 @@ class ShipmentsTest extends TestCase
     }
 
     /** @test */
-    public function create_a_new_shipment()
+    public function create_a_new_shipment_concept_for_a_parcel()
     {
         $array = [
             'reference_identifier' => 'test-123',
@@ -50,7 +50,32 @@ class ShipmentsTest extends TestCase
 
         $parcel = new Parcel($array);
 
+        $shipment = $this->client->shipments->concept($parcel);
+
+        $this->assertInstanceOf(Shipment::class, $shipment);
+        $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
+        $this->assertNotNull($shipment->id);
+    }
+
+    /** @test */
+    public function create_a_new_shipment_for_a_parcel_wich_includes_barcode_and_pdf_label()
+    {
+        $array = [
+            'recipient' => [
+                'person' => 'John Doe',
+                'street' => 'Poststraat',
+                'number' => '1',
+                'postal_code' => '1234AA',
+                'city' => 'Amsterdam',
+                'cc' => 'NL',
+            ],
+        ];
+
+        $parcel = new Parcel($array);
+
         $shipment = $this->client->shipments->create($parcel);
+
+        // WIP: create the label and set the barcode for the shipment.
 
         $this->assertInstanceOf(Shipment::class, $shipment);
         $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);

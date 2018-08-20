@@ -60,6 +60,11 @@ $parcel = \Mvdnbrk\MyParcel\Resources\Parcel([
 $shipment = $myparcel->shipments->create($parcel);
 ```
 
+If you only need to create a concept you may call the `concept` method. 
+``` php
+$concept = $myparcel->shipments->concept($parcel);
+```
+
 You have created your first shipment!
 
 ### Setting delivery options for a parcel
