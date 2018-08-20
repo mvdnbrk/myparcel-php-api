@@ -60,6 +60,20 @@ class Parcel extends BaseResource
     }
 
     /**
+     * Sets a label description for the parcel.
+     * Sets label_description option to the specified value.
+     *
+     * @param  string  $value
+     * @return $this
+     */
+    public function labelDescription($value)
+    {
+        $this->options->label_description = trim($value);
+
+        return $this;
+    }
+
+    /**
      * Set the parcel to a mailbox pacakge.
      *
      * @return $this

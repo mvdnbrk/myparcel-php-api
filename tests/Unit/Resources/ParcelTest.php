@@ -30,6 +30,20 @@ class ParcelTest extends TestCase
     }
 
     /** @test */
+    public function it_can_set_a_label_description()
+    {
+        $parcel = new Parcel();
+
+        $this->assertNull($parcel->options->label_description);
+
+        $parcel->labelDescription('Test label description');
+        $this->assertEquals('Test label description', $parcel->options->label_description);
+
+        $parcel->labelDescription('   Test   ');
+        $this->assertEquals('Test', $parcel->options->label_description);
+    }
+
+    /** @test */
     public function it_can_require_a_signature_from_the_recipient_of_the_parcel()
     {
         $parcel = new Parcel();

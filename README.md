@@ -79,12 +79,13 @@ $parcel = \Mvdnbrk\MyParcel\Resources\Parcel([
 ]);
 ```
 
-Or you may use a method like `signature`, `onlyRecipient` and `returnToSender`. 
+Or you may use a method like `signature`, `onlyRecipient`, `returnToSender` and `labelDescription`. 
 You may call any of these after constructing the parcel.
 ``` php
 $parcel->onlyRecipient()
        ->returnToSender()
-       ->signature();
+       ->signature()
+       ->labelDescription('Some description.');
 ```
 
 **Mailbox package**
