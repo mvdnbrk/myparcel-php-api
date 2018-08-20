@@ -15,23 +15,32 @@ class Shipments extends BaseEndpoint
      */
     public function create(Parcel $parcel)
     {
-        $httpBody = json_encode([
-            'data' => [
-                'shipments' => [
-                    json_decode($parcel->toJson())
-                ]
-            ],
-        ]);
-
         $response = $this->performApiCall(
             'POST',
             'shipments',
-            $httpBody,
+            $this->getHttpBody($parcel),
             ['Content-Type' => 'application/vnd.shipment+json; charset=utf-8']
         );
 
         return new ShipmentResource(array_merge([
             'id' => $response->data->ids[0]->id,
         ], $parcel->toArray()));
+    }
+
+    /**
+     * Get the http body for the API request.
+     *
+     * @param  \Mvdnbrk\MyParcel\Resources\Parcel  $parcel
+     * @return string
+     */
+    public function getHttpBody(Parcel $parcel)
+    {
+        return json_encode([
+            'data' => [
+                'shipments' => [
+                    json_decode($parcel->toJson())
+                ]
+            ],
+        ]);
     }
 }
