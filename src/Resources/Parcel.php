@@ -146,7 +146,7 @@ class Parcel extends BaseResource
     /**
      * Set the pick up location for this parcel.
      *
-     * @param array  $value
+     * @param array|null  $value
      * @return  void
      */
     public function setPickupAttribute($value)
