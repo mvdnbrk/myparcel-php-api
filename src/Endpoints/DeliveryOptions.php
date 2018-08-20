@@ -93,7 +93,7 @@ class DeliveryOptions extends BaseEndpoint
 
         foreach ($result->data->pickup as $location) {
             $newLocation = new PickupLocation;
-            $newLocation->name = $location->location;
+            $newLocation->location_name = $location->location;
             $newLocation->street = $location->street;
             $newLocation->postal_code = $location->postal_code;
             $newLocation->number = $location->number;

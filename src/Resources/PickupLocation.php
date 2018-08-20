@@ -7,7 +7,7 @@ class PickupLocation extends Address
     /**
      * @var string
      */
-    public $name;
+    public $location_name;
 
     /**
      * @var int
@@ -55,6 +55,27 @@ class PickupLocation extends Address
         }
 
         return "{$this->distance} meter";
+    }
+
+    /**
+     * Get the name for this location. Alias for location_name.
+     *
+     * @return string
+     */
+    public function getNameAttribute()
+    {
+        return $this->location_name;
+    }
+
+    /**
+     * Sets a name for this location. Alias for location_name.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setNameAttribute($value)
+    {
+        $this->location_name = $value;
     }
 
     /**
