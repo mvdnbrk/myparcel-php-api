@@ -15,9 +15,9 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
     /**
      * Create a new resource instance.
      *
-     * @param  array  $attributes
+     * @param  array|object  $attributes
      */
-    public function __construct(array $attributes = [])
+    public function __construct($attributes = [])
     {
         $this->fill($attributes);
     }
@@ -25,10 +25,10 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
     /**
      * Fill the resource with an array of attributes.
      *
-     * @param  array  $attributes
+     * @param  array|object  $attributes
      * @return $this
      */
-    public function fill(array $attributes)
+    public function fill($attributes)
     {
         collect($attributes)->each(function ($value, $key) {
             $this->setAttribute($key, $value);
