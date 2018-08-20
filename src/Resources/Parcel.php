@@ -44,6 +44,7 @@ class Parcel extends BaseResource
     {
         $this->carrier = self::CARRIER_POSTNL;
         $this->options = new ShipmentOptions;
+        $this->recipient = new Recipient;
 
         parent::__construct($attributes);
     }
@@ -65,15 +66,43 @@ class Parcel extends BaseResource
      */
     public function mailboxpackage()
     {
+        $this->options->setDefaultOptions();
+
         $this->options->package_type = 2;
-        $this->options->signature = false;
 
         return $this;
     }
 
     /**
+     * Deliver the parcel to the recipient only.
+     * Sets only_recipent option to true.
+     *
+     * @return $this
+     */
+    public function onlyRecipient()
+    {
+        $this->options->only_recipient = true;
+
+        return $this;
+    }
+
+    /**
+     * Return the parcel to sender when the recipient is not at home.
+     * Sets return option to true.
+     *
+     * @return $this
+     */
+    public function returnToSender()
+    {
+        $this->options->return = true;
+
+        return $this;
+    }
+
+
+    /**
      * Require a signature from the recipient.
-     * Sets signature option to tue.
+     * Sets signature option to true.
      *
      * @return $this
      */
@@ -101,10 +130,6 @@ class Parcel extends BaseResource
      */
     public function setRecipientAttribute($value)
     {
-        if (is_null($this->recipient)) {
-            $this->recipient = new Recipient;
-        }
-
         $this->recipient->fill($value);
     }
 

@@ -30,14 +30,9 @@ class ParcelTest extends TestCase
     }
 
     /** @test */
-    public function it_can_require_signature_from_the_recipient_of_the_parcel()
+    public function it_can_require_a_signature_from_the_recipient_of_the_parcel()
     {
-        $parcel = new Parcel([
-            'reference_identifier' => 'test-123',
-            'recipient' => [
-                'person' => 'John Doe',
-            ],
-        ]);
+        $parcel = new Parcel();
 
         $this->assertFalse($parcel->options->signature);
 
@@ -48,12 +43,14 @@ class ParcelTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_a_parcel_as_a_mailbox_packahge()
+    public function it_can_set_a_parcel_as_a_mailbox_package()
     {
         $parcel = new Parcel([
-        'options' => [
-            'signature' => true,
-        ]
+            'options' => [
+                'signature' => true,
+                'large_format' => true,
+                'only_recipent' => true,
+            ]
         ]);
 
         $this->assertTrue($parcel->options->signature);
@@ -63,6 +60,34 @@ class ParcelTest extends TestCase
         $this->assertInstanceOf(Parcel::class, $parcel);
         $this->assertSame(2, $parcel->options->package_type);
         $this->assertFalse($parcel->options->signature);
+        $this->assertFalse($parcel->options->large_format);
+        $this->assertFalse($parcel->options->only_recipient);
+    }
+
+    /** @test */
+    public function it_can_set_a_parcel_to_be_only_delivered_to_the_recipient()
+    {
+        $parcel = new Parcel();
+
+        $this->assertFalse($parcel->options->only_recipient);
+
+        $parcel->onlyRecipient();
+
+        $this->assertInstanceOf(Parcel::class, $parcel);
+        $this->assertTrue($parcel->options->only_recipient);
+    }
+
+    /** @test */
+    public function it_can_set_a_parcel_to_be_returned_to_sender_when_recipient_is_not_at_home()
+    {
+        $parcel = new Parcel();
+
+        $this->assertFalse($parcel->options->return);
+
+        $parcel->returnToSender();
+
+        $this->assertInstanceOf(Parcel::class, $parcel);
+        $this->assertTrue($parcel->options->return);
     }
 
     /** @test */

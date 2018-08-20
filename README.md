@@ -62,6 +62,38 @@ $shipment = $myparcel->shipments->create($parcel);
 
 You have created your first shipment!
 
+### Setting delivery options for a parcel
+
+You can set delivery options for a parcel by passing in the options directly when you create a parcel:
+``` php
+$parcel = \Mvdnbrk\MyParcel\Resources\Parcel([
+    ...
+    'recipient' => [
+        ...
+    ],
+    'options' => [
+        'description' => 'Description on the label',
+        'signature' => true,   
+        ...
+    ],
+]);
+```
+
+Or you may use a method like `signature`, `onlyRecipient` and `returnToSender`. 
+You may call any of these after constructing the parcel.
+``` php
+$parcel->onlyRecipient()
+       ->returnToSender()
+       ->signature();
+```
+
+**Mailbox package**
+
+This package type is only available for shipments in the Netherlands that fit in a standard mailbox.
+``` php
+$parcel->mailboxpackage()
+```
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
