@@ -20,6 +20,18 @@ class ShipmentsTest extends TestCase
         $this->client->setApiKey(getenv('API_KEY'));
     }
 
+    private function validRecipient($overrides = [])
+    {
+        return array_merge([
+            'person' => 'John Doe',
+            'street' => 'Poststraat',
+            'number' => '1',
+            'postal_code' => '1234AA',
+            'city' => 'Amsterdam',
+            'cc' => 'NL',
+        ], $overrides);
+    }
+
     /** @test */
     public function create_a_new_shipment_concept_for_a_parcel()
     {
@@ -61,14 +73,7 @@ class ShipmentsTest extends TestCase
     public function create_a_new_shipment_for_a_parcel_wich_includes_barcode_and_pdf_label()
     {
         $array = [
-            'recipient' => [
-                'person' => 'John Doe',
-                'street' => 'Poststraat',
-                'number' => '1',
-                'postal_code' => '1234AA',
-                'city' => 'Amsterdam',
-                'cc' => 'NL',
-            ],
+            'recipient' => $this->validRecipient(),
         ];
 
         $parcel = new Parcel($array);
@@ -86,14 +91,7 @@ class ShipmentsTest extends TestCase
     public function create_shipment_with_a_pick_up_location()
     {
         $array = [
-            'recipient' => [
-                'person' => 'John Doe',
-                'street' => 'Poststraat',
-                'number' => '1',
-                'postal_code' => '1234AA',
-                'city' => 'Amsterdam',
-                'cc' => 'NL',
-            ],
+            'recipient' => $this->validRecipient(),
             'pickup' => [
                 'name' => 'Test pick up',
                 'street' => 'Pickup street',
