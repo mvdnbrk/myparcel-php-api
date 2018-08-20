@@ -59,7 +59,9 @@ class PickupLocationTest extends TestCase
             'name' => 'Test name',
             'phone' => '0101111111',
             'location_code' => 'testcode1234',
-            'opening_hours' => [],
+            'opening_hours' => [
+                'monday' => '9:00-17:00',
+            ],
             'latitude' => 1.11,
             'longitude' => 2.22,
             'distance' => 100,
@@ -68,10 +70,10 @@ class PickupLocationTest extends TestCase
         $array = $pickup->toArray();
 
         $this->assertInternalType('array', $array);
-        $this->assertEquals('Test name', $array['name']);
+        $this->assertEquals('Test name', $array['location_name']);
         $this->assertEquals('0101111111', $array['phone']);
         $this->assertEquals('testcode1234', $array['location_code']);
-        $this->assertEquals([], $array['opening_hours']);
+        $this->assertEquals(['monday' => '9:00-17:00'], $array['opening_hours']);
         $this->assertEquals(1.11, $array['latitude']);
         $this->assertEquals(2.22, $array['longitude']);
         $this->assertEquals('100 meter', $array['distance']);
