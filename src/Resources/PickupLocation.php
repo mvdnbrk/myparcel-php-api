@@ -96,6 +96,6 @@ class PickupLocation extends Address
             ->reject(function ($value) {
                 return empty($value);
             })
-            ->all();;
+            ->all();
     }
 }
