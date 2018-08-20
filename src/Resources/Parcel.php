@@ -151,6 +151,11 @@ class Parcel extends BaseResource
      */
     public function setPickupAttribute($value)
     {
+        if (is_null($value)) {
+            $this->pickup = null;
+            return;
+        }
+
         if (is_null($this->pickup)) {
             $this->pickup = new PickupLocation($value);
         }

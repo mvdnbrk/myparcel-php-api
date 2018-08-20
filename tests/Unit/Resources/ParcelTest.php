@@ -227,4 +227,28 @@ class ParcelTest extends TestCase
         $this->assertArrayHasKey('recipient', $array);
         $this->assertInternalType('array', $array['recipient']);
     }
+
+    /** @test */
+    public function passing_null_value_to_set_pickup_attribute_should_return_null()
+    {
+        $parcel = new Parcel();
+
+        $this->assertNull($parcel->setPickupAttribute(null));
+    }
+
+    /** @test */
+    public function passing_null_value_to_set_pickup_attribute_should_set_pickup_to_null()
+    {
+        $parcel = new Parcel([
+            'pickup' => [
+                'name' => 'MyParcel',
+            ],
+        ]);
+
+        $this->assertEquals('MyParcel', $parcel->pickup->name);
+
+        $parcel->setPickupAttribute(null);
+
+        $this->assertNull($parcel->pickup);
+    }
 }
