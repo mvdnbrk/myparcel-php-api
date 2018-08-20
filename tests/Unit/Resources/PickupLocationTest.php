@@ -76,4 +76,29 @@ class PickupLocationTest extends TestCase
         $this->assertEquals(2.22, $array['longitude']);
         $this->assertEquals('100 meter', $array['distance']);
     }
+
+    /** @test */
+    public function to_array_removes_empty_attributes()
+    {
+        $pickup = new PickupLocation([
+            'name' => 'Test name',
+            'phone' => null,
+            'location_code' => null,
+            'opening_hours' => [],
+            'latitude' => null,
+            'longitude' => null,
+            'distance' => null,
+        ]);
+
+        $array = $pickup->toArray();
+
+        $this->assertInternalType('array', $array);
+        $this->assertEquals('Test name', $array['location_name']);
+        $this->assertArrayNotHasKey('phone', $array);
+        $this->assertArrayNotHasKey('location_code', $array);
+        $this->assertArrayNotHasKey('latitude', $array);
+        $this->assertArrayNotHasKey('longitude', $array);
+        $this->assertArrayNotHasKey('distance', $array);
+        $this->assertArrayNotHasKey('opening_hours', $array);
+    }
 }

@@ -90,7 +90,12 @@ class PickupLocation extends Address
     public function toArray()
     {
         return collect($this->attributesToArray())
-            ->merge(['distance' => $this->distanceForHumans()])
-            ->all();
+            ->merge([
+                'distance' => $this->distanceForHumans()
+            ])
+            ->reject(function ($value) {
+                return empty($value);
+            })
+            ->all();;
     }
 }
