@@ -24,7 +24,6 @@ class ShipmentsTest extends TestCase
     public function create_a_new_shipment()
     {
         $array = [
-            'carrier' => 1,
             'reference_identifier' => 'test-123',
             'recipient' => [
                 'company' => 'Test Company B.V.',
