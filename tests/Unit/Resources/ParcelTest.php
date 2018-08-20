@@ -126,7 +126,9 @@ class ParcelTest extends TestCase
 
         $this->assertInstanceOf(Parcel::class, $parcel);
         $this->assertInstanceOf(PickupLocation::class, $parcel->pickup);
-        $this->assertEquals('MyParcel', $parcel->pickup->name);
+        $this->assertArrayHasKey('pickup', $parcel->toArray());
+
+        $this->assertEquals('MyParcel', $parcel->pickup->location_name);
         $this->assertEquals('Siriusdreef', $parcel->pickup->street);
         $this->assertEquals('66', $parcel->pickup->number);
         $this->assertEquals('2132WT', $parcel->pickup->postal_code);

@@ -191,6 +191,7 @@ class Parcel extends BaseResource
             'carrier' => $this->carrier,
             'reference_identifier' => $this->reference_identifier,
             'recipient' => $this->recipient->toArray(),
+            'pickup' => $this->pickup->toArray(),
             'options' => $this->options->toArray(),
         ])->reject(function ($value) {
             return $value === null;
