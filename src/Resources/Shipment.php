@@ -10,4 +10,14 @@ class Shipment extends Parcel
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $barcode;
+
+    /**
+     * @var string
+     */
+    public $created;
 }
