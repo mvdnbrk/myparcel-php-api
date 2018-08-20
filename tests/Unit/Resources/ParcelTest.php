@@ -197,17 +197,6 @@ class ParcelTest extends TestCase
     }
 
     /** @test */
-    public function recipient_is_required()
-    {
-        $parcel = new Parcel();
-
-        $array = $parcel->toArray();
-
-        $this->assertArrayHasKey('recipient', $array);
-        $this->assertInternalType('array', $array['recipient']);
-    }
-
-    /** @test */
     public function options_are_required()
     {
         $parcel = new Parcel();
@@ -216,5 +205,26 @@ class ParcelTest extends TestCase
 
         $this->assertArrayHasKey('options', $array);
         $this->assertInternalType('array', $array['options']);
+    }
+
+    /** @test */
+    public function pickup_is_optional()
+    {
+        $parcel = new Parcel();
+
+        $array = $parcel->toArray();
+
+        $this->assertArrayNotHasKey('pickup', $array);
+    }
+
+    /** @test */
+    public function recipient_is_required()
+    {
+        $parcel = new Parcel();
+
+        $array = $parcel->toArray();
+
+        $this->assertArrayHasKey('recipient', $array);
+        $this->assertInternalType('array', $array['recipient']);
     }
 }
