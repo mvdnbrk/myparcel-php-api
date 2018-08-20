@@ -32,6 +32,16 @@ class PickupLocationTest extends TestCase
     }
 
     /** @test */
+    public function distance_for_humans_returns_null_if_distance_is_null()
+    {
+        $pickup = new PickupLocation;
+
+        $pickup->distance = null;
+
+        $this->assertNull($pickup->distanceForHumans());
+    }
+
+    /** @test */
     public function name_may_be_used_as_an_alias_to_location_name()
     {
         $pickup = new PickupLocation([

@@ -46,6 +46,10 @@ class PickupLocation extends Address
      */
     public function distanceForHumans()
     {
+        if (! $this->distance) {
+            return null;
+        }
+
         if ($this->distance >= 10000) {
             return round($this->distance / 1000, 0) . ' km';
         }
