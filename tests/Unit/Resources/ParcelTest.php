@@ -183,4 +183,14 @@ class ParcelTest extends TestCase
 
         $this->assertSame($array, $parcel->toArray());
     }
+
+    /** @test */
+    public function reference_identifier_is_optional()
+    {
+        $parcel = new Parcel([
+            'reference_identifier' => null,
+        ]);
+
+        $this->assertArrayNotHasKey('reference_identifier', $parcel->toArray());
+    }
 }

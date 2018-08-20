@@ -187,11 +187,14 @@ class Parcel extends BaseResource
       */
     public function toArray()
     {
-        return [
+        return collect([
             'carrier' => $this->carrier,
             'reference_identifier' => $this->reference_identifier,
             'recipient' => $this->recipient->toArray(),
             'options' => $this->options->toArray(),
-        ];
+        ])->reject(function ($value) {
+            return $value === null;
+        })
+        ->all();;
     }
 }
