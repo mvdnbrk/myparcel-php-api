@@ -136,6 +136,7 @@ class Parcel extends BaseResource
      * Set the shipment options for this parcel.
      *
      * @param array  $value
+     * @return  void
      */
     public function setOptionsAttribute($value)
     {
@@ -146,6 +147,7 @@ class Parcel extends BaseResource
      * Set the pick up location for this parcel.
      *
      * @param array  $value
+     * @return  void
      */
     public function setPickupAttribute($value)
     {
@@ -163,6 +165,7 @@ class Parcel extends BaseResource
      * Set the recipient for this parcel.
      *
      * @param array  $value
+     * @return  void
      */
     public function setRecipientAttribute($value)
     {
