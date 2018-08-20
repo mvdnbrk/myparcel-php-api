@@ -193,4 +193,26 @@ class ParcelTest extends TestCase
 
         $this->assertArrayNotHasKey('reference_identifier', $parcel->toArray());
     }
+
+    /** @test */
+    public function recipient_is_required()
+    {
+        $parcel = new Parcel();
+
+        $array = $parcel->toArray();
+
+        $this->assertArrayHasKey('recipient', $array);
+        $this->assertInternalType('array', $array['recipient']);
+    }
+
+    /** @test */
+    public function options_are_required()
+    {
+        $parcel = new Parcel();
+
+        $array = $parcel->toArray();
+
+        $this->assertArrayHasKey('options', $array);
+        $this->assertInternalType('array', $array['options']);
+    }
 }
