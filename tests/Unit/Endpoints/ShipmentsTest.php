@@ -111,4 +111,40 @@ class ShipmentsTest extends TestCase
         $this->assertInstanceOf(PickupLocation::class, $shipment->pickup);
         $this->assertNotNull($shipment->id);
     }
+
+    /** @test */
+    public function get_a_shipment_by_its_id()
+    {
+        $array = [
+            'recipient' => $this->validRecipient(),
+        ];
+
+        $parcel = new Parcel($array);
+        $concept = $this->client->shipments->concept($parcel);
+
+        $shipment = $this->client->shipments->get($concept->id);
+
+        $this->assertInstanceOf(Shipment::class, $shipment);
+        $this->assertNotNull($shipment->id);
+        $this->assertNotNull($shipment->created);
+    }
+
+    /** @test */
+    public function get_a_shipment_by_its_reference()
+    {
+        $array = [
+            'reference_identifier' => 'test-123',
+            'recipient' => $this->validRecipient(),
+        ];
+
+        $parcel = new Parcel($array);
+        $concept = $this->client->shipments->concept($parcel);
+
+        $shipment = $this->client->shipments->getByReference('test-123');
+
+        $this->assertInstanceOf(Shipment::class, $shipment);
+        $this->assertEquals('test-123', $shipment->reference_identifier);
+        $this->assertNotNull($shipment->id);
+        $this->assertNotNull($shipment->created);
+    }
 }

@@ -116,6 +116,17 @@ $parcel = \Mvdnbrk\MyParcel\Resources\Parcel([
 ]);
 ```
 
+### Get a shipment
+You can get a shipment by it's id or your own reference.
+``` php
+$shipment = $myparcel->shipments->get($id);
+```
+
+``` php
+$reference = 'your own reference when you created the parcel';
+$shipment = $myparcel->shipments->getByReference($reference);
+```
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.

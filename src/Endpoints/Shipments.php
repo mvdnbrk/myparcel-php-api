@@ -41,6 +41,42 @@ class Shipments extends BaseEndpoint
     }
 
     /**
+     * Get a shipment by the Id that was assigned by MyParcel upon creation.
+     *
+     * @param  int $id
+     * @return \Mvdnbrk\MyParcel\Resources\Shipment
+     */
+    public function get($id)
+    {
+        $response = $this->performApiCall(
+            'GET',
+            'shipments/'.$id
+        );
+
+        return new ShipmentResource(
+            collect($response->data->shipments[0])->all()
+        );
+    }
+
+    /**
+     * Get a shipment by your own reference.
+     *
+     * @param  string $value
+     * @return \Mvdnbrk\MyParcel\Resources\Shipment
+     */
+    public function getByReference($value)
+    {
+        $response = $this->performApiCall(
+            'GET',
+            'shipments' . $this->buildQueryString(['reference_identifier' => $value])
+        );
+
+        return new ShipmentResource(
+            collect($response->data->shipments[0])->all()
+        );
+    }
+
+    /**
      * Get the http body for the API request.
      *
      * @param  \Mvdnbrk\MyParcel\Resources\Parcel  $parcel
