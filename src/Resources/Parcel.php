@@ -31,6 +31,11 @@ class Parcel extends BaseResource
     public $options;
 
     /**
+     * @var \Mvdnbrk\MyParcel\Resources\PickupLocation
+     */
+    public $pickup;
+
+    /**
      * @var \Mvdnbrk\MyParcel\Resources\Recipient
      */
     public $recipient;
@@ -135,6 +140,23 @@ class Parcel extends BaseResource
     public function setOptionsAttribute($value)
     {
         $this->options->fill($value);
+    }
+
+    /**
+     * Set the pick up location for this parcel.
+     *
+     * @param array  $value
+     */
+    public function setPickupAttribute($value)
+    {
+        if (is_null($this->pickup)) {
+            $this->pickup = new PickupLocation($value);
+        }
+
+        $this->options->setDefaultOptions();
+        $this->options->package_type = 1;
+        $this->options->delivery_type = 4;
+        $this->signature();
     }
 
     /**

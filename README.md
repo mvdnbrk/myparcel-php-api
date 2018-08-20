@@ -95,6 +95,23 @@ This package type is only available for shipments in the Netherlands that fit in
 $parcel->mailboxpackage()
 ```
 
+### Send a shipment to a pick up location
+``` php
+$parcel = \Mvdnbrk\MyParcel\Resources\Parcel([
+    'recipient' => [
+        ...
+    ],
+    'pickup' => [
+        'name' => 'Name of the location',
+        'street' => 'Poststraat',
+        'number' => '1',
+        'postal_code' => '1234AA',
+        'city' => 'Amsterdam',
+        'cc' => 'NL,
+    ]
+]);
+```
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
