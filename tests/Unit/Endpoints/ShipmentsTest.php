@@ -6,6 +6,8 @@ use Tests\TestCase;
 use Mvdnbrk\MyParcel\Client;
 use Mvdnbrk\MyParcel\Resources\Parcel;
 use Mvdnbrk\MyParcel\Resources\Shipment;
+use Mvdnbrk\MyParcel\Resources\PickupLocation;
+use Mvdnbrk\MyParcel\Resources\ShipmentOptions;
 
 /** @group integration */
 class ShipmentsTest extends TestCase
@@ -52,6 +54,39 @@ class ShipmentsTest extends TestCase
         $shipment = $this->client->shipments->create($parcel);
 
         $this->assertInstanceOf(Shipment::class, $shipment);
+        $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
+        $this->assertNotNull($shipment->id);
+    }
+
+    /** @test */
+    public function create_shipment_with_a_pick_up_location()
+    {
+        $array = [
+            'recipient' => [
+                'person' => 'John Doe',
+                'street' => 'Poststraat',
+                'number' => '1',
+                'postal_code' => '1234AA',
+                'city' => 'Amsterdam',
+                'cc' => 'NL',
+            ],
+            'pickup' => [
+                'name' => 'Test pick up',
+                'street' => 'Pickup street',
+                'number' => '1',
+                'postal_code' => '9999ZZ',
+                'city' => 'Maastricht',
+                'cc' => 'NL',
+            ],
+        ];
+
+        $parcel = new Parcel($array);
+
+        $shipment = $this->client->shipments->create($parcel);
+
+        $this->assertInstanceOf(Shipment::class, $shipment);
+        $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
+        $this->assertInstanceOf(PickupLocation::class, $shipment->pickup);
         $this->assertNotNull($shipment->id);
     }
 }
