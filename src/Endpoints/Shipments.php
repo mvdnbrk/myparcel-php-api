@@ -28,7 +28,7 @@ class Shipments extends BaseEndpoint
      */
     public function concept(Parcel $parcel)
     {
-         $response = $this->performApiCall(
+        $response = $this->performApiCall(
             'POST',
             'shipments',
             $this->getHttpBody($parcel),
