@@ -43,14 +43,22 @@ class Shipments extends BaseEndpoint
     /**
      * Delete a shipment.
      *
-     * @param  int $id
+     * @param  int|\Mvdnbrk\MyParcel\Resources\Shipment
      * @return bool
      */
-    public function delete($id)
+    public function delete($value)
     {
+        if ($value instanceof ShipmentResource) {
+            if ($value->status !== 1) {
+                return false;
+            }
+
+            $value = $value->id;
+        }
+
         $response = $this->performApiCall(
             'DELETE',
-            'shipments/'.$id
+            'shipments/'.$value
         );
 
         return true;

@@ -34,7 +34,7 @@ class ShipmentsTest extends TestCase
 
     private function cleanUp(Shipment $shipment)
     {
-        $this->client->shipments->delete($shipment->id);
+        $this->client->shipments->delete($shipment);
     }
 
     /** @test */
@@ -122,7 +122,7 @@ class ShipmentsTest extends TestCase
     }
 
     /** @test */
-    public function delete_a_shipment()
+    public function delete_a_shipment_by_id()
     {
         $parcel = new Parcel([
             'recipient' => $this->validRecipient(['person' => 'Jan Klaassen']),
@@ -131,6 +131,35 @@ class ShipmentsTest extends TestCase
         $shipment = $this->client->shipments->concept($parcel);
 
         $this->assertTrue($this->client->shipments->delete($shipment->id));
+    }
+
+    /** @test */
+    public function delete_a_shipment_by_passing_shipment_resource()
+    {
+        $parcel = new Parcel([
+            'recipient' => $this->validRecipient(['person' => 'Jan Klaassen']),
+        ]);
+
+        $shipment = $this->client->shipments->concept($parcel);
+
+        $this->assertTrue($this->client->shipments->delete($shipment));
+    }
+
+    /** @test */
+    public function only_a_concept_can_be_deleted()
+    {
+        $parcel = new Parcel([
+            'recipient' => $this->validRecipient(['person' => 'Jan Klaassen']),
+        ]);
+
+        $shipment = $this->client->shipments->concept($parcel);
+        $shipment->status = 2;
+
+        $this->assertFalse($this->client->shipments->delete($shipment));
+
+        $shipment->status = 1;
+
+        $this->assertTrue($this->client->shipments->delete($shipment));
     }
 
     /** @test */
