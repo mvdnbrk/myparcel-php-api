@@ -127,7 +127,7 @@ class ShipmentsTest extends TestCase
     public function delete_a_shipment_by_id()
     {
         $parcel = new Parcel([
-            'recipient' => $this->validRecipient(['person' => 'Jan Klaassen']),
+            'recipient' => $this->validRecipient(['person' => 'John Doe']),
         ]);
 
         $shipment = $this->client->shipments->concept($parcel);
@@ -139,7 +139,7 @@ class ShipmentsTest extends TestCase
     public function delete_a_shipment_by_passing_shipment_resource()
     {
         $parcel = new Parcel([
-            'recipient' => $this->validRecipient(['person' => 'Jan Klaassen']),
+            'recipient' => $this->validRecipient(['person' => 'John Doe']),
         ]);
 
         $shipment = $this->client->shipments->concept($parcel);
