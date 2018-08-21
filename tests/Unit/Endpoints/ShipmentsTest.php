@@ -32,6 +32,11 @@ class ShipmentsTest extends TestCase
         ], $overrides);
     }
 
+    private function cleanUp(Shipment $shipment)
+    {
+        $this->client->shipments->delete($shipment->id);
+    }
+
     /** @test */
     public function create_a_new_shipment_concept_for_a_parcel()
     {
@@ -67,6 +72,8 @@ class ShipmentsTest extends TestCase
         $this->assertInstanceOf(Shipment::class, $shipment);
         $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
         $this->assertNotNull($shipment->id);
+
+        $this->cleanUp($shipment);
     }
 
     /** @test */
@@ -104,12 +111,14 @@ class ShipmentsTest extends TestCase
 
         $parcel = new Parcel($array);
 
-        $shipment = $this->client->shipments->create($parcel);
+        $shipment = $this->client->shipments->concept($parcel);
 
         $this->assertInstanceOf(Shipment::class, $shipment);
         $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
         $this->assertInstanceOf(PickupLocation::class, $shipment->pickup);
         $this->assertNotNull($shipment->id);
+
+        $this->cleanUp($shipment);
     }
 
     /** @test */
@@ -139,6 +148,8 @@ class ShipmentsTest extends TestCase
         $this->assertInstanceOf(Shipment::class, $shipment);
         $this->assertNotNull($shipment->id);
         $this->assertNotNull($shipment->created);
+
+        $this->cleanUp($shipment);
     }
 
     /** @test */
@@ -158,5 +169,7 @@ class ShipmentsTest extends TestCase
         $this->assertEquals('test-123', $shipment->reference_identifier);
         $this->assertNotNull($shipment->id);
         $this->assertNotNull($shipment->created);
+
+        $this->cleanUp($shipment);
     }
 }

@@ -41,7 +41,6 @@ class Shipments extends BaseEndpoint
     }
 
     /**
-     * Get a shipment by the Id that was assigned by MyParcel upon creation.
      * Delete a shipment.
      *
      * @param  int $id
