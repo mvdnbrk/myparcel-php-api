@@ -94,7 +94,7 @@ class Shipments extends BaseEndpoint
     {
         $response = $this->performApiCall(
             'GET',
-            'shipments' . $this->buildQueryString(['reference_identifier' => $value])
+            'shipments'.$this->buildQueryString(['reference_identifier' => $value])
         );
 
         return new ShipmentResource(
