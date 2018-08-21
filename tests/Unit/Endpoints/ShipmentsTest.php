@@ -148,6 +148,7 @@ class ShipmentsTest extends TestCase
         $this->assertInstanceOf(Shipment::class, $shipment);
         $this->assertNotNull($shipment->id);
         $this->assertNotNull($shipment->created);
+        $this->assertNotNull($shipment->status);
 
         $this->cleanUp($shipment);
     }
@@ -169,6 +170,7 @@ class ShipmentsTest extends TestCase
         $this->assertEquals('test-123', $shipment->reference_identifier);
         $this->assertNotNull($shipment->id);
         $this->assertNotNull($shipment->created);
+        $this->assertNotNull($shipment->status);
 
         $this->cleanUp($shipment);
     }

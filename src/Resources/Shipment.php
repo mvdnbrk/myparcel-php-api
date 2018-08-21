@@ -20,4 +20,9 @@ class Shipment extends Parcel
      * @var string
      */
     public $created;
+
+    /**
+     * @var int
+     */
+    public $status;
 }
