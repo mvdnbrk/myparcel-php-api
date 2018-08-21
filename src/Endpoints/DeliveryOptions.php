@@ -89,9 +89,9 @@ class DeliveryOptions extends BaseEndpoint
             'delivery_options' . $this->buildQueryString($this->getFilters($filters))
         );
 
-        $this->pickup = new Collection();
+        $this->pickup = collect();
 
-        foreach ($result->data->pickup as $location) {
+        collect($result->data->pickup)->each(function ($location) {
             $newLocation = new PickupLocation;
             $newLocation->location_name = $location->location;
             $newLocation->street = $location->street;
@@ -107,7 +107,7 @@ class DeliveryOptions extends BaseEndpoint
             $newLocation->location_code = $location->location_code;
 
             $this->pickup->push($newLocation);
-        }
+        });
 
         return $this;
     }
