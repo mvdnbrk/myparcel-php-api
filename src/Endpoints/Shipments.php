@@ -3,6 +3,7 @@
 namespace Mvdnbrk\MyParcel\Endpoints;
 
 use Mvdnbrk\MyParcel\Resources\Parcel;
+use Mvdnbrk\MyParcel\Types\ShipmentStatus;
 use Mvdnbrk\MyParcel\Resources\Shipment as ShipmentResource;
 
 class Shipments extends BaseEndpoint
@@ -37,7 +38,7 @@ class Shipments extends BaseEndpoint
 
         return new ShipmentResource(array_merge([
             'id' => $response->data->ids[0]->id,
-            'status' => 1,
+            'status' => ShipmentStatus::CONCEPT,
         ], $parcel->toArray()));
     }
 
@@ -50,7 +51,7 @@ class Shipments extends BaseEndpoint
     public function delete($value)
     {
         if ($value instanceof ShipmentResource) {
-            if ($value->status !== 1) {
+            if ($value->status !== ShipmentStatus::CONCEPT) {
                 return false;
             }
 

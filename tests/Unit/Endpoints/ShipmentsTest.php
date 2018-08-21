@@ -5,7 +5,9 @@ namespace Tests\Unit\Endpoints;
 use Tests\TestCase;
 use Mvdnbrk\MyParcel\Client;
 use Mvdnbrk\MyParcel\Resources\Parcel;
+use Mvdnbrk\MyParcel\Types\PackageType;
 use Mvdnbrk\MyParcel\Resources\Shipment;
+use Mvdnbrk\MyParcel\Types\ShipmentStatus;
 use Mvdnbrk\MyParcel\Resources\PickupLocation;
 use Mvdnbrk\MyParcel\Resources\ShipmentOptions;
 
@@ -58,7 +60,7 @@ class ShipmentsTest extends TestCase
                 'label_description' => 'Test label description',
                 'large_format' => false,
                 'only_recipient' => false,
-                'package_type' => 1,
+                'package_type' => PackageType::PACKAGE,
                 'return' => false,
                 'signature' => true,
             ],
@@ -71,7 +73,7 @@ class ShipmentsTest extends TestCase
         $this->assertInstanceOf(Shipment::class, $shipment);
         $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
         $this->assertNotNull($shipment->id);
-        $this->assertEquals(1, $shipment->status);
+        $this->assertEquals(ShipmentStatus::CONCEPT, $shipment->status);
 
         $this->cleanUp($shipment);
     }
@@ -153,11 +155,11 @@ class ShipmentsTest extends TestCase
         ]);
 
         $shipment = $this->client->shipments->concept($parcel);
-        $shipment->status = 2;
+        $shipment->status = ShipmentStatus::REGISTERED;
 
         $this->assertFalse($this->client->shipments->delete($shipment));
 
-        $shipment->status = 1;
+        $shipment->status = ShipmentStatus::CONCEPT;
 
         $this->assertTrue($this->client->shipments->delete($shipment));
     }
