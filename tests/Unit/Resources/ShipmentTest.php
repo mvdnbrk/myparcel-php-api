@@ -4,6 +4,7 @@ namespace Tests\Unit\Resources;
 
 use Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\Shipment;
+use Mvdnbrk\MyParcel\Types\ShipmentStatus;
 
 class ShipmentTest extends TestCase
 {
@@ -12,8 +13,14 @@ class ShipmentTest extends TestCase
     {
         $shipment = new Shipment([
             'id' => 123456,
+            'barcode' => '3SMYPA123456789',
+            'created' => '2018-01-01 12:34:56',
+            'status' => ShipmentStatus::CONCEPT,
         ]);
 
         $this->assertEquals(123456, $shipment->id);
+        $this->assertEquals('3SMYPA123456789', $shipment->barcode);
+        $this->assertEquals('2018-01-01 12:34:56', $shipment->created);
+        $this->assertEquals(ShipmentStatus::CONCEPT, $shipment->status);
     }
 }
