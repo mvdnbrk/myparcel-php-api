@@ -62,6 +62,10 @@ abstract class BaseEndpoint
     {
         $response = $this->apiClient->performHttpCall($httpMethod, $apiMethod, $httpBody, $requestHeaders);
 
+        if (collect($response->getHeader('Content-Type'))->first() == 'application/pdf') {
+            return $response->getBody()->getContents();
+        }
+
         $body = $response->getBody()->getContents();
 
         if (empty($body)) {
