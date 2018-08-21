@@ -15,7 +15,7 @@ class DeliveryOptions extends BaseEndpoint
     /**
      * The carrier from wich to get delivery oprions.
      */
-    const CARRIER = 'postnl';
+    const CARRIER = 1;
 
     /**
      * @var \Tightenco\Collect\Support\Collection
