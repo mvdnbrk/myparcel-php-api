@@ -113,6 +113,18 @@ class ShipmentsTest extends TestCase
     }
 
     /** @test */
+    public function delete_a_shipment()
+    {
+        $parcel = new Parcel([
+            'recipient' => $this->validRecipient(['person' => 'Jan Klaassen']),
+        ]);
+
+        $shipment = $this->client->shipments->concept($parcel);
+
+        $this->assertTrue($this->client->shipments->delete($shipment->id));
+    }
+
+    /** @test */
     public function get_a_shipment_by_its_id()
     {
         $array = [
