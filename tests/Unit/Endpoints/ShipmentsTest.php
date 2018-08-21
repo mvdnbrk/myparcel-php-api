@@ -9,7 +9,6 @@ use Mvdnbrk\MyParcel\Resources\Shipment;
 use Mvdnbrk\MyParcel\Resources\PickupLocation;
 use Mvdnbrk\MyParcel\Resources\ShipmentOptions;
 
-/** @group integration */
 class ShipmentsTest extends TestCase
 {
     public function setUp()
@@ -72,6 +71,7 @@ class ShipmentsTest extends TestCase
         $this->assertInstanceOf(Shipment::class, $shipment);
         $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
         $this->assertNotNull($shipment->id);
+        $this->assertEquals(1, $shipment->status);
 
         $this->cleanUp($shipment);
     }
