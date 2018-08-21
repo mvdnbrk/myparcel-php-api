@@ -123,8 +123,7 @@ $shipment = $myparcel->shipments->get($id);
 ```
 
 ``` php
-$reference = 'your own reference when you created the parcel';
-$shipment = $myparcel->shipments->getByReference($reference);
+$shipment = $myparcel->shipments->getByReference('your own reference');
 ```
 
 ## Change log
