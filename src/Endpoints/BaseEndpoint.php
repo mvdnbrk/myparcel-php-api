@@ -79,12 +79,19 @@ abstract class BaseEndpoint
         }
 
         if ($response->getStatusCode() >= 400) {
-            $error = $object->errors[0];
+            $error = collect(collect($object->errors)->first());
 
-            throw new MyParcelException(
-                "Error executing API call ({$error->code}): {$object->message}: ".$error->human[0],
-                $response->getStatusCode()
-            );
+            $messageBag = collect('Error executing API call');
+
+            if ($error->has('code')) {
+                $messageBag->push('('.$error->get('code').')');
+            }
+
+            if ($error->has('message')) {
+                $messageBag->push(': '.$error->get('message'));
+            }
+
+            throw new MyParcelException($messageBag->implode(' '), $response->getStatusCode());
         }
 
         return $object;
