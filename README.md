@@ -61,11 +61,6 @@ $shipment = $myparcel->shipments->create($parcel);
 ```
 You have created your first shipment!
 
-If you only need to create a concept you may call the `concept` method. 
-``` php
-$concept = $myparcel->shipments->concept($parcel);
-```
-
 ### Retrieving a label
 ```
 $myparcel->labels->get($shipment);
