@@ -50,7 +50,7 @@ $parcel = \Mvdnbrk\MyParcel\Resources\Parcel([
         'number_suffix' => 'A',
         'postal_code' => '1234AA',
         'city' => 'Amsterdam',
-        'cc' => 'NL,
+        'cc' => 'NL',
     ]
 ]);
 ```
