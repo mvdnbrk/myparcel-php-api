@@ -199,7 +199,7 @@ class Parcel extends BaseResource
     {
         return collect([
             'carrier' => $this->carrier,
-            'reference_identifier' => $this->reference_identifier,
+            'reference_identifier' => (string) $this->reference_identifier,
             'recipient' => $this->recipient->toArray(),
             'options' => $this->options->toArray(),
         ])

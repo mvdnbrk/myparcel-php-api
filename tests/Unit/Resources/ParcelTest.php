@@ -284,4 +284,17 @@ class ParcelTest extends TestCase
 
         $this->assertNull($parcel->pickup);
     }
+
+    /** @test */
+    public function reference_identifier_should_be_casted_to_a_a_string()
+    {
+        $parcel = new Parcel([
+            'reference_identifier' => 999999,
+        ]);
+
+        $array = $parcel->toArray();
+
+        $this->assertInternalType('string', $array['reference_identifier']);
+        $this->assertEquals('999999', $array['reference_identifier']);
+    }
 }
