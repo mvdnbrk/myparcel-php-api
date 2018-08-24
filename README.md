@@ -35,7 +35,7 @@ $ composer require mvdnbrk/myparcel-php-api
 Initialize the MyParcel client and set your API key.
 
 ``` php
-$myparcel = \Mvdnbrk\MyParcel\Client();
+$myparcel = new \Mvdnbrk\MyParcel\Client();
 $myparcel->setApiKey('your-api-key');
 ```
 
@@ -70,7 +70,7 @@ $concept = $myparcel->shipments->concept($parcel);
 
 You can set delivery options for a parcel by passing in the options directly when you create a parcel:
 ``` php
-$parcel = \Mvdnbrk\MyParcel\Resources\Parcel([
+$parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
     ...
     'recipient' => [
         ...
@@ -101,7 +101,7 @@ $parcel->mailboxpackage()
 
 ### Send a shipment to a pick up location
 ``` php
-$parcel = \Mvdnbrk\MyParcel\Resources\Parcel([
+$parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
     'recipient' => [
         ...
     ],
