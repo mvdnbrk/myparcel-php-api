@@ -103,5 +103,4 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
     {
         $this->setAttribute($key, $value);
     }
-
 }
