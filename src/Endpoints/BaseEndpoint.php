@@ -95,6 +95,10 @@ abstract class BaseEndpoint
                 $messageBag->push(': '.$error->get('message'));
             }
 
+            if ($error->has('human')) {
+                $messageBag->push(': '.collect($error->get('human'))->first());
+            }
+
             throw new MyParcelException($messageBag->implode(' '), $response->getStatusCode());
         }
 

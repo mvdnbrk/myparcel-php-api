@@ -79,6 +79,17 @@ class ShipmentsTest extends TestCase
     }
 
     /** @test */
+    public function create_a_shipment_with_invalid_data()
+    {
+        $this->expectException(\Mvdnbrk\MyParcel\Exceptions\MyParcelException::class);
+        $this->expectExceptionMessage('Error executing API call (0) : data.shipments[0].recipient Array value found, but an object is required');
+
+        $parcel = new Parcel(['invalid-data']);
+
+        $shipment = $this->client->shipments->concept($parcel);
+    }
+
+    /** @test */
     public function create_a_new_shipment_for_a_parcel_wich_includes_barcode_and_pdf_label()
     {
         $array = [
