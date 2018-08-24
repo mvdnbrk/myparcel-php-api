@@ -189,7 +189,6 @@ class ParcelTest extends TestCase
     {
         $array = [
             'carrier' => 1,
-            'reference_identifier' => 'test-123',
             'recipient' => [
                 'company' => 'Test Company B.V.',
                 'person' => 'John Doe',
@@ -212,6 +211,7 @@ class ParcelTest extends TestCase
                 'return' => 0,
                 'signature' => 1,
             ],
+            'reference_identifier' => 'test-123',
         ];
 
         $parcel = new Parcel($array);

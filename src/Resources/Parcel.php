@@ -199,10 +199,12 @@ class Parcel extends BaseResource
     {
         return collect([
             'carrier' => $this->carrier,
-            'reference_identifier' => (string) $this->reference_identifier,
             'recipient' => $this->recipient->toArray(),
             'options' => $this->options->toArray(),
         ])
+        ->when(! is_null($this->reference_identifier), function ($collection) {
+            return $collection->put('reference_identifier', (string) $this->reference_identifier);
+        })
         ->when(! is_null($this->pickup), function ($collection) {
             return $collection->put('pickup', $this->pickup->toArray());
         })
