@@ -103,4 +103,17 @@ class PickupLocationTest extends TestCase
         $this->assertArrayNotHasKey('distance', $array);
         $this->assertArrayNotHasKey('opening_hours', $array);
     }
+
+    /** @test */
+    public function number_should_be_casted_to_a_string()
+    {
+        $pickup = new PickupLocation([
+            'number' => 999
+        ]);
+
+        $array = $pickup->toArray();
+
+        $this->assertInternalType('string', $array['number']);
+        $this->assertEquals('999', $array['number']);
+    }
 }
