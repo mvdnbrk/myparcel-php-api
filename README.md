@@ -96,7 +96,7 @@ $parcel->onlyRecipient()
 
 This package type is only available for shipments in the Netherlands that fit in a standard mailbox.
 ``` php
-$parcel->mailboxpackage()
+$parcel->mailboxpackage();
 ```
 
 ### Send a shipment to a pick up location
