@@ -11,6 +11,7 @@ use Mvdnbrk\MyParcel\Types\ShipmentStatus;
 use Mvdnbrk\MyParcel\Resources\PickupLocation;
 use Mvdnbrk\MyParcel\Resources\ShipmentOptions;
 
+/** @group integration */
 class ShipmentsTest extends TestCase
 {
     public function setUp()
