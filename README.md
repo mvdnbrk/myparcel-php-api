@@ -66,6 +66,11 @@ If you only need to create a concept you may call the `concept` method.
 $concept = $myparcel->shipments->concept($parcel);
 ```
 
+### Retrieving a label
+```
+$myparcel->labels->get($shipment);
+```
+
 ### Setting delivery options for a parcel
 
 You can set delivery options for a parcel by passing in the options directly when you create a parcel:

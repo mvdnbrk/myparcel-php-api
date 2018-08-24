@@ -8,6 +8,7 @@ use Composer\CaBundle\CaBundle;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\GuzzleException;
 use Mvdnbrk\MyParcel\Endpoints\Shipments;
+use Mvdnbrk\MyParcel\Endpoints\ShipmentLabels;
 use Mvdnbrk\MyParcel\Endpoints\DeliveryOptions;
 use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 
@@ -37,6 +38,11 @@ class Client
      * @var \Mvdnbrk\MyParcel\Endpoints\DeliveryOptions
      */
     public $deliveryOptions;
+
+    /**
+     * @var \Mvdnbrk\MyParcel\Endpoints\ShipmentLabels
+     */
+    public $labels;
 
     /**
      * @var \Mvdnbrk\MyParcel\Endpoints\Shipments
@@ -69,6 +75,7 @@ class Client
      */
     public function initializeEndpoints()
     {
+        $this->labels = new ShipmentLabels($this);
         $this->shipments = new Shipments($this);
         $this->deliveryOptions = new DeliveryOptions($this);
     }
