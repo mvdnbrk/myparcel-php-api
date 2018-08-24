@@ -41,7 +41,7 @@ $myparcel->setApiKey('your-api-key');
 
 ### Create a parcel
 ``` php
-$parcel = \Mvdnbrk\MyParcel\Resources\Parcel([
+$parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
     'reference' => 'your own reference for the parcel',
     'recipient' => [
         'person' => 'John Doe',
