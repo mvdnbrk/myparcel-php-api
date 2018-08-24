@@ -286,7 +286,7 @@ class ParcelTest extends TestCase
     }
 
     /** @test */
-    public function reference_identifier_should_be_casted_to_a_a_string()
+    public function reference_identifier_should_be_casted_to_a_string()
     {
         $parcel = new Parcel([
             'reference_identifier' => 999999,
