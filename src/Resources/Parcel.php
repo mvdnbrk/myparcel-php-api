@@ -35,7 +35,7 @@ class Parcel extends BaseResource
     /**
      * @var \Mvdnbrk\MyParcel\Resources\PickupLocation
      */
-    public $pickup;
+    protected $pickup;
 
     /**
      * @var \Mvdnbrk\MyParcel\Resources\Recipient

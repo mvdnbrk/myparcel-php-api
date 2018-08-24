@@ -28,11 +28,7 @@ trait HasAttributes
             return;
         }
 
-        if ($this->hasGetMutator($key)) {
-            return $this->getAttributeValue($key);
-        }
-
-        return;
+        return $this->getAttributeValue($key);
     }
 
     /**
@@ -45,6 +41,10 @@ trait HasAttributes
     {
         if ($this->hasGetMutator($key)) {
             return $this->{'get'.Str::studly($key).'Attribute'}();
+        }
+
+        if (property_exists($this, $key)) {
+            return $this->{$key};
         }
 
         return;
