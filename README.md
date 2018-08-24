@@ -100,6 +100,8 @@ $parcel->mailboxpackage();
 ```
 
 ### Send a shipment to a pick up location
+
+You can set set the package to be delivered to a pick up location when you create a parcel:
 ``` php
 $parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
     'recipient' => [
@@ -114,6 +116,18 @@ $parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
         'cc' => 'NL,
     ]
 ]);
+```
+
+Or you may set the pick up location after you have created the parcel:
+```
+$parcel->pickup = [
+    'name' => 'Name of the location',
+    'street' => 'Poststraat',
+    'number' => '1',
+    'postal_code' => '1234AA',
+    'city' => 'Amsterdam',
+    'cc' => 'NL,
+];
 ```
 
 ### Get a shipment
