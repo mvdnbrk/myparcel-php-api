@@ -92,4 +92,17 @@ class RecipientTest extends TestCase
 
         $this->assertEquals('1234AA', $recipient->postal_code);
     }
+
+    /** @test */
+    public function number_should_be_casted_to_a_string()
+    {
+        $recipient = new Recipient($this->validParams([
+            'number' => 999
+        ]));
+
+        $array = $recipient->toArray();
+
+        $this->assertInternalType('string', $array['number']);
+        $this->assertEquals('999', $array['number']);
+    }
 }

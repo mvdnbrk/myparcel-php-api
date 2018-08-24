@@ -87,4 +87,23 @@ class Address extends BaseResource
     {
         $this->setPostalCodeAttribute($value);
     }
+
+    /**
+      * Convert the resource instance to an array.
+      * Removes all attributes with null values.
+      *
+      * @return array
+      */
+    public function toArray()
+    {
+        return collect(parent::toArray())
+            ->transform(function ($value, $key) {
+                if ($key == 'number') {
+                    return (string) $value;
+                }
+
+                return $value;
+            })
+            ->all();
+    }
 }
