@@ -197,20 +197,20 @@ class Parcel extends BaseResource
       */
     public function toArray()
     {
-        return collect([
-            'carrier' => $this->carrier,
-            'recipient' => $this->recipient->toArray(),
-            'options' => $this->options->toArray(),
-        ])
-        ->when(! is_null($this->reference_identifier), function ($collection) {
-            return $collection->put('reference_identifier', (string) $this->reference_identifier);
-        })
-        ->when(! is_null($this->pickup), function ($collection) {
-            return $collection->put('pickup', $this->pickup->toArray());
-        })
-        ->reject(function ($value) {
-            return $value === null;
-        })
-        ->all();
+        return collect(parent::toArray())
+            ->merge([
+                'recipient' => $this->recipient->toArray(),
+                'options' => $this->options->toArray(),
+            ])
+            ->when(! is_null($this->reference_identifier), function ($collection) {
+                return $collection->put('reference_identifier', (string) $this->reference_identifier);
+            })
+            ->when(! is_null($this->pickup), function ($collection) {
+                return $collection->put('pickup', $this->pickup->toArray());
+            })
+            ->reject(function ($value) {
+                return $value === null;
+            })
+            ->all();
     }
 }

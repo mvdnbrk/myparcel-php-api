@@ -23,4 +23,23 @@ class ShipmentTest extends TestCase
         $this->assertEquals('2018-01-01 12:34:56', $shipment->created);
         $this->assertEquals(ShipmentStatus::CONCEPT, $shipment->status);
     }
+
+    /** @test */
+    public function to_array()
+    {
+        $shipment = new Shipment([
+            'id' => 123456,
+            'barcode' => '3SMYPA123456789',
+            'created' => '2018-01-01 12:34:56',
+            'status' => ShipmentStatus::CONCEPT,
+        ]);
+
+        $array = $shipment->toArray();
+
+        $this->assertInternalType('array', $array);
+        $this->assertEquals(123456, $array['id']);
+        $this->assertEquals('3SMYPA123456789', $array['barcode']);
+        $this->assertEquals('2018-01-01 12:34:56', $array['created']);
+        $this->assertEquals(ShipmentStatus::CONCEPT, $array['status']);
+    }
 }

@@ -189,6 +189,16 @@ class ParcelTest extends TestCase
     {
         $array = [
             'carrier' => 1,
+            'reference_identifier' => 'test-123',
+            'options' => [
+                'delivery_type' => 2,
+                'label_description' => 'Test label description',
+                'large_format' => 0,
+                'only_recipient' => 0,
+                'package_type' => 1,
+                'return' => 0,
+                'signature' => 1,
+            ],
             'recipient' => [
                 'company' => 'Test Company B.V.',
                 'person' => 'John Doe',
@@ -202,16 +212,6 @@ class ParcelTest extends TestCase
                 'region' => 'Noord-Holland',
                 'cc' => 'NL',
             ],
-            'options' => [
-                'delivery_type' => 2,
-                'label_description' => 'Test label description',
-                'large_format' => 0,
-                'only_recipient' => 0,
-                'package_type' => 1,
-                'return' => 0,
-                'signature' => 1,
-            ],
-            'reference_identifier' => 'test-123',
         ];
 
         $parcel = new Parcel($array);
