@@ -62,6 +62,12 @@ $shipment = $myparcel->shipments->create($parcel);
 You have created your first shipment!
 
 ### Retrieving a label
+
+A label can be retrieved by using `$shipment->id`. This will return a label in A6 format as a string.
+```
+$myparcel->labels->get($shipment->id);
+```
+Or
 ```
 $myparcel->labels->get($shipment);
 ```
