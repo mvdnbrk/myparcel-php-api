@@ -4,6 +4,7 @@ namespace Mvdnbrk\MyParcel\Endpoints;
 
 use Mvdnbrk\MyParcel\Resources\Parcel;
 use Mvdnbrk\MyParcel\Types\ShipmentStatus;
+use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 use Mvdnbrk\MyParcel\Resources\Shipment as ShipmentResource;
 
 class Shipments extends BaseEndpoint
@@ -74,13 +75,9 @@ class Shipments extends BaseEndpoint
      */
     public function get($id)
     {
-        $response = $this->performApiCall(
-            'GET',
-            'shipments/'.$id
-        );
-
-        return new ShipmentResource(
-            collect($response->data->shipments[0])->all()
+        return $this->getShipmentsResource(
+            'shipments/'.$id,
+            'Shipment with an id of "'.$id.'" not found.'
         );
     }
 
@@ -92,13 +89,34 @@ class Shipments extends BaseEndpoint
      */
     public function getByReference($value)
     {
+        return $this->getShipmentsResource(
+            'shipments'.$this->buildQueryString(['reference_identifier' => $value]),
+            'Shipment with reference "'.$value.'" not found.'
+        );
+    }
+
+    /**
+     * Get a shipment resource by performing an API call.
+     *
+     * @param  string  $apiMethod  The API method to be called to retrieve the shipment.
+     * @param  string  $message  The message to be thrown with the exception on failure.
+     * @return \Mvdnbrk\MyParcel\Resources\Shipment
+     */
+    protected function getShipmentsResource($apiMethod, $message = '')
+    {
         $response = $this->performApiCall(
             'GET',
-            'shipments'.$this->buildQueryString(['reference_identifier' => $value])
+            $apiMethod
         );
 
+        $shipment = collect($response->data->shipments)->first();
+
+        if ($shipment === null) {
+            throw new MyParcelException($message);
+        }
+
         return new ShipmentResource(
-            collect($response->data->shipments[0])->all()
+            collect($shipment)->all()
         );
     }
 
@@ -108,7 +126,7 @@ class Shipments extends BaseEndpoint
      * @param  \Mvdnbrk\MyParcel\Resources\Parcel  $parcel
      * @return string
      */
-    public function getHttpBody(Parcel $parcel)
+    protected function getHttpBody(Parcel $parcel)
     {
         return json_encode([
             'data' => [
