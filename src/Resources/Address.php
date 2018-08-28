@@ -12,6 +12,14 @@ class Address extends BaseResource
     public $street;
 
     /**
+     * Additional information for the street that should
+     * not be included in the street field.
+     *
+     * @var string
+     */
+    public $street_additional_info;
+
+    /**
      * @var string
      */
     public $number;

@@ -33,6 +33,7 @@ class RecipientTest extends TestCase
             'email' => 'john@example.com',
             'phone' => '0101111111',
             'street' => 'Poststraat',
+            'street_additional_info' => 'Test info',
             'number' => '1',
             'number_suffix' => 'A',
             'postal_code' => '1234AA',
@@ -45,6 +46,8 @@ class RecipientTest extends TestCase
         $this->assertEquals('John Doe', $recipient->person);
         $this->assertEquals('john@example.com', $recipient->email);
         $this->assertEquals('0101111111', $recipient->phone);
+        $this->assertEquals('Poststraat', $recipient->street);
+        $this->assertEquals('Test info', $recipient->street_additional_info);
         $this->assertEquals('1', $recipient->number);
         $this->assertEquals('A', $recipient->number_suffix);
         $this->assertEquals('1234AA', $recipient->postal_code);
