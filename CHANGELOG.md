@@ -4,6 +4,10 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- Added a Label resource. [`3e8c1d2`](https://github.com/mvdnbrk/myparcel-php-api/commit/3e8c1d283c4349293b2a94a29f965aa31c37396e)
+
 ## [0.1.1] - 2018-08-26
 
 ### Added
