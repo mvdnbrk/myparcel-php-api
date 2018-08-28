@@ -4,6 +4,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [0.2.0] - 2018-08-28
+
 ### Added
 
 - Added a test for retrieving a label with an invalid shipment id. [`3017b1e`](https://github.com/mvdnbrk/myparcel-php-api/commit/3017b1e8d22a7583335131fe76a33bbbb8206c08)
