@@ -91,24 +91,6 @@ class ShipmentsTest extends TestCase
     }
 
     /** @test */
-    public function create_a_new_shipment_for_a_parcel_wich_includes_barcode_and_pdf_label()
-    {
-        $array = [
-            'recipient' => $this->validRecipient(),
-        ];
-
-        $parcel = new Parcel($array);
-
-        $shipment = $this->client->shipments->create($parcel);
-
-        // WIP: create the label and set the barcode for the shipment.
-
-        $this->assertInstanceOf(Shipment::class, $shipment);
-        $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
-        $this->assertNotNull($shipment->id);
-    }
-
-    /** @test */
     public function create_shipment_with_a_pick_up_location()
     {
         $array = [
@@ -139,7 +121,7 @@ class ShipmentsTest extends TestCase
     public function delete_a_shipment_by_id()
     {
         $parcel = new Parcel([
-            'recipient' => $this->validRecipient(['person' => 'John Doe']),
+            'recipient' => $this->validRecipient(),
         ]);
 
         $shipment = $this->client->shipments->concept($parcel);
@@ -151,7 +133,7 @@ class ShipmentsTest extends TestCase
     public function delete_a_shipment_by_passing_shipment_resource()
     {
         $parcel = new Parcel([
-            'recipient' => $this->validRecipient(['person' => 'John Doe']),
+            'recipient' => $this->validRecipient(),
         ]);
 
         $shipment = $this->client->shipments->concept($parcel);
@@ -163,7 +145,7 @@ class ShipmentsTest extends TestCase
     public function only_a_concept_can_be_deleted()
     {
         $parcel = new Parcel([
-            'recipient' => $this->validRecipient(['person' => 'Jan Klaassen']),
+            'recipient' => $this->validRecipient(),
         ]);
 
         $shipment = $this->client->shipments->concept($parcel);
