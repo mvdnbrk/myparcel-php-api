@@ -185,9 +185,9 @@ class ParcelTest extends TestCase
     }
 
     /** @test */
-    public function to_array_test()
+    public function to_array()
     {
-        $array = [
+        $attributes = [
             'carrier' => 1,
             'reference_identifier' => 'test-123',
             'options' => [
@@ -214,9 +214,35 @@ class ParcelTest extends TestCase
             ],
         ];
 
-        $parcel = new Parcel($array);
+        $parcel = new Parcel($attributes);
 
-        $this->assertSame($array, $parcel->toArray());
+        $array = $parcel->toArray();
+
+        $this->assertInternalType('array', $array);
+        $this->assertSame(1, $array['carrier']);
+        $this->assertSame('test-123', $array['reference_identifier']);
+
+        $this->assertArrayHasKey('options', $array);
+        $this->assertSame(2, $array['options']['delivery_type']);
+        $this->assertSame('Test label description', $array['options']['label_description']);
+        $this->assertSame(0, $array['options']['large_format']);
+        $this->assertSame(0, $array['options']['only_recipient']);
+        $this->assertSame(1, $array['options']['package_type']);
+        $this->assertSame(0, $array['options']['return']);
+        $this->assertSame(1, $array['options']['signature']);
+
+        $this->assertArrayHasKey('recipient', $array);
+        $this->assertSame('Test Company B.V.', $array['recipient']['company']);
+        $this->assertSame('John Doe', $array['recipient']['person']);
+        $this->assertSame('john@example.com', $array['recipient']['email']);
+        $this->assertSame('0101111111', $array['recipient']['phone']);
+        $this->assertSame('Poststraat', $array['recipient']['street']);
+        $this->assertSame('1', $array['recipient']['number']);
+        $this->assertSame('A', $array['recipient']['number_suffix']);
+        $this->assertSame('1234AA', $array['recipient']['postal_code']);
+        $this->assertSame('Amsterdam', $array['recipient']['city']);
+        $this->assertSame('Noord-Holland', $array['recipient']['region']);
+        $this->assertSame('NL', $array['recipient']['cc']);
     }
 
     /** @test */
