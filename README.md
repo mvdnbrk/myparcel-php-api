@@ -137,7 +137,7 @@ $parcel->pickup = [
 ```
 
 ### Get a shipment
-You can get a shipment by it's id or your own reference.
+You can get a shipment by `id` or your own reference.
 ``` php
 $shipment = $myparcel->shipments->get($id);
 ```

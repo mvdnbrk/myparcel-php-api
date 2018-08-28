@@ -5,7 +5,7 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 ## [Unreleased]
 
 ### Removed
-- 
+- Removed unused use statements. [`a8c2c57`](https://github.com/mvdnbrk/myparcel-php-api/commit/a8c2c577af4470b44ed3dd9a6906d56f4d6524ef)
 
 ## [0.2.0] - 2018-08-28
 
@@ -25,6 +25,7 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/mvdnbrk/myparcel-php-api/tree/v0.1.0
