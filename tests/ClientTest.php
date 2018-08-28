@@ -4,6 +4,7 @@ namespace Tests;
 
 use Mvdnbrk\MyParcel\Client;
 use Mvdnbrk\MyParcel\Endpoints\Shipments;
+use Mvdnbrk\MyParcel\Endpoints\ShipmentLabels;
 use Mvdnbrk\MyParcel\Endpoints\DeliveryOptions;
 use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 
@@ -19,6 +20,12 @@ class ClientTest extends TestCase
     public function a_client_has_a_delivery_options_endpoint()
     {
         $this->assertInstanceOf(DeliveryOptions::class, $this->client->deliveryOptions);
+    }
+
+    /** @test */
+    public function a_client_has_a_shipment_labels_endpoint()
+    {
+        $this->assertInstanceOf(ShipmentLabels::class, $this->client->labels);
     }
 
     /** @test */
