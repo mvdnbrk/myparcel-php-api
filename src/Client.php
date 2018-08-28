@@ -89,8 +89,6 @@ class Client
      * @param  array  $requestHeaders       Request headers to be send with the request.
      * @return \Psr\Http\Message\ResponseInterface
      * @throws \Mvdnbrk\MyParcel\Exceptions\MyParcelException
-     *
-     * @codeCoverageIgnore
      */
     public function performHttpCall($httpMethod, $apiMethod, $httpBody = null, $requestHeaders = [])
     {
