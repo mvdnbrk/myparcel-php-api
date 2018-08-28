@@ -4,9 +4,6 @@ namespace Mvdnbrk\MyParcel\Resources;
 
 use Mvdnbrk\MyParcel\Types\PackageType;
 use Mvdnbrk\MyParcel\Types\DeliveryType;
-use Mvdnbrk\MyParcel\Resources\Recipient;
-use Mvdnbrk\MyParcel\Resources\BaseResource;
-use Mvdnbrk\MyParcel\Resources\ShipmentOptions;
 
 class Parcel extends BaseResource
 {

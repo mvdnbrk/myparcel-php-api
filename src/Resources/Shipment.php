@@ -2,8 +2,6 @@
 
 namespace Mvdnbrk\MyParcel\Resources;
 
-use Mvdnbrk\MyParcel\Resources\BaseResource;
-
 class Shipment extends Parcel
 {
     /**

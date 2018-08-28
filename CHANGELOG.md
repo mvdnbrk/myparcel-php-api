@@ -4,6 +4,9 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+### Removed
+- 
+
 ## [0.2.0] - 2018-08-28
 
 ### Added
