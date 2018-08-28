@@ -7,9 +7,7 @@ use Mvdnbrk\MyParcel\Client;
 use Mvdnbrk\MyParcel\Resources\Parcel;
 use Mvdnbrk\MyParcel\Resources\Shipment;
 
-/**
- * @group integration
- */
+/** @group integration */
 class ShipmentLabelsTest extends TestCase
 {
     public function setUp()
@@ -52,5 +50,14 @@ class ShipmentLabelsTest extends TestCase
         $pdf = $this->client->labels->get($this->shipment);
 
         $this->assertInternalType('string', $pdf);
+    }
+
+    /** @test */
+    public function getting_a_label_with_an_invalid_shipment_id_should_throw_an_error()
+    {
+        $this->expectException(\Mvdnbrk\MyParcel\Exceptions\MyParcelException::class);
+        $this->expectExceptionMessage('Error executing API call (3001) : Permission Denied. (printShipmentLabel,writeResourceOwnedByOthers)');
+
+        $pdf = $this->client->labels->get('9999999999');
     }
 }

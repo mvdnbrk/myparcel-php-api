@@ -179,7 +179,7 @@ class ShipmentsTest extends TestCase
     }
 
     /** @test */
-    public function get_a_shipment_with_an_invalid_id_should_throw_an_error()
+    public function getting_a_shipment_with_an_invalid_id_should_throw_an_error()
     {
         $this->expectException(\Mvdnbrk\MyParcel\Exceptions\MyParcelException::class);
         $this->expectExceptionMessage('Shipment with an id of "9999999999" not found.');
@@ -210,7 +210,7 @@ class ShipmentsTest extends TestCase
     }
 
     /** @test */
-    public function get_a_shipment_with_an_invalid_reference_should_throw_an_error()
+    public function getting_a_shipment_with_an_invalid_reference_should_throw_an_error()
     {
         $this->expectException(\Mvdnbrk\MyParcel\Exceptions\MyParcelException::class);
         $this->expectExceptionMessage('Shipment with reference "invalid-reference-throws-error" not found.');
