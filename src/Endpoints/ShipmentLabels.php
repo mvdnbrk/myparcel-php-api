@@ -2,7 +2,7 @@
 
 namespace Mvdnbrk\MyParcel\Endpoints;
 
-use Mvdnbrk\MyParcel\Types\PaperSize;
+use Mvdnbrk\MyParcel\Resources\Label;
 use Mvdnbrk\MyParcel\Resources\Shipment;
 
 class ShipmentLabels extends BaseEndpoint
@@ -21,7 +21,9 @@ class ShipmentLabels extends BaseEndpoint
 
         $response = $this->performApiCall(
             'GET',
-            'shipment_labels/'.$value.$this->buildQueryString(['format' => PaperSize::A6]),
+            'shipment_labels/'.$value.$this->buildQueryString(
+                (new Label)->toArray()
+            ),
             null,
             ['Accept' => 'application/pdf']
         );
