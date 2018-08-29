@@ -3,7 +3,6 @@
 namespace Tests\Unit\Endpoints;
 
 use Tests\TestCase;
-use Mvdnbrk\MyParcel\Client;
 use Mvdnbrk\MyParcel\Resources\Parcel;
 use Mvdnbrk\MyParcel\Types\PackageType;
 use Mvdnbrk\MyParcel\Resources\Shipment;
@@ -14,14 +13,6 @@ use Mvdnbrk\MyParcel\Resources\ShipmentOptions;
 /** @group integration */
 class ShipmentsTest extends TestCase
 {
-    public function setUp()
-    {
-        parent::setUp();
-
-        $this->client = new Client;
-        $this->client->setApiKey(getenv('API_KEY'));
-    }
-
     private function validRecipient($overrides = [])
     {
         return array_merge([

@@ -3,20 +3,11 @@
 namespace Tests\Unit\Endpoints;
 
 use Tests\TestCase;
-use Mvdnbrk\MyParcel\Client;
 use Mvdnbrk\MyParcel\Endpoints\BaseEndpoint;
 use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 
 class BaseEndpointTest extends TestCase
 {
-    public function setUp()
-    {
-        parent::setUp();
-
-        $this->client = new Client;
-        $this->client->setApiKey(getenv('API_KEY'));
-    }
-
     /** @test */
     public function passing_an_empty_array_tobuild_query_string_should_return_an_empty_string()
     {
