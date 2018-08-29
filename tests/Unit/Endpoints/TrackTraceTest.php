@@ -5,6 +5,7 @@ namespace Tests\Unit\Endpoints;
 use Tests\TestCase;
 use Mvdnbrk\MyParcel\Client;
 use Mvdnbrk\MyParcel\Resources\Parcel;
+use Mvdnbrk\MyParcel\Resources\Shipment;
 
 class TrackTraceTest extends TestCase
 {
