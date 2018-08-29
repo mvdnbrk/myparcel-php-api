@@ -4,6 +4,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.0] - 2018-08-29
+
 ### Added
 - Added TrackTrace functionality. [`7800d85`](https://github.com/mvdnbrk/myparcel-php-api/commit/7800d85f37bc41c474edecef15f3b7339ff63699)
 
@@ -28,7 +30,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/mvdnbrk/myparcel-php-api/tree/v0.1.0
