@@ -60,5 +60,5 @@ class TrackTraceTest extends TestCase
         $this->assertEquals('AA1', $tracktrace->items->last()->code);
         $this->assertEquals('Test 1', $tracktrace->items->last()->description);
         $this->assertEquals('2018-09-01 12:00:00', $tracktrace->items->last()->time);
-   }
+    }
 }
