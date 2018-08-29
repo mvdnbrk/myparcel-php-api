@@ -4,6 +4,9 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+- Added TrackTrace functionality. [`7800d85`](https://github.com/mvdnbrk/myparcel-php-api/commit/7800d85f37bc41c474edecef15f3b7339ff63699)
+
 ### Removed
 - Removed unused use statements. [`a8c2c57`](https://github.com/mvdnbrk/myparcel-php-api/commit/a8c2c577af4470b44ed3dd9a6906d56f4d6524ef)
 

@@ -146,6 +146,12 @@ $shipment = $myparcel->shipments->get($id);
 $shipment = $myparcel->shipments->getByReference('your own reference');
 ```
 
+### Tracking a shipment
+You can get detailed track and trace information for a shipment.
+``` php
+$shipment = $myparcel->tracktrace->get($id);
+```
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
