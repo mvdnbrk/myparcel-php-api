@@ -3,7 +3,7 @@
 namespace Tests\Unit\Resources;
 
 use Tests\TestCase;
-use Tightenco\Collect\Support\Collection;
+use Illuminate\Support\Collection;
 use Mvdnbrk\MyParcel\Resources\TrackTrace;
 
 class TrackTraceTest extends TestCase
