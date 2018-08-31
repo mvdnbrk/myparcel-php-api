@@ -152,6 +152,17 @@ You can get detailed track and trace information for a shipment.
 $shipment = $myparcel->tracktrace->get($id);
 ```
 
+## Usage with Laravel
+Add your MyParcel API key to the `.env` file:
+```
+MYPARCEL_API_KEY=YOUR-API-KEY-HERE
+```
+
+You can resolve a configured instance of `Mvdnbrk\MyParcel\Client` out of the container:
+```
+app('myparcel')->shipments->create($parcel);
+```
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
