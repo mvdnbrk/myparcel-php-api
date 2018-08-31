@@ -149,7 +149,22 @@ $shipment = $myparcel->shipments->getByReference('your own reference');
 ### Tracking a shipment
 You can get detailed track and trace information for a shipment.
 ``` php
-$shipment = $myparcel->tracktrace->get($id);
+$tracktrace = $myparcel->tracktrace->get($id);
+
+// Check if the shipment has reached a final state:
+$tracktrace->final;
+
+// Get current state of the shipment:
+$tracktrace->code;
+$tracktrace->description;
+$tracktrace->datetime;
+
+// Get all traces for the shipment, this will return a collection with
+// all traces which includes the current state in descending order:
+$tracktrace->items;
+
+// Convert all items to an array:
+$tracktrace->items->all()
 ```
 
 ## Usage with Laravel
