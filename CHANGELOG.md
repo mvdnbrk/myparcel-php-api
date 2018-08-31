@@ -4,6 +4,11 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [0.4.0] - 2018-08-31
+
+### Added
+- Added support for usage with [Laravel](https://laravel.com/). [`415af52`](https://github.com/mvdnbrk/myparcel-php-api/commit/415af527d369b8903aa1d2e326027212afd444b5)
+
 ## [0.3.0] - 2018-08-29
 
 ### Added
@@ -30,7 +35,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.1.0...v0.1.1
