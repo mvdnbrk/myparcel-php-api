@@ -58,6 +58,9 @@ $parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
 ### Create the shipment
 ``` php
 $shipment = $myparcel->shipments->create($parcel);
+
+// Get the `id` of the shipment. You may save this value for later reference.
+$shipment->id;
 ```
 You have created your first shipment!
 
@@ -67,7 +70,7 @@ A label can be retrieved by using `$shipment->id`. This will return a label in A
 ```
 $myparcel->labels->get($shipment->id);
 ```
-Or
+Or you may pass the `Shipment` instance directly to this method:
 ```
 $myparcel->labels->get($shipment);
 ```
@@ -140,10 +143,14 @@ $parcel->pickup = [
 You can get a shipment by `id` or your own reference.
 ``` php
 $shipment = $myparcel->shipments->get($id);
-```
 
-``` php
 $shipment = $myparcel->shipments->getByReference('your own reference');
+
+// Get the barcode for the shipment:
+$shipment->barcode;
+
+// Get the current status:
+$shipment->status;
 ```
 
 ### Tracking a shipment
@@ -160,7 +167,7 @@ $tracktrace->description;
 $tracktrace->datetime;
 
 // Get all traces for the shipment, this will return a collection with
-// all traces which includes the current state in descending order:
+// all traces in descending order, including the current state:
 $tracktrace->items;
 
 // Convert all items to an array:
