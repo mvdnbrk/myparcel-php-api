@@ -2,6 +2,6 @@
 
 return [
 
-    'key' => env('MYPARCEL_APP_KEY'),
+    'key' => env('MYPARCEL_API_KEY'),
 
 ];
