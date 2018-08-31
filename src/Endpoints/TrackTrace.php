@@ -12,7 +12,7 @@ class TrackTrace extends BaseEndpoint
      * Returns null if there is no tracking information available.
      *
      * @param  int|\Mvdnbrk\MyParcel\Resources\Shipment $value
-     * @return null|\Mvdnbrk\MyParcel\Resources\TrackTraceCollection
+     * @return null|\Mvdnbrk\MyParcel\Resources\TrackTrace
      */
     public function get($value)
     {
