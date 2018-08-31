@@ -51,6 +51,6 @@ class MyParcelServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return [Client::class];
+        return [Client::class, 'myparcel'];
     }
 }
