@@ -42,6 +42,16 @@ class PickupLocationTest extends TestCase
     }
 
     /** @test */
+    public function location_may_be_used_as_an_alias_to_set_location_name()
+    {
+        $pickup = new PickupLocation([
+            'location' => 'Test Location',
+        ]);
+
+        $this->assertEquals('Test Location', $pickup->location_name);
+    }
+
+    /** @test */
     public function name_may_be_used_as_an_alias_to_location_name()
     {
         $pickup = new PickupLocation([

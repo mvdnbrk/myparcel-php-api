@@ -84,6 +84,17 @@ class PickupLocation extends Address
     }
 
     /**
+     * Sets a location. Alias for location_name.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setLocationAttribute($value)
+    {
+        $this->location_name = $value;
+    }
+
+    /**
      * Get the name for this location. Alias for location_name.
      *
      * @return string
