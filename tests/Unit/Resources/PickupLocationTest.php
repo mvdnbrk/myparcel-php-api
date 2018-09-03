@@ -114,7 +114,7 @@ class PickupLocationTest extends TestCase
     /** @test */
     public function latitude_and_longitude_are_converted_to_float()
     {
-         $pickup = new PickupLocation([
+        $pickup = new PickupLocation([
             'latitude' => '1.11',
             'longitude' => '2.22',
         ]);
