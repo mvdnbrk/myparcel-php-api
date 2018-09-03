@@ -4,6 +4,17 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [0.5.0] - 2018-09-03
+
+### Added
+- Adds a test for creating a valid PickupLocation instance. [`d5fea6cdbf`](https://github.com/mvdnbrk/myparcel-php-api/commit/d5fea6cdbf4a36e4bbcddd459cfe840489879d56)
+- Location may be used to set a location name on PickupLocation object. [`8c391b35`](https://github.com/mvdnbrk/myparcel-php-api/commit/8c391b358bee7e0931b0315be91a6fb45cb64a13)
+- Phone number may be used as an alias to phone on PickupLocation object. [`3c4d34a`](https://github.com/mvdnbrk/myparcel-php-api/commit/3c4d34ad7433bc53a125ff0f7d51bafcb33dc1db)
+
+### Changed
+- Latitude and longitude should be converted to float. [`2b05698`](https://github.com/mvdnbrk/myparcel-php-api/commit/2b05698e3bb63a7bb54e470d5cba475dbd996785)
+- Refactors code for creating the pick up points. [`3056552`](https://github.com/mvdnbrk/myparcel-php-api/commit/305655203404f24f121ec299a39b6166a7d5cf63)
+
 ## [0.4.1] - 2018-08-31
 
 ### Added
@@ -40,8 +51,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.4.1...HEAD
-[0.4.1]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.4.0...v0.4.1
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.5.0...HEAD
+[0.4.1]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.4.1...v0.5.0
 [0.4.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.1.1...v0.2.0
