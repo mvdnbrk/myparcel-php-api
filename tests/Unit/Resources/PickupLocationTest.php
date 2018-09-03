@@ -8,6 +8,44 @@ use Mvdnbrk\MyParcel\Resources\PickupLocation;
 class PickupLocationTest extends TestCase
 {
     /** @test */
+    public function creating_a_valid_pickup_location_resource()
+    {
+        $pickup = new PickupLocation([
+            'location' => 'Test Company B.V.',
+            'street' => 'Poststraat',
+            'number' => '1',
+            'postal_code' => '1234AA',
+            'city' => 'Amsterdam',
+            'phone_number' => '0101111111',
+            'distance' => '9999',
+            'latitude' => '12.3456',
+            'longitude' => '98.76543',
+            'location_code' => '112233',
+            'opening_hours' => [
+                'monday' => ['08:00-18:30'],
+                'tuesday' => ['08:00-18:30'],
+                'wednesday' => ['08:00-18:30'],
+                'thursday' => ['08:00-18:30'],
+                'friday' => ['08:00-18:30'],
+                'saturday' => ['08:00-17:00'],
+                'sunday' => []
+            ],
+        ]);
+
+        $this->assertEquals('Test Company B.V.', $pickup->location_name);
+        $this->assertEquals('Poststraat', $pickup->street);
+        $this->assertEquals('1', $pickup->number);
+        $this->assertEquals('1234AA', $pickup->postal_code);
+        $this->assertEquals('Amsterdam', $pickup->city);
+        $this->assertEquals('0101111111', $pickup->phone_number);
+        $this->assertEquals('9999', $pickup->distance);
+        $this->assertEquals('12.3456', $pickup->latitude);
+        $this->assertEquals('98.76543', $pickup->longitude);
+        $this->assertEquals('112233', $pickup->location_code);
+        $this->assertInternalType('array', $pickup->opening_hours);
+    }
+
+    /** @test */
     public function can_get_distance_for_humans()
     {
         $pickup = new PickupLocation;
