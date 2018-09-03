@@ -5,7 +5,6 @@ namespace Mvdnbrk\MyParcel\Endpoints;
 use Mvdnbrk\MyParcel\Client;
 use Mvdnbrk\MyParcel\Support\Str;
 use Mvdnbrk\MyParcel\Resources\Time;
-use Tightenco\Collect\Support\Collection;
 use Mvdnbrk\MyParcel\Resources\PickupLocation;
 use Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException;
 use Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException;
@@ -68,7 +67,7 @@ class DeliveryOptions extends BaseEndpoint
     protected function boot()
     {
         $this->cutoffTime = new Time('15:30');
-        $this->pickup = new Collection;
+        $this->pickup = collect();
     }
 
     /**
@@ -92,21 +91,9 @@ class DeliveryOptions extends BaseEndpoint
         $this->pickup = collect();
 
         collect($result->data->pickup)->each(function ($location) {
-            $newLocation = new PickupLocation;
-            $newLocation->location_name = $location->location;
-            $newLocation->street = $location->street;
-            $newLocation->postal_code = $location->postal_code;
-            $newLocation->number = $location->number;
-            $newLocation->city = $location->city;
-            $newLocation->cc = $location->cc;
-            $newLocation->phone = $location->phone_number;
-            $newLocation->distance = $location->distance;
-            $newLocation->latitude = (float) $location->latitude;
-            $newLocation->longitude = (float) $location->longitude;
-            $newLocation->opening_hours = (array) $location->opening_hours;
-            $newLocation->location_code = $location->location_code;
-
-            $this->pickup->push($newLocation);
+            $this->pickup->push(
+                new PickupLocation($location)
+            );
         });
 
         return $this;
