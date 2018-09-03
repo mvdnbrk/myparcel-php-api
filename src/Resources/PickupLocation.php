@@ -116,6 +116,27 @@ class PickupLocation extends Address
     }
 
     /**
+     * Sets a phone number for this location. Alias for phone.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setPhoneNumberAttribute($value)
+    {
+        $this->phone = $value;
+    }
+
+    /**
+     * Get the phone number for this location. Alias for phone.
+     *
+     * @return string
+     */
+    public function getPhoneNumberAttribute()
+    {
+        return $this->phone;
+    }
+
+    /**
      * Get the instance as an array.
      *
      * @return array

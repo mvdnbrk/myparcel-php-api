@@ -63,6 +63,17 @@ class PickupLocationTest extends TestCase
     }
 
     /** @test */
+    public function phone_number_may_be_used_as_an_alias_to_phone()
+    {
+        $pickup = new PickupLocation([
+            'phone_number' => '0101111111',
+        ]);
+
+        $this->assertEquals('0101111111', $pickup->phone);
+        $this->assertEquals('0101111111', $pickup->phone_number);
+    }
+
+    /** @test */
     public function latitude_and_longitude_are_converted_to_float()
     {
          $pickup = new PickupLocation([
