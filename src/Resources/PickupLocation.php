@@ -62,6 +62,28 @@ class PickupLocation extends Address
     }
 
     /**
+     * Sets the latitude for this location.
+     *
+     * @param  string|float  $value
+     * @return void
+     */
+    public function setLatitudeAttribute($value)
+    {
+        $this->latitude = (float) $value;
+    }
+
+    /**
+     * Sets the longitude for this location.
+     *
+     * @param  string|float  $value
+     * @return void
+     */
+    public function setLongitudeAttribute($value)
+    {
+        $this->longitude = (float) $value;
+    }
+
+    /**
      * Get the name for this location. Alias for location_name.
      *
      * @return string

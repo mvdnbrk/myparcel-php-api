@@ -53,6 +53,18 @@ class PickupLocationTest extends TestCase
     }
 
     /** @test */
+    public function latitude_and_longitude_are_converted_to_float()
+    {
+         $pickup = new PickupLocation([
+            'latitude' => '1.11',
+            'longitude' => '2.22',
+        ]);
+
+        $this->assertSame(1.11, $pickup->latitude);
+        $this->assertSame(2.22, $pickup->longitude);
+    }
+
+    /** @test */
     public function to_array()
     {
         $pickup = new PickupLocation([
