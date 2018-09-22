@@ -24,10 +24,10 @@ To use the MyParcel API client, the following things are required:
 
 ## Installation
 
-The easiest way to install the MyParcel API client is to require it with [Composer](https://getcomposer.org/doc/00-intro.md)
+You can install the package via composer:
 
 ``` bash
-$ composer require mvdnbrk/myparcel-php-api
+composer require mvdnbrk/myparcel-php-api
 ```
 
 ## Getting started
