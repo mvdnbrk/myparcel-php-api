@@ -61,7 +61,7 @@ class TrackTraceTest extends TestCase
     public function getting_track_and_trace_information_with_an_invalid_id_should_throw_an_error()
     {
         $this->expectException(\Mvdnbrk\MyParcel\Exceptions\MyParcelException::class);
-        $this->expectExceptionMessage('Error executing API call (3701) : Shipment 9999999999 does not exist.');
+        $this->expectExceptionMessage('Error executing API call (3001) : Permission Denied.');
 
         $response = $this->client->tracktrace->get('9999999999');
     }
