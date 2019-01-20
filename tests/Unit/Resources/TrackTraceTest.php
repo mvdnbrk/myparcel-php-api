@@ -13,7 +13,10 @@ class TrackTraceTest extends TestCase
     {
         $tracktrace = new TrackTrace([
             'shipment_id' => '123456',
-            'final' => false,
+            'status' => [
+                'current' => 7,
+                'final' => true,
+            ],
             'code' => 'AA1',
             'description' => 'Test description',
             'time' => '2018-08-28 23:00:00',
@@ -21,7 +24,7 @@ class TrackTraceTest extends TestCase
         ]);
 
         $this->assertEquals('123456', $tracktrace->shipment_id);
-        $this->assertFalse($tracktrace->final);
+        $this->assertTrue($tracktrace->final);
         $this->assertEquals('AA1', $tracktrace->code);
         $this->assertEquals('Test description', $tracktrace->description);
         $this->assertEquals('2018-08-28 23:00:00', $tracktrace->time);

@@ -29,6 +29,8 @@ class TrackTrace extends Trace
         $this->history = [];
 
         parent::__construct($attributes);
+
+        $this->final = collect($this->status)->get('final', false);
     }
 
     /**
