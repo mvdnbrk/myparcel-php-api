@@ -10,6 +10,11 @@ class Trace extends BaseResource
     public $code;
 
     /**
+     * @var mixed
+     */
+    public $status;
+
+    /**
      * @var string
      */
     public $description;
