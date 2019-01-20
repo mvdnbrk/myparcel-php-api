@@ -4,6 +4,11 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [0.6.0] - 2019-01-20
+
+### Fixed
+- Fixed a change in the MyParcel API response. [`6d446e1`](https://github.com/mvdnbrk/myparcel-php-api/commit/6d446e1fda221da463076cd59f822a87666e3aa4)
+
 ## [0.5.0] - 2018-09-03
 
 ### Added
