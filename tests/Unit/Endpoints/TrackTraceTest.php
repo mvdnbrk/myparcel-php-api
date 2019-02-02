@@ -37,7 +37,7 @@ class TrackTraceTest extends TestCase
 
         $tracktrace = $this->client->tracktrace->get($shipment->id);
 
-        $this->assertNull($tracktrace);
+        $this->assertSame([], $tracktrace->history);
 
         $this->cleanup($shipment);
     }
@@ -50,11 +50,12 @@ class TrackTraceTest extends TestCase
         ]);
 
         $shipment = $this->client->shipments->concept($parcel);
-        $label = $this->client->labels->get($shipment);
 
         $tracktrace = $this->client->tracktrace->get($shipment);
 
         $this->assertSame([], $tracktrace->history);
+
+        $this->cleanup($shipment);
     }
 
     /** @test */
