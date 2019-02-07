@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Support;
+namespace Mvdnbrk\MyParcel\Tests\Support;
 
-use Tests\TestCase;
 use Mvdnbrk\MyParcel\Support\Str;
+use Mvdnbrk\MyParcel\Tests\TestCase;
 
 class StrTest extends TestCase
 {

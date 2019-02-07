@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Unit\Resources;
+namespace Mvdnbrk\MyParcel\Tests\Unit\Resources;
 
-use Tests\TestCase;
+use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\BaseResource;
 use Mvdnbrk\MyParcel\Exceptions\JsonEncodingException;
 
@@ -94,7 +94,7 @@ class BaseResourceTest extends TestCase
     public function encoding_malformed_json_throws_an_exception()
     {
         $this->expectException(JsonEncodingException::class);
-        $this->expectExceptionMessage('Error encoding resource [Tests\Unit\Resources\ResourceStub] to JSON: Malformed UTF-8 characters, possibly incorrectly encoded.');
+        $this->expectExceptionMessage('Error encoding resource [Mvdnbrk\MyParcel\Tests\Unit\Resources\ResourceStub] to JSON: Malformed UTF-8 characters, possibly incorrectly encoded.');
 
         $obj = new \stdClass;
         $obj->foo = "b\xF8r";

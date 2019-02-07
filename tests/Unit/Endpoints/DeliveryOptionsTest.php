@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Unit\Endpoints;
+namespace Mvdnbrk\MyParcel\Tests\Unit\Endpoints;
 
-use Tests\TestCase;
 use Illuminate\Support\Collection;
+use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\PickupLocation;
 use Mvdnbrk\MyParcel\Endpoints\DeliveryOptions;
 use Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException;

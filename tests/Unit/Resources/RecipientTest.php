@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Unit\Resources;
+namespace Mvdnbrk\MyParcel\Tests\Unit\Resources;
 
-use Tests\TestCase;
+use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\Recipient;
 
 class RecipientTest extends TestCase

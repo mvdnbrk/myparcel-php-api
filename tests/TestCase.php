@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Mvdnbrk\MyParcel\Tests;
 
 use Dotenv\Dotenv;
 use Mvdnbrk\MyParcel\Client;

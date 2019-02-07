@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Unit\Endpoints;
+namespace Mvdnbrk\MyParcel\Tests\Unit\Endpoints;
 
-use Tests\TestCase;
+use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\Parcel;
 use Mvdnbrk\MyParcel\Resources\Shipment;
 

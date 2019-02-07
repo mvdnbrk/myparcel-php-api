@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Unit\Resources;
+namespace Mvdnbrk\MyParcel\Tests\Unit\Resources;
 
-use Tests\TestCase;
 use Illuminate\Support\Collection;
+use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\TrackTrace;
 
 class TrackTraceTest extends TestCase

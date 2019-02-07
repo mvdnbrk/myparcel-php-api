@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Mvdnbrk\MyParcel\Tests;
 
 use Mvdnbrk\MyParcel\Client;
 use Mvdnbrk\MyParcel\Endpoints\Shipments;
