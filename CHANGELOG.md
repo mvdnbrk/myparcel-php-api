@@ -4,6 +4,11 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [0.6.1] - 2019-02-07
+
+### Changed
+- Unify `tests` namespace. [`95edf57`](https://github.com/mvdnbrk/myparcel-php-api/commit/95edf5780eaa7416d0ba2ff7586578de0de2761e)
+
 ## [0.6.0] - 2019-01-20
 
 ### Fixed
@@ -56,8 +61,11 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.5.0...HEAD
-[0.4.1]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.4.1...v0.5.0
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.6.1...HEAD
+[0.6.1]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.6.0...v0.6.1
+[0.6.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.5.0...v0.6.0
+[0.5.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.4.1...v0.5.0
+[0.4.1]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.1.1...v0.2.0
