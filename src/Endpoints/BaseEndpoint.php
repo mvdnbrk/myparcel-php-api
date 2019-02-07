@@ -15,7 +15,7 @@ abstract class BaseEndpoint
     /**
      * Create a endpont instance.
      *
-     * @param \Mvdnbrk\MyParcel\Client  $client
+     * @param  \Mvdnbrk\MyParcel\Client  $client
      */
     public function __construct(Client $client)
     {
@@ -27,7 +27,7 @@ abstract class BaseEndpoint
     /**
      * Boots the endpoint instance.
      *
-     * @return mixed
+     * @return void
      */
     protected function boot()
     {
