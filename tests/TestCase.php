@@ -21,8 +21,7 @@ abstract class TestCase extends Orchestra
             die('The environment file is invalid: '.$e->getMessage());
         }
 
-        $this->client = new Client;
-        $this->client->setApiKey(getenv('API_KEY'));
+        $this->client = (new Client)->setApiKey(getenv('API_KEY'));
 
         parent::setUp();
     }
