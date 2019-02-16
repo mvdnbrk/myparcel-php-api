@@ -7,7 +7,7 @@ use Mvdnbrk\MyParcel\Client;
 class MyParcelServiceProviderTest extends TestCase
 {
     /** @test */
-    public function it_has_a_valid_default_configuration()
+    public function it_can_retrieve_a_client_instance()
     {
         $this->assertInstanceOf(Client::class, resolve('myparcel'));
     }
