@@ -26,7 +26,7 @@ abstract class BaseEndpoint
     }
 
     /**
-     * Boots the endpoint instance.
+     * Boot the endpoint instance.
      *
      * @return void
      */
