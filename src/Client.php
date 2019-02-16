@@ -133,7 +133,7 @@ class Client
     /**
      * Sets the API key.
      *
-     * @param string  $value
+     * @param  string  $value
      * @return void
      */
     public function setApiKey($value)
