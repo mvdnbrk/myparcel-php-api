@@ -32,14 +32,16 @@ composer require mvdnbrk/myparcel-php-api
 
 ## Getting started
 
-Initialize the MyParcel client and set your API key.
+Initialize the MyParcel client and set your API key:
 
 ``` php
 $myparcel = new \Mvdnbrk\MyParcel\Client();
+
 $myparcel->setApiKey('your-api-key');
 ```
 
 ### Create a parcel
+
 ``` php
 $parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
     'reference' => 'your own reference for the parcel',
@@ -56,17 +58,20 @@ $parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
 ```
 
 ### Create the shipment
+
 ``` php
 $shipment = $myparcel->shipments->create($parcel);
 
 // Get the `id` of the shipment. You may save this value for later reference.
 $shipment->id;
 ```
+
 You have created your first shipment!
 
 ### Retrieving a label
 
 A label can be retrieved by using `$shipment->id`. This will return a label in A6 format as a string.
+
 ```
 $myparcel->labels->get($shipment->id);
 ```
@@ -78,6 +83,7 @@ $myparcel->labels->get($shipment);
 ### Setting delivery options for a parcel
 
 You can set delivery options for a parcel by passing in the options directly when you create a parcel:
+
 ``` php
 $parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
     ...
@@ -104,6 +110,7 @@ $parcel->onlyRecipient()
 **Mailbox package**
 
 This package type is only available for shipments in the Netherlands that fit in a standard mailbox.
+
 ``` php
 $parcel->mailboxpackage();
 ```
@@ -111,6 +118,7 @@ $parcel->mailboxpackage();
 ### Send a shipment to a pick up location
 
 You can set set the package to be delivered to a pick up location when you create a parcel:
+
 ``` php
 $parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
     'recipient' => [
@@ -140,7 +148,9 @@ $parcel->pickup = [
 ```
 
 ### Get a shipment
+
 You can get a shipment by `id` or your own reference.
+
 ``` php
 $shipment = $myparcel->shipments->get($id);
 
@@ -154,7 +164,9 @@ $shipment->status;
 ```
 
 ### Tracking a shipment
+
 You can get detailed track and trace information for a shipment.
+
 ``` php
 $tracktrace = $myparcel->tracktrace->get($id);
 
@@ -175,7 +187,9 @@ $tracktrace->items->all()
 ```
 
 ## Usage with Laravel
+
 Add your MyParcel API key to the `.env` file:
+
 ```
 MYPARCEL_API_KEY=YOUR-API-KEY-HERE
 ```
@@ -185,7 +199,7 @@ You can resolve a configured instance of `Mvdnbrk\MyParcel\Client` out of the co
 app('myparcel')->shipments->create($parcel);
 ```
 
-## Change log
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
