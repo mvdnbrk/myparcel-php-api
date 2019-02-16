@@ -4,7 +4,6 @@ namespace Mvdnbrk\MyParcel\Resources;
 
 use JsonSerializable;
 use Mvdnbrk\MyParcel\Contracts\Jsonable;
-use Tightenco\Collect\Support\Collection;
 use Mvdnbrk\MyParcel\Contracts\Arrayable;
 use Mvdnbrk\MyParcel\Exceptions\JsonEncodingException;
 
