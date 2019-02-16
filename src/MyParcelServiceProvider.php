@@ -33,7 +33,7 @@ class MyParcelServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/myparcel.php', 'myparcel');
 
         $this->app->singleton(Client::class, function () {
-            return (new Client())->setApiKey(config('myparcel.key'));
+            return (new Client)->setApiKey(config('myparcel.key'));
         });
 
         $this->app->alias(Client::class, 'myparcel');
