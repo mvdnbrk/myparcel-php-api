@@ -8,23 +8,6 @@ use Mvdnbrk\MyParcel\Tests\TestCase;
 class StrTest extends TestCase
 {
     /** @test */
-    public function lower()
-    {
-        $this->assertEquals('mvdnbrk string', Str::lower('MVDNBRK STRING'));
-        $this->assertEquals('mvdnbrk teststring', Str::lower('MvdnBrk TestString'));
-    }
-
-    /** @test */
-    public function starts_with()
-    {
-        $this->assertTrue(Str::startsWith('mvdnbrk', 'mvdn'));
-        $this->assertTrue(Str::startsWith('mvdnbrk', 'mvdnbrk'));
-        $this->assertFalse(Str::startsWith('mvdnbrk', 'string'));
-        $this->assertFalse(Str::startsWith('mvdnbrk', ''));
-        $this->assertFalse(Str::startsWith('m', ' m'));
-    }
-
-    /** @test */
     public function studly()
     {
         $this->assertEquals('MvdnbrkTestStringPhp', Str::studly('mvdnbrk_test_string_php'));
