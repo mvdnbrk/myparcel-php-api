@@ -10,8 +10,8 @@ class StrTest extends TestCase
     /** @test */
     public function lower()
     {
-        $this->assertEquals('mvdnbrk myparcel', Str::lower('MVDNBRK MYPARCEL'));
-        $this->assertEquals('mvdnbrk myparcel', Str::lower('MvdnBrk MyParcel'));
+        $this->assertEquals('mvdnbrk string', Str::lower('MVDNBRK STRING'));
+        $this->assertEquals('mvdnbrk teststring', Str::lower('MvdnBrk TestString'));
     }
 
     /** @test */
@@ -19,7 +19,7 @@ class StrTest extends TestCase
     {
         $this->assertTrue(Str::startsWith('mvdnbrk', 'mvdn'));
         $this->assertTrue(Str::startsWith('mvdnbrk', 'mvdnbrk'));
-        $this->assertFalse(Str::startsWith('mvdnbrk', 'parcel'));
+        $this->assertFalse(Str::startsWith('mvdnbrk', 'string'));
         $this->assertFalse(Str::startsWith('mvdnbrk', ''));
         $this->assertFalse(Str::startsWith('m', ' m'));
     }
@@ -27,10 +27,10 @@ class StrTest extends TestCase
     /** @test */
     public function studly()
     {
-        $this->assertEquals('MvdnbrkMyParcelPhp', Str::studly('mvdnbrk_my_parcel_php'));
-        $this->assertEquals('MvdnbrkMyparcelPhp', Str::studly('mvdnbrk_myparcel_php'));
-        $this->assertEquals('MvdnbrkMyParcelPhp', Str::studly('mvdnbrk-myParcel-php'));
-        $this->assertEquals('MvdnbrkMyparcelPhp', Str::studly('mvdnbrk  -_-  myparcel   -_-   php   '));
+        $this->assertEquals('MvdnbrkTestStringPhp', Str::studly('mvdnbrk_test_string_php'));
+        $this->assertEquals('MvdnbrkStringPhp', Str::studly('mvdnbrk_string_php'));
+        $this->assertEquals('MvdnbrkTestStringPhp', Str::studly('mvdnbrk-testString-php'));
+        $this->assertEquals('MvdnbrkStringPhp', Str::studly('mvdnbrk  -_-  string   -_-   php   '));
     }
 
     /** @test */
