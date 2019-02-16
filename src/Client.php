@@ -134,10 +134,12 @@ class Client
      * Sets the API key.
      *
      * @param  string  $value
-     * @return void
+     * @return \Mvdnbrk\MyParcel\Client
      */
     public function setApiKey($value)
     {
         $this->apiKey = trim($value);
+
+        return $this;
     }
 }
