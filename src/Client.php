@@ -56,12 +56,12 @@ class Client
     public $tracktrace;
 
     /**
-     * @var \GuzzleHttp\Client;
+     * @var \GuzzleHttp\Client
      */
     protected $httpClient;
 
     /**
-     * Create a new Client Instance
+     * Create a new Client instance.
      *
      * @return void
      */
