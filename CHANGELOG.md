@@ -4,6 +4,12 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [0.6.2] - 2019-02-16
+
+### Changed
+- The `setApiKey()` now returns the `Client` instance to allow method chaining. [`dacefc2`](https://github.com/mvdnbrk/myparcel-php-api/commit/dacefc2190614dbe6ddafa1e4e83d222a00f786c)
+- Improved the registration of publishable resources. [`963383e`](https://github.com/mvdnbrk/myparcel-php-api/commit/963383efdbcebb9b8b7934738b9fa8836ca92aaa)
+
 ## [0.6.1] - 2019-02-07
 
 ### Changed
@@ -61,7 +67,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.6.1...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.6.2...HEAD
+[0.6.2]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.6.1...v0.6.2
 [0.6.1]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v0.4.1...v0.5.0
