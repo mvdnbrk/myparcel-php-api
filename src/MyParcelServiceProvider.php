@@ -20,9 +20,7 @@ class MyParcelServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__ . '/../config/myparcel.php' => config_path('myparcel.php')
-        ], 'config');
+        $this->registerPublishing();
     }
 
     /**
@@ -39,6 +37,20 @@ class MyParcelServiceProvider extends ServiceProvider
         });
 
         $this->app->alias(Client::class, 'myparcel');
+    }
+
+    /**
+     * Register the publishable resources for this package.
+     *
+     * @return void
+     */
+    private function registerPublishing()
+    {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../config/myparcel.php' => config_path('myparcel.php')
+            ], 'config');
+        }
     }
 
     /**
