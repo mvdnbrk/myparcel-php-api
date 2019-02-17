@@ -9,7 +9,7 @@ use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 class BaseEndpointTest extends TestCase
 {
     /** @test */
-    public function passing_an_empty_array_tobuild_query_string_should_return_an_empty_string()
+    public function passing_an_empty_array_to_build_query_string_should_return_an_empty_string()
     {
         $endpoint = new BaseEndpointStub($this->client);
 
