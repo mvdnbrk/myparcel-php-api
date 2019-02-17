@@ -106,7 +106,6 @@ class Client
         $url = $this->apiEndpoint . '/' . $apiMethod;
 
         $headers = collect([
-            'User-Agent' => 'CustomApiCall/2',
             'Accept' => 'application/json',
             'Authorization' => 'Basic '.base64_encode($this->apiKey),
         ]);
