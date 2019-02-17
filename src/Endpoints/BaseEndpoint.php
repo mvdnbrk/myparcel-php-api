@@ -13,9 +13,10 @@ abstract class BaseEndpoint
     protected $apiClient;
 
     /**
-     * Create a endpont instance.
+     * Create an endpoint instance.
      *
      * @param  \Mvdnbrk\MyParcel\Client  $client
+     * @return void
      */
     public function __construct(Client $client)
     {
@@ -25,7 +26,7 @@ abstract class BaseEndpoint
     }
 
     /**
-     * Boots the endpoint instance.
+     * Boot the endpoint instance.
      *
      * @return void
      */
