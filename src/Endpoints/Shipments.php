@@ -131,7 +131,7 @@ class Shipments extends BaseEndpoint
         return json_encode([
             'data' => [
                 'shipments' => [
-                    json_decode($parcel->toJson())
+                    $parcel->toArray()
                 ]
             ],
         ]);
