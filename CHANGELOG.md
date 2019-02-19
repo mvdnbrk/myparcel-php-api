@@ -4,6 +4,11 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [0.7.0] - 2019-02-19
+
+### Changed
+- Removed person attribute in favor of first_name and last_name. [`067dbc0`](https://github.com/mvdnbrk/myparcel-php-api/commit/067dbc0e6a31816c40a2af6ba60f5affae5abe0c)
+
 ## [0.6.2] - 2019-02-19
 
 ### Changed
