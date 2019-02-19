@@ -206,9 +206,6 @@ class Parcel extends BaseResource
             ->when(! is_null($this->pickup), function ($collection) {
                 return $collection->put('pickup', $this->pickup->toArray());
             })
-            ->reject(function ($value) {
-                return $value === null;
-            })
             ->all();
     }
 }
