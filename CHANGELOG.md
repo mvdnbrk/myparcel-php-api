@@ -4,11 +4,14 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
-## [0.6.2] - 2019-02-16
+## [0.6.2] - 2019-02-19
 
 ### Changed
 - The `setApiKey()` now returns the `Client` instance to allow method chaining. [`dacefc2`](https://github.com/mvdnbrk/myparcel-php-api/commit/dacefc2190614dbe6ddafa1e4e83d222a00f786c)
 - Improved the registration of publishable resources. [`963383e`](https://github.com/mvdnbrk/myparcel-php-api/commit/963383efdbcebb9b8b7934738b9fa8836ca92aaa)
+
+### Fixed
+- Fixed unneeded `json_encode()`. [`677b728`](https://github.com/mvdnbrk/myparcel-php-api/commit/677b7285e33bc4a6d1802ef1071fbccbd990b094)
 
 ## [0.6.1] - 2019-02-07
 
