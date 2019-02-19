@@ -15,7 +15,8 @@ class ParcelTest extends TestCase
             'reference_identifier' => 'test-123',
             'recipient' => [
                 'company' => 'Test Company B.V.',
-                'person' => 'John Doe',
+                'first_name' => 'John',
+                'last_name' => 'Doe',
             ],
             'options' => [
                 'description' => 'Test label description',
@@ -25,7 +26,8 @@ class ParcelTest extends TestCase
 
         $this->assertEquals('test-123', $parcel->reference_identifier);
         $this->assertEquals('Test Company B.V.', $parcel->recipient->company);
-        $this->assertEquals('John Doe', $parcel->recipient->person);
+        $this->assertEquals('John', $parcel->recipient->first_name);
+        $this->assertEquals('Doe', $parcel->recipient->last_name);
         $this->assertEquals('Test label description', $parcel->options->label_description);
         $this->assertSame(1, $parcel->options->signature);
     }
@@ -201,7 +203,8 @@ class ParcelTest extends TestCase
             ],
             'recipient' => [
                 'company' => 'Test Company B.V.',
-                'person' => 'John Doe',
+                'first_name' => 'John',
+                'last_name' => 'Doe',
                 'email' => 'john@example.com',
                 'phone' => '0101111111',
                 'street' => 'Poststraat',

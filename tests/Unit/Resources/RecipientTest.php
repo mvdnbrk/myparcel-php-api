@@ -11,7 +11,8 @@ class RecipientTest extends TestCase
     {
         return array_merge([
             'company' => 'Test Company B.V.',
-            'person' => 'John Doe',
+            'first_name' => 'John',
+            'last_name' => 'Doe',
             'email' => 'john@example.com',
             'phone' => '0101111111',
             'street' => 'Poststraat',
@@ -29,7 +30,8 @@ class RecipientTest extends TestCase
     {
         $recipient = new Recipient([
             'company' => 'Test Company B.V.',
-            'person' => 'John Doe',
+            'first_name' => 'John',
+            'last_name' => 'Doe',
             'email' => 'john@example.com',
             'phone' => '0101111111',
             'street' => 'Poststraat',
@@ -43,7 +45,8 @@ class RecipientTest extends TestCase
         ]);
 
         $this->assertEquals('Test Company B.V.', $recipient->company);
-        $this->assertEquals('John Doe', $recipient->person);
+        $this->assertEquals('John', $recipient->first_name);
+        $this->assertEquals('Doe', $recipient->last_name);
         $this->assertEquals('john@example.com', $recipient->email);
         $this->assertEquals('0101111111', $recipient->phone);
         $this->assertEquals('Poststraat', $recipient->street);
@@ -54,6 +57,35 @@ class RecipientTest extends TestCase
         $this->assertEquals('Amsterdam', $recipient->city);
         $this->assertEquals('Noord-Holland', $recipient->region);
         $this->assertEquals('NL', $recipient->cc);
+    }
+
+    /** @test */
+    public function it_can_retrieve_the_full_name()
+    {
+        $recipient = new Recipient([
+            'first_name' => 'John',
+            'last_name' => 'Doe',
+        ]);
+
+        $this->assertEquals('John Doe', $recipient->full_name);
+    }
+
+    /** @test */
+    public function full_name_gets_trimmed_when_first_or_last_name_is_abscent()
+    {
+        $recipient = new Recipient([
+            'first_name' => '',
+            'last_name' => 'Doe',
+        ]);
+
+        $this->assertEquals('Doe', $recipient->full_name);
+
+        $recipient = new Recipient([
+            'first_name' => 'John',
+            'last_name' => '',
+        ]);
+
+        $this->assertEquals('John', $recipient->full_name);
     }
 
     /** @test */
@@ -107,5 +139,36 @@ class RecipientTest extends TestCase
 
         $this->assertInternalType('string', $array['number']);
         $this->assertEquals('999', $array['number']);
+    }
+
+    /** @test */
+    public function to_array()
+    {
+        $attributes = [
+            'company' => 'Test Company B.V.',
+            'first_name' => 'John',
+            'last_name' => 'Doe',
+            'email' => 'john@example.com',
+            'phone' => '0101111111',
+            'street' => 'Poststraat',
+            'number' => '1',
+            'number_suffix' => 'A',
+            'postal_code' => '1234AA',
+            'city' => 'Amsterdam',
+            'region' => 'Noord-Holland',
+            'cc' => 'NL',
+        ];
+
+        $recipient = new Recipient($attributes);
+
+        $array = $recipient->toArray();
+
+        $this->assertInternalType('array', $array);
+
+        $this->assertArrayNotHasKey('first_name', $array);
+        $this->assertArrayNotHasKey('last_name', $array);
+
+        $this->assertArrayHasKey('person', $array);
+        $this->assertEquals('John Doe', $array['person']);
     }
 }

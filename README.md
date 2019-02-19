@@ -46,7 +46,8 @@ $myparcel->setApiKey('your-api-key');
 $parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
     'reference' => 'your own reference for the parcel',
     'recipient' => [
-        'person' => 'John Doe',
+        'first_name' => 'John',
+        'last_name' => 'Doe'
         'street' => 'Poststraat',
         'number' => '1',
         'number_suffix' => 'A',
