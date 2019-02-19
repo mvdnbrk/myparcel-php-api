@@ -152,6 +152,7 @@ class Parcel extends BaseResource
     {
         if (is_null($value)) {
             $this->pickup = null;
+
             return;
         }
 
