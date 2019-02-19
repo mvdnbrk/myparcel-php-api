@@ -20,7 +20,7 @@ class Address extends BaseResource
     public $street_additional_info;
 
     /**
-     * @var string
+     * @var int|string
      */
     public $number;
 
