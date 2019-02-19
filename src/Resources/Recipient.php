@@ -48,7 +48,9 @@ class Recipient extends Address
     public function toArray()
     {
         return collect(parent::toArray())
-            ->put('person', $this->full_name)
+            ->when($this->full_name, function ($collection) {
+                return $collection->put('person', $this->full_name);
+            })
             ->forget('first_name')
             ->forget('last_name')
             ->all();

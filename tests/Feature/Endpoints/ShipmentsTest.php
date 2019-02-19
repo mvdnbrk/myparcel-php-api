@@ -16,7 +16,8 @@ class ShipmentsTest extends TestCase
     private function validRecipient($overrides = [])
     {
         return array_merge([
-            'person' => 'John Doe',
+            'first_name' => 'John',
+            'last_name' => 'Doe',
             'street' => 'Poststraat',
             'number' => '1',
             'postal_code' => '1234AA',
@@ -37,7 +38,8 @@ class ShipmentsTest extends TestCase
             'reference_identifier' => 'test-123',
             'recipient' => [
                 'company' => 'Test Company B.V.',
-                'person' => 'John Doe',
+                'first_name' => 'John',
+                'last_name' => 'Doe',
                 'email' => 'john@example.com',
                 'phone' => '0101111111',
                 'street' => 'Poststraat',
