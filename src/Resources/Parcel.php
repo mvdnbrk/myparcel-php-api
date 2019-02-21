@@ -117,7 +117,6 @@ class Parcel extends BaseResource
         return $this;
     }
 
-
     /**
      * Require a signature from the recipient.
      * Sets signature option to true.
@@ -134,8 +133,8 @@ class Parcel extends BaseResource
     /**
      * Set the shipment options for this parcel.
      *
-     * @param array  $value
-     * @return  void
+     * @param  array  $value
+     * @return void
      */
     public function setOptionsAttribute($value)
     {
@@ -145,8 +144,8 @@ class Parcel extends BaseResource
     /**
      * Set the pick up location for this parcel.
      *
-     * @param array|null  $value
-     * @return  void
+     * @param  array|null  $value
+     * @return void
      */
     public function setPickupAttribute($value)
     {
@@ -169,8 +168,8 @@ class Parcel extends BaseResource
     /**
      * Set the recipient for this parcel.
      *
-     * @param array  $value
-     * @return  void
+     * @param  array  $value
+     * @return void
      */
     public function setRecipientAttribute($value)
     {
