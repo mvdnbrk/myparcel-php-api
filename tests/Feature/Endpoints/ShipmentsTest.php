@@ -26,9 +26,15 @@ class ShipmentsTest extends TestCase
         ], $overrides);
     }
 
+    /**
+     * Clean up the "concept" Shipment resource on the MyParcel end.
+     *
+     * @param  \Mvdnbrk\MyParcel\Resources\Shipment
+     * @return bool
+     */
     private function cleanUp(Shipment $shipment)
     {
-        $this->client->shipments->delete($shipment);
+        return $this->client->shipments->delete($shipment);
     }
 
     /** @test */
@@ -71,7 +77,7 @@ class ShipmentsTest extends TestCase
         $this->assertEquals('John', $shipment->recipient->first_name);
         $this->assertEquals('Doe', $shipment->recipient->last_name);
 
-        $this->cleanUp($shipment);
+        $this->assertTrue($this->cleanUp($shipment));
     }
 
     /** @test */
@@ -109,7 +115,7 @@ class ShipmentsTest extends TestCase
         $this->assertInstanceOf(PickupLocation::class, $shipment->pickup);
         $this->assertNotNull($shipment->id);
 
-        $this->cleanUp($shipment);
+        $this->assertTrue($this->cleanUp($shipment));
     }
 
     /** @test */
@@ -170,7 +176,7 @@ class ShipmentsTest extends TestCase
         $this->assertNotNull($shipment->created);
         $this->assertNotNull($shipment->status);
 
-        $this->cleanUp($shipment);
+        $this->assertTrue($this->cleanUp($shipment));
     }
 
     /** @test */
@@ -201,7 +207,7 @@ class ShipmentsTest extends TestCase
         $this->assertNotNull($shipment->created);
         $this->assertNotNull($shipment->status);
 
-        $this->cleanUp($shipment);
+        $this->assertTrue($this->cleanUp($shipment));
     }
 
     /** @test */
