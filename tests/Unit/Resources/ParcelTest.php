@@ -66,16 +66,30 @@ class ParcelTest extends TestCase
     }
 
     /** @test */
-    public function it_can_require_a_signature_from_the_recipient_of_the_parcel()
+    public function calling_the_label_description_method_returns_the_same_parcel_instance()
     {
         $parcel = new Parcel();
 
+        $this->assertSame($parcel, $parcel->labelDescription('test'));
+    }
+
+    /** @test */
+    public function it_can_require_a_signature_from_the_recipient_of_the_parcel()
+    {
+        $parcel = new Parcel();
         $this->assertFalse($parcel->options->signature);
 
         $parcel->signature();
 
-        $this->assertInstanceOf(Parcel::class, $parcel);
         $this->assertTrue($parcel->options->signature);
+    }
+
+    /** @test */
+    public function calling_the_signature_method_returns_the_same_parcel_instance()
+    {
+        $parcel = new Parcel();
+
+        $this->assertSame($parcel, $parcel->signature());
     }
 
     /** @test */
@@ -101,6 +115,14 @@ class ParcelTest extends TestCase
     }
 
     /** @test */
+    public function calling_the_mailboxpackage_method_returns_the_same_parcel_instance()
+    {
+        $parcel = new Parcel();
+
+        $this->assertSame($parcel, $parcel->mailboxpackage());
+    }
+
+    /** @test */
     public function it_can_set_a_parcel_to_be_only_delivered_to_the_recipient()
     {
         $parcel = new Parcel();
@@ -114,6 +136,14 @@ class ParcelTest extends TestCase
     }
 
     /** @test */
+    public function calling_the_only_recipient_method_returns_the_same_parcel_instance()
+    {
+        $parcel = new Parcel();
+
+        $this->assertSame($parcel, $parcel->onlyRecipient());
+    }
+
+    /** @test */
     public function it_can_set_a_parcel_to_be_returned_to_sender_when_recipient_is_not_at_home()
     {
         $parcel = new Parcel();
@@ -124,6 +154,14 @@ class ParcelTest extends TestCase
 
         $this->assertInstanceOf(Parcel::class, $parcel);
         $this->assertTrue($parcel->options->return);
+    }
+
+    /** @test */
+    public function calling_the_return_to_sender_method_returns_the_same_parcel_instance()
+    {
+        $parcel = new Parcel();
+
+        $this->assertSame($parcel, $parcel->returnToSender());
     }
 
     /** @test */
