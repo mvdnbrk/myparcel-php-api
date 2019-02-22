@@ -4,6 +4,11 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [0.7.1] - 2019-02-22
+
+### Fixed
+- Fixed an issue returning Shipment resource with correct values. [`aef9176`](https://github.com/mvdnbrk/myparcel-php-api/commit/aef9176f7659536da7f0a15ee00c579b09bd09ab)
+
 ## [0.7.0] - 2019-02-19
 
 ### Changed
@@ -75,7 +80,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.0...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.1...HEAD
+[0.7.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.0...v0.7.1
 [0.7.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.6.2...v0.7.0
 [0.6.2]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.6.1...v0.6.2
 [0.6.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.6.0...v0.6.1
