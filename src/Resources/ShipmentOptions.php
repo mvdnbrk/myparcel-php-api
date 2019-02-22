@@ -94,7 +94,6 @@ class ShipmentOptions extends BaseResource
         return $this->label_description;
     }
 
-
     /**
      * Sets the description. Alias for label_description.
      *
