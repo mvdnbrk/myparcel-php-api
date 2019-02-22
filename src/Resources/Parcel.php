@@ -78,7 +78,7 @@ class Parcel extends BaseResource
     }
 
     /**
-     * Set the parcel to a mailbox pacakge.
+     * Set the parcel to a mailbox package.
      *
      * @return $this
      */
