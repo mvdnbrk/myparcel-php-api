@@ -54,6 +54,6 @@ class ShipmentLabelsTest extends TestCase
         $this->expectException(\Mvdnbrk\MyParcel\Exceptions\MyParcelException::class);
         $this->expectExceptionMessage('Error executing API call (3001) : Permission Denied. (printShipmentLabel,writeResourceOwnedByOthers)');
 
-        $pdf = $this->client->labels->get('9999999999');
+        $this->client->labels->get('9999999999');
     }
 }
