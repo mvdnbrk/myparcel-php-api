@@ -4,7 +4,6 @@ namespace Mvdnbrk\MyParcel\Tests\Unit\Endpoints;
 
 use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\Parcel;
-use Mvdnbrk\MyParcel\Resources\Shipment;
 
 /** @group integration */
 class ShipmentLabelsTest extends TestCase
