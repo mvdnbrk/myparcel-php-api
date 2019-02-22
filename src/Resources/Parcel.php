@@ -168,11 +168,17 @@ class Parcel extends BaseResource
     /**
      * Set the recipient for this parcel.
      *
-     * @param  array  $value
+     * @param  \Mvdnbrk\MyParcel\Resources\Recipient|array  $value
      * @return void
      */
     public function setRecipientAttribute($value)
     {
+        if ($value instanceof Recipient) {
+            $this->recipient = $value;
+
+            return;
+        }
+
         $this->recipient->fill($value);
     }
 

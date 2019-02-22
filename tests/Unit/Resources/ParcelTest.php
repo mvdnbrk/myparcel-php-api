@@ -4,6 +4,7 @@ namespace Mvdnbrk\MyParcel\Tests\Unit\Resources;
 
 use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\Parcel;
+use Mvdnbrk\MyParcel\Resources\Recipient;
 use Mvdnbrk\MyParcel\Resources\PickupLocation;
 
 class ParcelTest extends TestCase
@@ -30,6 +31,24 @@ class ParcelTest extends TestCase
         $this->assertEquals('Doe', $parcel->recipient->last_name);
         $this->assertEquals('Test label description', $parcel->options->label_description);
         $this->assertSame(1, $parcel->options->signature);
+    }
+
+    /** @test */
+    public function it_can_set_the_recipient_by_passing_a_recipient_object()
+    {
+        $recipient = new Recipient([
+            'company' => 'Test Company B.V.',
+            'first_name' => 'John',
+            'last_name' => 'Doe',
+        ]);
+
+        $parcel = new Parcel([
+            'recipient' => $recipient,
+        ]);
+
+        $this->assertEquals('Test Company B.V.', $parcel->recipient->company);
+        $this->assertEquals('John', $parcel->recipient->first_name);
+        $this->assertEquals('Doe', $parcel->recipient->last_name);
     }
 
     /** @test */

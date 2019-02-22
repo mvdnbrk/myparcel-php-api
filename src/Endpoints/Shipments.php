@@ -40,7 +40,7 @@ class Shipments extends BaseEndpoint
         return new ShipmentResource(array_merge([
             'id' => $response->data->ids[0]->id,
             'status' => ShipmentStatus::CONCEPT,
-        ], $parcel->toArray()));
+        ], $parcel->attributesToArray()));
     }
 
     /**

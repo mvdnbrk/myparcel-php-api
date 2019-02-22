@@ -68,6 +68,8 @@ class ShipmentsTest extends TestCase
         $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
         $this->assertNotNull($shipment->id);
         $this->assertEquals(ShipmentStatus::CONCEPT, $shipment->status);
+        $this->assertEquals('John', $shipment->recipient->first_name);
+        $this->assertEquals('Doe', $shipment->recipient->last_name);
 
         $this->cleanUp($shipment);
     }
