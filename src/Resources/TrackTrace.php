@@ -12,7 +12,7 @@ class TrackTrace extends Trace
     /**
      * @var bool
      */
-    public $final;
+    public $isDelivered;
 
     /**
      * @var array
@@ -30,7 +30,17 @@ class TrackTrace extends Trace
 
         parent::__construct($attributes);
 
-        $this->final = collect($this->status)->get('final', false);
+        $this->isDelivered = collect($this->status)->get('final', false);
+    }
+
+    /**
+     * Determines if this shipment has reached a final state.
+     *
+     * @return bool
+     */
+    public function getFinalAttribute()
+    {
+        return $this->isDelivered;
     }
 
     /**

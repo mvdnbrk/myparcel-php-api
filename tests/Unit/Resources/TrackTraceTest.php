@@ -25,10 +25,35 @@ class TrackTraceTest extends TestCase
 
         $this->assertEquals('123456', $tracktrace->shipment_id);
         $this->assertTrue($tracktrace->final);
+        $this->assertTrue($tracktrace->isDelivered);
         $this->assertEquals('AA1', $tracktrace->code);
         $this->assertEquals('Test description', $tracktrace->description);
         $this->assertEquals('2018-08-28 23:00:00', $tracktrace->time);
         $this->assertSame([], $tracktrace->history);
+    }
+
+    /** @test */
+    public function it_can_get_the_delivery_status()
+    {
+        $tracktrace = new TrackTrace([
+            'status' => [
+                'current' => 2,
+                'final' => false,
+            ],
+        ]);
+
+        $this->assertFalse($tracktrace->final);
+        $this->assertFalse($tracktrace->isDelivered);
+
+        $tracktrace = new TrackTrace([
+            'status' => [
+                'current' => 7,
+                'final' => true,
+            ],
+        ]);
+
+        $this->assertTrue($tracktrace->final);
+        $this->assertTrue($tracktrace->isDelivered);
     }
 
     /** @test */

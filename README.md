@@ -171,8 +171,8 @@ You can get detailed track and trace information for a shipment.
 ``` php
 $tracktrace = $myparcel->tracktrace->get($id);
 
-// Check if the shipment has reached a final state:
-$tracktrace->final;
+// Check if the shipment is delivered:
+$tracktrace->isDelivered;
 
 // Get current state of the shipment:
 $tracktrace->code;
