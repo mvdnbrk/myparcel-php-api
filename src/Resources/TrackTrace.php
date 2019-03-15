@@ -20,7 +20,7 @@ class TrackTrace extends Trace
     public $history;
 
     /**
-     * Create a new Track Trace Collection instance.
+     * Create a new Track Trace instance.
      *
      * @param  array  $attributes
      */
