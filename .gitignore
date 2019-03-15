@@ -6,3 +6,4 @@ composer.lock
 docs
 phpunit.xml
 vendor
+.phpunit.result.cache
