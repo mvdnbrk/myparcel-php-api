@@ -80,7 +80,7 @@ class LabelTest extends TestCase
 
         $array = $label->toArray();
 
-        $this->assertInternalType('array', $array);
+        $this->assertIsArray($array);
         $this->assertSame(PaperSize::A6, $array['format']);
         $this->assertArrayNotHasKey('positions', $array);
 
@@ -91,7 +91,7 @@ class LabelTest extends TestCase
 
         $array = $label->toArray();
 
-        $this->assertInternalType('array', $array);
+        $this->assertIsArray($array);
         $this->assertSame(PaperSize::A4, $array['format']);
         $this->assertSame(LabelPositions::BOTTOM_RIGHT, $array['positions']);
     }

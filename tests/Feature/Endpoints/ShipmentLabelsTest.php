@@ -37,7 +37,7 @@ class ShipmentLabelsTest extends TestCase
     {
         $pdf = $this->client->labels->get($this->shipment->id);
 
-        $this->assertInternalType('string', $pdf);
+        $this->assertIsString('string', $pdf);
     }
 
     /** @test */
@@ -45,7 +45,7 @@ class ShipmentLabelsTest extends TestCase
     {
         $pdf = $this->client->labels->get($this->shipment);
 
-        $this->assertInternalType('string', $pdf);
+        $this->assertIsString('string', $pdf);
     }
 
     /** @test */

@@ -42,7 +42,7 @@ class PickupLocationTest extends TestCase
         $this->assertEquals('12.3456', $pickup->latitude);
         $this->assertEquals('98.76543', $pickup->longitude);
         $this->assertEquals('112233', $pickup->location_code);
-        $this->assertInternalType('array', $pickup->opening_hours);
+        $this->assertIsArray($pickup->opening_hours);
     }
 
     /** @test */
@@ -140,7 +140,7 @@ class PickupLocationTest extends TestCase
 
         $array = $pickup->toArray();
 
-        $this->assertInternalType('array', $array);
+        $this->assertIsArray($array);
         $this->assertEquals('Test name', $array['location_name']);
         $this->assertEquals('0101111111', $array['phone']);
         $this->assertEquals('testcode1234', $array['location_code']);
@@ -165,7 +165,7 @@ class PickupLocationTest extends TestCase
 
         $array = $pickup->toArray();
 
-        $this->assertInternalType('array', $array);
+        $this->assertIsArray($array);
         $this->assertEquals('Test name', $array['location_name']);
         $this->assertArrayNotHasKey('phone', $array);
         $this->assertArrayNotHasKey('location_code', $array);
@@ -184,7 +184,7 @@ class PickupLocationTest extends TestCase
 
         $array = $pickup->toArray();
 
-        $this->assertInternalType('string', $array['number']);
+        $this->assertIsString($array['number']);
         $this->assertEquals('999', $array['number']);
     }
 }

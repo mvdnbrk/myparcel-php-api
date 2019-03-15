@@ -35,7 +35,7 @@ class ShipmentOptionsTest extends TestCase
 
         $array = $options->toArray();
 
-        $this->assertInternalType('array', $array);
+        $this->assertIsArray($array);
         $this->assertSame(1, $array['package_type']);
         $this->assertSame(0, $array['return']);
         $this->assertSame(0, $array['signature']);

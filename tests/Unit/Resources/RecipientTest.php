@@ -137,7 +137,7 @@ class RecipientTest extends TestCase
 
         $array = $recipient->toArray();
 
-        $this->assertInternalType('string', $array['number']);
+        $this->assertIsString($array['number']);
         $this->assertEquals('999', $array['number']);
     }
 
@@ -163,7 +163,7 @@ class RecipientTest extends TestCase
 
         $array = $recipient->toArray();
 
-        $this->assertInternalType('array', $array);
+        $this->assertIsArray($array);
 
         $this->assertArrayNotHasKey('first_name', $array);
         $this->assertArrayNotHasKey('last_name', $array);

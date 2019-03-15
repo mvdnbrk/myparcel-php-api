@@ -36,7 +36,7 @@ class ShipmentTest extends TestCase
 
         $array = $shipment->toArray();
 
-        $this->assertInternalType('array', $array);
+        $this->assertIsArray($array);
         $this->assertEquals(123456, $array['id']);
         $this->assertEquals('3SMYPA123456789', $array['barcode']);
         $this->assertEquals('2018-01-01 12:34:56', $array['created']);

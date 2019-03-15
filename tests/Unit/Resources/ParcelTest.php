@@ -278,7 +278,7 @@ class ParcelTest extends TestCase
 
         $array = $parcel->toArray();
 
-        $this->assertInternalType('array', $array);
+        $this->assertIsArray($array);
         $this->assertSame(1, $array['carrier']);
         $this->assertSame('test-123', $array['reference_identifier']);
 
@@ -323,7 +323,7 @@ class ParcelTest extends TestCase
         $array = $parcel->toArray();
 
         $this->assertArrayHasKey('options', $array);
-        $this->assertInternalType('array', $array['options']);
+        $this->assertIsArray($array['options']);
     }
 
     /** @test */
@@ -344,7 +344,7 @@ class ParcelTest extends TestCase
         $array = $parcel->toArray();
 
         $this->assertArrayHasKey('recipient', $array);
-        $this->assertInternalType('array', $array['recipient']);
+        $this->assertIsArray($array['recipient']);
     }
 
     /** @test */
@@ -380,7 +380,7 @@ class ParcelTest extends TestCase
 
         $array = $parcel->toArray();
 
-        $this->assertInternalType('string', $array['reference_identifier']);
+        $this->assertIsString($array['reference_identifier']);
         $this->assertEquals('999999', $array['reference_identifier']);
     }
 }
