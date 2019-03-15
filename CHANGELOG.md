@@ -4,6 +4,11 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [0.7.2] - 2019-03-15
+
+### Changed
+- Changed `final` to `isDelivered` on a TrackTrace resource. [`4fb7feb`](https://github.com/mvdnbrk/myparcel-php-api/commit/4fb7feb39511f2321c65d7317598bb1b3f101298)
+
 ## [0.7.1] - 2019-02-22
 
 ### Fixed
