@@ -11,7 +11,7 @@ use Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException;
 
 class DeliveryOptionsTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

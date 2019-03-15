@@ -8,7 +8,7 @@ use Mvdnbrk\MyParcel\Resources\Parcel;
 /** @group integration */
 class ShipmentLabelsTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
