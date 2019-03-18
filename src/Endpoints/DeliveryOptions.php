@@ -12,7 +12,7 @@ use Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException;
 class DeliveryOptions extends BaseEndpoint
 {
     /**
-     * The carrier from wich to get delivery oprions.
+     * The carrier from wich to get delivery options.
      */
     const CARRIER = 1;
 
