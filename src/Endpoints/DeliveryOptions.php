@@ -2,7 +2,6 @@
 
 namespace Mvdnbrk\MyParcel\Endpoints;
 
-use Mvdnbrk\MyParcel\Client;
 use Mvdnbrk\MyParcel\Support\Str;
 use Mvdnbrk\MyParcel\Resources\Time;
 use Mvdnbrk\MyParcel\Resources\PickupLocation;
@@ -48,11 +47,6 @@ class DeliveryOptions extends BaseEndpoint
      * @var string
      */
     protected $carrier = self::CARRIER;
-
-    /**
-     * @var \Mvdnbrk\MyParcel\Client
-     */
-    protected $client;
 
     /**
      * @var \Mvdnbrk\MyParcel\Resources\Time
