@@ -4,27 +4,27 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
-## [0.7.3]
+## [v0.7.3] - 2019-03-15
 
 ### Changed
 - Updates packages. [`e26e5c8`](https://github.com/mvdnbrk/myparcel-php-api/commit/e26e5c8b99c51ba7245323751841b3293ac8b38a)
 
-## [0.7.2] - 2019-03-15
+## [v0.7.2] - 2019-03-15
 
 ### Changed
 - Changed `final` to `isDelivered` on a TrackTrace resource. [`4fb7feb`](https://github.com/mvdnbrk/myparcel-php-api/commit/4fb7feb39511f2321c65d7317598bb1b3f101298)
 
-## [0.7.1] - 2019-02-22
+## [v0.7.1] - 2019-02-22
 
 ### Fixed
 - Fixed an issue returning Shipment resource with correct values. [`aef9176`](https://github.com/mvdnbrk/myparcel-php-api/commit/aef9176f7659536da7f0a15ee00c579b09bd09ab)
 
-## [0.7.0] - 2019-02-19
+## [v0.7.0] - 2019-02-19
 
 ### Changed
 - Removed person attribute in favor of first_name and last_name. [`067dbc0`](https://github.com/mvdnbrk/myparcel-php-api/commit/067dbc0e6a31816c40a2af6ba60f5affae5abe0c)
 
-## [0.6.2] - 2019-02-19
+## [v0.6.2] - 2019-02-19
 
 ### Changed
 - The `setApiKey()` now returns the `Client` instance to allow method chaining. [`dacefc2`](https://github.com/mvdnbrk/myparcel-php-api/commit/dacefc2190614dbe6ddafa1e4e83d222a00f786c)
@@ -33,17 +33,17 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 ### Fixed
 - Fixed unneeded `json_encode()`. [`677b728`](https://github.com/mvdnbrk/myparcel-php-api/commit/677b7285e33bc4a6d1802ef1071fbccbd990b094)
 
-## [0.6.1] - 2019-02-07
+## [v0.6.1] - 2019-02-07
 
 ### Changed
 - Unify `tests` namespace. [`95edf57`](https://github.com/mvdnbrk/myparcel-php-api/commit/95edf5780eaa7416d0ba2ff7586578de0de2761e)
 
-## [0.6.0] - 2019-01-20
+## [v0.6.0] - 2019-01-20
 
 ### Fixed
 - Fixed a change in the MyParcel API response. [`6d446e1`](https://github.com/mvdnbrk/myparcel-php-api/commit/6d446e1fda221da463076cd59f822a87666e3aa4)
 
-## [0.5.0] - 2018-09-03
+## [v0.5.0] - 2018-09-03
 
 ### Added
 - Adds a test for creating a valid PickupLocation instance. [`d5fea6cdbf`](https://github.com/mvdnbrk/myparcel-php-api/commit/d5fea6cdbf4a36e4bbcddd459cfe840489879d56)
@@ -54,17 +54,17 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 - Latitude and longitude should be converted to float. [`2b05698`](https://github.com/mvdnbrk/myparcel-php-api/commit/2b05698e3bb63a7bb54e470d5cba475dbd996785)
 - Refactors code for creating the pick up points. [`3056552`](https://github.com/mvdnbrk/myparcel-php-api/commit/305655203404f24f121ec299a39b6166a7d5cf63)
 
-## [0.4.1] - 2018-08-31
+## [v0.4.1] - 2018-08-31
 
 ### Added
 - Added "myparcel" to the provides() method in MyParcelServiceProvider. [`7e1aff8`](https://github.com/mvdnbrk/myparcel-php-api/commit/7e1aff8686e77ededf79d7819cc50225e1118627)
 
-## [0.4.0] - 2018-08-31
+## [v0.4.0] - 2018-08-31
 
 ### Added
 - Added support for usage with [Laravel](https://laravel.com/). [`415af52`](https://github.com/mvdnbrk/myparcel-php-api/commit/415af527d369b8903aa1d2e326027212afd444b5)
 
-## [0.3.0] - 2018-08-29
+## [v0.3.0] - 2018-08-29
 
 ### Added
 - Added TrackTrace functionality. [`7800d85`](https://github.com/mvdnbrk/myparcel-php-api/commit/7800d85f37bc41c474edecef15f3b7339ff63699)
@@ -72,7 +72,7 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 ### Removed
 - Removed unused use statements. [`a8c2c57`](https://github.com/mvdnbrk/myparcel-php-api/commit/a8c2c577af4470b44ed3dd9a6906d56f4d6524ef)
 
-## [0.2.0] - 2018-08-28
+## [v0.2.0] - 2018-08-28
 
 ### Added
 
@@ -81,27 +81,27 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 - Added street_additional_info property to Address. [`343e09b`](https://github.com/mvdnbrk/myparcel-php-api/commit/343e09bda5052b5613ca5d8adfdc665cdf8d38f0)
 - Added a Label resource. [`3e8c1d2`](https://github.com/mvdnbrk/myparcel-php-api/commit/3e8c1d283c4349293b2a94a29f965aa31c37396e)
 
-## [0.1.1] - 2018-08-26
+## [v0.1.1] - 2018-08-26
 
 ### Added
 - Added shipment to array test. [`f153ce0`](https://github.com/mvdnbrk/myparcel-php-api/commit/f153ce0d619ffa63591a07120ef2322ddd17d392)
 
-## [0.1.0] - 2018-08-24
+## [v0.1.0] - 2018-08-24
 
 ### Initial release
 
 [Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.3...HEAD
-[0.7.3]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.2...v0.7.3
-[0.7.2]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.1...v0.7.2
-[0.7.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.0...v0.7.1
-[0.7.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.6.2...v0.7.0
-[0.6.2]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.6.1...v0.6.2
-[0.6.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.6.0...v0.6.1
-[0.6.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.5.0...v0.6.0
-[0.5.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.4.1...v0.5.0
-[0.4.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.4.0...v0.4.1
-[0.4.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.3.0...v0.4.0
-[0.3.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.2.0...v0.3.0
-[0.2.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.1.1...v0.2.0
-[0.1.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.1.0...v0.1.1
-[0.1.0]: https://github.com/mvdnbrk/myparcel-php-api/tree/v0.1.0
+[v0.7.3]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.2...v0.7.3
+[v0.7.2]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.1...v0.7.2
+[v0.7.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.0...v0.7.1
+[v0.7.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.6.2...v0.7.0
+[v0.6.2]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.6.1...v0.6.2
+[v0.6.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.6.0...v0.6.1
+[v0.6.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.5.0...v0.6.0
+[v0.5.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.4.1...v0.5.0
+[v0.4.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.4.0...v0.4.1
+[v0.4.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.3.0...v0.4.0
+[v0.3.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.2.0...v0.3.0
+[v0.2.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.1.1...v0.2.0
+[v0.1.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.1.0...v0.1.1
+[v0.1.0]: https://github.com/mvdnbrk/myparcel-php-api/tree/v0.1.0
