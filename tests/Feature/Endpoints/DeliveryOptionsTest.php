@@ -1,6 +1,6 @@
 <?php
 
-namespace Mvdnbrk\MyParcel\Tests\Unit\Endpoints;
+namespace Mvdnbrk\MyParcel\Tests\Feature\Endpoints;
 
 use Illuminate\Support\Collection;
 use Mvdnbrk\MyParcel\Tests\TestCase;
