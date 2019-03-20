@@ -57,7 +57,6 @@ class DeliveryOptions extends BaseEndpoint
     protected function boot()
     {
         $this->cutoffTime = new Time('15:30');
-        $this->pickup = collect();
     }
 
     /**
