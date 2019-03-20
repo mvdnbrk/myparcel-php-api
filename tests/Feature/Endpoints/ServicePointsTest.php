@@ -83,8 +83,6 @@ class ServicePointsTest extends TestCase
      * @test
      * @group integration
      */
-
-    /** @test */
     public function it_can_retrieve_delivery_options()
     {
         $locations = $this->servicePoints->setPostalcode('1012NP')->setHousenumber('2')->get()->take(2);
