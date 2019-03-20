@@ -5,7 +5,7 @@ namespace Mvdnbrk\MyParcel\Endpoints;
 use Mvdnbrk\MyParcel\Support\Str;
 use Mvdnbrk\MyParcel\Resources\Time;
 use Tightenco\Collect\Support\Collection;
-use Mvdnbrk\MyParcel\Resources\PickupLocation;
+use Mvdnbrk\MyParcel\Resources\ServicePoint;
 use Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException;
 use Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException;
 
@@ -80,7 +80,7 @@ class DeliveryOptions extends BaseEndpoint
         $collection = new Collection();
 
         collect($response->data->pickup)->each(function ($item) use ($collection) {
-            $collection->push(new PickupLocation($item));
+            $collection->push(new ServicePoint($item));
         });
 
         return $collection;
