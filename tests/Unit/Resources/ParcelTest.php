@@ -187,7 +187,7 @@ class ParcelTest extends TestCase
         $this->assertInstanceOf(PickupLocation::class, $parcel->pickup);
         $this->assertArrayHasKey('pickup', $parcel->toArray());
 
-        $this->assertEquals('MyParcel', $parcel->pickup->location_name);
+        $this->assertEquals('MyParcel', $parcel->pickup->name);
         $this->assertEquals('Siriusdreef', $parcel->pickup->street);
         $this->assertEquals('66', $parcel->pickup->number);
         $this->assertEquals('2132WT', $parcel->pickup->postal_code);
@@ -220,7 +220,7 @@ class ParcelTest extends TestCase
         $this->assertInstanceOf(PickupLocation::class, $parcel->pickup);
         $this->assertArrayHasKey('pickup', $parcel->toArray());
 
-        $this->assertEquals('MyParcel', $parcel->pickup->location_name);
+        $this->assertEquals('MyParcel', $parcel->pickup->name);
         $this->assertEquals('Siriusdreef', $parcel->pickup->street);
         $this->assertEquals('66', $parcel->pickup->number);
         $this->assertEquals('2132WT', $parcel->pickup->postal_code);
@@ -303,6 +303,22 @@ class ParcelTest extends TestCase
         $this->assertSame('Amsterdam', $array['recipient']['city']);
         $this->assertSame('Noord-Holland', $array['recipient']['region']);
         $this->assertSame('NL', $array['recipient']['cc']);
+    }
+
+    /** @test */
+    public function to_array_with_pickup()
+    {
+        $attributes = [
+            'pickup' => [
+                'name' => 'Test Company B.V.',
+            ],
+        ];
+
+        $parcel = new Parcel($attributes);
+
+        $array = $parcel->toArray();
+
+        $this->assertSame('Test Company B.V.', $array['pickup']['location_name']);
     }
 
     /** @test */

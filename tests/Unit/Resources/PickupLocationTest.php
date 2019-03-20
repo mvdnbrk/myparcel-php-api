@@ -32,7 +32,8 @@ class PickupLocationTest extends TestCase
             ],
         ]);
 
-        $this->assertEquals('Test Company B.V.', $pickup->location_name);
+        $this->assertEquals('112233', $pickup->id);
+        $this->assertEquals('Test Company B.V.', $pickup->name);
         $this->assertEquals('Poststraat', $pickup->street);
         $this->assertEquals('1', $pickup->number);
         $this->assertEquals('1234AA', $pickup->postal_code);
@@ -41,7 +42,6 @@ class PickupLocationTest extends TestCase
         $this->assertEquals('9999', $pickup->distance);
         $this->assertEquals('12.3456', $pickup->latitude);
         $this->assertEquals('98.76543', $pickup->longitude);
-        $this->assertEquals('112233', $pickup->location_code);
         $this->assertIsArray($pickup->opening_hours);
     }
 
@@ -86,22 +86,31 @@ class PickupLocationTest extends TestCase
             'location' => 'Test Location',
         ]);
 
-        $this->assertEquals('Test Location', $pickup->location_name);
-    }
-
-    /** @test */
-    public function name_may_be_used_as_an_alias_to_location_name()
-    {
-        $pickup = new PickupLocation([
-            'name' => 'Test Location',
-        ]);
-
-        $this->assertEquals('Test Location', $pickup->location_name);
         $this->assertEquals('Test Location', $pickup->name);
     }
 
     /** @test */
-    public function phone_number_may_be_used_as_an_alias_to_phone()
+    public function location_may_be_used_as_an_alias_for_name()
+    {
+        $pickup = new PickupLocation([
+            'location' => 'Test Location',
+        ]);
+
+        $this->assertEquals('Test Location', $pickup->name);
+    }
+
+    /** @test */
+    public function location_code_may_be_used_as_an_alias_for_id()
+    {
+        $pickup = new PickupLocation([
+            'location_code' => '112233',
+        ]);
+
+        $this->assertEquals('112233', $pickup->id);
+    }
+
+    /** @test */
+    public function phone_number_may_be_used_as_an_alias_for_phone()
     {
         $pickup = new PickupLocation([
             'phone_number' => '0101111111',
@@ -141,9 +150,9 @@ class PickupLocationTest extends TestCase
         $array = $pickup->toArray();
 
         $this->assertIsArray($array);
-        $this->assertEquals('Test name', $array['location_name']);
+        $this->assertEquals('testcode1234', $array['id']);
+        $this->assertEquals('Test name', $array['name']);
         $this->assertEquals('0101111111', $array['phone']);
-        $this->assertEquals('testcode1234', $array['location_code']);
         $this->assertEquals(['monday' => '9:00-17:00'], $array['opening_hours']);
         $this->assertEquals(1.11, $array['latitude']);
         $this->assertEquals(2.22, $array['longitude']);
@@ -154,9 +163,9 @@ class PickupLocationTest extends TestCase
     public function to_array_removes_empty_attributes()
     {
         $pickup = new PickupLocation([
+            'id' => null,
             'name' => 'Test name',
             'phone' => null,
-            'location_code' => null,
             'opening_hours' => [],
             'latitude' => null,
             'longitude' => null,
@@ -166,9 +175,9 @@ class PickupLocationTest extends TestCase
         $array = $pickup->toArray();
 
         $this->assertIsArray($array);
-        $this->assertEquals('Test name', $array['location_name']);
+        $this->assertArrayNotHasKey('id', $array);
+        $this->assertEquals('Test name', $array['name']);
         $this->assertArrayNotHasKey('phone', $array);
-        $this->assertArrayNotHasKey('location_code', $array);
         $this->assertArrayNotHasKey('latitude', $array);
         $this->assertArrayNotHasKey('longitude', $array);
         $this->assertArrayNotHasKey('distance', $array);
