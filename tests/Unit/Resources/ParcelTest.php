@@ -306,6 +306,22 @@ class ParcelTest extends TestCase
     }
 
     /** @test */
+    public function to_array_with_pickup()
+    {
+         $attributes = [
+            'pickup' => [
+                'name' => 'Test Company B.V.',
+            ],
+        ];
+
+        $parcel = new Parcel($attributes);
+
+        $array = $parcel->toArray();
+
+        $this->assertSame('Test Company B.V.', $array['pickup']['location_name']);
+    }
+
+    /** @test */
     public function reference_identifier_is_optional()
     {
         $parcel = new Parcel([
