@@ -91,5 +91,6 @@ class DeliveryOptionsTest extends TestCase
         $this->assertEquals(2, $locations->count());
         $this->assertInstanceOf(PickupLocation::class, $locations->first());
         $this->assertInstanceOf(PickupLocation::class, $locations->last());
+        $this->assertIsArray($locations->first()->opening_hours);
     }
 }
