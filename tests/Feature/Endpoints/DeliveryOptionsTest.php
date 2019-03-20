@@ -83,13 +83,13 @@ class DeliveryOptionsTest extends TestCase
      * @test
      * @group integration
      */
-    public function getting_delivery_options()
+    public function it_can_retrieve_delivery_options()
     {
-        $pickup = $this->deliveryOptions->get('1012NP', '2')->pickup->take(2);
+        $locations = $this->deliveryOptions->get('1012NP', '2')->take(2);
 
-        $this->assertInstanceOf(Collection::class, $pickup);
-        $this->assertEquals(2, $pickup->count());
-        $this->assertInstanceOf(PickupLocation::class, $pickup->first());
-        $this->assertInstanceOf(PickupLocation::class, $pickup->last());
+        $this->assertInstanceOf(\Tightenco\Collect\Support\Collection::class, $locations);
+        $this->assertEquals(2, $locations->count());
+        $this->assertInstanceOf(PickupLocation::class, $locations->first());
+        $this->assertInstanceOf(PickupLocation::class, $locations->last());
     }
 }

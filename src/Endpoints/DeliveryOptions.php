@@ -4,6 +4,7 @@ namespace Mvdnbrk\MyParcel\Endpoints;
 
 use Mvdnbrk\MyParcel\Support\Str;
 use Mvdnbrk\MyParcel\Resources\Time;
+use Tightenco\Collect\Support\Collection;
 use Mvdnbrk\MyParcel\Resources\PickupLocation;
 use Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException;
 use Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException;
@@ -14,11 +15,6 @@ class DeliveryOptions extends BaseEndpoint
      * The carrier from wich to get delivery options.
      */
     const CARRIER = 1;
-
-    /**
-     * @var \Tightenco\Collect\Support\Collection
-     */
-    public $pickup;
 
     /**
      * @var string
@@ -70,27 +66,25 @@ class DeliveryOptions extends BaseEndpoint
      * @param  string $postal_code
      * @param  int  $housenumber
      * @param  array  $filters
-     * @return $this
+     * @return \Tightenco\Collect\Support\Collection
      */
     public function get($postal_code, $housenumber, array $filters = [])
     {
         $this->setPostalCode($postal_code);
         $this->setHousenumber($housenumber);
 
-        $result = $this->performApiCall(
+        $response = $this->performApiCall(
             'GET',
             'delivery_options' . $this->buildQueryString($this->getFilters($filters))
         );
 
-        $this->pickup = collect();
+        $collection = new Collection();
 
-        collect($result->data->pickup)->each(function ($location) {
-            $this->pickup->push(
-                new PickupLocation($location)
-            );
+        collect($response->data->pickup)->each(function ($item) use ($collection) {
+            $collection->push(new PickupLocation($item));
         });
 
-        return $this;
+        return $collection;
     }
 
     /**
