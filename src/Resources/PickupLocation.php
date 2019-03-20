@@ -106,6 +106,17 @@ class PickupLocation extends Address
     }
 
     /**
+     * Sets the opening hours.
+     *
+     * @param  object|array
+     * @return void
+     */
+    public function setOpeningHoursAttribute($value)
+    {
+        $this->opening_hours = collect($value)->all();
+    }
+
+    /**
      * Sets a phone number for this location. Alias for phone.
      *
      * @param  string  $value
