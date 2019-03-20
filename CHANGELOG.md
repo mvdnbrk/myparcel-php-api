@@ -4,6 +4,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [v0.8.0] - 2019-03-20
+
 ### Changed
 - The `opening_hours` attribute is converted to an array. [`#17`](https://github.com/mvdnbrk/myparcel-php-api/pull/17)
 - Getting delivery options now returns a collection of `PickupLocation` objects. [`#16`](https://github.com/mvdnbrk/myparcel-php-api/pull/16)
@@ -96,7 +98,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.3...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.8.0...HEAD
+[v0.8.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.3...v0.8.0
 [v0.7.3]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.2...v0.7.3
 [v0.7.2]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.1...v0.7.2
 [v0.7.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.0...v0.7.1
