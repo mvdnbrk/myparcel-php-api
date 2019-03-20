@@ -83,9 +83,11 @@ class ServicePointsTest extends TestCase
      * @test
      * @group integration
      */
+
+    /** @test */
     public function it_can_retrieve_delivery_options()
     {
-        $locations = $this->servicePoints->get('1012NP', '2')->take(2);
+        $locations = $this->servicePoints->setPostalcode('1012NP')->setHousenumber('2')->get()->take(2);
 
         $this->assertInstanceOf(\Tightenco\Collect\Support\Collection::class, $locations);
         $this->assertEquals(2, $locations->count());

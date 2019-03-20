@@ -62,16 +62,11 @@ class ServicePoints extends BaseEndpoint
     /**
      * Get delivery options for an address based on postal code and house number.
      *
-     * @param  string $postal_code
-     * @param  int  $housenumber
      * @param  array  $filters
      * @return \Tightenco\Collect\Support\Collection
      */
-    public function get($postal_code, $housenumber, array $filters = [])
+    public function get(array $filters = [])
     {
-        $this->setPostalCode($postal_code);
-        $this->setHousenumber($housenumber);
-
         $response = $this->performApiCall(
             'GET',
             'delivery_options' . $this->buildQueryString($this->getFilters($filters))

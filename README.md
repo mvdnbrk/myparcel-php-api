@@ -116,9 +116,9 @@ This package type is only available for shipments in the Netherlands that fit in
 $parcel->mailboxpackage();
 ```
 
-### Send a shipment to a pick up location
+### Send a shipment to a service point
 
-You can set set the package to be delivered to a pick up location when you create a parcel:
+You may send a parcel to a PostNL service point where a customer can pick up the parcel:
 
 ``` php
 $parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
@@ -136,16 +136,24 @@ $parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
 ]);
 ```
 
-Or you may set the pick up location after you have created the parcel:
+### Retrieving service points
+
+```php
+$servicepoints = $myparcel->servicePoints->setPostalcode('1234AA')->setHousenumber('1')->get();
 ```
-$parcel->pickup = [
-    'name' => 'Name of the location',
-    'street' => 'Poststraat',
-    'number' => '1',
-    'postal_code' => '1234AA',
-    'city' => 'Amsterdam',
-    'cc' => 'NL,
-];
+
+This will return a collection of `ServicePoint` objects:
+
+```
+$servicepoints->each(function ($item) {
+    $item->id;
+    $item->name;
+    $item->latitude;
+    $item->longitude;
+    $item->distance;
+    $item->distanceForHumans();
+    $item->opening_hours;
+});
 ```
 
 ### Get a shipment
