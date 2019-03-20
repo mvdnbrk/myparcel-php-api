@@ -5,7 +5,7 @@ namespace Mvdnbrk\MyParcel\Tests\Unit\Resources;
 use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\Parcel;
 use Mvdnbrk\MyParcel\Resources\Recipient;
-use Mvdnbrk\MyParcel\Resources\PickupLocation;
+use Mvdnbrk\MyParcel\Resources\ServicePoint;
 
 class ParcelTest extends TestCase
 {
@@ -184,7 +184,7 @@ class ParcelTest extends TestCase
         ]);
 
         $this->assertInstanceOf(Parcel::class, $parcel);
-        $this->assertInstanceOf(PickupLocation::class, $parcel->pickup);
+        $this->assertInstanceOf(ServicePoint::class, $parcel->pickup);
         $this->assertArrayHasKey('pickup', $parcel->toArray());
 
         $this->assertEquals('MyParcel', $parcel->pickup->name);
@@ -217,7 +217,7 @@ class ParcelTest extends TestCase
         ];
 
         $this->assertInstanceOf(Parcel::class, $parcel);
-        $this->assertInstanceOf(PickupLocation::class, $parcel->pickup);
+        $this->assertInstanceOf(ServicePoint::class, $parcel->pickup);
         $this->assertArrayHasKey('pickup', $parcel->toArray());
 
         $this->assertEquals('MyParcel', $parcel->pickup->name);

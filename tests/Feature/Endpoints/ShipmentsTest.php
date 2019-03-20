@@ -7,7 +7,7 @@ use Mvdnbrk\MyParcel\Resources\Parcel;
 use Mvdnbrk\MyParcel\Types\PackageType;
 use Mvdnbrk\MyParcel\Resources\Shipment;
 use Mvdnbrk\MyParcel\Types\ShipmentStatus;
-use Mvdnbrk\MyParcel\Resources\PickupLocation;
+use Mvdnbrk\MyParcel\Resources\ServicePoint;
 use Mvdnbrk\MyParcel\Resources\ShipmentOptions;
 
 /** @group integration */
@@ -112,7 +112,7 @@ class ShipmentsTest extends TestCase
 
         $this->assertInstanceOf(Shipment::class, $shipment);
         $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
-        $this->assertInstanceOf(PickupLocation::class, $shipment->pickup);
+        $this->assertInstanceOf(ServicePoint::class, $shipment->pickup);
         $this->assertNotNull($shipment->id);
 
         $this->assertTrue($this->cleanUp($shipment));

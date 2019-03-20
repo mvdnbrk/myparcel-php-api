@@ -3,14 +3,14 @@
 namespace Mvdnbrk\MyParcel\Tests\Unit\Resources;
 
 use Mvdnbrk\MyParcel\Tests\TestCase;
-use Mvdnbrk\MyParcel\Resources\PickupLocation;
+use Mvdnbrk\MyParcel\Resources\ServicePoint;
 
-class PickupLocationTest extends TestCase
+class ServicePointTest extends TestCase
 {
     /** @test */
-    public function creating_a_valid_pickup_location_resource()
+    public function creating_a_valid_service_point_resource()
     {
-        $pickup = new PickupLocation([
+        $servicepoint = new ServicePoint([
             'location' => 'Test Company B.V.',
             'street' => 'Poststraat',
             'number' => '1',
@@ -32,110 +32,110 @@ class PickupLocationTest extends TestCase
             ],
         ]);
 
-        $this->assertEquals('112233', $pickup->id);
-        $this->assertEquals('Test Company B.V.', $pickup->name);
-        $this->assertEquals('Poststraat', $pickup->street);
-        $this->assertEquals('1', $pickup->number);
-        $this->assertEquals('1234AA', $pickup->postal_code);
-        $this->assertEquals('Amsterdam', $pickup->city);
-        $this->assertEquals('0101111111', $pickup->phone_number);
-        $this->assertEquals('9999', $pickup->distance);
-        $this->assertEquals('12.3456', $pickup->latitude);
-        $this->assertEquals('98.76543', $pickup->longitude);
-        $this->assertIsArray($pickup->opening_hours);
+        $this->assertEquals('112233', $servicepoint->id);
+        $this->assertEquals('Test Company B.V.', $servicepoint->name);
+        $this->assertEquals('Poststraat', $servicepoint->street);
+        $this->assertEquals('1', $servicepoint->number);
+        $this->assertEquals('1234AA', $servicepoint->postal_code);
+        $this->assertEquals('Amsterdam', $servicepoint->city);
+        $this->assertEquals('0101111111', $servicepoint->phone_number);
+        $this->assertEquals('9999', $servicepoint->distance);
+        $this->assertEquals('12.3456', $servicepoint->latitude);
+        $this->assertEquals('98.76543', $servicepoint->longitude);
+        $this->assertIsArray($servicepoint->opening_hours);
     }
 
     /** @test */
     public function can_get_distance_for_humans()
     {
-        $pickup = new PickupLocation;
+        $servicepoint = new ServicePoint;
 
-        $pickup->distance = 999;
-        $this->assertEquals('999 meter', $pickup->distanceForHumans());
+        $servicepoint->distance = 999;
+        $this->assertEquals('999 meter', $servicepoint->distanceForHumans());
 
-        $pickup->distance = 1000;
-        $this->assertEquals('1 km', $pickup->distanceForHumans());
+        $servicepoint->distance = 1000;
+        $this->assertEquals('1 km', $servicepoint->distanceForHumans());
 
-        $pickup->distance = 1500;
-        $this->assertEquals('1.5 km', $pickup->distanceForHumans());
+        $servicepoint->distance = 1500;
+        $this->assertEquals('1.5 km', $servicepoint->distanceForHumans());
 
-        $pickup->distance = 2211;
-        $this->assertEquals('2.2 km', $pickup->distanceForHumans());
+        $servicepoint->distance = 2211;
+        $this->assertEquals('2.2 km', $servicepoint->distanceForHumans());
 
-        $pickup->distance = 2255;
-        $this->assertEquals('2.3 km', $pickup->distanceForHumans());
+        $servicepoint->distance = 2255;
+        $this->assertEquals('2.3 km', $servicepoint->distanceForHumans());
 
-        $pickup->distance = 11500;
-        $this->assertEquals('12 km', $pickup->distanceForHumans());
+        $servicepoint->distance = 11500;
+        $this->assertEquals('12 km', $servicepoint->distanceForHumans());
     }
 
     /** @test */
     public function distance_for_humans_returns_null_if_distance_is_null()
     {
-        $pickup = new PickupLocation;
+        $servicepoint = new ServicePoint;
 
-        $pickup->distance = null;
+        $servicepoint->distance = null;
 
-        $this->assertNull($pickup->distanceForHumans());
+        $this->assertNull($servicepoint->distanceForHumans());
     }
 
     /** @test */
     public function location_may_be_used_as_an_alias_to_set_location_name()
     {
-        $pickup = new PickupLocation([
+        $servicepoint = new ServicePoint([
             'location' => 'Test Location',
         ]);
 
-        $this->assertEquals('Test Location', $pickup->name);
+        $this->assertEquals('Test Location', $servicepoint->name);
     }
 
     /** @test */
     public function location_may_be_used_as_an_alias_for_name()
     {
-        $pickup = new PickupLocation([
+        $servicepoint = new ServicePoint([
             'location' => 'Test Location',
         ]);
 
-        $this->assertEquals('Test Location', $pickup->name);
+        $this->assertEquals('Test Location', $servicepoint->name);
     }
 
     /** @test */
     public function location_code_may_be_used_as_an_alias_for_id()
     {
-        $pickup = new PickupLocation([
+        $servicepoint = new ServicePoint([
             'location_code' => '112233',
         ]);
 
-        $this->assertEquals('112233', $pickup->id);
+        $this->assertEquals('112233', $servicepoint->id);
     }
 
     /** @test */
     public function phone_number_may_be_used_as_an_alias_for_phone()
     {
-        $pickup = new PickupLocation([
+        $servicepoint = new ServicePoint([
             'phone_number' => '0101111111',
         ]);
 
-        $this->assertEquals('0101111111', $pickup->phone);
-        $this->assertEquals('0101111111', $pickup->phone_number);
+        $this->assertEquals('0101111111', $servicepoint->phone);
+        $this->assertEquals('0101111111', $servicepoint->phone_number);
     }
 
     /** @test */
     public function latitude_and_longitude_are_converted_to_float()
     {
-        $pickup = new PickupLocation([
+        $servicepoint = new ServicePoint([
             'latitude' => '1.11',
             'longitude' => '2.22',
         ]);
 
-        $this->assertSame(1.11, $pickup->latitude);
-        $this->assertSame(2.22, $pickup->longitude);
+        $this->assertSame(1.11, $servicepoint->latitude);
+        $this->assertSame(2.22, $servicepoint->longitude);
     }
 
     /** @test */
     public function to_array()
     {
-        $pickup = new PickupLocation([
+        $servicepoint = new ServicePoint([
             'name' => 'Test name',
             'phone' => '0101111111',
             'location_code' => 'testcode1234',
@@ -147,7 +147,7 @@ class PickupLocationTest extends TestCase
             'distance' => 100,
         ]);
 
-        $array = $pickup->toArray();
+        $array = $servicepoint->toArray();
 
         $this->assertIsArray($array);
         $this->assertEquals('testcode1234', $array['id']);
@@ -162,7 +162,7 @@ class PickupLocationTest extends TestCase
     /** @test */
     public function to_array_removes_empty_attributes()
     {
-        $pickup = new PickupLocation([
+        $servicepoint = new ServicePoint([
             'id' => null,
             'name' => 'Test name',
             'phone' => null,
@@ -172,7 +172,7 @@ class PickupLocationTest extends TestCase
             'distance' => null,
         ]);
 
-        $array = $pickup->toArray();
+        $array = $servicepoint->toArray();
 
         $this->assertIsArray($array);
         $this->assertArrayNotHasKey('id', $array);
@@ -187,11 +187,11 @@ class PickupLocationTest extends TestCase
     /** @test */
     public function number_should_be_casted_to_a_string()
     {
-        $pickup = new PickupLocation([
+        $servicepoint = new ServicePoint([
             'number' => 999
         ]);
 
-        $array = $pickup->toArray();
+        $array = $servicepoint->toArray();
 
         $this->assertIsString($array['number']);
         $this->assertEquals('999', $array['number']);

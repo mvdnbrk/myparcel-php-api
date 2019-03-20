@@ -2,7 +2,7 @@
 
 namespace Mvdnbrk\MyParcel\Resources;
 
-class PickupLocation extends Address
+class ServicePoint extends Address
 {
     /**
      * @var string
