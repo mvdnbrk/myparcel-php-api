@@ -209,7 +209,11 @@ class Parcel extends BaseResource
                 return $collection->put('reference_identifier', (string) $this->reference_identifier);
             })
             ->when(! is_null($this->pickup), function ($collection) {
-                return $collection->put('pickup', $this->pickup->toArray());
+                $pickup = collect($this->pickup->toArray())
+                    ->put('location_name', $this->pickup->name)
+                    ->forget('name');
+
+                return $collection->put('pickup', $pickup);
             })
             ->all();
     }
