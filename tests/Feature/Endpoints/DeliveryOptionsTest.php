@@ -4,7 +4,7 @@ namespace Mvdnbrk\MyParcel\Tests\Feature\Endpoints;
 
 use Illuminate\Support\Collection;
 use Mvdnbrk\MyParcel\Tests\TestCase;
-use Mvdnbrk\MyParcel\Resources\PickupLocation;
+use Mvdnbrk\MyParcel\Resources\ServicePoint;
 use Mvdnbrk\MyParcel\Endpoints\DeliveryOptions;
 use Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException;
 use Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException;
@@ -89,8 +89,8 @@ class DeliveryOptionsTest extends TestCase
 
         $this->assertInstanceOf(\Tightenco\Collect\Support\Collection::class, $locations);
         $this->assertEquals(2, $locations->count());
-        $this->assertInstanceOf(PickupLocation::class, $locations->first());
-        $this->assertInstanceOf(PickupLocation::class, $locations->last());
+        $this->assertInstanceOf(ServicePoint::class, $locations->first());
+        $this->assertInstanceOf(ServicePoint::class, $locations->last());
         $this->assertIsArray($locations->first()->opening_hours);
     }
 }

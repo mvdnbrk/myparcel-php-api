@@ -30,7 +30,7 @@ class Parcel extends BaseResource
     public $options;
 
     /**
-     * @var \Mvdnbrk\MyParcel\Resources\PickupLocation
+     * @var \Mvdnbrk\MyParcel\Resources\ServicePoint
      */
     protected $pickup;
 
@@ -156,7 +156,7 @@ class Parcel extends BaseResource
         }
 
         if (is_null($this->pickup)) {
-            $this->pickup = new PickupLocation($value);
+            $this->pickup = new ServicePoint($value);
         }
 
         $this->options->setDefaultOptions();
