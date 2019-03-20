@@ -5,6 +5,7 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 ## [Unreleased]
 
 ### Changed
+- Getting delivery options now returns a collection of `PickupLocation` objects. [`#16`](https://github.com/mvdnbrk/myparcel-php-api/pull/16)
 - `location_id` is renamed to `id` on the `PickupLocation` object. [`#15`](https://github.com/mvdnbrk/myparcel-php-api/pull/15)
 - `location_name` is renamed to `name` on the `PickupLocation` object. [`#15`](https://github.com/mvdnbrk/myparcel-php-api/pull/15)
 
