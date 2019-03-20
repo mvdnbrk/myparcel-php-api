@@ -5,6 +5,7 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 ## [Unreleased]
 
 ### Changed
+- The `deliveryOptions` endpint is renamed to `servicePoints`. [`#19`](https://github.com/mvdnbrk/myparcel-php-api/pull/19)
 - The `PickupLocation` class is renamed to `ServicePoint`. [`#18`](https://github.com/mvdnbrk/myparcel-php-api/pull/18)
 
 ## [v0.8.0] - 2019-03-20
