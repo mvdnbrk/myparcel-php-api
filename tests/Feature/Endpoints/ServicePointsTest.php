@@ -5,78 +5,78 @@ namespace Mvdnbrk\MyParcel\Tests\Feature\Endpoints;
 use Illuminate\Support\Collection;
 use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\ServicePoint;
-use Mvdnbrk\MyParcel\Endpoints\DeliveryOptions;
+use Mvdnbrk\MyParcel\Endpoints\ServicePoints;
 use Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException;
 use Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException;
 
-class DeliveryOptionsTest extends TestCase
+class ServicePointsTest extends TestCase
 {
     public function setUp(): void
     {
         parent::setUp();
 
-        $this->deliveryOptions = new DeliveryOptions($this->client);
+        $this->servicePoints = new ServicePoints($this->client);
     }
 
     /** @test */
     public function setting_a_valid_postal_code()
     {
-        $this->deliveryOptions->setPostalCode('1234AA');
-        $this->assertEquals('1234AA', $this->deliveryOptions->postal_code);
+        $this->servicePoints->setPostalCode('1234AA');
+        $this->assertEquals('1234AA', $this->servicePoints->postal_code);
 
-        $this->deliveryOptions->setPostalCode('1234 AA');
-        $this->assertEquals('1234AA', $this->deliveryOptions->postal_code);
+        $this->servicePoints->setPostalCode('1234 AA');
+        $this->assertEquals('1234AA', $this->servicePoints->postal_code);
 
-        $this->deliveryOptions->setPostalCode(' 1234 AA ');
-        $this->assertEquals('1234AA', $this->deliveryOptions->postal_code);
+        $this->servicePoints->setPostalCode(' 1234 AA ');
+        $this->assertEquals('1234AA', $this->servicePoints->postal_code);
 
-        $this->deliveryOptions->setPostalCode('1234aa');
-        $this->assertEquals('1234AA', $this->deliveryOptions->postal_code);
+        $this->servicePoints->setPostalCode('1234aa');
+        $this->assertEquals('1234AA', $this->servicePoints->postal_code);
     }
 
     /** @test */
     public function setting_a_dutch_postal_code_sets_the_country_to_nl()
     {
-        $this->deliveryOptions->setPostalCode('1234AA');
-        $this->assertEquals('NL', $this->deliveryOptions->getCountry());
+        $this->servicePoints->setPostalCode('1234AA');
+        $this->assertEquals('NL', $this->servicePoints->getCountry());
     }
 
     /** @test */
     public function setting_a_belgian_postal_code_sets_the_country_to_be()
     {
-        $this->deliveryOptions->setPostalCode('2000');
-        $this->assertEquals('BE', $this->deliveryOptions->getCountry());
+        $this->servicePoints->setPostalCode('2000');
+        $this->assertEquals('BE', $this->servicePoints->getCountry());
     }
 
     /** @test */
     public function setting_in_invalid_postal_code_throws_an_exception()
     {
         $this->expectException(InvalidPostalCodeException::class);
-        $this->deliveryOptions->setPostalCode('invalid-zipcode');
+        $this->servicePoints->setPostalCode('invalid-zipcode');
     }
 
     /** @test */
     public function setting_a_valid_housenumber()
     {
-        $this->deliveryOptions->setHousenumber('1');
-        $this->assertEquals('1', $this->deliveryOptions->housenumber);
+        $this->servicePoints->setHousenumber('1');
+        $this->assertEquals('1', $this->servicePoints->housenumber);
     }
 
     /** @test */
     public function setting_a_valid_housenumber_removes_a_suffix()
     {
-        $this->deliveryOptions->setHousenumber('1A');
-        $this->assertEquals('1', $this->deliveryOptions->housenumber);
+        $this->servicePoints->setHousenumber('1A');
+        $this->assertEquals('1', $this->servicePoints->housenumber);
 
-        $this->deliveryOptions->setHousenumber('1 A');
-        $this->assertEquals('1', $this->deliveryOptions->housenumber);
+        $this->servicePoints->setHousenumber('1 A');
+        $this->assertEquals('1', $this->servicePoints->housenumber);
     }
 
     /** @test */
     public function setting_an_invalid_housenumber_throws_exception()
     {
         $this->expectException(InvalidHousenumberException::class);
-        $this->deliveryOptions->setHousenumber('not-a-number');
+        $this->servicePoints->setHousenumber('not-a-number');
     }
 
     /**
@@ -85,7 +85,7 @@ class DeliveryOptionsTest extends TestCase
      */
     public function it_can_retrieve_delivery_options()
     {
-        $locations = $this->deliveryOptions->get('1012NP', '2')->take(2);
+        $locations = $this->servicePoints->get('1012NP', '2')->take(2);
 
         $this->assertInstanceOf(\Tightenco\Collect\Support\Collection::class, $locations);
         $this->assertEquals(2, $locations->count());

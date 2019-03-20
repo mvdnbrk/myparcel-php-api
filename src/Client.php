@@ -9,8 +9,8 @@ use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\GuzzleException;
 use Mvdnbrk\MyParcel\Endpoints\Shipments;
 use Mvdnbrk\MyParcel\Endpoints\TrackTrace;
+use Mvdnbrk\MyParcel\Endpoints\ServicePoints;
 use Mvdnbrk\MyParcel\Endpoints\ShipmentLabels;
-use Mvdnbrk\MyParcel\Endpoints\DeliveryOptions;
 use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 
 class Client
@@ -36,9 +36,9 @@ class Client
     protected $apiKey;
 
     /**
-     * @var \Mvdnbrk\MyParcel\Endpoints\DeliveryOptions
+     * @var \Mvdnbrk\MyParcel\Endpoints\ServicePoints
      */
-    public $deliveryOptions;
+    public $servicePoints;
 
     /**
      * @var \Mvdnbrk\MyParcel\Endpoints\ShipmentLabels
@@ -84,7 +84,7 @@ class Client
         $this->shipments = new Shipments($this);
         $this->labels = new ShipmentLabels($this);
         $this->tracktrace = new TrackTrace($this);
-        $this->deliveryOptions = new DeliveryOptions($this);
+        $this->servicePoints = new ServicePoints($this);
     }
 
     /**
