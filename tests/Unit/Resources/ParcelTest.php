@@ -308,7 +308,7 @@ class ParcelTest extends TestCase
     /** @test */
     public function to_array_with_pickup()
     {
-         $attributes = [
+        $attributes = [
             'pickup' => [
                 'name' => 'Test Company B.V.',
             ],
