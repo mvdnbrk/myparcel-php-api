@@ -4,7 +4,10 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [v0.9.0] - 2019-03-20
+
 ### Changed
+- The `get()` method of the `servicePoints` endpoint has changed. [`#20`](https://github.com/mvdnbrk/myparcel-php-api/pull/20)
 - The `deliveryOptions` endpint is renamed to `servicePoints`. [`#19`](https://github.com/mvdnbrk/myparcel-php-api/pull/19)
 - The `PickupLocation` class is renamed to `ServicePoint`. [`#18`](https://github.com/mvdnbrk/myparcel-php-api/pull/18)
 
@@ -102,7 +105,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.9.0...HEAD
+[v0.9.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.8.0...v0.9.0
 [v0.8.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.3...v0.8.0
 [v0.7.3]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.2...v0.7.3
 [v0.7.2]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.1...v0.7.2
