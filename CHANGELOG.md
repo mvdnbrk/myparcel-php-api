@@ -4,6 +4,11 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [v0.9.2] - 2019-04-26
+
+### Added
+- Added a `setFormatA4` to change the label format from A6 to A4. [`#24`](https://github.com/mvdnbrk/myparcel-php-api/pull/24)
+
 ## [v0.9.1] - 2019-04-26
 
 ### Added
@@ -110,7 +115,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.9.1...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.9.2...HEAD
+[v0.9.2]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.9.1...v0.9.2
 [v0.9.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.9.0...v0.9.1
 [v0.9.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.8.0...v0.9.0
 [v0.8.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.7.3...v0.8.0

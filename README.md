@@ -81,15 +81,10 @@ Or you may pass the `Shipment` instance directly to this method:
 $myparcel->labels->get($shipment);
 ```
 
-It's also possible to specify a Label configuration (for example: A4)
+The label format is A6 by default, you may change this by calling the `setFormatA4` method:
+
 ```php
-$label = new \Mvdnbrk\MyParcel\Resources\Label;
-$label->setFormatAttribute('A4');
-
-$shipmentLabel = new \Mvdnbrk\MyParcel\Resources\ShipmentLabels($myparcel);
-$shipmentLabel->setLabel($label);
-
-$shipmentLabel->get($shipment->id);
+$myparcel->labels->setFormatA4()->get($shipment);
 ```
 
 ### Setting delivery options for a parcel
