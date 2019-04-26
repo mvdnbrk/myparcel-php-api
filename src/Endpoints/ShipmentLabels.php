@@ -14,6 +14,8 @@ class ShipmentLabels extends BaseEndpoint
 
     /**
      * Boot the ShipmentLabels endpoint.
+     *
+     * @return void
      */
     public function boot()
     {
@@ -45,10 +47,10 @@ class ShipmentLabels extends BaseEndpoint
     }
 
     /**
-     * Set a label
+     * Set a label.
      *
-     * @param Label $label
-     * @return  $this
+     * @param  \Mvdnbrk\MyParcel\Resources\Label  $label
+     * @return $this
      */
     public function setLabel(Label $label)
     {
