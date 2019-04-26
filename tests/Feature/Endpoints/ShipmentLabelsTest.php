@@ -3,7 +3,9 @@
 namespace Mvdnbrk\MyParcel\Tests\Feature\Endpoints;
 
 use Mvdnbrk\MyParcel\Tests\TestCase;
+use Mvdnbrk\MyParcel\Resources\Label;
 use Mvdnbrk\MyParcel\Resources\Parcel;
+use Mvdnbrk\MyParcel\Endpoints\ShipmentLabels;
 
 /** @group integration */
 class ShipmentLabelsTest extends TestCase
@@ -46,6 +48,14 @@ class ShipmentLabelsTest extends TestCase
         $pdf = $this->client->labels->get($this->shipment);
 
         $this->assertIsString('string', $pdf);
+    }
+
+    /** @test */
+    public function it_can_set_a_label()
+    {
+        $label = new Label;
+
+        $this->assertInstanceOf(ShipmentLabels::class, $this->client->labels->setLabel($label));
     }
 
     /** @test */
