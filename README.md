@@ -81,6 +81,17 @@ Or you may pass the `Shipment` instance directly to this method:
 $myparcel->labels->get($shipment);
 ```
 
+It's also possible to specify a Label configuration (for example: A4)
+```
+$label = new \Mvdnbrk\MyParcel\Resources\Label;
+$label->setFormatAttribute('A4');
+
+$shipmentLabel = new \Mvdnbrk\MyParcel\Resources\ShipmentLabels($myparcel);
+$shipmentLabel->setLabel($label);
+
+$shipmentLabel->get($shipment->id);
+```
+
 ### Setting delivery options for a parcel
 
 You can set delivery options for a parcel by passing in the options directly when you create a parcel:
