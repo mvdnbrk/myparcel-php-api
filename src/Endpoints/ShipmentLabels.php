@@ -37,7 +37,7 @@ class ShipmentLabels extends BaseEndpoint
         $response = $this->performApiCall(
             'GET',
             'shipment_labels/'.$value.$this->buildQueryString(
-                $this->getLabel()->toArray()
+                $this->label->toArray()
             ),
             null,
             ['Accept' => 'application/pdf']
@@ -57,15 +57,5 @@ class ShipmentLabels extends BaseEndpoint
         $this->label = $label;
 
         return $this;
-    }
-
-    /**
-     * Get label
-     *
-     * @return  Label
-     */
-    public function getLabel()
-    {
-        return $this->label;
     }
 }
