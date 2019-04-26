@@ -26,7 +26,6 @@
         "tightenco/collect": "^5.8"
     },
     "require-dev": {
-        "larapack/dd": "^1.1",
         "nunomaduro/collision": "^3.0",
         "orchestra/testbench": "^3.8",
         "phpunit/phpunit": "^8.0",
