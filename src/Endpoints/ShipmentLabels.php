@@ -20,7 +20,7 @@ class ShipmentLabels extends BaseEndpoint
             $value = $value->id;
         }
 
-        if ( ! $label instanceof Label) {
+        if (! $label instanceof Label) {
             $label = new Label;
         }
 
