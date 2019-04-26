@@ -26,7 +26,7 @@ class ShipmentLabels extends BaseEndpoint
 
         $response = $this->performApiCall(
             'GET',
-            'shipment_labels/' . $value . $this->buildQueryString(
+            'shipment_labels/'.$value.$this->buildQueryString(
                 $label->toArray()
             ),
             null,
