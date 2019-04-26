@@ -59,6 +59,12 @@ class ShipmentLabelsTest extends TestCase
     }
 
     /** @test */
+    public function it_can_set_the_format_to_A4()
+    {
+        $this->assertInstanceOf(ShipmentLabels::class, $this->client->labels->setFormatA4());
+    }
+
+    /** @test */
     public function getting_a_label_with_an_invalid_shipment_id_should_throw_an_error()
     {
         $this->expectException(\Mvdnbrk\MyParcel\Exceptions\MyParcelException::class);

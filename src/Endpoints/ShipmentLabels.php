@@ -3,6 +3,7 @@
 namespace Mvdnbrk\MyParcel\Endpoints;
 
 use Mvdnbrk\MyParcel\Resources\Label;
+use Mvdnbrk\MyParcel\Types\PaperSize;
 use Mvdnbrk\MyParcel\Resources\Shipment;
 
 class ShipmentLabels extends BaseEndpoint
@@ -44,6 +45,18 @@ class ShipmentLabels extends BaseEndpoint
         );
 
         return $response;
+    }
+
+    /**
+     * Sets the label to A4 format.
+     *
+     * @return  $this
+     */
+    public function setFormatA4()
+    {
+        $this->label->setFormatAttribute(PaperSize::A4);
+
+        return $this;
     }
 
     /**
