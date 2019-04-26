@@ -17,9 +17,7 @@ class Shipments extends BaseEndpoint
      */
     public function create(Parcel $parcel)
     {
-        $shipment = $this->concept($parcel);
-
-        return $shipment;
+        return $this->concept($parcel);
     }
 
     /**
