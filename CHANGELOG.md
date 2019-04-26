@@ -4,6 +4,10 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [v1.0.0] - 2019-04-26
+
+- Release of v1.0.0, no notable changes.
+
 ## [v0.9.2] - 2019-04-26
 
 ### Added
@@ -115,7 +119,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.9.2...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v1.0.0...HEAD
+[v1.0.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.9.2...v1.0.0
 [v0.9.2]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.9.1...v0.9.2
 [v0.9.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.9.0...v0.9.1
 [v0.9.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.8.0...v0.9.0
