@@ -57,7 +57,7 @@ class Shipments extends BaseEndpoint
             $value = $value->id;
         }
 
-        $response = $this->performApiCall(
+        $this->performApiCall(
             'DELETE',
             'shipments/'.$value
         );
