@@ -11,8 +11,8 @@ class TrackTrace extends BaseEndpoint
      * Get detailed track and trace information for a shipment.
      * Returns null if there is no tracking information available.
      *
-     * @param  int|\Mvdnbrk\MyParcel\Resources\Shipment $value
-     * @return null|\Mvdnbrk\MyParcel\Resources\TrackTrace
+     * @param  \Mvdnbrk\MyParcel\Resources\Shipment|int  $value
+     * @return \Mvdnbrk\MyParcel\Resources\TrackTrace|null
      */
     public function get($value)
     {
