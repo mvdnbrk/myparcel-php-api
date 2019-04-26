@@ -73,16 +73,16 @@ You have created your first shipment!
 
 A label can be retrieved by using `$shipment->id`. This will return a label in A6 format as a string.
 
-```
+```php
 $myparcel->labels->get($shipment->id);
 ```
 Or you may pass the `Shipment` instance directly to this method:
-```
+```php
 $myparcel->labels->get($shipment);
 ```
 
 It's also possible to specify a Label configuration (for example: A4)
-```
+```php
 $label = new \Mvdnbrk\MyParcel\Resources\Label;
 $label->setFormatAttribute('A4');
 
@@ -155,7 +155,7 @@ $servicepoints = $myparcel->servicePoints->setPostalcode('1234AA')->setHousenumb
 
 This will return a collection of `ServicePoint` objects:
 
-```
+```php
 $servicepoints->each(function ($item) {
     $item->id;
     $item->name;
