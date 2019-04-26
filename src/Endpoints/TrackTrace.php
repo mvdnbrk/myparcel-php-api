@@ -9,10 +9,9 @@ class TrackTrace extends BaseEndpoint
 {
     /**
      * Get detailed track and trace information for a shipment.
-     * Returns null if there is no tracking information available.
      *
      * @param  \Mvdnbrk\MyParcel\Resources\Shipment|int  $value
-     * @return \Mvdnbrk\MyParcel\Resources\TrackTrace|null
+     * @return \Mvdnbrk\MyParcel\Resources\TrackTrace
      */
     public function get($value)
     {
@@ -25,12 +24,10 @@ class TrackTrace extends BaseEndpoint
             'tracktraces/'.$value
         );
 
-        $trace = collect(collect($response->data->tracktraces)->first());
-
-        if ($trace->isEmpty()) {
-            return null;
-        }
-
-        return new TrackTraceResource($trace->all());
+        return new TrackTraceResource(
+            collect(
+                collect($response->data->tracktraces)->first()
+            )->all()
+        );
     }
 }
