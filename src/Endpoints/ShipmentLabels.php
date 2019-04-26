@@ -25,7 +25,7 @@ class ShipmentLabels extends BaseEndpoint
     /**
      * Get a shipment label by shipment object or id.
      *
-     * @param \Mvdnbrk\MyParcel\Resources\Shipment|int $value
+     * @param  \Mvdnbrk\MyParcel\Resources\Shipment|int  $value
      * @return string
      */
     public function get($value)
