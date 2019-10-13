@@ -21,9 +21,9 @@
     ],
     "require": {
         "php": "^7.1",
-        "composer/ca-bundle": "^1.1",
+        "composer/ca-bundle": "^1.2",
         "guzzlehttp/guzzle": "^6.3",
-        "tightenco/collect": "^5.8"
+        "tightenco/collect": "^6.0"
     },
     "require-dev": {
         "nunomaduro/collision": "^3.0",
