@@ -40,11 +40,11 @@ class Recipient extends Address
     }
 
     /**
-      * Convert the resource instance to an array.
-      * Removes all attributes with null values.
-      *
-      * @return array
-      */
+     * Convert the resource instance to an array.
+     * Removes all attributes with null values.
+     *
+     * @return array
+     */
     public function toArray()
     {
         return collect(parent::toArray())

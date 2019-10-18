@@ -3,8 +3,8 @@
 namespace Mvdnbrk\MyParcel\Endpoints;
 
 use Mvdnbrk\MyParcel\Resources\Label;
-use Mvdnbrk\MyParcel\Types\PaperSize;
 use Mvdnbrk\MyParcel\Resources\Shipment;
+use Mvdnbrk\MyParcel\Types\PaperSize;
 
 class ShipmentLabels extends BaseEndpoint
 {

@@ -2,10 +2,10 @@
 
 namespace Mvdnbrk\MyParcel\Tests\Feature\Endpoints;
 
-use Mvdnbrk\MyParcel\Tests\TestCase;
+use Mvdnbrk\MyParcel\Endpoints\ShipmentLabels;
 use Mvdnbrk\MyParcel\Resources\Label;
 use Mvdnbrk\MyParcel\Resources\Parcel;
-use Mvdnbrk\MyParcel\Endpoints\ShipmentLabels;
+use Mvdnbrk\MyParcel\Tests\TestCase;
 
 /** @group integration */
 class ShipmentLabelsTest extends TestCase

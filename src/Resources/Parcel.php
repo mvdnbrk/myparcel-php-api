@@ -2,8 +2,8 @@
 
 namespace Mvdnbrk\MyParcel\Resources;
 
-use Mvdnbrk\MyParcel\Types\PackageType;
 use Mvdnbrk\MyParcel\Types\DeliveryType;
+use Mvdnbrk\MyParcel\Types\PackageType;
 
 class Parcel extends BaseResource
 {
@@ -194,10 +194,10 @@ class Parcel extends BaseResource
     }
 
     /**
-      * Convert the parcel resource to an array.
-      *
-      * @return array
-      */
+     * Convert the parcel resource to an array.
+     *
+     * @return array
+     */
     public function toArray()
     {
         return collect(parent::toArray())

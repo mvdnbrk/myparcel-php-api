@@ -30,7 +30,7 @@ class MyParcelServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/myparcel.php', 'myparcel');
+        $this->mergeConfigFrom(__DIR__.'/../config/myparcel.php', 'myparcel');
 
         $this->app->singleton(Client::class, function () {
             return (new Client)->setApiKey(config('myparcel.key'));
@@ -48,7 +48,7 @@ class MyParcelServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/myparcel.php' => config_path('myparcel.php')
+                __DIR__.'/../config/myparcel.php' => config_path('myparcel.php'),
             ], 'config');
         }
     }

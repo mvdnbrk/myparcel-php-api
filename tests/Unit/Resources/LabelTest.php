@@ -2,10 +2,10 @@
 
 namespace Mvdnbrk\MyParcel\Tests\Unit\Resources;
 
-use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\Label;
-use Mvdnbrk\MyParcel\Types\PaperSize;
+use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Types\LabelPositions;
+use Mvdnbrk\MyParcel\Types\PaperSize;
 
 class LabelTest extends TestCase
 {

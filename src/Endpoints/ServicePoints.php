@@ -2,12 +2,12 @@
 
 namespace Mvdnbrk\MyParcel\Endpoints;
 
-use Mvdnbrk\MyParcel\Support\Str;
-use Mvdnbrk\MyParcel\Resources\Time;
-use Tightenco\Collect\Support\Collection;
-use Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException;
 use Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException;
+use Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException;
 use Mvdnbrk\MyParcel\Resources\ServicePoint as ServicePointResource;
+use Mvdnbrk\MyParcel\Resources\Time;
+use Mvdnbrk\MyParcel\Support\Str;
+use Tightenco\Collect\Support\Collection;
 
 class ServicePoints extends BaseEndpoint
 {
@@ -69,7 +69,7 @@ class ServicePoints extends BaseEndpoint
     {
         $response = $this->performApiCall(
             'GET',
-            'delivery_options' . $this->buildQueryString($this->getFilters($filters))
+            'delivery_options'.$this->buildQueryString($this->getFilters($filters))
         );
 
         $collection = new Collection();

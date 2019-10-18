@@ -2,10 +2,10 @@
 
 namespace Mvdnbrk\MyParcel\Tests\Unit\Resources;
 
-use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\Parcel;
 use Mvdnbrk\MyParcel\Resources\Recipient;
 use Mvdnbrk\MyParcel\Resources\ServicePoint;
+use Mvdnbrk\MyParcel\Tests\TestCase;
 
 class ParcelTest extends TestCase
 {
@@ -100,7 +100,7 @@ class ParcelTest extends TestCase
                 'signature' => true,
                 'large_format' => true,
                 'only_recipent' => true,
-            ]
+            ],
         ]);
 
         $this->assertTrue($parcel->options->signature);

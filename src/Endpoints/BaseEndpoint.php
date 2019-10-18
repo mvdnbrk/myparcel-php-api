@@ -46,11 +46,11 @@ abstract class BaseEndpoint
             return '';
         }
 
-        return '?' . http_build_query($filters);
+        return '?'.http_build_query($filters);
     }
 
     /**
-     * Performs a HTTP call to the API endpoint
+     * Performs a HTTP call to the API endpoint.
      *
      * @param  string  $httpMethod          The method to make the API call. GET/POST etc,
      * @param  string  $apiMethod           The API method to call at the endpoint.
@@ -71,7 +71,7 @@ abstract class BaseEndpoint
 
         if (empty($body)) {
             if ($response->getStatusCode() === Client::HTTP_STATUS_NO_CONTENT) {
-                return null;
+                return;
             }
 
             throw new MyParcelException('No response body found.');

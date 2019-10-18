@@ -2,8 +2,6 @@
 
 namespace Mvdnbrk\MyParcel\Resources;
 
-use Mvdnbrk\MyParcel\Resources\BaseResource;
-
 class ShipmentOptions extends BaseResource
 {
     /**
@@ -106,11 +104,11 @@ class ShipmentOptions extends BaseResource
     }
 
     /**
-      * Convert the options to an array.
-      * Boolean values will be converted to an integer.
-      *
-      * @return array
-      */
+     * Convert the options to an array.
+     * Boolean values will be converted to an integer.
+     *
+     * @return array
+     */
     public function toArray()
     {
         return collect(parent::toArray())

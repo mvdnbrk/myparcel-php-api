@@ -3,9 +3,9 @@
 namespace Mvdnbrk\MyParcel\Tests;
 
 use Dotenv\Dotenv;
-use Mvdnbrk\MyParcel\Client;
 use Dotenv\Exception\InvalidFileException;
 use Dotenv\Exception\InvalidPathException;
+use Mvdnbrk\MyParcel\Client;
 use Mvdnbrk\MyParcel\MyParcelServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
