@@ -2,9 +2,9 @@
 
 namespace Mvdnbrk\MyParcel\Tests\Feature\Endpoints;
 
-use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Endpoints\BaseEndpoint;
 use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
+use Mvdnbrk\MyParcel\Tests\TestCase;
 
 class BaseEndpointTest extends TestCase
 {

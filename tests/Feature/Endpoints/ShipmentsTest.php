@@ -2,13 +2,13 @@
 
 namespace Mvdnbrk\MyParcel\Tests\Feature\Endpoints;
 
-use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\Parcel;
-use Mvdnbrk\MyParcel\Types\PackageType;
-use Mvdnbrk\MyParcel\Resources\Shipment;
-use Mvdnbrk\MyParcel\Types\ShipmentStatus;
 use Mvdnbrk\MyParcel\Resources\ServicePoint;
+use Mvdnbrk\MyParcel\Resources\Shipment;
 use Mvdnbrk\MyParcel\Resources\ShipmentOptions;
+use Mvdnbrk\MyParcel\Tests\TestCase;
+use Mvdnbrk\MyParcel\Types\PackageType;
+use Mvdnbrk\MyParcel\Types\ShipmentStatus;
 
 /** @group integration */
 class ShipmentsTest extends TestCase

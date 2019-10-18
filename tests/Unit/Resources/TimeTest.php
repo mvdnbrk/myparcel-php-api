@@ -2,9 +2,9 @@
 
 namespace Mvdnbrk\MyParcel\Tests\Unit\Resources;
 
-use Mvdnbrk\MyParcel\Tests\TestCase;
-use Mvdnbrk\MyParcel\Resources\Time;
 use Mvdnbrk\MyParcel\Exceptions\InvalidTimeException;
+use Mvdnbrk\MyParcel\Resources\Time;
+use Mvdnbrk\MyParcel\Tests\TestCase;
 
 class TimeTest extends TestCase
 {

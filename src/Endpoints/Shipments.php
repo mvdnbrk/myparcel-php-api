@@ -2,10 +2,10 @@
 
 namespace Mvdnbrk\MyParcel\Endpoints;
 
-use Mvdnbrk\MyParcel\Resources\Parcel;
-use Mvdnbrk\MyParcel\Types\ShipmentStatus;
 use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
+use Mvdnbrk\MyParcel\Resources\Parcel;
 use Mvdnbrk\MyParcel\Resources\Shipment as ShipmentResource;
+use Mvdnbrk\MyParcel\Types\ShipmentStatus;
 
 class Shipments extends BaseEndpoint
 {
@@ -129,8 +129,8 @@ class Shipments extends BaseEndpoint
         return json_encode([
             'data' => [
                 'shipments' => [
-                    $parcel->toArray()
-                ]
+                    $parcel->toArray(),
+                ],
             ],
         ]);
     }

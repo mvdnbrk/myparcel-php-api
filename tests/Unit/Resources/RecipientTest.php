@@ -2,8 +2,8 @@
 
 namespace Mvdnbrk\MyParcel\Tests\Unit\Resources;
 
-use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\Recipient;
+use Mvdnbrk\MyParcel\Tests\TestCase;
 
 class RecipientTest extends TestCase
 {
@@ -92,7 +92,7 @@ class RecipientTest extends TestCase
     public function country_code_may_be_used_as_an_alias_to_cc()
     {
         $recipient = new Recipient([
-            'country_code' => 'NL'
+            'country_code' => 'NL',
         ]);
 
         $this->assertEquals('NL', $recipient->cc);
@@ -102,7 +102,7 @@ class RecipientTest extends TestCase
     public function zipcode_may_be_used_as_an_alias_to_postal_code()
     {
         $recipient = new Recipient([
-            'zipcode' => '9999ZZ'
+            'zipcode' => '9999ZZ',
         ]);
 
         $this->assertEquals('9999ZZ', $recipient->postal_code);
@@ -112,7 +112,7 @@ class RecipientTest extends TestCase
     public function lower_case_country_code_is_converted_to_uppercase()
     {
         $recipient = new Recipient($this->validParams([
-            'cc' => 'nl'
+            'cc' => 'nl',
         ]));
 
         $this->assertEquals('NL', $recipient->cc);
@@ -122,7 +122,7 @@ class RecipientTest extends TestCase
     public function lower_case_postal_code_is_converted_to_uppercase()
     {
         $recipient = new Recipient($this->validParams([
-            'postal_code' => '1234aa'
+            'postal_code' => '1234aa',
         ]));
 
         $this->assertEquals('1234AA', $recipient->postal_code);
@@ -132,7 +132,7 @@ class RecipientTest extends TestCase
     public function number_should_be_casted_to_a_string()
     {
         $recipient = new Recipient($this->validParams([
-            'number' => 999
+            'number' => 999,
         ]));
 
         $array = $recipient->toArray();

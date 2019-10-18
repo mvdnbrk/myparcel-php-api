@@ -46,7 +46,7 @@ class Address extends BaseResource
 
     /**
      * ISO3166-1 country code.
-     * https://en.wikipedia.org/wiki/ISO_3166-1
+     * https://en.wikipedia.org/wiki/ISO_3166-1.
      *
      * @var string
      */
@@ -97,11 +97,11 @@ class Address extends BaseResource
     }
 
     /**
-      * Convert the resource instance to an array.
-      * Removes all attributes with null values.
-      *
-      * @return array
-      */
+     * Convert the resource instance to an array.
+     * Removes all attributes with null values.
+     *
+     * @return array
+     */
     public function toArray()
     {
         return collect(parent::toArray())

@@ -2,9 +2,9 @@
 
 namespace Mvdnbrk\MyParcel\Tests\Feature\Endpoints;
 
-use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\Parcel;
 use Mvdnbrk\MyParcel\Resources\Shipment;
+use Mvdnbrk\MyParcel\Tests\TestCase;
 
 /** @group integration */
 class TrackTraceTest extends TestCase

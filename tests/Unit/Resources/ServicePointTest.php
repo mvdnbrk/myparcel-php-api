@@ -2,8 +2,8 @@
 
 namespace Mvdnbrk\MyParcel\Tests\Unit\Resources;
 
-use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Resources\ServicePoint;
+use Mvdnbrk\MyParcel\Tests\TestCase;
 
 class ServicePointTest extends TestCase
 {
@@ -28,7 +28,7 @@ class ServicePointTest extends TestCase
                 'thursday' => ['08:00-18:30'],
                 'friday' => ['08:00-18:30'],
                 'saturday' => ['08:00-17:00'],
-                'sunday' => []
+                'sunday' => [],
             ],
         ]);
 
@@ -188,7 +188,7 @@ class ServicePointTest extends TestCase
     public function number_should_be_casted_to_a_string()
     {
         $servicepoint = new ServicePoint([
-            'number' => 999
+            'number' => 999,
         ]);
 
         $array = $servicepoint->toArray();

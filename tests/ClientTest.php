@@ -2,11 +2,10 @@
 
 namespace Mvdnbrk\MyParcel\Tests;
 
-use Mvdnbrk\MyParcel\Client;
-use Mvdnbrk\MyParcel\Endpoints\Shipments;
-use Mvdnbrk\MyParcel\Endpoints\TrackTrace;
 use Mvdnbrk\MyParcel\Endpoints\ServicePoints;
 use Mvdnbrk\MyParcel\Endpoints\ShipmentLabels;
+use Mvdnbrk\MyParcel\Endpoints\Shipments;
+use Mvdnbrk\MyParcel\Endpoints\TrackTrace;
 use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 
 class ClientTest extends TestCase

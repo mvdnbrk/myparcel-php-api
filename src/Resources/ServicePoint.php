@@ -47,15 +47,15 @@ class ServicePoint extends Address
     public function distanceForHumans()
     {
         if (! $this->distance) {
-            return null;
+            return;
         }
 
         if ($this->distance >= 10000) {
-            return round($this->distance / 1000, 0) . ' km';
+            return round($this->distance / 1000, 0).' km';
         }
 
         if ($this->distance >= 1000) {
-            return round($this->distance / 1000, 1) . ' km';
+            return round($this->distance / 1000, 1).' km';
         }
 
         return "{$this->distance} meter";
@@ -146,7 +146,7 @@ class ServicePoint extends Address
     {
         return collect(parent::toArray())
             ->merge([
-                'distance' => $this->distanceForHumans()
+                'distance' => $this->distanceForHumans(),
             ])
             ->reject(function ($value) {
                 return empty($value);

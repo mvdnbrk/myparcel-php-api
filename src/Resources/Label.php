@@ -2,8 +2,8 @@
 
 namespace Mvdnbrk\MyParcel\Resources;
 
-use Mvdnbrk\MyParcel\Types\PaperSize;
 use Mvdnbrk\MyParcel\Types\LabelPositions;
+use Mvdnbrk\MyParcel\Types\PaperSize;
 
 class Label extends BaseResource
 {

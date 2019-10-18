@@ -2,12 +2,11 @@
 
 namespace Mvdnbrk\MyParcel\Tests\Feature\Endpoints;
 
-use Illuminate\Support\Collection;
-use Mvdnbrk\MyParcel\Tests\TestCase;
-use Mvdnbrk\MyParcel\Resources\ServicePoint;
 use Mvdnbrk\MyParcel\Endpoints\ServicePoints;
-use Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException;
 use Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException;
+use Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException;
+use Mvdnbrk\MyParcel\Resources\ServicePoint;
+use Mvdnbrk\MyParcel\Tests\TestCase;
 
 class ServicePointsTest extends TestCase
 {
