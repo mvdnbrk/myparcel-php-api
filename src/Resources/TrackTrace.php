@@ -63,9 +63,10 @@ class TrackTrace extends Trace
     }
 
     /**
-     * Sets the hostory.
+     * Set the history.
      *
-     * @param array  $array
+     * @param  array  $array
+     * @return  array
      */
     public function setHistoryAttribute($array = [])
     {
