@@ -2,17 +2,11 @@
 
 namespace Mvdnbrk\MyParcel;
 
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
-class MyParcelServiceProvider extends ServiceProvider
+class MyParcelServiceProvider extends ServiceProvider implements DeferrableProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = true;
-
     /**
      * Boot the service provider.
      *
