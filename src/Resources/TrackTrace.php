@@ -71,8 +71,7 @@ class TrackTrace extends Trace
     public function setHistoryAttribute($array = [])
     {
         $this->history = collect($array)->map(function ($item) {
-                return collect($item)->all();
-            })
-            ->all();
+            return collect($item)->all();
+        })->all();
     }
 }
