@@ -66,13 +66,13 @@ class TrackTrace extends Trace
      * Set the history.
      *
      * @param  array  $array
-     * @return  array
+     * @return void
      */
     public function setHistoryAttribute($array = [])
     {
         $this->history = collect($array)->map(function ($item) {
-            return collect($item)->all();
-        })
-        ->all();
+                return collect($item)->all();
+            })
+            ->all();
     }
 }
