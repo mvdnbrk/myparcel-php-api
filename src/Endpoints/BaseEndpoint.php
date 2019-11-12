@@ -21,6 +21,17 @@ abstract class BaseEndpoint
     public function __construct(Client $client)
     {
         $this->apiClient = $client;
+
+        $this->boot();
+    }
+
+    /**
+     * Boot the endpoint instance.
+     *
+     * @return void
+     */
+    protected function boot()
+    {
     }
 
     /**
