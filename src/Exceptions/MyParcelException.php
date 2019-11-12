@@ -5,8 +5,8 @@ namespace Mvdnbrk\MyParcel\Exceptions;
 class MyParcelException extends \Exception
 {
     /**
-     * @param string  $message
-     * @param int  $code
+     * @param  string  $message
+     * @param  int  $code
      */
     public function __construct($message = '', $code = 0)
     {

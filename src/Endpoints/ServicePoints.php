@@ -111,7 +111,7 @@ class ServicePoints extends BaseEndpoint
     /**
      * Sets the country based on a postal code.
      *
-     * @return  void
+     * @return void
      */
     protected function setCountry()
     {
@@ -127,8 +127,8 @@ class ServicePoints extends BaseEndpoint
     /**
      * Sets the cut off time.
      *
-     * @param string  $value
-     * @return  $this
+     * @param  string  $value
+     * @return $this
      */
     public function setCutoffTime($value)
     {
@@ -140,7 +140,7 @@ class ServicePoints extends BaseEndpoint
     /**
      * Sets the house number.
      *
-     * @param int  $value
+     * @param  int  $value
      * @return $this
      * @throws \Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException
      */
@@ -158,8 +158,8 @@ class ServicePoints extends BaseEndpoint
     /**
      * Sets the postal code.
      *
-     * @param string  $value
-     * @return  $this
+     * @param  string  $value
+     * @return $this
      * @throws \Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException
      */
     public function setPostalCode($value)

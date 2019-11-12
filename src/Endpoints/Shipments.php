@@ -44,7 +44,7 @@ class Shipments extends BaseEndpoint
     /**
      * Delete a shipment.
      *
-     * @param  int|\Mvdnbrk\MyParcel\Resources\Shipment
+     * @param  \Mvdnbrk\MyParcel\Resources\Shipment|int
      * @return bool
      */
     public function delete($value)
@@ -68,7 +68,7 @@ class Shipments extends BaseEndpoint
     /**
      * Get a shipment by id.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Mvdnbrk\MyParcel\Resources\Shipment
      */
     public function get($id)
@@ -82,7 +82,7 @@ class Shipments extends BaseEndpoint
     /**
      * Get a shipment by your own reference.
      *
-     * @param  string $value
+     * @param  string  $value
      * @return \Mvdnbrk\MyParcel\Resources\Shipment
      */
     public function getByReference($value)
@@ -96,8 +96,8 @@ class Shipments extends BaseEndpoint
     /**
      * Get a shipment resource by performing an API call.
      *
-     * @param  string  $apiMethod  The API method to be called to retrieve the shipment.
-     * @param  string  $message  The message to be thrown with the exception on failure.
+     * @param  string  $apiMethod
+     * @param  string  $message
      * @return \Mvdnbrk\MyParcel\Resources\Shipment
      */
     protected function getShipmentsResource($apiMethod, $message = '')

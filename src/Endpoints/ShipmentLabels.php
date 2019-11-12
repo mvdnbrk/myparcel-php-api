@@ -48,7 +48,7 @@ class ShipmentLabels extends BaseEndpoint
     }
 
     /**
-     * Sets the label to A4 format.
+     * Set the label to A4 format.
      *
      * @return  $this
      */

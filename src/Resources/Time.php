@@ -16,7 +16,7 @@ class Time
     /**
      * Construct a new Time instance.
      *
-     * @param string  $value
+     * @param  string  $value
      * @throws \Mvdnbrk\MyParcel\Exceptions\InvalidTimeException
      */
     public function __construct($value)
@@ -34,7 +34,7 @@ class Time
     /**
      * Get the time.
      *
-     * @param  string $separator
+     * @param  string  $separator
      * @return string
      */
     public function get($separator = self::SEPARATOR)

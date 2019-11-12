@@ -62,7 +62,7 @@ class Label extends BaseResource
     /**
      * Sets a size fot the label. Alias for format.
      *
-     * @param string  $value
+     * @param  string  $value
      * @return void
      */
     public function setSizeAttribute($value)
