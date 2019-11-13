@@ -52,11 +52,12 @@ abstract class BaseEndpoint
     /**
      * Performs a HTTP call to the API endpoint.
      *
-     * @param  string  $httpMethod          The method to make the API call. GET/POST etc,
-     * @param  string  $apiMethod           The API method to call at the endpoint.
-     * @param  string|null  $httpBody       The body to be send with te request.
-     * @param  array  $requestHeaders       Request headers to be send with the request.
-     * @return string|object|null           The body of the response.
+     * @param  string  $httpMethod
+     * @param  string  $apiMethod
+     * @param  string|null  $httpBody
+     * @param  array  $requestHeaders
+     * @return string|object|null
+     *
      * @throws \Mvdnbrk\MyParcel\Exceptions\MyParcelException
      */
     protected function performApiCall($httpMethod, $apiMethod, $httpBody = null, $requestHeaders = [])
