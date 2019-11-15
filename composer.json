@@ -22,7 +22,7 @@
         "php": "^7.1",
         "ext-json": "*",
         "composer/ca-bundle": "^1.2",
-        "guzzlehttp/guzzle": "^6.3",
+        "guzzlehttp/guzzle": "^6.4",
         "tightenco/collect": "^6.0"
     },
     "require-dev": {
