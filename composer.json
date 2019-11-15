@@ -31,6 +31,19 @@
         "phpunit/phpunit": "^8.0",
         "vlucas/phpdotenv": "^3.3"
     },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Mvdnbrk\\MyParcel\\MyParcelServiceProvider"
+            ]
+        }
+    },
     "autoload": {
         "psr-4": {
             "Mvdnbrk\\MyParcel\\": "src/"
@@ -44,18 +57,5 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.0-dev"
-        },
-        "laravel": {
-            "providers": [
-                "Mvdnbrk\\MyParcel\\MyParcelServiceProvider"
-            ]
-        }
-    },
-    "config": {
-        "sort-packages": true
     }
 }
