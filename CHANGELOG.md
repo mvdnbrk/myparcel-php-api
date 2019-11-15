@@ -4,6 +4,11 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [v2.0.0] - 2019-11-15
+
+### Removed
+- Removed support for Laravel. Please use this [package](https://github.com/mvdnbrk/laravel-myparcel) instead. [`#28`](https://github.com/mvdnbrk/myparcel-php-api/pull/28) 
+
 ## [v1.0.2] - 2019-11-15
 
 ### Changed
@@ -129,7 +134,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.0...HEAD
+[v2.0.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v1.0.2...v2.0.0
 [v1.0.2]: https://github.com/mvdnbrk/myparcel-php-api/compare/v1.0.1...v1.0.2
 [v1.0.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v1.0.0...v1.0.1
 [v1.0.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.9.2...v1.0.0
