@@ -18,9 +18,9 @@
 
 To use the MyParcel API client, the following things are required:
 
-+ Get a free [MyParcel account](https://backoffice.myparcel.nl/registration)
-+ Generate your [API Key](https://backoffice.myparcel.nl/settings)
-+ Now you're ready to use the MyParcel API client.
+* Get a free [MyParcel account](https://backoffice.myparcel.nl/registration)
+* Generate your [API Key](https://backoffice.myparcel.nl/settings)
+* Now you're ready to use the MyParcel API client
 
 ## Installation
 
@@ -58,7 +58,7 @@ $parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
 ]);
 ```
 
-### Create the shipment
+### Create a shipment
 
 ``` php
 $shipment = $myparcel->shipments->create($parcel);
@@ -69,14 +69,16 @@ $shipment->id;
 
 You have created your first shipment!
 
-### Retrieving a label
+### Retrieve a label
 
 A label can be retrieved by using `$shipment->id`. This will return a label in A6 format as a string.
 
 ```php
 $myparcel->labels->get($shipment->id);
 ```
+
 Or you may pass the `Shipment` instance directly to this method:
+
 ```php
 $myparcel->labels->get($shipment);
 ```
@@ -122,7 +124,7 @@ This package type is only available for shipments in the Netherlands that fit in
 $parcel->mailboxpackage();
 ```
 
-### Send a shipment to a service point
+### Send a parcel to a service point
 
 You may send a parcel to a PostNL service point where a customer can pick up the parcel:
 
@@ -142,7 +144,7 @@ $parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
 ]);
 ```
 
-### Retrieving service points
+### Retrieve service points
 
 ```php
 $servicepoints = $myparcel->servicePoints->setPostalcode('1234AA')->setHousenumber('1')->get();
@@ -178,7 +180,7 @@ $shipment->barcode;
 $shipment->status;
 ```
 
-### Tracking a shipment
+### Track a shipment
 
 You can get detailed track and trace information for a shipment.
 
