@@ -2,7 +2,9 @@
 
 namespace Mvdnbrk\MyParcel\Exceptions;
 
-class MyParcelException extends \Exception
+use Exception;
+
+class MyParcelException extends Exception
 {
     /**
      * @param  string  $message
