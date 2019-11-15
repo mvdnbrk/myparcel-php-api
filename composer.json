@@ -23,7 +23,7 @@
         "ext-json": "*",
         "composer/ca-bundle": "^1.2",
         "guzzlehttp/guzzle": "^6.4",
-        "tightenco/collect": "^6.0"
+        "tightenco/collect": "^5.8 || ^6.0"
     },
     "require-dev": {
         "nunomaduro/collision": "^3.0",
