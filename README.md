@@ -1,6 +1,6 @@
 <a href="https://www.myparcel.nl" target="_blank"><img src="https://assets.myparcel.nl/ui/corporate/logo-myparcel-alt.svg" alt="MyParcel" width="70" height="70"></a>
 
-# myparcel-php-api
+# MyParcel API client for PHP
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -10,7 +10,7 @@
 [![StyleCI][ico-style-ci]][link-style-ci]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-[MyParcel](https://www.myparcel.nl/) makes sending packages easy.
+[MyParcel](https://www.myparcel.nl) makes sending packages easy.
 
 [MyParcel API documentation](https://myparcelnl.github.io/api/)
 
