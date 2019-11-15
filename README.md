@@ -203,6 +203,10 @@ $tracktrace->items;
 $tracktrace->items->all()
 ```
 
+## Usage with Laravel
+
+You may incorporate this package in your Laravel application by using [this package](https://github.com/mvdnbrk/laravel-dhlparcel).
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
