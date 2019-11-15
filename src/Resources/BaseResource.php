@@ -69,7 +69,7 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
      *
      * @throws \Mvdnbrk\MyParcel\Exceptions\JsonEncodingException
      */
-    public function toJson($options = 0)
+    public function toJson(int $options = 0)
     {
         $json = json_encode($this->jsonSerialize(), $options);
 
