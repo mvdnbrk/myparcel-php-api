@@ -4,6 +4,11 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [v1.0.2] - 2019-11-15
+
+### Changed
+- Updated dependencies. [`2b1be49`](https://github.com/mvdnbrk/myparcel-php-api/commit/2b1be49068b649437fef5abec45e061bc7088fd1), [`b581b9c`](https://github.com/mvdnbrk/myparcel-php-api/commit/b581b9c37070e5f60691996a875608c661477af7)
+
 ## [v1.0.1] - 2019-10-13
 
 ### Changed
@@ -41,7 +46,7 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 ## [v0.7.3] - 2019-03-15
 
 ### Changed
-- Updates packages. [`e26e5c8`](https://github.com/mvdnbrk/myparcel-php-api/commit/e26e5c8b99c51ba7245323751841b3293ac8b38a)
+- Updated dependencies. [`e26e5c8`](https://github.com/mvdnbrk/myparcel-php-api/commit/e26e5c8b99c51ba7245323751841b3293ac8b38a)
 
 ## [v0.7.2] - 2019-03-15
 
@@ -124,7 +129,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v1.0.2...HEAD
+[v1.0.2]: https://github.com/mvdnbrk/myparcel-php-api/compare/v1.0.1...v1.0.2
 [v1.0.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v1.0.0...v1.0.1
 [v1.0.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.9.2...v1.0.0
 [v0.9.2]: https://github.com/mvdnbrk/myparcel-php-api/compare/v0.9.1...v0.9.2
