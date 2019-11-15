@@ -194,7 +194,7 @@ class Parcel extends BaseResource
     }
 
     /**
-     * Convert the parcel resource to an array.
+     * Convert the Parcel resource to an array.
      *
      * @return array
      */

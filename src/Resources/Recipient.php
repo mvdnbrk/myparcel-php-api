@@ -40,8 +40,7 @@ class Recipient extends Address
     }
 
     /**
-     * Convert the resource instance to an array.
-     * Removes all attributes with null values.
+     * Convert the Recipient resource to an array.
      *
      * @return array
      */

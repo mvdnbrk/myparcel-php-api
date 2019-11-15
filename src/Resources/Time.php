@@ -17,6 +17,8 @@ class Time
      * Construct a new Time instance.
      *
      * @param  string  $value
+     * @return  void
+     *
      * @throws \Mvdnbrk\MyParcel\Exceptions\InvalidTimeException
      */
     public function __construct($value)

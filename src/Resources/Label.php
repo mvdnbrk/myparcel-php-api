@@ -21,6 +21,7 @@ class Label extends BaseResource
      * Create a new label instance.
      *
      * @param  array  $attributes
+     * @return void
      */
     public function __construct(array $attributes = [])
     {
@@ -30,7 +31,7 @@ class Label extends BaseResource
     }
 
     /**
-     * Sets paper format for the label.
+     * Set the paper format for the label.
      *
      * @param  string  $value
      * @return void
@@ -49,7 +50,7 @@ class Label extends BaseResource
     }
 
     /**
-     * Sets a position for the label. Alias for positions.
+     * Set a position for the label. Alias for positions.
      *
      * @param  int  $value
      * @return void
@@ -60,7 +61,7 @@ class Label extends BaseResource
     }
 
     /**
-     * Sets a size fot the label. Alias for format.
+     * Set a size fot the label. Alias for format.
      *
      * @param  string  $value
      * @return void

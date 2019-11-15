@@ -131,7 +131,7 @@ class Client
     }
 
     /**
-     * Sets the API key.
+     * Set the API key.
      *
      * @param  string  $value
      * @return \Mvdnbrk\MyParcel\Client

@@ -23,6 +23,7 @@ class TrackTrace extends Trace
      * Create a new Track Trace instance.
      *
      * @param  array  $attributes
+     * @return void
      */
     public function __construct(array $attributes = [])
     {

@@ -56,7 +56,8 @@ class ShipmentOptions extends BaseResource
     /**
      * Create a new Shipment Options resource.
      *
-     * @param array $attributes
+     * @param  array  $attributes
+     * @return void
      */
     public function __construct(array $attributes = [])
     {
@@ -66,7 +67,7 @@ class ShipmentOptions extends BaseResource
     }
 
     /**
-     * Sets default options for a shipment.
+     * Set default options for a shipment.
      *
      * @return $this
      */
@@ -104,8 +105,7 @@ class ShipmentOptions extends BaseResource
     }
 
     /**
-     * Convert the options to an array.
-     * Boolean values will be converted to an integer.
+     * Convert the ShipmentOptions resource to an array.
      *
      * @return array
      */

@@ -27,7 +27,7 @@ class ServicePoints extends BaseEndpoint
     public $housenumber;
 
     /**
-     * @var  array
+     * @var array
      */
     public $validPostalCodes = [
         'BE' => '/^[1-9]{1}\d{3}$/',
@@ -109,7 +109,7 @@ class ServicePoints extends BaseEndpoint
     }
 
     /**
-     * Sets the country based on a postal code.
+     * Set the country based on a postal code.
      *
      * @return void
      */
@@ -125,7 +125,7 @@ class ServicePoints extends BaseEndpoint
     }
 
     /**
-     * Sets the cut off time.
+     * Set the cut off time.
      *
      * @param  string  $value
      * @return $this
@@ -138,10 +138,11 @@ class ServicePoints extends BaseEndpoint
     }
 
     /**
-     * Sets the house number.
+     * Set the house number.
      *
      * @param  int  $value
      * @return $this
+     *
      * @throws \Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException
      */
     public function setHousenumber($value)
@@ -156,10 +157,11 @@ class ServicePoints extends BaseEndpoint
     }
 
     /**
-     * Sets the postal code.
+     * Set the postal code.
      *
      * @param  string  $value
      * @return $this
+     *
      * @throws \Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException
      */
     public function setPostalCode($value)
