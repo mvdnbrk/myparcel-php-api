@@ -4,6 +4,11 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [v2.0.1] - 2019-11-15
+
+### Removed
+- Removed Laravel package discovery in composer.json. [`f005daa`](https://github.com/mvdnbrk/myparcel-php-api/commit/f005daa68021d8c8aae6463966beba66173396bc)
+
 ## [v2.0.0] - 2019-11-15
 
 ### Removed
@@ -134,7 +139,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.1...HEAD
+[v2.0.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.0...v2.0.1
 [v2.0.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v1.0.2...v2.0.0
 [v1.0.2]: https://github.com/mvdnbrk/myparcel-php-api/compare/v1.0.1...v1.0.2
 [v1.0.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v1.0.0...v1.0.1
