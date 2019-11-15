@@ -1,6 +1,5 @@
 {
     "name": "mvdnbrk/myparcel-php-api",
-    "type": "library",
     "description": "MyParcel API client for PHP",
     "keywords": [
         "php",
