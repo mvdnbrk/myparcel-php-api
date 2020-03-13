@@ -2,11 +2,9 @@
     "name": "mvdnbrk/myparcel-php-api",
     "description": "MyParcel API client for PHP",
     "keywords": [
-        "php",
         "postnl",
         "myparcel",
-        "api",
-        "laravel"
+        "api"
     ],
     "homepage": "https://github.com/mvdnbrk/myparcel-php-api",
     "license": "MIT",
