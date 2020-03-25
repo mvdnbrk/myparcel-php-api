@@ -113,7 +113,12 @@ class Client
             $headers->put('Content-Type', 'application/json');
         }
 
-        $request = new Request($httpMethod, $this->apiEndpoint.'/'.$apiMethod, $headers->merge($requestHeaders)->all(), $httpBody);
+        $request = new Request(
+            $httpMethod,
+            $this->apiEndpoint.'/'.$apiMethod,
+            $headers->merge($requestHeaders)->all(),
+            $httpBody
+        );
 
         try {
             $response = $this->httpClient->send($request, ['http_errors' => false]);
