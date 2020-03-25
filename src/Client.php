@@ -105,9 +105,9 @@ class Client
         }
 
         $headers = collect([
-                'Accept' => 'application/json',
-                'Authorization' => 'Basic '.base64_encode($this->apiKey),
-            ])
+            'Accept' => 'application/json',
+            'Authorization' => 'Basic '.base64_encode($this->apiKey),
+        ])
             ->when($httpBody !== null, function ($collection) {
                 return $collection->put('Content-Type', 'application/json');
             })
