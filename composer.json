@@ -3,8 +3,7 @@
     "description": "MyParcel API client for PHP",
     "keywords": [
         "postnl",
-        "myparcel",
-        "api"
+        "myparcel"
     ],
     "homepage": "https://github.com/mvdnbrk/myparcel-php-api",
     "license": "MIT",
