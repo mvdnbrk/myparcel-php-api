@@ -105,18 +105,19 @@ class Client
         }
 
         $headers = collect([
-            'Accept' => 'application/json',
-            'Authorization' => 'Basic '.base64_encode($this->apiKey),
-        ]);
-
-        if ($httpBody !== null) {
-            $headers->put('Content-Type', 'application/json');
-        }
+                'Accept' => 'application/json',
+                'Authorization' => 'Basic '.base64_encode($this->apiKey),
+            ])
+            ->when($httpBody !== null, function ($collection) {
+                return $collection->put('Content-Type', 'application/json');
+            })
+            ->merge($requestHeaders)
+            ->all();
 
         $request = new Request(
             $httpMethod,
             $this->apiEndpoint.'/'.$apiMethod,
-            $headers->merge($requestHeaders)->all(),
+            $headers,
             $httpBody
         );
 
