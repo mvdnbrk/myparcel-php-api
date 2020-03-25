@@ -104,8 +104,6 @@ class Client
             throw new MyParcelException('You have not set an API key. Please use setApiKey() to set the API key.');
         }
 
-        $url = $this->apiEndpoint.'/'.$apiMethod;
-
         $headers = collect([
             'Accept' => 'application/json',
             'Authorization' => 'Basic '.base64_encode($this->apiKey),
@@ -115,7 +113,7 @@ class Client
             $headers->put('Content-Type', 'application/json');
         }
 
-        $request = new Request($httpMethod, $url, $headers->merge($requestHeaders)->all(), $httpBody);
+        $request = new Request($httpMethod, $this->apiEndpoint.'/'.$apiMethod, $headers->merge($requestHeaders)->all(), $httpBody);
 
         try {
             $response = $this->httpClient->send($request, ['http_errors' => false]);
