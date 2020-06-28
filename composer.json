@@ -23,10 +23,10 @@
         "tightenco/collect": "^5.8 || ^6.0 || ^7.0"
     },
     "require-dev": {
-        "nunomaduro/collision": "^4.1",
+        "nunomaduro/collision": "^4.2",
         "phpunit/phpunit": "^8.5 || ^9.0",
         "symfony/var-dumper": "^4.4 || ^5.0",
-        "vlucas/phpdotenv": "^4.1"
+        "vlucas/phpdotenv": "^5.0"
     },
     "config": {
         "sort-packages": true
