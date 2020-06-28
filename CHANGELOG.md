@@ -4,6 +4,11 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [v2.0.3] - 2020-06-28
+
+### Added
+- Added support for `guzzlehttp/guzzle` v7.0. [`be1c50a`](https://github.com/mvdnbrk/myparcel-php-api/commit/be1c50ab393251a251295d3de6d0b6617abb556b)
+
 ## [v2.0.2] - 2020-03-13
 
 ### Added
@@ -144,7 +149,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.2...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.3...HEAD
+[v2.0.3]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.2...v2.0.3
 [v2.0.2]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.1...v2.0.2
 [v2.0.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.0...v2.0.1
 [v2.0.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v1.0.2...v2.0.0
