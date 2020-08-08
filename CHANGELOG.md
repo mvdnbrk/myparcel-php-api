@@ -4,6 +4,11 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [v2.0.4] - 2020-08-08
+
+### Added
+- Added support for `tightenco/collect` v8.0. [`#33`](https://github.com/mvdnbrk/myparcel-php-api/pull/33)
+
 ## [v2.0.3] - 2020-06-28
 
 ### Added
@@ -149,7 +154,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.3...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.4...HEAD
+[v2.0.4]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.3...v2.0.4
 [v2.0.3]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.2...v2.0.3
 [v2.0.2]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.1...v2.0.2
 [v2.0.1]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.0...v2.0.1
