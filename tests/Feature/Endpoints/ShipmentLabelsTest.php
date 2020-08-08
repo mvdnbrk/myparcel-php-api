@@ -68,7 +68,7 @@ class ShipmentLabelsTest extends TestCase
     public function getting_a_label_with_an_invalid_shipment_id_should_throw_an_error()
     {
         $this->expectException(\Mvdnbrk\MyParcel\Exceptions\MyParcelException::class);
-        $this->expectExceptionMessage('Error executing API call (3001) : Permission Denied. (printShipmentLabel,writeResourceOwnedByOthers)');
+        $this->expectExceptionMessage('Error executing API call (3001) : Permission Denied. (writeResourceOwnedByOthers)');
 
         $this->client->labels->get('9999999999');
     }
