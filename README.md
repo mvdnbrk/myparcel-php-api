@@ -236,7 +236,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-tests]: https://img.shields.io/github/workflow/status/mvdnbrk/myparcel-php-api/tests/main?label=tests&style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/mvdnbrk/myparcel-php-api.svg?style=flat-square
-[ico-code-style]: https://styleci.io/repos/72292364/shield?branch=master
+[ico-code-style]: https://styleci.io/repos/72292364/shield?branch=main
 
 [link-packagist]: https://packagist.org/packages/mvdnbrk/myparcel-php-api
 [link-tests]: https://github.com/mvdnbrk/myparcel-php-api/actions?query=workflow%3Atests
