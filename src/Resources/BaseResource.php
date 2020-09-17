@@ -12,8 +12,6 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
     use Concerns\HasAttributes;
 
     /**
-     * Create a new resource instance.
-     *
      * @param  array|object  $attributes
      */
     public function __construct($attributes = [])
@@ -22,8 +20,6 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
     }
 
     /**
-     * Fill the resource with an array of attributes.
-     *
      * @param  array|object  $attributes
      * @return $this
      */
