@@ -8,20 +8,13 @@ class Time
 {
     const SEPARATOR = ':';
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $time;
 
     /**
-     * Construct a new Time instance.
-     *
-     * @param  string  $value
-     * @return  void
-     *
      * @throws \Mvdnbrk\MyParcel\Exceptions\InvalidTimeException
      */
-    public function __construct($value)
+    public function __construct(string $value)
     {
         $value = str_replace('.', self::SEPARATOR, $value);
         $value = strlen($value) === 5 ? $value.':00' : $value;
@@ -33,13 +26,7 @@ class Time
         $this->time = $value;
     }
 
-    /**
-     * Get the time.
-     *
-     * @param  string  $separator
-     * @return string
-     */
-    public function get($separator = self::SEPARATOR)
+    public function get(string $separator = self::SEPARATOR): string
     {
         return str_replace(self::SEPARATOR, $separator, $this->time);
     }

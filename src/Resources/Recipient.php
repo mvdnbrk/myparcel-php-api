@@ -4,47 +4,27 @@ namespace Mvdnbrk\MyParcel\Resources;
 
 class Recipient extends Address
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public $company;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $first_name;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $last_name;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $email;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $phone;
 
-    /**
-     * Get the full name of the recipient.
-     *
-     * @return string
-     */
-    public function getFullNameAttribute()
+    public function getFullNameAttribute(): string
     {
         return trim("{$this->first_name} {$this->last_name}");
     }
 
-    /**
-     * Convert the Recipient resource to an array.
-     *
-     * @return array
-     */
-    public function toArray()
+    public function toArray(): array
     {
         return collect(parent::toArray())
             ->when(! empty($this->getFullNameAttribute()), function ($collection) {

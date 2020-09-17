@@ -30,7 +30,7 @@ class BaseEndpointTest extends TestCase
 
 class BaseEndpointStub extends BaseEndpoint
 {
-    public function buildQueryString(array $filters)
+    public function buildQueryString(array $filters): string
     {
         return parent::buildQueryString($filters);
     }

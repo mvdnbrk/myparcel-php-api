@@ -193,12 +193,7 @@ class Parcel extends BaseResource
         $this->reference_identifier = $value;
     }
 
-    /**
-     * Convert the Parcel resource to an array.
-     *
-     * @return array
-     */
-    public function toArray()
+    public function toArray(): array
     {
         return collect(parent::toArray())
             ->merge([

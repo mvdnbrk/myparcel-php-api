@@ -2,29 +2,19 @@
 
 namespace Mvdnbrk\MyParcel\Resources;
 
+use Tightenco\Collect\Support\Collection;
+
 class TrackTrace extends Trace
 {
-    /**
-     * @var int
-     */
+    /** @var int */
     public $shipment_id;
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     public $isDelivered;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     public $history;
 
-    /**
-     * Create a new Track Trace instance.
-     *
-     * @param  array  $attributes
-     * @return void
-     */
     public function __construct(array $attributes = [])
     {
         $this->history = [];
@@ -34,25 +24,15 @@ class TrackTrace extends Trace
         $this->isDelivered = collect($this->status)->get('final', false);
     }
 
-    /**
-     * Determines if this shipment has reached a final state.
-     *
-     * @return bool
-     */
-    public function getFinalAttribute()
+    public function getFinalAttribute(): bool
     {
         return $this->isDelivered;
     }
 
-    /**
-     * Get a collection with TrackTrace items for this
-     * shipment including the latest trace.
-     *
-     * @return \Tightenco\Collect\Support\Collection
-     */
-    public function getItemsAttribute()
+
+    public function getItemsAttribute(): Collection
     {
-        return collect($this->history)
+        return (new Collection($this->history))
             ->prepend([
                 'code' => $this->code,
                 'description' => $this->description,
@@ -63,13 +43,7 @@ class TrackTrace extends Trace
             });
     }
 
-    /**
-     * Set the history.
-     *
-     * @param  array  $array
-     * @return void
-     */
-    public function setHistoryAttribute($array = [])
+    public function setHistoryAttribute($array = []): void
     {
         $this->history = collect($array)->map(function ($item) {
             return collect($item)->all();

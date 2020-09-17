@@ -4,20 +4,10 @@ namespace Mvdnbrk\MyParcel\Support;
 
 class Str
 {
-    /**
-     * The cache of studly-cased words.
-     *
-     * @var array
-     */
+    /** @var array */
     protected static $studlyCache = [];
 
-    /**
-     * Convert a value to studly caps case.
-     *
-     * @param  string  $value
-     * @return string
-     */
-    public static function studly($value)
+    public static function studly(string $value): string
     {
         $key = $value;
 
@@ -30,13 +20,7 @@ class Str
         return static::$studlyCache[$key] = str_replace(' ', '', $value);
     }
 
-    /**
-     * Convert the given string to upper-case.
-     *
-     * @param  string  $value
-     * @return string
-     */
-    public static function upper($value)
+    public static function upper(string $value): string
     {
         return mb_strtoupper($value, 'UTF-8');
     }
