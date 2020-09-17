@@ -4,7 +4,6 @@
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
 [![StyleCI][ico-style-ci]][link-style-ci]
 [![Total Downloads][ico-downloads]][link-downloads]
 
@@ -236,14 +235,12 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/mvdnbrk/myparcel-php-api/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/mvdnbrk/myparcel-php-api.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/mvdnbrk/myparcel-php-api.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/mvdnbrk/myparcel-php-api.svg?style=flat-square
 [ico-style-ci]: https://styleci.io/repos/72292364/shield?branch=master
 
 [link-packagist]: https://packagist.org/packages/mvdnbrk/myparcel-php-api
 [link-travis]: https://travis-ci.org/mvdnbrk/myparcel-php-api
 [link-scrutinizer]: https://scrutinizer-ci.com/g/mvdnbrk/myparcel-php-api/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/mvdnbrk/myparcel-php-api
 [link-downloads]: https://packagist.org/packages/mvdnbrk/myparcel-php-api
 [link-author]: https://github.com/mvdnbrk
 [link-contributors]: ../../contributors
