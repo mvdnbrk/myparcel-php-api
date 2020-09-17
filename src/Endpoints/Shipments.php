@@ -9,24 +9,12 @@ use Mvdnbrk\MyParcel\Types\ShipmentStatus;
 
 class Shipments extends BaseEndpoint
 {
-    /**
-     * Create a new shipment for a parcel.
-     *
-     * @param  \Mvdnbrk\MyParcel\Resources\Parcel  $parcel
-     * @return \Mvdnbrk\MyParcel\Resources\Shipment
-     */
-    public function create(Parcel $parcel)
+    public function create(Parcel $parcel): ShipmentResource
     {
         return $this->concept($parcel);
     }
 
-    /**
-     * Create a new concept shipment for a parcel.
-     *
-     * @param  \Mvdnbrk\MyParcel\Resources\Parcel  $parcel
-     * @return \Mvdnbrk\MyParcel\Resources\Shipment
-     */
-    public function concept(Parcel $parcel)
+    public function concept(Parcel $parcel): ShipmentResource
     {
         $response = $this->performApiCall(
             'POST',
@@ -41,13 +29,7 @@ class Shipments extends BaseEndpoint
         ], $parcel->attributesToArray()));
     }
 
-    /**
-     * Delete a shipment.
-     *
-     * @param  \Mvdnbrk\MyParcel\Resources\Shipment|int
-     * @return bool
-     */
-    public function delete($value)
+    public function delete($value): bool
     {
         if ($value instanceof ShipmentResource) {
             if ($value->status !== ShipmentStatus::CONCEPT) {
@@ -65,13 +47,7 @@ class Shipments extends BaseEndpoint
         return true;
     }
 
-    /**
-     * Get a shipment by id.
-     *
-     * @param  int  $id
-     * @return \Mvdnbrk\MyParcel\Resources\Shipment
-     */
-    public function get($id)
+    public function get(int $id): ShipmentResource
     {
         return $this->getShipmentsResource(
             'shipments/'.$id,
@@ -79,13 +55,7 @@ class Shipments extends BaseEndpoint
         );
     }
 
-    /**
-     * Get a shipment by your own reference.
-     *
-     * @param  string  $value
-     * @return \Mvdnbrk\MyParcel\Resources\Shipment
-     */
-    public function getByReference($value)
+    public function getByReference(string $value): ShipmentResource
     {
         return $this->getShipmentsResource(
             'shipments'.$this->buildQueryString(['reference_identifier' => $value]),
@@ -93,14 +63,7 @@ class Shipments extends BaseEndpoint
         );
     }
 
-    /**
-     * Get a shipment resource by performing an API call.
-     *
-     * @param  string  $apiMethod
-     * @param  string  $message
-     * @return \Mvdnbrk\MyParcel\Resources\Shipment
-     */
-    protected function getShipmentsResource($apiMethod, $message = '')
+    protected function getShipmentsResource(string $apiMethod, string $message = ''): ShipmentResource
     {
         $response = $this->performApiCall(
             'GET',
@@ -118,13 +81,7 @@ class Shipments extends BaseEndpoint
         );
     }
 
-    /**
-     * Get the http body for the API request.
-     *
-     * @param  \Mvdnbrk\MyParcel\Resources\Parcel  $parcel
-     * @return string
-     */
-    protected function getHttpBody(Parcel $parcel)
+    protected function getHttpBody(Parcel $parcel): string
     {
         return json_encode([
             'data' => [

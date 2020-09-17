@@ -13,7 +13,7 @@ class TrackTrace extends BaseEndpoint
      * @param  \Mvdnbrk\MyParcel\Resources\Shipment|int  $value
      * @return \Mvdnbrk\MyParcel\Resources\TrackTrace
      */
-    public function get($value)
+    public function get($value): TrackTraceResource
     {
         if ($value instanceof Shipment) {
             $value = $value->id;

@@ -8,17 +8,10 @@ use Mvdnbrk\MyParcel\Types\PaperSize;
 
 class ShipmentLabels extends BaseEndpoint
 {
-    /**
-     * @var \Mvdnbrk\MyParcel\Resources\Label
-     */
+    /** @var \Mvdnbrk\MyParcel\Resources\Label */
     protected $label;
 
-    /**
-     * Boot the ShipmentLabels endpoint.
-     *
-     * @return void
-     */
-    public function boot()
+    public function boot(): void
     {
         $this->label = new Label;
     }
@@ -29,7 +22,7 @@ class ShipmentLabels extends BaseEndpoint
      * @param  \Mvdnbrk\MyParcel\Resources\Shipment|int  $value
      * @return string
      */
-    public function get($value)
+    public function get($value): string
     {
         if ($value instanceof Shipment) {
             $value = $value->id;
@@ -47,25 +40,14 @@ class ShipmentLabels extends BaseEndpoint
         return $response;
     }
 
-    /**
-     * Set the label to A4 format.
-     *
-     * @return $this
-     */
-    public function setFormatA4()
+    public function setFormatA4(): self
     {
         $this->label->setFormatAttribute(PaperSize::A4);
 
         return $this;
     }
 
-    /**
-     * Set a label.
-     *
-     * @param  \Mvdnbrk\MyParcel\Resources\Label  $label
-     * @return $this
-     */
-    public function setLabel(Label $label)
+    public function setLabel(Label $label): self
     {
         $this->label = $label;
 

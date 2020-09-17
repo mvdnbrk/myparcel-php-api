@@ -4,23 +4,15 @@ namespace Mvdnbrk\MyParcel\Resources;
 
 class Shipment extends Parcel
 {
-    /**
-     * @var int
-     */
+    /** @var int */
     public $id;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $barcode;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $created;
 
-    /**
-     * @var int
-     */
+    /** @var int */
     public $status;
 }

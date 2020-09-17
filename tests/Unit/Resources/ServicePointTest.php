@@ -70,13 +70,13 @@ class ServicePointTest extends TestCase
     }
 
     /** @test */
-    public function distance_for_humans_returns_null_if_distance_is_null()
+    public function distance_for_humans_returns_empty_string_if_distance_is_null()
     {
         $servicepoint = new ServicePoint;
 
         $servicepoint->distance = null;
 
-        $this->assertNull($servicepoint->distanceForHumans());
+        $this->assertSame('', $servicepoint->distanceForHumans());
     }
 
     /** @test */

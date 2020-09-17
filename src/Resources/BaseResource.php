@@ -12,10 +12,7 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
     use Concerns\HasAttributes;
 
     /**
-     * Create a new resource instance.
-     *
      * @param  array|object  $attributes
-     * @return void
      */
     public function __construct($attributes = [])
     {
@@ -23,12 +20,10 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
     }
 
     /**
-     * Fill the resource with an array of attributes.
-     *
      * @param  array|object  $attributes
      * @return $this
      */
-    public function fill($attributes)
+    public function fill($attributes): self
     {
         collect($attributes)->each(function ($value, $key) {
             $this->setAttribute($key, $value);
@@ -37,23 +32,12 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
         return $this;
     }
 
-    /**
-     * Convert the recource into something JSON serializable.
-     *
-     * @return array
-     */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->toArray();
     }
 
-    /**
-     * Convert the resource instance to an array.
-     * Removes all attributes with null values.
-     *
-     * @return array
-     */
-    public function toArray()
+    public function toArray(): array
     {
         return collect($this->attributesToArray())
             ->reject(function ($value) {
@@ -63,14 +47,9 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
     }
 
     /**
-     * Convert the resource instance to JSON.
-     *
-     * @param  int  $options
-     * @return string
-     *
      * @throws \Mvdnbrk\MyParcel\Exceptions\JsonEncodingException
      */
-    public function toJson(int $options = 0)
+    public function toJson(int $options = 0): string
     {
         $json = json_encode($this->jsonSerialize(), $options);
 
@@ -87,7 +66,7 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
      * @param  string  $key
      * @return mixed
      */
-    public function __get($key)
+    public function __get(string $key)
     {
         return $this->getAttribute($key);
     }
@@ -99,7 +78,7 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
      * @param  mixed  $value
      * @return void
      */
-    public function __set($key, $value)
+    public function __set(string $key, $value): void
     {
         $this->setAttribute($key, $value);
     }

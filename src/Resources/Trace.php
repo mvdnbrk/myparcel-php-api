@@ -4,32 +4,19 @@ namespace Mvdnbrk\MyParcel\Resources;
 
 class Trace extends BaseResource
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public $code;
 
-    /**
-     * @var mixed
-     */
+    /** @var mixed */
     public $status;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $description;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $time;
 
-    /**
-     * Get a date/time for trace. Alias for time.
-     *
-     * @return string
-     */
-    public function getDatetimeAttribute()
+    public function getDatetimeAttribute(): string
     {
         return $this->time;
     }

@@ -2,9 +2,9 @@
 
 namespace Mvdnbrk\MyParcel\Tests\Unit\Resources;
 
-use Illuminate\Support\Collection;
 use Mvdnbrk\MyParcel\Resources\TrackTrace;
 use Mvdnbrk\MyParcel\Tests\TestCase;
+use Tightenco\Collect\Support\Collection;
 
 class TrackTraceTest extends TestCase
 {

@@ -11,61 +11,35 @@ use Tightenco\Collect\Support\Collection;
 
 class ServicePoints extends BaseEndpoint
 {
-    /**
-     * The carrier from wich to get delivery options.
-     */
     const CARRIER = 1;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $postal_code;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $housenumber;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     public $validPostalCodes = [
         'BE' => '/^[1-9]{1}\d{3}$/',
         'NL' => '/^[1-9]{1}\d{3}[A-Z]{2}$/',
     ];
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $country;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $carrier = self::CARRIER;
 
-    /**
-     * @var \Mvdnbrk\MyParcel\Resources\Time
-     */
+    /** @var \Mvdnbrk\MyParcel\Resources\Time */
     protected $cutoffTime;
 
-    /**
-     * Boot the DeliveryOptions endpoint.
-     *
-     * @return void
-     */
-    protected function boot()
+    protected function boot(): void
     {
         $this->cutoffTime = new Time('15:30');
     }
 
-    /**
-     * Get delivery options for an address based on postal code and house number.
-     *
-     * @param  array  $filters
-     * @return \Tightenco\Collect\Support\Collection
-     */
-    public function get(array $filters = [])
+    public function get(array $filters = []): Collection
     {
         $response = $this->performApiCall(
             'GET',
@@ -81,23 +55,12 @@ class ServicePoints extends BaseEndpoint
         return $collection;
     }
 
-    /**
-     * Get the country.
-     *
-     * @return string
-     */
-    public function getCountry()
+    public function getCountry(): string
     {
         return $this->country;
     }
 
-    /**
-     * Get query filters.
-     *
-     * @param  array  $filters
-     * @return array
-     */
-    protected function getFilters($filters)
+    protected function getFilters(array $filters): array
     {
         return array_merge([
             'cc' => $this->getCountry(),
@@ -108,12 +71,7 @@ class ServicePoints extends BaseEndpoint
         ], $filters);
     }
 
-    /**
-     * Set the country based on a postal code.
-     *
-     * @return void
-     */
-    protected function setCountry()
+    protected function setCountry(): void
     {
         $postalCodes = collect($this->validPostalCodes);
 
@@ -124,13 +82,7 @@ class ServicePoints extends BaseEndpoint
         });
     }
 
-    /**
-     * Set the cut off time.
-     *
-     * @param  string  $value
-     * @return $this
-     */
-    public function setCutoffTime($value)
+    public function setCutoffTime(string $value): self
     {
         $this->cutoffTime = new Time($value);
 
@@ -138,14 +90,10 @@ class ServicePoints extends BaseEndpoint
     }
 
     /**
-     * Set the house number.
-     *
-     * @param  int  $value
-     * @return $this
-     *
+     * @param  string|int  $value
      * @throws \Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException
      */
-    public function setHousenumber($value)
+    public function setHousenumber($value): self
     {
         $this->housenumber = filter_var($value, FILTER_SANITIZE_NUMBER_INT);
 
@@ -157,14 +105,9 @@ class ServicePoints extends BaseEndpoint
     }
 
     /**
-     * Set the postal code.
-     *
-     * @param  string  $value
-     * @return $this
-     *
      * @throws \Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException
      */
-    public function setPostalCode($value)
+    public function setPostalCode(string $value): self
     {
         $this->postal_code = preg_replace('/\s+/', '', Str::upper($value));
         $this->setCountry();

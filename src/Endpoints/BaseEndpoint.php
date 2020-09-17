@@ -7,17 +7,9 @@ use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 
 abstract class BaseEndpoint
 {
-    /**
-     * @var \Mvdnbrk\MyParcel\Client
-     */
+    /** @var \Mvdnbrk\MyParcel\Client */
     protected $apiClient;
 
-    /**
-     * Create an endpoint instance.
-     *
-     * @param  \Mvdnbrk\MyParcel\Client  $client
-     * @return void
-     */
     public function __construct(Client $client)
     {
         $this->apiClient = $client;
@@ -25,22 +17,11 @@ abstract class BaseEndpoint
         $this->boot();
     }
 
-    /**
-     * Boot the endpoint instance.
-     *
-     * @return void
-     */
-    protected function boot()
+    protected function boot(): void
     {
     }
 
-    /**
-     * Build a query string.
-     *
-     * @param  array  $filters
-     * @return string
-     */
-    protected function buildQueryString(array $filters)
+    protected function buildQueryString(array $filters): string
     {
         if (empty($filters)) {
             return '';
@@ -60,7 +41,7 @@ abstract class BaseEndpoint
      *
      * @throws \Mvdnbrk\MyParcel\Exceptions\MyParcelException
      */
-    protected function performApiCall($httpMethod, $apiMethod, $httpBody = null, $requestHeaders = [])
+    protected function performApiCall(string $httpMethod, string $apiMethod, ?string $httpBody = null, array $requestHeaders = [])
     {
         $response = $this->apiClient->performHttpCall($httpMethod, $apiMethod, $httpBody, $requestHeaders);
 
