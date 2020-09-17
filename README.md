@@ -1,5 +1,6 @@
 # MyParcel API client for PHP
 
+![PHP version][ico-php-version]
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
@@ -231,6 +232,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
+[ico-php-version]: https://img.shields.io/packagist/php-v/mvdnbrk/myparcel-php-api?style=flat-square
 [ico-version]: https://img.shields.io/packagist/v/mvdnbrk/myparcel-php-api.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/mvdnbrk/myparcel-php-api/master.svg?style=flat-square
