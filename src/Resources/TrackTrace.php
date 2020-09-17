@@ -29,7 +29,6 @@ class TrackTrace extends Trace
         return $this->isDelivered;
     }
 
-
     public function getItemsAttribute(): Collection
     {
         return (new Collection($this->history))
