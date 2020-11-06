@@ -2,10 +2,16 @@
 
 namespace Mvdnbrk\MyParcel\Resources;
 
+use Mvdnbrk\MyParcel\Types\DeliveryType;
+use Mvdnbrk\MyParcel\Types\PackageType;
+
 class ShipmentOptions extends BaseResource
 {
     /** @var int */
     public $delivery_type;
+
+    /** @var int */
+    public $package_type;
 
     /** @var string */
     public $label_description;
@@ -15,9 +21,6 @@ class ShipmentOptions extends BaseResource
 
     /** @var bool */
     public $only_recipient;
-
-    /** @var int */
-    public $package_type;
 
     /** @var bool */
     public $return;
@@ -34,11 +37,11 @@ class ShipmentOptions extends BaseResource
 
     public function setDefaultOptions(): self
     {
+        $this->package_type = PackageType::PACKAGE;
+        $this->delivery_type = DeliveryType::STANDARD;
         $this->return = false;
         $this->signature = false;
         $this->large_format = false;
-        $this->package_type = 1;
-        $this->delivery_type = 2;
         $this->only_recipient = false;
 
         return $this;
