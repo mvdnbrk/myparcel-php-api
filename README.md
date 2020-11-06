@@ -104,15 +104,43 @@ $parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
 ]);
 ```
 
-Or you may use a method like `signature`, `onlyRecipient`, `returnToSender` and `labelDescription`.  
+Or you may use a method like `signature`, `onlyRecipient`, `returnToSender`, `ageCheck`, `insurance` and 
+`labelDescription`.  
 You may call any of these after constructing the parcel.
 ``` php
 $parcel->onlyRecipient()
        ->returnToSender()
        ->signature()
+       ->ageCheck()
+       ->insurance(250)
        ->labelDescription('Some description.');
 ```
 
+**Delivery Types**
+
+You can set the delivery type by passing in the options directly when you create a parcel:
+``` php
+$parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
+    ...
+    'recipient' => [
+        ...
+    ],
+    'options' => [
+        'delivery_type' => DeliveryType::MORNING,
+        'delivery_date' => Carbon::tomorrow()
+        ...
+    ],
+]);
+```
+*note! `delivery_type` other then `standard` requires a `delivery_date`* 
+
+Or you may use a method like `morningDelivery`, `eveningDelivery` and `expressDelivery`.  
+You may call any of these after constructing the parcel.
+``` php
+$parcel->morningDelivery(Carbon::tomorrow())
+       ->eveningDelivery(Carbon::tomorrow())
+       ->expressDelivery(Carbon::tomorrow());
+```
 **Mailbox package**
 
 This package type is only available for shipments in the Netherlands that fit in a standard mailbox.
