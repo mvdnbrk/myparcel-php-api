@@ -101,6 +101,9 @@ class ShipmentOptions extends BaseResource
                 if (is_bool($value)) {
                     return (int) $value;
                 }
+                if ($value instanceof Carbon) {
+                    return $value->format('Y-m-d H:i:s');
+                }
 
                 return $value;
             })
