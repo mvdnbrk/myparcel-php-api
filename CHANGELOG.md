@@ -10,6 +10,11 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 ### Removed
 - Dropped support for PHP 7.2. [`a97588d`](https://github.com/mvdnbrk/myparcel-php-api/commit/a97588dcdbd52cd5f2eeb6ec36f99e89e38269e1)
 
+## [v2.1.0] - 2020-09-18
+
+### Added
+- PHP 7 type hints and return type declarations. [`36`](https://github.com/mvdnbrk/myparcel-php-api/pull/36)
+
 ## [v2.0.4] - 2020-08-08
 
 ### Added
@@ -160,7 +165,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.4...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.1.0...HEAD
+[v2.1.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.4...v2.1.0
 [v2.0.4]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.3...v2.0.4
 [v2.0.3]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.2...v2.0.3
 [v2.0.2]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.1...v2.0.2
