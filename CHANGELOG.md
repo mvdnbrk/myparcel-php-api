@@ -13,7 +13,7 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 ## [v2.1.0] - 2020-09-18
 
 ### Added
-- PHP 7 type hints and return type declarations. [`36`](https://github.com/mvdnbrk/myparcel-php-api/pull/36)
+- PHP 7 type hints and return type declarations. [`#36`](https://github.com/mvdnbrk/myparcel-php-api/pull/36)
 
 ## [v2.0.4] - 2020-08-08
 
