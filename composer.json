@@ -22,7 +22,8 @@
         "ext-json": "*",
         "composer/ca-bundle": "^1.2",
         "guzzlehttp/guzzle": "^6.4 || ^7.0",
-        "tightenco/collect": "^5.8 || ^6.0 || ^7.0 || ^8.0"
+        "tightenco/collect": "^5.8 || ^6.0 || ^7.0 || ^8.0",
+        "nesbot/carbon": "^2.41"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5 || ^9.3",
