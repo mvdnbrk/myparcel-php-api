@@ -140,6 +140,18 @@ class Parcel extends BaseResource
         $this->options->age_check = true;
         return $this;
     }
+
+    /**
+     * Set Insurance for parcel (only applicable for package_type 1)
+     * @param int $amount
+     * @return $this
+     */
+    public function insurance(int $amount)
+    {
+        $this->options->insurance = $amount;
+        return $this;
+    }
+
     /**
      * Set the shipment options for this parcel.
      *
