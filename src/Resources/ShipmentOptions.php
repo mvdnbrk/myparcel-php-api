@@ -2,6 +2,7 @@
 
 namespace Mvdnbrk\MyParcel\Resources;
 
+use Carbon\Carbon;
 use Mvdnbrk\MyParcel\Types\DeliveryType;
 use Mvdnbrk\MyParcel\Types\PackageType;
 
@@ -12,6 +13,11 @@ class ShipmentOptions extends BaseResource
 
     /** @var int */
     public $package_type;
+
+    /**
+     * @var Carbon
+     */
+    public $delivery_date;
 
     /** @var string */
     public $label_description;
@@ -62,6 +68,17 @@ class ShipmentOptions extends BaseResource
     public function setDescriptionAttribute(string $value)
     {
         $this->label_description = $value;
+    }
+
+    /**
+     * Get formatted delivery_date
+     * @return string|null
+     */
+    public function getDeliveryDateAttribute()
+    {
+        return !is_null($this->delivery_date)
+            ? $this->delivery_date->format("Y-m-d H:i:s")
+            : null;
     }
 
     /**
