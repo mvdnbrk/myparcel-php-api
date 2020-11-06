@@ -4,6 +4,9 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+### Removed
+- Dropped support for PHP 7.2. [`a97588d`](https://github.com/mvdnbrk/myparcel-php-api/commit/a97588dcdbd52cd5f2eeb6ec36f99e89e38269e1)
+
 ## [v2.0.4] - 2020-08-08
 
 ### Added
@@ -27,7 +30,7 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 ## [v2.0.0] - 2019-11-15
 
 ### Removed
-- Removed support for Laravel. Please use this [package](https://github.com/mvdnbrk/laravel-myparcel) instead. [`#28`](https://github.com/mvdnbrk/myparcel-php-api/pull/28) 
+- Removed support for Laravel. Please use this [package](https://github.com/mvdnbrk/laravel-myparcel) instead. [`#28`](https://github.com/mvdnbrk/myparcel-php-api/pull/28)
 
 ## [v1.0.2] - 2019-11-15
 
