@@ -28,6 +28,9 @@ class ShipmentOptions extends BaseResource
     /** @var bool */
     public $signature;
 
+    /** @var boolean */
+    public $age_check;
+
     public function __construct(array $attributes = [])
     {
         $this->setDefaultOptions();
@@ -43,6 +46,7 @@ class ShipmentOptions extends BaseResource
         $this->signature = false;
         $this->large_format = false;
         $this->only_recipient = false;
+        $this->age_check = false;
 
         return $this;
     }
