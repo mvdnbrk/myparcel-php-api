@@ -131,6 +131,16 @@ class Parcel extends BaseResource
     }
 
     /**
+     * The Customer/Consumer must sign for the package and only receives it when he/she is at least 18 years
+     * Sets age_check option to true
+     * @return $this
+     */
+    public function ageCheck()
+    {
+        $this->options->age_check = true;
+        return $this;
+    }
+    /**
      * Set the shipment options for this parcel.
      *
      * @param  array  $value
