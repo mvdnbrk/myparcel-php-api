@@ -88,7 +88,7 @@ class ShipmentsTest extends TestCase
 
         $parcel = new Parcel(['invalid-data']);
 
-        $shipment = $this->client->shipments->concept($parcel);
+        $this->client->shipments->concept($parcel);
     }
 
     /** @test */
@@ -185,7 +185,7 @@ class ShipmentsTest extends TestCase
         $this->expectException(\Mvdnbrk\MyParcel\Exceptions\MyParcelException::class);
         $this->expectExceptionMessage('Shipment with an id of "9999999999" not found.');
 
-        $shipment = $this->client->shipments->get('9999999999');
+        $this->client->shipments->get('9999999999');
     }
 
     /** @test */
@@ -197,7 +197,7 @@ class ShipmentsTest extends TestCase
         ];
 
         $parcel = new Parcel($array);
-        $concept = $this->client->shipments->concept($parcel);
+        $this->client->shipments->concept($parcel);
 
         $shipment = $this->client->shipments->getByReference('test-123');
 
@@ -216,6 +216,6 @@ class ShipmentsTest extends TestCase
         $this->expectException(\Mvdnbrk\MyParcel\Exceptions\MyParcelException::class);
         $this->expectExceptionMessage('Shipment with reference "invalid-reference-throws-error" not found.');
 
-        $shipment = $this->client->shipments->getByReference('invalid-reference-throws-error');
+        $this->client->shipments->getByReference('invalid-reference-throws-error');
     }
 }

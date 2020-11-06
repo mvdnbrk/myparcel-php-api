@@ -24,7 +24,7 @@ class BaseEndpointTest extends TestCase
 
         $endpoint = new BaseEndpointStub($this->client);
 
-        $response = $endpoint->performApiCall('GET', 'non-existent');
+        $endpoint->performApiCall('GET', 'non-existent');
     }
 }
 
