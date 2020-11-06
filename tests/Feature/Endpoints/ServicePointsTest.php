@@ -2,6 +2,7 @@
 
 namespace Mvdnbrk\MyParcel\Tests\Feature\Endpoints;
 
+use Illuminate\Support\Collection;
 use Mvdnbrk\MyParcel\Endpoints\ServicePoints;
 use Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException;
 use Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException;
@@ -86,7 +87,7 @@ class ServicePointsTest extends TestCase
     {
         $locations = $this->servicePoints->setPostalcode('1012NP')->setHousenumber('2')->get()->take(2);
 
-        $this->assertInstanceOf(\Tightenco\Collect\Support\Collection::class, $locations);
+        $this->assertInstanceOf(Collection::class, $locations);
         $this->assertEquals(2, $locations->count());
         $this->assertInstanceOf(ServicePoint::class, $locations->first());
         $this->assertInstanceOf(ServicePoint::class, $locations->last());

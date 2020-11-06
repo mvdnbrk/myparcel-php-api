@@ -2,7 +2,7 @@
 
 namespace Mvdnbrk\MyParcel\Resources;
 
-use Tightenco\Collect\Support\Collection;
+use Illuminate\Support\Collection;
 
 class TrackTrace extends Trace
 {
