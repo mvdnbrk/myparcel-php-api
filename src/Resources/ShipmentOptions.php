@@ -31,6 +31,9 @@ class ShipmentOptions extends BaseResource
     /** @var boolean */
     public $age_check;
 
+    /** @var int */
+    public $insurance;
+
     public function __construct(array $attributes = [])
     {
         $this->setDefaultOptions();
@@ -59,6 +62,19 @@ class ShipmentOptions extends BaseResource
     public function setDescriptionAttribute(string $value)
     {
         $this->label_description = $value;
+    }
+
+    /**
+     * Set Insurance amount. Only applicable for package_type = 1 (package)
+     * @param int $value
+     * @return $this
+     */
+    public function setInsuranceAttribute(int $value)
+    {
+        if ($this->package_type !== PackageType::PACKAGE) {
+            $this->insurance = 0;
+        }
+        return $this;
     }
 
     public function toArray(): array
