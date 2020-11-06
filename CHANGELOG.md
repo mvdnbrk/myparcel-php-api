@@ -4,6 +4,9 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+- Support for PHP 8. [`#38`](https://github.com/mvdnbrk/myparcel-php-api/pull/38)
+
 ### Removed
 - Dropped support for PHP 7.2. [`a97588d`](https://github.com/mvdnbrk/myparcel-php-api/commit/a97588dcdbd52cd5f2eeb6ec36f99e89e38269e1)
 

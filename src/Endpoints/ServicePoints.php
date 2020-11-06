@@ -2,12 +2,12 @@
 
 namespace Mvdnbrk\MyParcel\Endpoints;
 
+use Illuminate\Support\Collection;
 use Mvdnbrk\MyParcel\Exceptions\InvalidHousenumberException;
 use Mvdnbrk\MyParcel\Exceptions\InvalidPostalCodeException;
 use Mvdnbrk\MyParcel\Resources\ServicePoint as ServicePointResource;
 use Mvdnbrk\MyParcel\Resources\Time;
 use Mvdnbrk\MyParcel\Support\Str;
-use Tightenco\Collect\Support\Collection;
 
 class ServicePoints extends BaseEndpoint
 {
