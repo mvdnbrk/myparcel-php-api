@@ -2,6 +2,7 @@
 
 namespace Mvdnbrk\MyParcel\Resources;
 
+use Carbon\Carbon;
 use Mvdnbrk\MyParcel\Types\DeliveryType;
 use Mvdnbrk\MyParcel\Types\PackageType;
 
@@ -161,6 +162,48 @@ class Parcel extends BaseResource
     public function setOptionsAttribute($value)
     {
         $this->options->fill($value);
+    }
+
+    /**
+     * Mark parcel for morning delivery
+     * Sets delivery_type = 1;
+     *
+     * @param Carbon $date
+     * @return $this
+     */
+    public function morningDelivery(Carbon $date)
+    {
+        $this->options->delivery_type = DeliveryType::MORNING;
+        $this->options->delivery_date = $date;
+        return $this;
+    }
+
+    /**
+     * Mark parcel for evening delivery
+     * Sets delivery_type = 3;
+     *
+     * @param Carbon $date
+     * @return $this
+     */
+    public function eveningDelivery(Carbon $date)
+    {
+        $this->options->delivery_type = DeliveryType::EVENING;
+        $this->options->delivery_date = $date;
+        return $this;
+    }
+
+    /**
+     * Mark parcel for express delivery (pickup before 8:30)
+     * Sets delivery_type = 5;
+     *
+     * @param Carbon $date
+     * @return $this
+     */
+    public function expressDelivery(Carbon $date)
+    {
+        $this->options->delivery_type = DeliveryType::PICKUP_EXPRESS;
+        $this->options->delivery_date = $date;
+        return $this;
     }
 
     /**
