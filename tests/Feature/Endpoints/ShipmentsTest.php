@@ -2,11 +2,13 @@
 
 namespace Mvdnbrk\MyParcel\Tests\Feature\Endpoints;
 
+use Carbon\Carbon;
 use Mvdnbrk\MyParcel\Resources\Parcel;
 use Mvdnbrk\MyParcel\Resources\ServicePoint;
 use Mvdnbrk\MyParcel\Resources\Shipment;
 use Mvdnbrk\MyParcel\Resources\ShipmentOptions;
 use Mvdnbrk\MyParcel\Tests\TestCase;
+use Mvdnbrk\MyParcel\Types\DeliveryType;
 use Mvdnbrk\MyParcel\Types\PackageType;
 use Mvdnbrk\MyParcel\Types\ShipmentStatus;
 
@@ -113,6 +115,92 @@ class ShipmentsTest extends TestCase
         $this->assertInstanceOf(Shipment::class, $shipment);
         $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
         $this->assertInstanceOf(ServicePoint::class, $shipment->pickup);
+        $this->assertNotNull($shipment->id);
+
+        $this->assertTrue($this->cleanUp($shipment));
+    }
+
+    /**
+     * @test
+     */
+    public function create_shipment_with_morning_pickup()
+    {
+        $array = [
+            'reference_identifier' => 'morning-pickup',
+            'recipient' => $this->validRecipient(),
+            'options' => [
+                'delivery_type' => DeliveryType::MORNING,
+                'delivery_date' => Carbon::tomorrow()
+            ]
+        ];
+
+        $parcel = new Parcel($array);
+
+        $shipment = $this->client->shipments->concept($parcel);
+        $this->assertInstanceOf(Shipment::class, $shipment);
+        $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
+        $this->assertNotNull($shipment->id);
+
+        $this->assertTrue($this->cleanUp($shipment));
+    }
+
+    /**
+     * @test
+     */
+    public function create_shipment_with_morning_pickup_through_parcel_method()
+    {
+        $array = [
+            'reference_identifier' => 'morning-pickup',
+            'recipient' => $this->validRecipient()
+        ];
+        $parcel = new Parcel($array);
+        $parcel->morningDelivery(Carbon::tomorrow());
+        $shipment = $this->client->shipments->concept($parcel);
+        $this->assertInstanceOf(Shipment::class, $shipment);
+        $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
+        $this->assertNotNull($shipment->id);
+
+        $this->assertTrue($this->cleanUp($shipment));
+    }
+
+    /**
+     * @test
+     */
+    public function create_shipment_with_evening_pickup()
+    {
+        $array = [
+            'reference_identifier' => 'evening-pickup',
+            'recipient' => $this->validRecipient(),
+            'options' => [
+                'delivery_type' => DeliveryType::EVENING,
+                'delivery_date' => Carbon::tomorrow()
+            ]
+        ];
+
+        $parcel = new Parcel($array);
+
+        $shipment = $this->client->shipments->concept($parcel);
+        $this->assertInstanceOf(Shipment::class, $shipment);
+        $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
+        $this->assertNotNull($shipment->id);
+
+        $this->assertTrue($this->cleanUp($shipment));
+    }
+
+    /**
+     * @test
+     */
+    public function create_shipment_with_evening_pickup_through_parcel_method()
+    {
+        $array = [
+            'reference_identifier' => 'evening-pickup',
+            'recipient' => $this->validRecipient()
+        ];
+        $parcel = new Parcel($array);
+        $parcel->eveningDelivery(Carbon::tomorrow());
+        $shipment = $this->client->shipments->concept($parcel);
+        $this->assertInstanceOf(Shipment::class, $shipment);
+        $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
         $this->assertNotNull($shipment->id);
 
         $this->assertTrue($this->cleanUp($shipment));
