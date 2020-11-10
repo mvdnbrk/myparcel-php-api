@@ -26,7 +26,7 @@ class Label extends BaseResource
      * @param  string  $value
      * @return void
      */
-    public function setFormatAttribute($value)
+    public function setFormatAttribute(string $value): void
     {
         if ($value === PaperSize::A4 && ! $this->positions) {
             $this->positions = LabelPositions::TOP_LEFT;
@@ -45,7 +45,7 @@ class Label extends BaseResource
      * @param  int  $value
      * @return void
      */
-    public function setPositionAttribute($value)
+    public function setPositionAttribute(int $value): void
     {
         $this->positions = $value;
     }
@@ -56,7 +56,7 @@ class Label extends BaseResource
      * @param  string  $value
      * @return void
      */
-    public function setSizeAttribute($value)
+    public function setSizeAttribute(string $value): void
     {
         $this->setFormatAttribute($value);
     }
