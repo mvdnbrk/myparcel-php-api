@@ -59,7 +59,7 @@ class ServicePoint extends Address
      * @param  string|float  $value
      * @return void
      */
-    public function setLongitudeAttribute($value)
+    public function setLongitudeAttribute($value): void
     {
         $this->longitude = (float) $value;
     }
