@@ -11,12 +11,12 @@ class TrackTrace extends Trace
 
     /** @var bool */
     public $isDelivered;
-	
-	/** @var string */
-	public $link_consumer_portal;
 
-	/** @var string */
-	public $link_tracktrace;
+    /** @var string */
+    public $link;
+
+    /** @var string */
+    public $link_portal;
 
     /** @var array */
     public $history;
@@ -46,6 +46,26 @@ class TrackTrace extends Trace
             ->map(function ($item) {
                 return new Trace($item);
             });
+    }
+
+    public function getLinkConsumerPortalAttribute(): string
+    {
+        return $this->link_portal;
+    }
+
+    public function setLinkConsumerPortalAttribute(string $value): void
+    {
+        $this->link_portal = $value;
+    }
+
+    public function getLinkTracktraceAttribute(): string
+    {
+        return $this->link;
+    }
+
+    public function setLinkTracktraceAttribute(string $value): void
+    {
+        $this->link = $value;
     }
 
     public function setHistoryAttribute($array = []): void
