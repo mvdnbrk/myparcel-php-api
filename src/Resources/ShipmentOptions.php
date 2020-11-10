@@ -49,7 +49,7 @@ class ShipmentOptions extends BaseResource
         return $this->label_description;
     }
 
-    public function setDescriptionAttribute(string $value)
+    public function setDescriptionAttribute(string $value): void
     {
         $this->label_description = $value;
     }

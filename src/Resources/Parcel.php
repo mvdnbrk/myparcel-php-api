@@ -46,7 +46,7 @@ class Parcel extends BaseResource
      *
      * @return string
      */
-    public function getReferenceAttribute()
+    public function getReferenceAttribute(): string
     {
         return $this->reference_identifier;
     }
@@ -58,7 +58,7 @@ class Parcel extends BaseResource
      * @param  string  $value
      * @return $this
      */
-    public function labelDescription($value)
+    public function labelDescription(string $value): self
     {
         $this->options->label_description = trim($value);
 
@@ -70,7 +70,7 @@ class Parcel extends BaseResource
      *
      * @return $this
      */
-    public function mailboxpackage()
+    public function mailboxpackage(): self
     {
         $this->options->setDefaultOptions();
 
@@ -85,7 +85,7 @@ class Parcel extends BaseResource
      *
      * @return $this
      */
-    public function onlyRecipient()
+    public function onlyRecipient(): self
     {
         $this->options->only_recipient = true;
 
@@ -98,7 +98,7 @@ class Parcel extends BaseResource
      *
      * @return $this
      */
-    public function returnToSender()
+    public function returnToSender(): self
     {
         $this->options->return = true;
 
@@ -111,7 +111,7 @@ class Parcel extends BaseResource
      *
      * @return $this
      */
-    public function signature()
+    public function signature(): self
     {
         $this->options->signature = true;
 
@@ -124,7 +124,7 @@ class Parcel extends BaseResource
      * @param  array  $value
      * @return void
      */
-    public function setOptionsAttribute($value)
+    public function setOptionsAttribute($value): void
     {
         $this->options->fill($value);
     }
@@ -135,7 +135,7 @@ class Parcel extends BaseResource
      * @param  array|null  $value
      * @return void
      */
-    public function setPickupAttribute($value)
+    public function setPickupAttribute($value): void
     {
         if (is_null($value)) {
             $this->pickup = null;
@@ -159,7 +159,7 @@ class Parcel extends BaseResource
      * @param  \Mvdnbrk\MyParcel\Resources\Recipient|array  $value
      * @return void
      */
-    public function setRecipientAttribute($value)
+    public function setRecipientAttribute($value): void
     {
         if ($value instanceof Recipient) {
             $this->recipient = $value;
@@ -176,7 +176,7 @@ class Parcel extends BaseResource
      * @param  string  $value
      * @return void
      */
-    public function setReferenceAttribute($value)
+    public function setReferenceAttribute(string $value): void
     {
         $this->reference_identifier = $value;
     }
