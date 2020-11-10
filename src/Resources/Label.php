@@ -20,12 +20,6 @@ class Label extends BaseResource
         parent::__construct($attributes);
     }
 
-    /**
-     * Set the paper format for the label.
-     *
-     * @param  string  $value
-     * @return void
-     */
     public function setFormatAttribute(string $value): void
     {
         if ($value === PaperSize::A4 && ! $this->positions) {
@@ -39,23 +33,11 @@ class Label extends BaseResource
         $this->format = $value;
     }
 
-    /**
-     * Set a position for the label. Alias for positions.
-     *
-     * @param  int  $value
-     * @return void
-     */
     public function setPositionAttribute(int $value): void
     {
         $this->positions = $value;
     }
 
-    /**
-     * Set a size fot the label. Alias for format.
-     *
-     * @param  string  $value
-     * @return void
-     */
     public function setSizeAttribute(string $value): void
     {
         $this->setFormatAttribute($value);
