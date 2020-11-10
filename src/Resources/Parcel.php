@@ -79,9 +79,6 @@ class Parcel extends BaseResource
     }
 
     /**
-     * Set the shipment options for this parcel.
-     *
-     * @return void
      * @param  array|object  $value
      */
     public function setOptionsAttribute($value): void
@@ -90,10 +87,7 @@ class Parcel extends BaseResource
     }
 
     /**
-     * Set the pick up location for this parcel.
-     *
      * @param  array|null  $value
-     * @return void
      */
     public function setPickupAttribute($value): void
     {
