@@ -12,31 +12,19 @@ class Parcel extends BaseResource
      */
     const CARRIER_POSTNL = 1;
 
-    /**
-     * @var int
-     */
+    /** @var int */
     protected $carrier;
 
-    /**
-     * Arbitrary reference indentifier to identify this shipment.
-     *
-     * @var string
-     */
+    /** @var string */
     public $reference_identifier;
 
-    /**
-     * @var \Mvdnbrk\MyParcel\Resources\ShipmentOptions
-     */
+    /** @var \Mvdnbrk\MyParcel\Resources\ShipmentOptions */
     public $options;
 
-    /**
-     * @var \Mvdnbrk\MyParcel\Resources\ServicePoint
-     */
+    /** @var \Mvdnbrk\MyParcel\Resources\ServicePoint */
     protected $pickup;
 
-    /**
-     * @var \Mvdnbrk\MyParcel\Resources\Recipient
-     */
+    /** @var \Mvdnbrk\MyParcel\Resources\Recipient */
     public $recipient;
 
     /**

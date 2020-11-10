@@ -7,14 +7,10 @@ use Mvdnbrk\MyParcel\Types\PaperSize;
 
 class Label extends BaseResource
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $format;
 
-    /**
-     * @var int
-     */
+    /** @var int */
     protected $positions;
 
     /**
