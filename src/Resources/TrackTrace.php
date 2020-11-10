@@ -11,6 +11,12 @@ class TrackTrace extends Trace
 
     /** @var bool */
     public $isDelivered;
+	
+	/** @var string */
+	public $link_consumer_portal;
+
+	/** @var string */
+	public $link_tracktrace;
 
     /** @var array */
     public $history;
