@@ -21,7 +21,6 @@ abstract class BaseResource implements Arrayable, Jsonable, JsonSerializable
 
     /**
      * @param  array|object  $attributes
-     * @return $this
      */
     public function fill($attributes): self
     {

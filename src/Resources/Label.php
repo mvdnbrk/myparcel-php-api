@@ -13,12 +13,6 @@ class Label extends BaseResource
     /** @var int */
     protected $positions;
 
-    /**
-     * Create a new label instance.
-     *
-     * @param  array  $attributes
-     * @return void
-     */
     public function __construct(array $attributes = [])
     {
         $this->format = PaperSize::A6;
