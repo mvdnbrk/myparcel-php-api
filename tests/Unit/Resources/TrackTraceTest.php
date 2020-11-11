@@ -20,6 +20,8 @@ class TrackTraceTest extends TestCase
             'code' => 'AA1',
             'description' => 'Test description',
             'time' => '2018-08-28 23:00:00',
+            'link' => 'https://postnl.nl/tracktrace/?B=3SMYPA123456',
+            'link_portal' => 'https://username.myparcel.me/track-trace/3SMYPA123456',
             'history' => [],
         ]);
 
@@ -29,7 +31,31 @@ class TrackTraceTest extends TestCase
         $this->assertEquals('AA1', $tracktrace->code);
         $this->assertEquals('Test description', $tracktrace->description);
         $this->assertEquals('2018-08-28 23:00:00', $tracktrace->time);
+        $this->assertEquals('https://postnl.nl/tracktrace/?B=3SMYPA123456', $tracktrace->link);
+        $this->assertEquals('https://username.myparcel.me/track-trace/3SMYPA123456', $tracktrace->link_portal);
         $this->assertSame([], $tracktrace->history);
+    }
+
+    /** @test */
+    public function link_consumer_portal_may_be_used_as_alias_for_link_portal()
+    {
+        $tracktrace = new TrackTrace([
+            'link_consumer_portal' => 'https://username.myparcel.me/track-trace/3SMYPA123456',
+        ]);
+
+        $this->assertEquals('https://username.myparcel.me/track-trace/3SMYPA123456', $tracktrace->link_portal);
+        $this->assertEquals('https://username.myparcel.me/track-trace/3SMYPA123456', $tracktrace->link_consumer_portal);
+    }
+
+    /** @test */
+    public function link_tracktrace_may_be_used_as_alias_for_link()
+    {
+        $tracktrace = new TrackTrace([
+            'link_tracktrace' => 'https://postnl.nl/tracktrace/?B=3SMYPA123456',
+        ]);
+
+        $this->assertEquals('https://postnl.nl/tracktrace/?B=3SMYPA123456', $tracktrace->link);
+        $this->assertEquals('https://postnl.nl/tracktrace/?B=3SMYPA123456', $tracktrace->link_tracktrace);
     }
 
     /** @test */

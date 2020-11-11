@@ -6,6 +6,7 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Added
 - Support for PHP 8. [`#38`](https://github.com/mvdnbrk/myparcel-php-api/pull/38)
+- Added `link` and `link_portal` attribute to the `TrackTrace` class. [`#40`](https://github.com/mvdnbrk/myparcel-php-api/pull/40)
 
 ### Removed
 - Dropped support for PHP 7.2. [`a97588d`](https://github.com/mvdnbrk/myparcel-php-api/commit/a97588dcdbd52cd5f2eeb6ec36f99e89e38269e1)

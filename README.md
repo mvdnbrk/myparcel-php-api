@@ -184,6 +184,10 @@ You can get detailed track and trace information for a shipment.
 ``` php
 $tracktrace = $myparcel->tracktrace->get($id);
 
+// Links:
+$tracktrace->link;
+$tracktrace->link_portal;
+
 // Check if the shipment is delivered:
 $tracktrace->isDelivered;
 
