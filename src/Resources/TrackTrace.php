@@ -53,7 +53,7 @@ class TrackTrace extends Trace
         return $this->link_portal;
     }
 
-    public function setLinkConsumerPortalAttribute(string $value): void
+    public function setLinkConsumerPortalAttribute(?string $value): void
     {
         $this->link_portal = $value;
     }
@@ -63,7 +63,7 @@ class TrackTrace extends Trace
         return $this->link;
     }
 
-    public function setLinkTracktraceAttribute(string $value): void
+    public function setLinkTracktraceAttribute(?string $value): void
     {
         $this->link = $value;
     }
