@@ -67,6 +67,7 @@ class TrackTrace extends Trace
     {
         $this->link = $value;
     }
+
     public function setHistoryAttribute(array $array = []): void
     {
         $this->history = collect($array)->map(function ($item) {
