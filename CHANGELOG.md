@@ -4,6 +4,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [v2.2.0] - 2020-11-11
+
 ### Added
 - Support for PHP 8. [`#38`](https://github.com/mvdnbrk/myparcel-php-api/pull/38)
 - Added `link` and `link_portal` attribute to the `TrackTrace` class. [`#40`](https://github.com/mvdnbrk/myparcel-php-api/pull/40)
@@ -166,7 +168,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.2.0...HEAD
+[v2.2.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.1.0...v2.2.0
 [v2.1.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.4...v2.1.0
 [v2.0.4]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.3...v2.0.4
 [v2.0.3]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.2...v2.0.3
