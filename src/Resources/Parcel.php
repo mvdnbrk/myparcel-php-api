@@ -12,38 +12,21 @@ class Parcel extends BaseResource
      */
     const CARRIER_POSTNL = 1;
 
-    /**
-     * @var int
-     */
+    /** @var int */
     protected $carrier;
 
-    /**
-     * Arbitrary reference indentifier to identify this shipment.
-     *
-     * @var string
-     */
+    /** @var string */
     public $reference_identifier;
 
-    /**
-     * @var \Mvdnbrk\MyParcel\Resources\ShipmentOptions
-     */
+    /** @var \Mvdnbrk\MyParcel\Resources\ShipmentOptions */
     public $options;
 
-    /**
-     * @var \Mvdnbrk\MyParcel\Resources\ServicePoint
-     */
+    /** @var \Mvdnbrk\MyParcel\Resources\ServicePoint */
     protected $pickup;
 
-    /**
-     * @var \Mvdnbrk\MyParcel\Resources\Recipient
-     */
+    /** @var \Mvdnbrk\MyParcel\Resources\Recipient */
     public $recipient;
 
-    /**
-     * Create a new shipment instance.
-     *
-     * @param  array  $attributes
-     */
     public function __construct(array $attributes = [])
     {
         $this->carrier = self::CARRIER_POSTNL;
@@ -53,36 +36,19 @@ class Parcel extends BaseResource
         parent::__construct($attributes);
     }
 
-    /**
-     * Get a reference for this parcel. Alias for reference_identifier.
-     *
-     * @return string
-     */
-    public function getReferenceAttribute()
+    public function getReferenceAttribute(): string
     {
         return $this->reference_identifier;
     }
 
-    /**
-     * Sets a label description for the parcel.
-     * Sets label_description option to the specified value.
-     *
-     * @param  string  $value
-     * @return $this
-     */
-    public function labelDescription($value)
+    public function labelDescription(string $value): self
     {
         $this->options->label_description = trim($value);
 
         return $this;
     }
 
-    /**
-     * Set the parcel to a mailbox package.
-     *
-     * @return $this
-     */
-    public function mailboxpackage()
+    public function mailboxpackage(): self
     {
         $this->options->setDefaultOptions();
 
@@ -91,39 +57,21 @@ class Parcel extends BaseResource
         return $this;
     }
 
-    /**
-     * Deliver the parcel to the recipient only.
-     * Sets only_recipent option to true.
-     *
-     * @return $this
-     */
-    public function onlyRecipient()
+    public function onlyRecipient(): self
     {
         $this->options->only_recipient = true;
 
         return $this;
     }
 
-    /**
-     * Return the parcel to sender when the recipient is not at home.
-     * Sets return option to true.
-     *
-     * @return $this
-     */
-    public function returnToSender()
+    public function returnToSender(): self
     {
         $this->options->return = true;
 
         return $this;
     }
 
-    /**
-     * Require a signature from the recipient.
-     * Sets signature option to true.
-     *
-     * @return $this
-     */
-    public function signature()
+    public function signature(): self
     {
         $this->options->signature = true;
 
@@ -131,23 +79,17 @@ class Parcel extends BaseResource
     }
 
     /**
-     * Set the shipment options for this parcel.
-     *
-     * @param  array  $value
-     * @return void
+     * @param  array|object  $value
      */
-    public function setOptionsAttribute($value)
+    public function setOptionsAttribute($value): void
     {
         $this->options->fill($value);
     }
 
     /**
-     * Set the pick up location for this parcel.
-     *
      * @param  array|null  $value
-     * @return void
      */
-    public function setPickupAttribute($value)
+    public function setPickupAttribute($value): void
     {
         if (is_null($value)) {
             $this->pickup = null;
@@ -166,12 +108,9 @@ class Parcel extends BaseResource
     }
 
     /**
-     * Set the recipient for this parcel.
-     *
      * @param  \Mvdnbrk\MyParcel\Resources\Recipient|array  $value
-     * @return void
      */
-    public function setRecipientAttribute($value)
+    public function setRecipientAttribute($value): void
     {
         if ($value instanceof Recipient) {
             $this->recipient = $value;
@@ -182,13 +121,7 @@ class Parcel extends BaseResource
         $this->recipient->fill($value);
     }
 
-    /**
-     * Sets a reference for this parcel. Alias for reference_identifier.
-     *
-     * @param  string  $value
-     * @return void
-     */
-    public function setReferenceAttribute($value)
+    public function setReferenceAttribute(string $value): void
     {
         $this->reference_identifier = $value;
     }

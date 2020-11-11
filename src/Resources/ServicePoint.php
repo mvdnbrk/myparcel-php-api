@@ -43,10 +43,7 @@ class ServicePoint extends Address
     }
 
     /**
-     * Sets the latitude for this location.
-     *
      * @param  string|float  $value
-     * @return void
      */
     public function setLatitudeAttribute($value): void
     {
@@ -54,12 +51,9 @@ class ServicePoint extends Address
     }
 
     /**
-     * Sets the longitude for this location.
-     *
      * @param  string|float  $value
-     * @return void
      */
-    public function setLongitudeAttribute($value)
+    public function setLongitudeAttribute($value): void
     {
         $this->longitude = (float) $value;
     }
@@ -76,7 +70,6 @@ class ServicePoint extends Address
 
     /**
      * @param  object|array
-     * @return void
      */
     public function setOpeningHoursAttribute($value): void
     {

@@ -8,7 +8,7 @@ use Mvdnbrk\MyParcel\Tests\TestCase;
 class TraceTest extends TestCase
 {
     /** @test */
-    public function creating_a_track_trace_resource()
+    public function creating_a_trace_resource()
     {
         $tracktrace = new Trace([
             'code' => 'AA1',

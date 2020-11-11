@@ -7,22 +7,12 @@ use Mvdnbrk\MyParcel\Types\PaperSize;
 
 class Label extends BaseResource
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $format;
 
-    /**
-     * @var int
-     */
+    /** @var int */
     protected $positions;
 
-    /**
-     * Create a new label instance.
-     *
-     * @param  array  $attributes
-     * @return void
-     */
     public function __construct(array $attributes = [])
     {
         $this->format = PaperSize::A6;
@@ -30,13 +20,7 @@ class Label extends BaseResource
         parent::__construct($attributes);
     }
 
-    /**
-     * Set the paper format for the label.
-     *
-     * @param  string  $value
-     * @return void
-     */
-    public function setFormatAttribute($value)
+    public function setFormatAttribute(string $value): void
     {
         if ($value === PaperSize::A4 && ! $this->positions) {
             $this->positions = LabelPositions::TOP_LEFT;
@@ -49,24 +33,12 @@ class Label extends BaseResource
         $this->format = $value;
     }
 
-    /**
-     * Set a position for the label. Alias for positions.
-     *
-     * @param  int  $value
-     * @return void
-     */
-    public function setPositionAttribute($value)
+    public function setPositionAttribute(int $value): void
     {
         $this->positions = $value;
     }
 
-    /**
-     * Set a size fot the label. Alias for format.
-     *
-     * @param  string  $value
-     * @return void
-     */
-    public function setSizeAttribute($value)
+    public function setSizeAttribute(string $value): void
     {
         $this->setFormatAttribute($value);
     }
