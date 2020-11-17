@@ -21,7 +21,7 @@
         "php": "^7.3 || ^8.0",
         "ext-json": "*",
         "composer/ca-bundle": "^1.2",
-        "guzzlehttp/guzzle": "^6.4 || ^7.0",
+        "guzzlehttp/guzzle": "^6.4 || ^7.1",
         "illuminate/collections": "^8.0"
     },
     "require-dev": {
