@@ -31,8 +31,8 @@ class ShipmentOptions extends BaseResource
     /** @var bool */
     public $signature;
 
-    /** @var array|null */
-    public $insurance;
+    /** @var array */
+    public $insurance = [];
 
     public function __construct(array $attributes = [])
     {
@@ -50,6 +50,10 @@ class ShipmentOptions extends BaseResource
         $this->package_type = PackageType::PACKAGE;
         $this->delivery_type = DeliveryType::STANDARD;
         $this->only_recipient = false;
+        $this->insurance = [
+            'amount' => 0,
+            'currency' => 'EUR'
+        ];
 
         return $this;
     }
@@ -64,19 +68,10 @@ class ShipmentOptions extends BaseResource
         $this->label_description = $value;
     }
 
-    /**
-     * Set Insurance amount. Only applicable for package_type = 1 (package)
-     * @param  int  $value
-     * @param  string  $currency
-     * @return $this
-     */
-    public function setInsurance(int $value, string $currency = 'EUR'): self
+    public function setInsuranceAttribute(array $insurance = []): self
     {
-        if ($this->package_type === 1) {
-            $this->insurance = [
-                'amount' => $value,
-                'currency' => $currency
-            ];
+        if ($this->package_type === PackageType::PACKAGE) {
+            $this->insurance = $insurance;
         }
 
         return $this;
