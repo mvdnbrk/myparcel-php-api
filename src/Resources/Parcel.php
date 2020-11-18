@@ -79,6 +79,17 @@ class Parcel extends BaseResource
     }
 
     /**
+     * Set Insurance for parcel (only applicable for package_type 1)
+     * @param int $amount
+     * @return $this
+     */
+    public function insurance(int $amount)
+    {
+        $this->options->insurance = $amount;
+        return $this;
+    }
+
+    /**
      * @param  array|object  $value
      */
     public function setOptionsAttribute($value): void
