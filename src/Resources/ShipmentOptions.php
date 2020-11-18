@@ -7,6 +7,11 @@ class ShipmentOptions extends BaseResource
     /** @var int */
     public $delivery_type;
 
+    /**
+     * @var \DateTime
+     */
+    public $delivery_date;
+
     /** @var string */
     public $label_description;
 
