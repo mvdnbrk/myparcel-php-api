@@ -6,6 +6,8 @@ use Mvdnbrk\MyParcel\Resources\Parcel;
 use Mvdnbrk\MyParcel\Resources\Recipient;
 use Mvdnbrk\MyParcel\Resources\ServicePoint;
 use Mvdnbrk\MyParcel\Tests\TestCase;
+use Mvdnbrk\MyParcel\Types\DeliveryType;
+use Mvdnbrk\MyParcel\Types\PackageType;
 
 class ParcelTest extends TestCase
 {
@@ -127,7 +129,7 @@ class ParcelTest extends TestCase
         $parcel->mailboxpackage();
 
         $this->assertInstanceOf(Parcel::class, $parcel);
-        $this->assertSame(2, $parcel->options->package_type);
+        $this->assertSame(PackageType::MAILBOX_PACKAGE, $parcel->options->package_type);
         $this->assertFalse($parcel->options->signature);
         $this->assertFalse($parcel->options->large_format);
         $this->assertFalse($parcel->options->only_recipient);
@@ -212,8 +214,8 @@ class ParcelTest extends TestCase
         $this->assertEquals('2132WT', $parcel->pickup->postal_code);
         $this->assertEquals('Hoofddorp', $parcel->pickup->city);
         $this->assertEquals('NL', $parcel->pickup->cc);
-        $this->assertEquals(1, $parcel->options->package_type);
-        $this->assertEquals(4, $parcel->options->delivery_type);
+        $this->assertEquals(PackageType::PACKAGE, $parcel->options->package_type);
+        $this->assertEquals(DeliveryType::PICKUP, $parcel->options->delivery_type);
         $this->assertFalse($parcel->options->only_recipient);
         $this->assertTrue($parcel->options->signature);
     }
@@ -245,8 +247,8 @@ class ParcelTest extends TestCase
         $this->assertEquals('2132WT', $parcel->pickup->postal_code);
         $this->assertEquals('Hoofddorp', $parcel->pickup->city);
         $this->assertEquals('NL', $parcel->pickup->cc);
-        $this->assertEquals(1, $parcel->options->package_type);
-        $this->assertEquals(4, $parcel->options->delivery_type);
+        $this->assertEquals(PackageType::PACKAGE, $parcel->options->package_type);
+        $this->assertEquals(DeliveryType::PICKUP, $parcel->options->delivery_type);
         $this->assertFalse($parcel->options->only_recipient);
         $this->assertTrue($parcel->options->signature);
     }

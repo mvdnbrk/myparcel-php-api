@@ -52,7 +52,7 @@ class Parcel extends BaseResource
     {
         $this->options->setDefaultOptions();
 
-        $this->options->package_type = 2;
+        $this->options->package_type = PackageType::MAILBOX_PACKAGE;
 
         return $this;
     }

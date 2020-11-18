@@ -2,6 +2,9 @@
 
 namespace Mvdnbrk\MyParcel\Resources;
 
+use Mvdnbrk\MyParcel\Types\DeliveryType;
+use Mvdnbrk\MyParcel\Types\PackageType;
+
 class ShipmentOptions extends BaseResource
 {
     /** @var bool */
@@ -41,8 +44,8 @@ class ShipmentOptions extends BaseResource
         $this->return = false;
         $this->signature = false;
         $this->large_format = false;
-        $this->package_type = 1;
-        $this->delivery_type = 2;
+        $this->package_type = PackageType::PACKAGE;
+        $this->delivery_type = DeliveryType::STANDARD;
         $this->only_recipient = false;
 
         return $this;
