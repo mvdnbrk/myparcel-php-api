@@ -66,7 +66,9 @@ class ShipmentOptions extends BaseResource
                 if (is_bool($value)) {
                     return (int) $value;
                 }
-
+                if ($value instanceof \DateTime) {
+                    return $value->format('Y-m-d H:i:s');
+                }
                 return $value;
             })
             ->all();
