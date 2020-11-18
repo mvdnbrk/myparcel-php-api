@@ -25,7 +25,7 @@ class ShipmentOptions extends BaseResource
     /** @var bool */
     public $signature;
 
-    /** @var int */
+    /** @var array|null */
     public $insurance;
 
     public function __construct(array $attributes = [])
@@ -62,10 +62,13 @@ class ShipmentOptions extends BaseResource
      * @param int $value
      * @return $this
      */
-    public function setInsuranceAttribute(int $value)
+    public function setInsurance(int $value, string $currency = 'EUR')
     {
         if ($this->package_type === 1) {
-            $this->insurance = $value;
+            $this->insurance = [
+                'amount' => $value,
+                'currency' => $currency
+            ];
         }
         return $this;
     }
@@ -77,7 +80,6 @@ class ShipmentOptions extends BaseResource
                 if (is_bool($value)) {
                     return (int) $value;
                 }
-
                 return $value;
             })
             ->all();
