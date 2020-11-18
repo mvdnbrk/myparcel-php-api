@@ -113,6 +113,8 @@ $parcel->onlyRecipient()
        ->insurance(250)
        ->labelDescription('Some description.');
 ```
+**Note:** The insurance value should be in cents
+
 
 **Mailbox package**
 
