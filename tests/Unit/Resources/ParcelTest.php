@@ -250,6 +250,7 @@ class ParcelTest extends TestCase
             'carrier' => 1,
             'reference_identifier' => 'test-123',
             'options' => [
+                'age_check' => 0,
                 'delivery_type' => 2,
                 'label_description' => 'Test label description',
                 'large_format' => 0,
@@ -285,6 +286,7 @@ class ParcelTest extends TestCase
         $this->assertArrayHasKey('options', $array);
         $this->assertSame(2, $array['options']['delivery_type']);
         $this->assertSame('Test label description', $array['options']['label_description']);
+        $this->assertSame(0, $array['options']['age_check']);
         $this->assertSame(0, $array['options']['large_format']);
         $this->assertSame(0, $array['options']['only_recipient']);
         $this->assertSame(1, $array['options']['package_type']);
