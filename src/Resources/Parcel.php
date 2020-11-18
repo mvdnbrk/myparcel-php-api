@@ -107,6 +107,21 @@ class Parcel extends BaseResource
     }
 
     /**
+     * Mark parcel for express delivery (pickup before 8:30)
+     * Sets delivery_type = 5;
+     *
+     * @param \DateTime $date
+     * @return $this
+     */
+    public function expressDelivery(\DateTime $date)
+    {
+        $this->options->delivery_type = DeliveryType::PICKUP_EXPRESS;
+        $this->options->delivery_date = $date;
+        return $this;
+    }
+
+
+    /**
      * @param  array|object  $value
      */
     public function setOptionsAttribute($value): void
