@@ -4,6 +4,9 @@ namespace Mvdnbrk\MyParcel\Resources;
 
 class ShipmentOptions extends BaseResource
 {
+    /** @var bool */
+    public $age_check;
+
     /** @var int */
     public $delivery_type;
 
@@ -37,6 +40,7 @@ class ShipmentOptions extends BaseResource
 
     public function setDefaultOptions(): self
     {
+        $this->age_check = false;
         $this->return = false;
         $this->signature = false;
         $this->large_format = false;

@@ -78,6 +78,13 @@ class Parcel extends BaseResource
         return $this;
     }
 
+    public function ageCheck(): self
+    {
+        $this->options->age_check = true;
+
+        return $this;
+    }
+
     /**
      * Set Insurance for parcel (only applicable for package_type 1)
      * @param int $amount

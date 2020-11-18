@@ -4,6 +4,9 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+- Added `ageCheck` shipping option. [`#42`](ttps://github.com/mvdnbrk/myparcel-php-api/pull/42)
+
 ## [v2.2.0] - 2020-11-11
 
 ### Added
