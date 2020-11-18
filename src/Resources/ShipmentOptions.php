@@ -63,10 +63,11 @@ class ShipmentOptions extends BaseResource
 
     /**
      * Set Insurance amount. Only applicable for package_type = 1 (package)
-     * @param int $value
+     * @param  int  $value
+     * @param  string  $currency
      * @return $this
      */
-    public function setInsurance(int $value, string $currency = 'EUR')
+    public function setInsurance(int $value, string $currency = 'EUR'): self
     {
         if ($this->package_type === 1) {
             $this->insurance = [
@@ -74,6 +75,7 @@ class ShipmentOptions extends BaseResource
                 'currency' => $currency
             ];
         }
+
         return $this;
     }
 
@@ -84,6 +86,7 @@ class ShipmentOptions extends BaseResource
                 if (is_bool($value)) {
                     return (int) $value;
                 }
+
                 return $value;
             })
             ->all();
