@@ -93,6 +93,25 @@ class ParcelTest extends TestCase
     }
 
     /** @test */
+    public function it_can_require_an_age_check_from_the_recipient_of_the_parcel()
+    {
+        $parcel = new Parcel();
+        $this->assertFalse($parcel->options->age_check);
+
+        $parcel->ageCheck();
+
+        $this->assertTrue($parcel->options->age_check);
+    }
+
+    /** @test */
+    public function calling_the_agecheck_method_returns_the_same_parcel_instance()
+    {
+        $parcel = new Parcel();
+
+        $this->assertSame($parcel, $parcel->ageCheck());
+    }
+
+    /** @test */
     public function it_can_set_a_parcel_as_a_mailbox_package()
     {
         $parcel = new Parcel([
