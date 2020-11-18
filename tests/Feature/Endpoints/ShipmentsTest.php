@@ -134,6 +134,48 @@ class ShipmentsTest extends TestCase
         $this->assertTrue($this->cleanUp($shipment));
     }
 
+    /** @test */
+    public function create_a_new_shipment_concept_for_a_parcel_evening_delivery()
+    {
+        $array = [
+            'reference_identifier' => 'test-123',
+            'recipient' => [
+                'company' => 'Test Company B.V.',
+                'first_name' => 'John',
+                'last_name' => 'Doe',
+                'email' => 'john@example.com',
+                'phone' => '0101111111',
+                'street' => 'Poststraat',
+                'number' => '1',
+                'number_suffix' => 'A',
+                'postal_code' => '1234AA',
+                'city' => 'Amsterdam',
+                'region' => 'Noord-Holland',
+                'cc' => 'NL',
+            ],
+            'options' => [
+                'label_description' => 'Test label description',
+                'large_format' => false,
+                'only_recipient' => false,
+                'package_type' => PackageType::PACKAGE,
+                'return' => false,
+                'signature' => true,
+            ],
+        ];
+
+        $parcel = new Parcel($array);
+        $parcel->eveningDelivery(new \DateTime('tomorrow'));
+        $shipment = $this->client->shipments->create($parcel);
+
+        $this->assertInstanceOf(Shipment::class, $shipment);
+        $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
+        $this->assertNotNull($shipment->id);
+        $this->assertEquals(ShipmentStatus::CONCEPT, $shipment->status);
+        $this->assertEquals('John', $shipment->recipient->first_name);
+        $this->assertEquals('Doe', $shipment->recipient->last_name);
+
+        $this->assertTrue($this->cleanUp($shipment));
+    }
 
     /** @test */
     public function create_shipment_with_a_pick_up_location()
