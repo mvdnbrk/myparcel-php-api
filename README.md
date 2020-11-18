@@ -110,11 +110,10 @@ You may call any of these methods after constructing the parcel:
 ``` php
 $parcel->labelDescription('Your description.')
        ->ageCheck()
+       ->insurance(250)
        ->onlyRecipient()
        ->returnToSender()
-       ->signature()
-       ->insurance(250)
-       ->labelDescription('Some description.');
+       ->signature();
 ```
 **Note:** The insurance value should be in cents
 
