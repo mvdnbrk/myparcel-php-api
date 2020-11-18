@@ -119,7 +119,8 @@ class ShipmentsTest extends TestCase
         $this->assertEquals(ShipmentStatus::CONCEPT, $shipment->status);
         $this->assertEquals('John', $shipment->recipient->first_name);
         $this->assertEquals('Doe', $shipment->recipient->last_name);
-
+        $this->assertEquals(500, $shipment->options->insurance['amount']);
+        $this->assertEquals('EUR', $shipment->options->insurance['currency']);
         $this->assertTrue($this->cleanUp($shipment));
     }
 
