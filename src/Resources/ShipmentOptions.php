@@ -50,10 +50,7 @@ class ShipmentOptions extends BaseResource
         $this->package_type = PackageType::PACKAGE;
         $this->delivery_type = DeliveryType::STANDARD;
         $this->only_recipient = false;
-        $this->insurance = [
-            'amount' => 0,
-            'currency' => 'EUR'
-        ];
+        $this->insurance = [];
 
         return $this;
     }
@@ -86,6 +83,9 @@ class ShipmentOptions extends BaseResource
                 }
 
                 return $value;
+            })
+            ->reject(function ($value) {
+                return (is_array($value) && !count($value));
             })
             ->all();
     }
