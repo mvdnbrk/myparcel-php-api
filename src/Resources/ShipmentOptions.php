@@ -2,8 +2,14 @@
 
 namespace Mvdnbrk\MyParcel\Resources;
 
+use Mvdnbrk\MyParcel\Types\DeliveryType;
+use Mvdnbrk\MyParcel\Types\PackageType;
+
 class ShipmentOptions extends BaseResource
 {
+    /** @var bool */
+    public $age_check;
+
     /** @var int */
     public $delivery_type;
 
@@ -37,11 +43,12 @@ class ShipmentOptions extends BaseResource
 
     public function setDefaultOptions(): self
     {
+        $this->age_check = false;
         $this->return = false;
         $this->signature = false;
         $this->large_format = false;
-        $this->package_type = 1;
-        $this->delivery_type = 2;
+        $this->package_type = PackageType::PACKAGE;
+        $this->delivery_type = DeliveryType::STANDARD;
         $this->only_recipient = false;
 
         return $this;

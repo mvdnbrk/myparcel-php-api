@@ -52,7 +52,7 @@ class Parcel extends BaseResource
     {
         $this->options->setDefaultOptions();
 
-        $this->options->package_type = 2;
+        $this->options->package_type = PackageType::MAILBOX_PACKAGE;
 
         return $this;
     }
@@ -74,6 +74,13 @@ class Parcel extends BaseResource
     public function signature(): self
     {
         $this->options->signature = true;
+
+        return $this;
+    }
+
+    public function ageCheck(): self
+    {
+        $this->options->age_check = true;
 
         return $this;
     }

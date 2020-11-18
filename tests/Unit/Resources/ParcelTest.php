@@ -6,6 +6,8 @@ use Mvdnbrk\MyParcel\Resources\Parcel;
 use Mvdnbrk\MyParcel\Resources\Recipient;
 use Mvdnbrk\MyParcel\Resources\ServicePoint;
 use Mvdnbrk\MyParcel\Tests\TestCase;
+use Mvdnbrk\MyParcel\Types\DeliveryType;
+use Mvdnbrk\MyParcel\Types\PackageType;
 
 class ParcelTest extends TestCase
 {
@@ -93,6 +95,25 @@ class ParcelTest extends TestCase
     }
 
     /** @test */
+    public function it_can_require_an_age_check_from_the_recipient_of_the_parcel()
+    {
+        $parcel = new Parcel();
+        $this->assertFalse($parcel->options->age_check);
+
+        $parcel->ageCheck();
+
+        $this->assertTrue($parcel->options->age_check);
+    }
+
+    /** @test */
+    public function calling_the_agecheck_method_returns_the_same_parcel_instance()
+    {
+        $parcel = new Parcel();
+
+        $this->assertSame($parcel, $parcel->ageCheck());
+    }
+
+    /** @test */
     public function it_can_set_a_parcel_as_a_mailbox_package()
     {
         $parcel = new Parcel([
@@ -108,7 +129,7 @@ class ParcelTest extends TestCase
         $parcel->mailboxpackage();
 
         $this->assertInstanceOf(Parcel::class, $parcel);
-        $this->assertSame(2, $parcel->options->package_type);
+        $this->assertSame(PackageType::MAILBOX_PACKAGE, $parcel->options->package_type);
         $this->assertFalse($parcel->options->signature);
         $this->assertFalse($parcel->options->large_format);
         $this->assertFalse($parcel->options->only_recipient);
@@ -193,8 +214,8 @@ class ParcelTest extends TestCase
         $this->assertEquals('2132WT', $parcel->pickup->postal_code);
         $this->assertEquals('Hoofddorp', $parcel->pickup->city);
         $this->assertEquals('NL', $parcel->pickup->cc);
-        $this->assertEquals(1, $parcel->options->package_type);
-        $this->assertEquals(4, $parcel->options->delivery_type);
+        $this->assertEquals(PackageType::PACKAGE, $parcel->options->package_type);
+        $this->assertEquals(DeliveryType::PICKUP, $parcel->options->delivery_type);
         $this->assertFalse($parcel->options->only_recipient);
         $this->assertTrue($parcel->options->signature);
     }
@@ -226,8 +247,8 @@ class ParcelTest extends TestCase
         $this->assertEquals('2132WT', $parcel->pickup->postal_code);
         $this->assertEquals('Hoofddorp', $parcel->pickup->city);
         $this->assertEquals('NL', $parcel->pickup->cc);
-        $this->assertEquals(1, $parcel->options->package_type);
-        $this->assertEquals(4, $parcel->options->delivery_type);
+        $this->assertEquals(PackageType::PACKAGE, $parcel->options->package_type);
+        $this->assertEquals(DeliveryType::PICKUP, $parcel->options->delivery_type);
         $this->assertFalse($parcel->options->only_recipient);
         $this->assertTrue($parcel->options->signature);
     }
@@ -250,6 +271,7 @@ class ParcelTest extends TestCase
             'carrier' => 1,
             'reference_identifier' => 'test-123',
             'options' => [
+                'age_check' => 0,
                 'delivery_type' => 2,
                 'label_description' => 'Test label description',
                 'large_format' => 0,
@@ -285,6 +307,7 @@ class ParcelTest extends TestCase
         $this->assertArrayHasKey('options', $array);
         $this->assertSame(2, $array['options']['delivery_type']);
         $this->assertSame('Test label description', $array['options']['label_description']);
+        $this->assertSame(0, $array['options']['age_check']);
         $this->assertSame(0, $array['options']['large_format']);
         $this->assertSame(0, $array['options']['only_recipient']);
         $this->assertSame(1, $array['options']['package_type']);
