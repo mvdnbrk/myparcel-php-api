@@ -78,6 +78,13 @@ class Parcel extends BaseResource
         return $this;
     }
 
+    public function ageCheck(): self
+    {
+        $this->options->age_check = true;
+
+        return $this;
+    }
+
     /**
      * @param  array|object  $value
      */
