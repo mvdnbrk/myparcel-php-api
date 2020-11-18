@@ -79,6 +79,20 @@ class Parcel extends BaseResource
     }
 
     /**
+     * Mark parcel for morning delivery
+     * Sets delivery_type = 1;
+     *
+     * @param \DateTime $date
+     * @return $this
+     */
+    public function morningDelivery(\DateTime $date)
+    {
+        $this->options->delivery_type = DeliveryType::MORNING;
+        $this->options->delivery_date = $date;
+        return $this;
+    }
+
+    /**
      * @param  array|object  $value
      */
     public function setOptionsAttribute($value): void
