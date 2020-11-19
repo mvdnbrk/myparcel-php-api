@@ -54,7 +54,7 @@ class Address extends BaseResource
     {
         return collect(parent::toArray())
             ->transform(function ($value, $key) {
-                if ($key == 'number') {
+                if ($key === 'number') {
                     return (string) $value;
                 }
 
