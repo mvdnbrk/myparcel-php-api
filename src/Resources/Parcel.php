@@ -91,10 +91,12 @@ class Parcel extends BaseResource
             'amount' => $cents,
             'currency' => $currency
         ]);
+
         if ($this->recipient->cc === 'NL') {
             $this->onlyRecipient();
             $this->signature();
         }
+
         return $this;
     }
 
