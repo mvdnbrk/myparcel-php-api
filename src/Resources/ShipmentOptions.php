@@ -13,6 +13,9 @@ class ShipmentOptions extends BaseResource
     /** @var int */
     public $delivery_type;
 
+    /** @var array */
+    public $insurance = [];
+
     /** @var string */
     public $label_description;
 
@@ -31,9 +34,6 @@ class ShipmentOptions extends BaseResource
     /** @var bool */
     public $signature;
 
-    /** @var array */
-    public $insurance = [];
-
     public function __construct(array $attributes = [])
     {
         $this->setDefaultOptions();
@@ -44,13 +44,13 @@ class ShipmentOptions extends BaseResource
     public function setDefaultOptions(): self
     {
         $this->age_check = false;
+        $this->insurance = [];
         $this->return = false;
         $this->signature = false;
         $this->large_format = false;
+        $this->only_recipient = false;
         $this->package_type = PackageType::PACKAGE;
         $this->delivery_type = DeliveryType::STANDARD;
-        $this->only_recipient = false;
-        $this->insurance = [];
 
         return $this;
     }
