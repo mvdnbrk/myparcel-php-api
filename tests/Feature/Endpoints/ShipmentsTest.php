@@ -223,6 +223,31 @@ class ShipmentsTest extends TestCase
         $this->assertTrue($this->cleanUp($shipment));
     }
 
+    /**
+     * @test
+     */
+    public function get_a_shipment_by_its_id_with_insurance()
+    {
+        $array = [
+            'recipient' => $this->validRecipient(),
+        ];
+
+        $parcel = new Parcel($array);
+        $parcel->insurance(25000);
+        $concept = $this->client->shipments->concept($parcel);
+
+        $shipment = $this->client->shipments->get($concept->id);
+
+        $this->assertInstanceOf(Shipment::class, $shipment);
+        $this->assertNotNull($shipment->id);
+        $this->assertNotNull($shipment->created);
+        $this->assertNotNull($shipment->status);
+        $this->assertEquals(25000, $shipment->options->insurance['amount']);
+        $this->assertEquals('EUR', $shipment->options->insurance['currency']);
+
+        $this->assertTrue($this->cleanUp($shipment));
+    }
+
     /** @test */
     public function getting_a_shipment_with_an_invalid_id_should_throw_an_error()
     {
