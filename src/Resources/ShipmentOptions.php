@@ -77,15 +77,15 @@ class ShipmentOptions extends BaseResource
     public function toArray(): array
     {
         return collect(parent::toArray())
+            ->reject(function ($value, $key) {
+                return $key === 'insurance' && empty($value);
+            })
             ->map(function ($value) {
                 if (is_bool($value)) {
                     return (int) $value;
                 }
 
                 return $value;
-            })
-            ->reject(function ($value) {
-                return (is_array($value) && !count($value));
             })
             ->all();
     }
