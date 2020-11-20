@@ -9,12 +9,12 @@ use Mvdnbrk\MyParcel\Tests\TestCase;
 /** @group integration */
 class TrackTraceTest extends TestCase
 {
-    private function cleanUp(Shipment $shipment)
+    private function cleanUp(Shipment $shipment): bool
     {
-        $this->client->shipments->delete($shipment);
+        return $this->client->shipments->delete($shipment);
     }
 
-    private function validRecipient($overrides = [])
+    private function validRecipient(array $overrides = []): array
     {
         return array_merge([
             'first_name' => 'John',
@@ -40,7 +40,7 @@ class TrackTraceTest extends TestCase
 
         $this->assertSame([], $tracktrace->history);
 
-        $this->cleanup($shipment);
+        $this->assertTrue($this->cleanUp($shipment));
     }
 
     /** @test */
@@ -56,7 +56,7 @@ class TrackTraceTest extends TestCase
 
         $this->assertSame([], $tracktrace->history);
 
-        $this->cleanup($shipment);
+        $this->assertTrue($this->cleanUp($shipment));
     }
 
     /** @test */

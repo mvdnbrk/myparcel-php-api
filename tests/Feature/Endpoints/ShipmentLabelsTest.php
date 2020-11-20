@@ -21,7 +21,7 @@ class ShipmentLabelsTest extends TestCase
         $this->shipment = $this->client->shipments->concept($parcel);
     }
 
-    private function validRecipient($overrides = [])
+    private function validRecipient(array $overrides = []): array
     {
         return array_merge([
             'first_name' => 'John',

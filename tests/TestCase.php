@@ -10,6 +10,9 @@ use PHPUnit\Framework\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
+    /** @var \Mvdnbrk\MyParcel\Client */
+    protected $client;
+
     protected function setUp(): void
     {
         try {

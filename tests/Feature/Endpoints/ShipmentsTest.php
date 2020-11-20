@@ -13,7 +13,12 @@ use Mvdnbrk\MyParcel\Types\ShipmentStatus;
 /** @group integration */
 class ShipmentsTest extends TestCase
 {
-    private function validRecipient($overrides = [])
+    private function cleanUp(Shipment $shipment): bool
+    {
+        return $this->client->shipments->delete($shipment);
+    }
+
+    private function validRecipient(array $overrides = []): array
     {
         return array_merge([
             'first_name' => 'John',
@@ -24,17 +29,6 @@ class ShipmentsTest extends TestCase
             'city' => 'Amsterdam',
             'cc' => 'NL',
         ], $overrides);
-    }
-
-    /**
-     * Clean up the "concept" Shipment resource on the MyParcel end.
-     *
-     * @param  \Mvdnbrk\MyParcel\Resources\Shipment
-     * @return bool
-     */
-    private function cleanUp(Shipment $shipment)
-    {
-        return $this->client->shipments->delete($shipment);
     }
 
     /** @test */
