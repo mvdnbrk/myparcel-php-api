@@ -223,9 +223,7 @@ class ShipmentsTest extends TestCase
         $this->assertTrue($this->cleanUp($shipment));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function get_a_shipment_by_its_id_with_insurance()
     {
         $array = [
