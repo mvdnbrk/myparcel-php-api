@@ -31,8 +31,8 @@ class ShipmentOptions extends BaseResource
     /** @var bool */
     public $signature;
 
-    /** @var array */
-    public $insurance = [];
+    /** @var Money|null */
+    public $insurance;
 
     public function __construct(array $attributes = [])
     {
@@ -50,7 +50,7 @@ class ShipmentOptions extends BaseResource
         $this->package_type = PackageType::PACKAGE;
         $this->delivery_type = DeliveryType::STANDARD;
         $this->only_recipient = false;
-        $this->insurance = [];
+        $this->insurance = null;
 
         return $this;
     }
@@ -65,13 +65,16 @@ class ShipmentOptions extends BaseResource
         $this->label_description = $value;
     }
 
-    public function setInsuranceAttribute(array $insurance = []): self
+    public function setInsuranceAttribute($value): void
     {
-        if ($this->package_type === PackageType::PACKAGE) {
-            $this->insurance = $insurance;
+        if ($value instanceof Money) {
+            $this->insurance = $value;
         }
-
-        return $this;
+        if (is_null($this->insurance)) {
+            $this->insurance = new Money($value);
+        } else {
+            $this->insurance->fill($value);
+        }
     }
 
     public function toArray(): array
@@ -81,11 +84,7 @@ class ShipmentOptions extends BaseResource
                 if (is_bool($value)) {
                     return (int) $value;
                 }
-
                 return $value;
-            })
-            ->reject(function ($value) {
-                return (is_array($value) && !count($value));
             })
             ->all();
     }
