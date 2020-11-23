@@ -44,7 +44,7 @@ class ShipmentOptions extends BaseResource
     public function setDefaultOptions(): self
     {
         $this->age_check = false;
-        $this->insurance = [];
+        $this->insurance = null;
         $this->return = false;
         $this->signature = false;
         $this->large_format = false;
