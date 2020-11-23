@@ -86,6 +86,49 @@ class Parcel extends BaseResource
     }
 
     /**
+     * Mark parcel for morning delivery
+     * Sets delivery_type = 1;
+     *
+     * @param \DateTime $date
+     * @return $this
+     */
+    public function morningDelivery(\DateTime $date)
+    {
+        $this->options->delivery_type = DeliveryType::MORNING;
+        $this->options->delivery_date = $date;
+        return $this;
+    }
+
+    /**
+     * Mark parcel for evening delivery
+     * Sets delivery_type = 3;
+     *
+     * @param \DateTime $date
+     * @return $this
+     */
+    public function eveningDelivery(\DateTime $date)
+    {
+        $this->options->delivery_type = DeliveryType::EVENING;
+        $this->options->delivery_date = $date;
+        return $this;
+    }
+
+    /**
+     * Mark parcel for express delivery (pickup before 8:30)
+     * Sets delivery_type = 5;
+     *
+     * @param \DateTime $date
+     * @return $this
+     */
+    public function expressDelivery(\DateTime $date)
+    {
+        $this->options->delivery_type = DeliveryType::PICKUP_EXPRESS;
+        $this->options->delivery_date = $date;
+        return $this;
+    }
+
+
+    /**
      * @param  array|object  $value
      */
     public function setOptionsAttribute($value): void

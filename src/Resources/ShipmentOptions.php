@@ -13,6 +13,11 @@ class ShipmentOptions extends BaseResource
     /** @var int */
     public $delivery_type;
 
+    /**
+     * @var \DateTime
+     */
+    public $delivery_date;
+
     /** @var string */
     public $label_description;
 
@@ -68,7 +73,9 @@ class ShipmentOptions extends BaseResource
                 if (is_bool($value)) {
                     return (int) $value;
                 }
-
+                if ($value instanceof \DateTime) {
+                    return $value->format('Y-m-d H:i:s');
+                }
                 return $value;
             })
             ->all();
