@@ -87,7 +87,7 @@ class Parcel extends BaseResource
 
     public function insurance(int $cents, string $currency = 'EUR'): self
     {
-        $this->options->setInsuranceAttribute([
+        $this->options->insurance = new Money([
             'amount' => $cents,
             'currency' => $currency
         ]);
