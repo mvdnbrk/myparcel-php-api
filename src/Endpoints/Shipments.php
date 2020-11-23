@@ -70,11 +70,7 @@ class Shipments extends BaseEndpoint
             $apiMethod
         );
 
-        $shipment = collect($response->data->shipments)
-            ->map(function ($shipment) {
-                return json_decode(json_encode($shipment), true);
-            })
-            ->first();
+        $shipment = collect($response->data->shipments)->first();
 
         if ($shipment === null) {
             throw new MyParcelException($message);
