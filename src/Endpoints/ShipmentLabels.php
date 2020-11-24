@@ -8,6 +8,8 @@ use Mvdnbrk\MyParcel\Types\PaperSize;
 
 class ShipmentLabels extends BaseEndpoint
 {
+    const SEPARATOR = ";";
+
     /** @var \Mvdnbrk\MyParcel\Resources\Label */
     protected $label;
 
@@ -24,9 +26,7 @@ class ShipmentLabels extends BaseEndpoint
      */
     public function get($value): string
     {
-        if ($value instanceof Shipment) {
-            $value = $value->id;
-        }
+        $value = $this->prepLabelRequest($value);
 
         $response = $this->performApiCall(
             'GET',
@@ -36,7 +36,6 @@ class ShipmentLabels extends BaseEndpoint
             null,
             ['Accept' => 'application/pdf']
         );
-
         return $response;
     }
 
@@ -52,5 +51,22 @@ class ShipmentLabels extends BaseEndpoint
         $this->label = $label;
 
         return $this;
+    }
+
+    private function prepLabelRequest($value): string
+    {
+        if (is_array($value)) {
+            $shipmentIds = [];
+            foreach ($value as $val) {
+                $shipmentIds[] = $this->prepLabelRequest($val);
+            }
+            return implode(static::SEPARATOR, $shipmentIds);
+        }
+
+        if ($value instanceof Shipment) {
+            return $value->id;
+        } else {
+            return $value;
+        }
     }
 }
