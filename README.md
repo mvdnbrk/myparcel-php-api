@@ -66,6 +66,19 @@ $shipment->id;
 
 You have created your first shipment!
 
+### Create multiple shipments
+``` php
+$parcelsCollection = new ParcelCollection(); 
+$parcelsCollection->add($parcel);
+$parcelsCollection->add($anotherParcel);
+$shipmentsCollection = $myparcel->shipments->createbatch($parcelsCollection);
+
+// Get the `id` of the shipments. You may save this value for later reference.
+foreach ($shipmentsCollection->collection as $shipment) {
+    $shipment->id;
+}
+```
+
 ### Retrieve a label
 
 A label can be retrieved by using `$shipment->id`. This will return a label in A6 format as a string.

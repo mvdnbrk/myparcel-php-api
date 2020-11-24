@@ -3,8 +3,10 @@
 namespace Mvdnbrk\MyParcel\Tests\Feature\Endpoints;
 
 use Mvdnbrk\MyParcel\Resources\Parcel;
+use Mvdnbrk\MyParcel\Resources\ParcelCollection;
 use Mvdnbrk\MyParcel\Resources\ServicePoint;
 use Mvdnbrk\MyParcel\Resources\Shipment;
+use Mvdnbrk\MyParcel\Resources\ShipmentCollection;
 use Mvdnbrk\MyParcel\Resources\ShipmentOptions;
 use Mvdnbrk\MyParcel\Tests\TestCase;
 use Mvdnbrk\MyParcel\Types\PackageType;
@@ -29,6 +31,58 @@ class ShipmentsTest extends TestCase
             'city' => 'Amsterdam',
             'cc' => 'NL',
         ], $overrides);
+    }
+
+    /** @test */
+    public function create_multiple_concept_shipments()
+    {
+        // create parcel 1
+        $parcel1 = new Parcel([
+            'reference_identifier' => 'test-parcel-1',
+            'recipient' => $this->validRecipient(),
+            'options' => [
+                'label_description' => 'Test label description',
+                'large_format' => false,
+                'only_recipient' => false,
+                'package_type' => PackageType::PACKAGE,
+                'return' => false,
+                'signature' => true,
+            ],
+        ]);
+        // create parcel 2
+        $parcel2 = new Parcel([
+            'reference_identifier' => 'test-parcel-2',
+            'recipient' => $this->validRecipient(),
+            'options' => [
+                'label_description' => 'Test label description',
+                'large_format' => false,
+                'only_recipient' => false,
+                'package_type' => PackageType::PACKAGE,
+                'return' => false,
+                'signature' => true,
+            ],
+        ]);
+        $parcelCollection = new ParcelCollection();
+        $parcelCollection->add($parcel1);
+        $parcelCollection->add($parcel2);
+        $shipmentCollection = $this->client->shipments->createbatch($parcelCollection);
+
+        $this->assertInstanceOf(ShipmentCollection::class, $shipmentCollection);
+        $this->assertCount(2, $shipmentCollection->collection);
+
+        $this->assertInstanceOf(Shipment::class, $shipmentCollection->collection->first());
+        $this->assertInstanceOf(ShipmentOptions::class, $shipmentCollection->collection->first()->options);
+        $this->assertNotNull($shipmentCollection->collection->first()->id);
+        $this->assertEquals('test-parcel-1', $shipmentCollection->collection->first()->reference_identifier);
+        $this->assertEquals(ShipmentStatus::CONCEPT, $shipmentCollection->collection->first()->status);
+        $this->assertEquals('John', $shipmentCollection->collection->first()->recipient->first_name);
+        $this->assertEquals('Doe', $shipmentCollection->collection->first()->recipient->last_name);
+        // validate 2nd shipment identifier
+        $this->assertEquals('test-parcel-2', $shipmentCollection->collection->slice(1,1)->first()->reference_identifier);
+
+        foreach ($shipmentCollection->collection as $shipment) {
+            $this->assertTrue($this->cleanUp($shipment));
+        }
     }
 
     /** @test */
