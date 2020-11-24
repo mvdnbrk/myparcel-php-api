@@ -48,10 +48,7 @@ class Shipments extends BaseEndpoint
         $shipmentCollection = new ShipmentCollection();
 
         foreach ($response->data->ids as $item) {
-            $parcel = $parcelCollection
-                ->collection
-                ->where('reference_identifier', $item->reference_identifier)
-                ->first();
+            $parcel = $parcelCollection->get($item->reference_identifier);
             $shipmentCollection->add(new ShipmentResource(array_merge([
                 'id' => $item->id,
                 'status' => ShipmentStatus::CONCEPT,
