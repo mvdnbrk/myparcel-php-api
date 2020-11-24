@@ -29,6 +29,7 @@ class Shipments extends BaseEndpoint
             $this->getHttpBody($parcel),
             ['Content-Type' => 'application/vnd.shipment+json; charset=utf-8']
         );
+
         return new ShipmentResource(array_merge([
             'id' => $response->data->ids[0]->id,
             'status' => ShipmentStatus::CONCEPT,
@@ -56,6 +57,7 @@ class Shipments extends BaseEndpoint
                 'status' => ShipmentStatus::CONCEPT,
             ], $parcel->attributesToArray())));
         }
+
         return $shipmentCollection;
     }
 
@@ -120,6 +122,7 @@ class Shipments extends BaseEndpoint
                 ],
             ]);
         }
+
         return json_encode([
             'data' => [
                 'shipments' => [
