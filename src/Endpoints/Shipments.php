@@ -4,7 +4,9 @@ namespace Mvdnbrk\MyParcel\Endpoints;
 
 use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 use Mvdnbrk\MyParcel\Resources\Parcel;
+use Mvdnbrk\MyParcel\Resources\ParcelCollection;
 use Mvdnbrk\MyParcel\Resources\Shipment as ShipmentResource;
+use Mvdnbrk\MyParcel\Resources\ShipmentCollection;
 use Mvdnbrk\MyParcel\Types\ShipmentStatus;
 
 class Shipments extends BaseEndpoint
@@ -12,6 +14,11 @@ class Shipments extends BaseEndpoint
     public function create(Parcel $parcel): ShipmentResource
     {
         return $this->concept($parcel);
+    }
+
+    public function createbatch(ParcelCollection $collection)
+    {
+        return $this->conceptbatch($collection);
     }
 
     public function concept(Parcel $parcel): ShipmentResource
@@ -22,11 +29,34 @@ class Shipments extends BaseEndpoint
             $this->getHttpBody($parcel),
             ['Content-Type' => 'application/vnd.shipment+json; charset=utf-8']
         );
-
         return new ShipmentResource(array_merge([
             'id' => $response->data->ids[0]->id,
             'status' => ShipmentStatus::CONCEPT,
         ], $parcel->attributesToArray()));
+    }
+
+    public function conceptbatch(ParcelCollection $parcelCollection): ShipmentCollection
+    {
+        $response = $this->performApiCall(
+            'POST',
+            'shipments',
+            $this->getHttpBody($parcelCollection),
+            ['Content-Type' => 'application/vnd.shipment+json; charset=utf-8']
+        );
+
+        $shipmentCollection = new ShipmentCollection();
+
+        foreach ($response->data->ids as $item) {
+            $parcel = $parcelCollection
+                ->collection
+                ->where('reference_identifier', $item->reference_identifier)
+                ->first();
+            $shipmentCollection->add(new ShipmentResource(array_merge([
+                'id' => $item->id,
+                'status' => ShipmentStatus::CONCEPT,
+            ], $parcel->attributesToArray())));
+        }
+        return $shipmentCollection;
     }
 
     public function delete($value): bool
@@ -81,13 +111,20 @@ class Shipments extends BaseEndpoint
         );
     }
 
-    protected function getHttpBody(Parcel $parcel): string
+    protected function getHttpBody($parcel): string
     {
+        if ($parcel instanceof ParcelCollection) {
+            return json_encode([
+                'data' => [
+                    'shipments' => $parcel->toArray()
+                ],
+            ]);
+        }
         return json_encode([
             'data' => [
                 'shipments' => [
-                    $parcel->toArray(),
-                ],
+                    $parcel->toArray()
+                ]
             ],
         ]);
     }
