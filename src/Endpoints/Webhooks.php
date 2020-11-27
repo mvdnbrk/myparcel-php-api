@@ -13,6 +13,7 @@ class Webhooks extends BaseEndpoint
             'GET',
             'webhook_subscriptions'
         );
+
         return collect($response->data->webhook_subscriptions);
     }
 
@@ -26,6 +27,7 @@ class Webhooks extends BaseEndpoint
             'GET',
             'webhook_subscriptions/' . $value
         );
+
         return new WebhookResource(
             collect(
                 collect($response->data->webhook_subscriptions)->first()
@@ -48,6 +50,7 @@ class Webhooks extends BaseEndpoint
             ['Content-Type' => 'application/json; charset=utf-8']
         );
         $webhook->id = $response->data->ids[0]->id;
+
         return $webhook;
     }
 
