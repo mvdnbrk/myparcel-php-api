@@ -25,7 +25,7 @@ class Webhooks extends BaseEndpoint
 
         $response = $this->performApiCall(
             'GET',
-            'webhook_subscriptions/' . $value
+            'webhook_subscriptions/'.$value
         );
 
         return new WebhookResource(

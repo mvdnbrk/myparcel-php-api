@@ -27,7 +27,7 @@ class WebhooksTest extends TestCase
     {
         $webhook = new Webhook([
             'hook' => HookType::SHIPMENT_STATUS_CHANGED,
-            'url' => 'https://localhost.nl/shipment_status_changed'
+            'url' => 'https://localhost.nl/shipment_status_changed',
         ]);
         $subscription = $this->client->webhooks->add($webhook);
         $this->assertInstanceOf(Webhook::class, $subscription);
@@ -41,7 +41,7 @@ class WebhooksTest extends TestCase
     {
         $webhook = new Webhook([
             'hook' => HookType::SHIPMENT_STATUS_CHANGED,
-            'url' => 'https://localhost.nl/shipment_status_changed'
+            'url' => 'https://localhost.nl/shipment_status_changed',
         ]);
         $createdSubscription = $this->client->webhooks->add($webhook);
 
@@ -58,7 +58,7 @@ class WebhooksTest extends TestCase
     {
         $webhook = new Webhook([
             'hook' => HookType::SHIPMENT_STATUS_CHANGED,
-            'url' => 'https://localhost.nl/shipment_status_changed'
+            'url' => 'https://localhost.nl/shipment_status_changed',
         ]);
         $createdSubscription = $this->client->webhooks->add($webhook);
 
@@ -75,7 +75,7 @@ class WebhooksTest extends TestCase
     {
         $webhook = new Webhook([
             'hook' => HookType::SHIPMENT_STATUS_CHANGED,
-            'url' => 'https://localhost.nl/shipment_status_changed'
+            'url' => 'https://localhost.nl/shipment_status_changed',
         ]);
         $createdSubscription = $this->client->webhooks->add($webhook);
 
@@ -88,7 +88,7 @@ class WebhooksTest extends TestCase
     {
         $webhook = new Webhook([
             'hook' => HookType::SHIPMENT_STATUS_CHANGED,
-            'url' => 'https://localhost.nl/shipment_status_changed'
+            'url' => 'https://localhost.nl/shipment_status_changed',
         ]);
         $createdSubscription = $this->client->webhooks->add($webhook);
 
@@ -102,7 +102,7 @@ class WebhooksTest extends TestCase
         $this->expectException(MyParcelException::class);
         $this->expectExceptionMessage('Error executing API call');
         $webhook = new Webhook([
-            'hook' => HookType::SHIPMENT_STATUS_CHANGED
+            'hook' => HookType::SHIPMENT_STATUS_CHANGED,
         ]);
         $this->client->webhooks->add($webhook);
     }
