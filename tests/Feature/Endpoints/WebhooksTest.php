@@ -6,6 +6,7 @@ use Illuminate\Support\Collection;
 use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 use Mvdnbrk\MyParcel\Resources\Webhook;
 use Mvdnbrk\MyParcel\Tests\TestCase;
+use Mvdnbrk\MyParcel\Types\HookType;
 
 class WebhooksTest extends TestCase
 {
@@ -25,7 +26,7 @@ class WebhooksTest extends TestCase
     public function add_new_subscription()
     {
         $webhook = new Webhook([
-            'hook' => 'shipment_status_change',
+            'hook' => HookType::SHIPMENT_STATUS_CHANGED,
             'url' => 'https://localhost.nl/shipment_status_changed'
         ]);
         $subscription = $this->client->webhooks->add($webhook);
@@ -39,7 +40,7 @@ class WebhooksTest extends TestCase
     public function get_subscription_by_id()
     {
         $webhook = new Webhook([
-            'hook' => 'shipment_status_change',
+            'hook' => HookType::SHIPMENT_STATUS_CHANGED,
             'url' => 'https://localhost.nl/shipment_status_changed'
         ]);
         $createdSubscription = $this->client->webhooks->add($webhook);
@@ -56,7 +57,7 @@ class WebhooksTest extends TestCase
     public function get_subscription_by_resource()
     {
         $webhook = new Webhook([
-            'hook' => 'shipment_status_change',
+            'hook' => HookType::SHIPMENT_STATUS_CHANGED,
             'url' => 'https://localhost.nl/shipment_status_changed'
         ]);
         $createdSubscription = $this->client->webhooks->add($webhook);
@@ -73,7 +74,7 @@ class WebhooksTest extends TestCase
     public function delete_subscription_by_id()
     {
         $webhook = new Webhook([
-            'hook' => 'shipment_status_change',
+            'hook' => HookType::SHIPMENT_STATUS_CHANGED,
             'url' => 'https://localhost.nl/shipment_status_changed'
         ]);
         $createdSubscription = $this->client->webhooks->add($webhook);
@@ -86,7 +87,7 @@ class WebhooksTest extends TestCase
     public function delete_subscription_by_resource()
     {
         $webhook = new Webhook([
-            'hook' => 'shipment_status_change',
+            'hook' => HookType::SHIPMENT_STATUS_CHANGED,
             'url' => 'https://localhost.nl/shipment_status_changed'
         ]);
         $createdSubscription = $this->client->webhooks->add($webhook);
@@ -101,7 +102,7 @@ class WebhooksTest extends TestCase
         $this->expectException(MyParcelException::class);
         $this->expectExceptionMessage('Error executing API call');
         $webhook = new Webhook([
-            'hook' => 'shipment_status_change',
+            'hook' => HookType::SHIPMENT_STATUS_CHANGED
         ]);
         $this->client->webhooks->add($webhook);
     }
