@@ -11,6 +11,7 @@ use Mvdnbrk\MyParcel\Endpoints\ServicePoints;
 use Mvdnbrk\MyParcel\Endpoints\ShipmentLabels;
 use Mvdnbrk\MyParcel\Endpoints\Shipments;
 use Mvdnbrk\MyParcel\Endpoints\TrackTrace;
+use Mvdnbrk\MyParcel\Endpoints\Webhooks;
 use Mvdnbrk\MyParcel\Exceptions\MyParcelException;
 use Psr\Http\Message\ResponseInterface;
 
@@ -38,6 +39,9 @@ class Client
     /** @var \Mvdnbrk\MyParcel\Endpoints\TrackTrace */
     public $tracktrace;
 
+    /** @var \Mvdnbrk\MyParcel\Endpoints\Webhooks */
+    public $webhooks;
+
     /** @var \GuzzleHttp\Client */
     protected $httpClient;
 
@@ -56,6 +60,7 @@ class Client
         $this->labels = new ShipmentLabels($this);
         $this->tracktrace = new TrackTrace($this);
         $this->servicePoints = new ServicePoints($this);
+        $this->webhooks = new Webhooks($this);
     }
 
     /**
