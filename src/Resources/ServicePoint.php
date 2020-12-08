@@ -25,6 +25,9 @@ class ServicePoint extends Address
     /** @var float */
     public $longitude;
 
+    /** @var string */
+    public $retail_network_id;
+
     public function distanceForHumans(): string
     {
         if (! $this->distance) {
