@@ -11,7 +11,7 @@ jobs:
         php: [8.0, 7.4, 7.3]
         stability: [prefer-lowest, prefer-stable]
 
-    name: PHP ${{ matrix.php }} - ${{ matrix.stability }} - ${{ matrix.os }}
+    name: PHP ${{ matrix.php }} - ${{ matrix.stability }}
 
     env:
       API_KEY: ${{ secrets.MYPARCEL_API_KEY }}
