@@ -92,5 +92,6 @@ class ServicePointsTest extends TestCase
         $this->assertInstanceOf(ServicePoint::class, $locations->first());
         $this->assertInstanceOf(ServicePoint::class, $locations->last());
         $this->assertIsArray($locations->first()->opening_hours);
+        $this->assertIsString($locations->first()->retail_network_id);
     }
 }
