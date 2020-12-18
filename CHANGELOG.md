@@ -4,6 +4,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ## [Unreleased]
 
+## [v2.3.0] - 2020-12-18
+
 ### Added
 - Added `retail_network_id` to the `ServicePoint` resource. [`#50`](https://github.com/mvdnbrk/myparcel-php-api/pull/50)
 - Added `ageCheck` shipping option. [`#42`](https://github.com/mvdnbrk/myparcel-php-api/pull/42)
@@ -175,7 +177,8 @@ All notable changes to `myparcel-php-api` will be documented in this file.
 
 ### Initial release
 
-[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.2.0...HEAD
+[Unreleased]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.3.0...HEAD
+[v2.3.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.2.0...v2.3.0
 [v2.2.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.1.0...v2.2.0
 [v2.1.0]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.4...v2.1.0
 [v2.0.4]: https://github.com/mvdnbrk/myparcel-php-api/compare/v2.0.3...v2.0.4
