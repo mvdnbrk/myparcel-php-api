@@ -80,11 +80,22 @@ Or you may pass the `Shipment` instance directly to this method:
 $myparcel->labels->get($shipment);
 ```
 
+Or you may pass an `array` with shipment ids or instances to retrieve multiple labels. \
+**note:** the labels will be merged to a single pdf.
+```php
+$myparcel->labels->get([
+    $shipment->id, 
+    $shipmentInstance
+]);
+```
+
+
 The label format is A6 by default, you may change this by calling the `setFormatA4` method:
 
 ```php
 $myparcel->labels->setFormatA4()->get($shipment);
 ```
+
 
 ### Setting delivery options for a parcel
 

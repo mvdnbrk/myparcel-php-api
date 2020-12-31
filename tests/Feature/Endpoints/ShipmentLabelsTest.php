@@ -43,9 +43,36 @@ class ShipmentLabelsTest extends TestCase
     }
 
     /** @test */
+    public function get_a_label_in_A6_size_by_multiple_shipment_id()
+    {
+        // create 2nd shipment
+        $parcel = new Parcel([
+            'recipient' => $this->validRecipient(),
+            'reference_identifier' => 'shipment-2'
+        ]);
+        $shipment = $this->client->shipments->concept($parcel);
+        $pdf = $this->client->labels->get([$this->shipment->id, $shipment->id]);
+        $this->assertIsString('string', $pdf);
+    }
+
+    /** @test */
     public function get_a_label_in_A6_size_by_shipment_object()
     {
         $pdf = $this->client->labels->get($this->shipment);
+
+        $this->assertIsString('string', $pdf);
+    }
+
+    /** @test */
+    public function get_a_label_in_A6_size_by_multiple_shipment_object()
+    {
+        // create 2nd shipment
+        $parcel = new Parcel([
+            'recipient' => $this->validRecipient(),
+            'reference_identifier' => 'shipment-2'
+        ]);
+        $shipment = $this->client->shipments->concept($parcel);
+        $pdf = $this->client->labels->get([$this->shipment, $shipment]);
 
         $this->assertIsString('string', $pdf);
     }
