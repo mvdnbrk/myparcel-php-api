@@ -104,16 +104,19 @@ $parcel = new \Mvdnbrk\MyParcel\Resources\Parcel([
 ]);
 ```
 
-Or you may use a method like `signature`, `onlyRecipient`, `returnToSender`, `ageCheck` and `labelDescription`.
+Or you may use a method like `signature`, `onlyRecipient`, `returnToSender`, `ageCheck`, `insurance` and `labelDescription`.
 You may call any of these methods after constructing the parcel:
 
 ``` php
 $parcel->labelDescription('Your description.')
        ->ageCheck()
+       ->insurance(25000)
        ->onlyRecipient()
        ->returnToSender()
        ->signature();
 ```
+**Note:** The insurance value should be in cents
+
 
 **Mailbox package**
 

@@ -85,6 +85,21 @@ class Parcel extends BaseResource
         return $this;
     }
 
+    public function insurance(int $cents, string $currency = 'EUR'): self
+    {
+        $this->options->insurance = new Money([
+            'amount' => $cents,
+            'currency' => $currency
+        ]);
+
+        if ($this->recipient->cc === 'NL') {
+            $this->onlyRecipient();
+            $this->signature();
+        }
+
+        return $this;
+    }
+
     /**
      * @param  array|object  $value
      */

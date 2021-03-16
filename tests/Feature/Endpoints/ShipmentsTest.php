@@ -75,6 +75,50 @@ class ShipmentsTest extends TestCase
     }
 
     /** @test */
+    public function create_a_new_shipment_concept_for_a_parcel_with_insurance()
+    {
+        $array = [
+            'reference_identifier' => 'test-123',
+            'recipient' => [
+                'company' => 'Test Company B.V.',
+                'first_name' => 'John',
+                'last_name' => 'Doe',
+                'email' => 'john@example.com',
+                'phone' => '0101111111',
+                'street' => 'Poststraat',
+                'number' => '1',
+                'number_suffix' => 'A',
+                'postal_code' => '1234AA',
+                'city' => 'Amsterdam',
+                'region' => 'Noord-Holland',
+                'cc' => 'NL',
+            ],
+            'options' => [
+                'label_description' => 'Test label description',
+                'large_format' => false,
+                'only_recipient' => false,
+                'package_type' => PackageType::PACKAGE,
+                'return' => false,
+                'signature' => true,
+            ],
+        ];
+
+        $parcel = new Parcel($array);
+        $parcel->insurance(500);
+        $shipment = $this->client->shipments->create($parcel);
+
+        $this->assertInstanceOf(Shipment::class, $shipment);
+        $this->assertInstanceOf(ShipmentOptions::class, $shipment->options);
+        $this->assertNotNull($shipment->id);
+        $this->assertEquals(ShipmentStatus::CONCEPT, $shipment->status);
+        $this->assertEquals('John', $shipment->recipient->first_name);
+        $this->assertEquals('Doe', $shipment->recipient->last_name);
+        $this->assertEquals(500, $shipment->options->insurance->amount);
+        $this->assertEquals('EUR', $shipment->options->insurance->currency);
+        $this->assertTrue($this->cleanUp($shipment));
+    }
+
+    /** @test */
     public function create_a_shipment_with_invalid_data()
     {
         $this->expectException(\Mvdnbrk\MyParcel\Exceptions\MyParcelException::class);
@@ -169,6 +213,29 @@ class ShipmentsTest extends TestCase
         $this->assertNotNull($shipment->id);
         $this->assertNotNull($shipment->created);
         $this->assertNotNull($shipment->status);
+
+        $this->assertTrue($this->cleanUp($shipment));
+    }
+
+    /** @test */
+    public function get_a_shipment_by_its_id_with_insurance()
+    {
+        $array = [
+            'recipient' => $this->validRecipient(),
+        ];
+
+        $parcel = new Parcel($array);
+        $parcel->insurance(25000);
+        $concept = $this->client->shipments->concept($parcel);
+
+        $shipment = $this->client->shipments->get($concept->id);
+
+        $this->assertInstanceOf(Shipment::class, $shipment);
+        $this->assertNotNull($shipment->id);
+        $this->assertNotNull($shipment->created);
+        $this->assertNotNull($shipment->status);
+        $this->assertEquals(25000, $shipment->options->insurance->amount);
+        $this->assertEquals('EUR', $shipment->options->insurance->currency);
 
         $this->assertTrue($this->cleanUp($shipment));
     }
