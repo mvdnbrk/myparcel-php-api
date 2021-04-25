@@ -206,6 +206,60 @@ $tracktrace->items;
 $tracktrace->items->all()
 ```
 
+## Webhooks subscriptions
+
+### Get current subscriptions
+```php
+$subscriptions = $myparcel->webhooks->list();
+foreach ($subscriptions as $subscription) {
+    // subscription id
+    $subscription->id;
+    // subscription hook
+    $subscription->hook;
+    // subscription url
+    $subscription->url;
+    // subscription account id
+    $subscription->account_id;
+    // subscription shop id
+    $subscription->shop_id;
+}
+```
+
+### Get Subscription
+Get subscription by id or Webhook resource
+```php
+// by id
+$subscription = $myparcel->webhooks->get($id);
+// by resource
+$subscription = $myparcel->webhooks->get($resource);
+// subscription id
+$subscription->id;
+// subscription hook
+$subscription->hook;
+// subscription url
+$subscription->url;
+// subscription account id
+$subscription->account_id;
+// subscription shop id
+$subscription->shop_id;
+```
+
+### Add subscription
+Url must be `https`
+```php
+$subscription = new \Mvdnbrk\MyParcel\Resources\Webhook([
+    'hook' => \Mvdnbrk\MyParcel\Types\HookType::SHIPMENT_STATUS_CHANGED,
+    'url' => 'https://www.notify-url.com'
+]);
+$myparcel->webhooks->add($subscription);
+```
+
+### Delete subscription
+Delete subscription by id or Webhook resource
+```php
+$myparcel->webhooks->delete($id);
+```
+
 ## Usage with Laravel
 
 You may incorporate this package in your Laravel application by using [this package](https://github.com/mvdnbrk/laravel-dhlparcel).
